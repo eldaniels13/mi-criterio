@@ -1,0 +1,13 @@
+# Archivos sensibles — nunca versionar
+*_privado.txt
+*_sensible.*
+*.key
+*.vc
+
+# Carpetas temporales de sesión
+Sesion*/
+*tmp*/
+
+# Sistema
+.DS_Store
+Thumbs.db

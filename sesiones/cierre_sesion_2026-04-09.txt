@@ -1,0 +1,212 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CIERRE DE SESIÓN — eldaniels · 2026-04-09
+  Sesión: Post-instalación fibonacci — stack base completo
+           + flujo de backup VeraCrypt en Linux
+           + herramientas de trabajo instaladas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESTADO DEL SISTEMA AL CERRAR
+──────────────────────────────────────────────────────────────────────
+
+  nvme0n1 (476.9G — Dell Latitude 5400 M.2 interno):
+    p1   260MB   FAT32   EFI SYSTEM       ← GRUB activo
+    p2   476.7G  LUKS    cryptlvm
+         └─ vg0-lv_root   50G    ext4   /
+         └─ vg0-lv_swap    4G    swap   [SWAP]
+         └─ vg0-lv_home  422.7G  ext4   /home
+
+  Hostname: fibonacci ✓ (cambiado de @archlinux)
+  Shell activo: zsh (recién instalado, reemplaza bash)
+  Usuario: eldaniels (wheel, sudo)
+
+  Kingston NV3 (M.2 externo — backup_critico):
+    → backup_critico.vc (VeraCrypt, 149GiB, montado en
+      /run/media/veracrypt1 cuando está abierto)
+    → Flujo de acceso: GUI VeraCrypt → Select File → Mount ✓
+    → Flujo de expulsión: cerrar procesos → Dismount VeraCrypt
+      → udisksctl unmount + power-off (pendiente: automatizar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STACK INSTALADO EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SISTEMA BASE
+  ✓ exfatprogs           → soporte exFAT para Kingston NV3
+  ✓ power-profiles-daemon → gestión de batería laptop (Dell)
+  ✓ xdg-user-dirs        → carpetas estándar XDG creadas
+  ✓ hostname fibonacci   → hostnamectl set-hostname fibonacci
+  ✓ lsof                 → diagnóstico de procesos que bloquean montajes
+
+  SHELL PROFESIONAL
+  ✓ zsh                  → shell por defecto (chsh -s $(which zsh))
+  ✓ starship             → prompt moderno (Rust, agnóstico al shell)
+  ✓ zsh-autosuggestions  → autocompletado basado en historial
+  ✓ zsh-syntax-highlighting → resaltado en tiempo real
+
+  NODE / JAVASCRIPT
+  ✓ nvm v0.39.7          → Node Version Manager (instalado via curl)
+  ✓ Node LTS v24.14.1    → via nvm install --lts
+  ✓ npm v11.11.0         → incluido con Node LTS
+  ✗ nodejs/npm de pacman → ELIMINADOS (redundantes con nvm)
+
+  DESARROLLO
+  ✓ Claude Code 2.1.98   → npm install -g @anthropic-ai/claude-code
+  ✓ dotnet-sdk           → .NET 8 SDK
+  ✓ python               → Python base
+  ✓ git                  → control de versiones
+  ✓ code (VS Code)       → editor principal
+  ✓ libreoffice-fresh    → suite ofimática (Excel, Word, etc.)
+
+  MULTIMEDIA Y UTILIDADES
+  ✓ celluloid            → reproductor moderno (frontend mpv)
+  ✓ wl-clipboard         → clipboard para Wayland
+  ✓ cliphist             → historial de portapapeles
+  ✓ hunspell             → corrección ortográfica base
+  ✓ hunspell-es_mx       → diccionario español México
+  ✓ gnome-text-editor    → editor de texto ligero (default para .txt)
+  ✗ kate                 → DESINSTALADO (no gustó estéticamente)
+
+  BACKUP / CIFRADO
+  ✓ veracrypt            → ya estaba, flujo dominado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLUJOS APRENDIDOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  VERACRYPT EN WAYLAND
+  · sudo pierde el display de Wayland → usar --text para CLI
+    o lanzar veracrypt sin sudo para GUI (udisks2 maneja permisos)
+  · Flujo correcto: veracrypt --text [archivo.vc] [mountpoint]
+  · "target is busy" → algún proceso tiene abierto un archivo adentro
+    → lsof [ruta] para identificar → pkill [nombre] para matar
+  · Orden de desmontaje: primero VeraCrypt, después el Kingston
+
+  COPY/PASTE EN TERMINAL (WAYLAND)
+  · Copiar:   Ctrl+Shift+C
+  · Pegar:    Ctrl+Shift+V
+  · Cancelar: Ctrl+C  (igual que siempre)
+  · Clic medio del mouse = pegar selección
+
+  UDISKS2 (USB como en Windows)
+  · Con exfatprogs instalado, conectar USB → aparece en explorador
+  · Click derecho → Expulsar = "quitar hardware con seguridad"
+  · Si no aparece expulsar: udisksctl unmount + power-off desde terminal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISIONES TOMADAS — NO REABRIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [x] Shell: zsh (no fish — demasiado opinionado para fase de aprendizaje)
+  [x] Prompt: starship (agnóstico al shell, Rust, rápido)
+  [x] Node: nvm + LTS (no Node de pacman — pacman instaló bleeding edge)
+  [x] Batería: power-profiles-daemon (no system76-power — hardware no es System76)
+  [x] Qt6 multimedia: qt6-multimedia-ffmpeg (no gstreamer — menos dependencias)
+  [x] OneDrive: acceso puntual desde Firefox únicamente (soberanía de datos)
+  [x] Reproductor: celluloid/mpv (no VLC — más moderno y liviano)
+  [x] Editor texto: gnome-text-editor (no kate — kate se ve pesado)
+  [x] Multi-monitor: RESUELTO — COSMIC detecta y recuerda configuración ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TODO — ORDENADO POR PRIORIDAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  INMEDIATO (próxima sesión):
+  [ ] Configurar ~/.zshrc — activar starship + plugins instalados
+      → eval "$(starship init zsh)"
+      → source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+      → source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [ ] Configurar git global
+      → git config --global user.name "eldaniels13"
+      → git config --global user.email "[tu email]"
+      → git config --global init.defaultBranch main
+  [ ] Instalar Nerd Font (necesaria para starship y LazyVim sin caracteres rotos)
+      → yay -S ttf-jetbrains-mono-nerd (recomendada para desarrollo)
+  [ ] Verificar versión Claude Code vs latest
+      → npm show @anthropic-ai/claude-code version
+
+  SESIÓN DEDICADA — PERSONALIZACIÓN:
+  [ ] Configurar ~/.zshrc y ~/.bashrc tailored a perfil eldaniels
+  [ ] Configurar atajos de teclado en COSMIC (con recomendaciones)
+  [ ] Script expulsión Kingston NV3 con atajo de teclado (P8)
+      → udisksctl unmount -b /dev/sdc2 && udisksctl power-off -b /dev/sdc
+      → asignar a Super+E o similar en COSMIC Settings
+  [ ] Wallpaper personalizado (wallpaper engine / steam o alternativa Linux)
+
+  DESARROLLO:
+  [ ] LazyVim (con buena conexión)
+  [ ] Instalar Nerd Font antes de LazyVim
+  [ ] Subir proyectos PerformanceDesigns a GitHub (eldaniels13)
+      → CutWindow_2, DeepNestSharp, NestingTesting, O2BToDxfConverter
+  [ ] Inicializar repo git mi-criterio/ (repo privado)
+  [ ] Ollama + DeepSeek local
+  [ ] Docker
+  [ ] zsh configurado (ver arriba)
+
+  BACKUP (P8):
+  [ ] Mover archivos sensibles de OneDrive a Keeper
+      (acceder puntualmente desde Firefox)
+  [ ] P8 Fase 2: HDD_A 2TB + LUKS (pendiente presupuesto)
+  [ ] Guardar contraseña VeraCrypt en papel físico adicional
+      (actualmente solo en KeeperSecurity)
+
+  VIDA PERSONAL / ADMIN:
+  [ ] Acomodar CVs en Canva
+  [ ] Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
+  [ ] Investigar estrategias de inversión
+
+  FUTURO:
+  [ ] Reactivar IPv6 cuando cambie ISP (borrar /etc/sysctl.d/99-disable-ipv6.conf)
+  [ ] GPU futura: AMD (ya decidido)
+  [ ] P8 Fase 3: HDD_B redundancia geográfica
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONCEPTOS APRENDIDOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  · .bashrc / .zshrc — scripts de configuración que se ejecutan al
+    abrir terminal. source ~/.bashrc recarga sin cerrar la terminal.
+  · PIM en VeraCrypt — Personal Iterations Multiplier, multiplica
+    las iteraciones de derivación de clave. Si no configuraste uno
+    al crear el contenedor, siempre es Enter (valor 0 = default).
+  · Keyfile en VeraCrypt — archivo adicional como segundo factor.
+    Si no configuraste uno, siempre es Enter.
+  · nvm vs npm global vs pacman para Node — nvm es la práctica
+    profesional: instala Node completamente en ~/.nvm/, sin sudo,
+    sin tocar /usr/lib, con soporte para múltiples versiones.
+  · Node LTS vs bleeding edge — LTS (Long Term Support) es estable
+    y con soporte extendido. pacman instaló v25.9.0 (bleeding edge),
+    nvm instaló v24.14.1 (LTS). Para producción siempre LTS.
+  · XDG Base Directory — estándar de Linux para carpetas de usuario.
+    xdg-user-dirs-update crea Documentos, Descargas, Imágenes, etc.
+    en el idioma del sistema.
+  · udisks2 — daemon que permite a usuarios normales montar/desmontar
+    dispositivos USB sin sudo. Equivalente al "quitar hardware con
+    seguridad" de Windows. Con exfatprogs instalado, Kingston NV3
+    aparece automáticamente en el explorador al conectar.
+  · lsof — "list open files", muestra qué proceso tiene abierto
+    un archivo o directorio. Clave para diagnosticar "target is busy".
+  · pkill — mata procesos por nombre. pkill soffice mata LibreOffice
+    aunque no haya ventana visible (proceso quickstarter en background).
+  · Capas del shell — shell (zsh/bash/fish) es el intérprete de
+    comandos. Prompt (starship/p10k) es solo lo que se muestra en
+    pantalla. Son independientes y combinables libremente.
+  · power-profiles-daemon vs system76-power — system76-power es para
+    hardware System76 exclusivamente. Para Dell usar power-profiles-daemon
+    que es el estándar freedesktop compatible con cualquier hardware.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTA DE CIERRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Esta sesión transformó fibonacci de un sistema instalado pero
+  desnudo a un entorno de trabajo funcional y usable.
+
+  El backup crítico está accesible, el stack de desarrollo está
+  listo, el shell profesional está instalado (pendiente configurar),
+  y el flujo de trabajo con USB/VeraCrypt está completamente
+  entendido y dominado.
+
+  Lo que falta no es infraestructura — es personalización y flujo.
+  La próxima sesión es dedicada a hacer fibonacci tuyo de verdad.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

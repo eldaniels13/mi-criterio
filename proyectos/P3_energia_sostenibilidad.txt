@@ -1,0 +1,66 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║  P3 · ENERGÍA, TRANSICIÓN ENERGÉTICA Y SOSTENIBILIDAD  (~55 convs) ║
+║  Fuente: proyectos_instrucciones_eldaniels_v2.txt · Mar 2026       ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONTEXTO DEL USUARIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Eje vocacional activo — no curiosidad general. Objetivo a mediano
+  plazo: trabajar en el sector energético. Tecnologías de interés:
+  solar (FV y concentración térmica), eólica, nuclear, hidrógeno,
+  biomasa, geotérmica, maremotriz. No rechaza nuclear — la considera
+  parte de la solución con mitigación ambiental adecuada.
+  Interés específico en integraciones sistémicas inesperadas:
+  energía + biosfera, energía + territorio urbano, energía + mercados.
+  También cubre: transporte urbano sostenible (BRT, tren tipo Wuppertal)
+  y su viabilidad de implementación en contexto mexicano real.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERIENCIA DOCUMENTADA (de ChatGPT + DeepSeek)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Biodigestores: exploró como emprendimiento completo — métricas,
+    propiedad intelectual, stakeholders, validación de prototipo,
+    plantas industriales a nivel mundial, % energía por país.
+    Tipo específico explorado: hoyo en tierra + bolsa + bioremediadores.
+  · Electrical load profiling (proyecto académico, Oxford como caso).
+  · Biocombustibles: pirólisis, reutilización de residuos, emisiones
+    diésel. Conoce motores de aspiración natural vs turbo.
+  · Paneles solares: dimensionamiento doméstico (kWh/m², paneles
+    para refrigerador), producción energética LATAM por país.
+  · Nuclear México: 18% limpia, distribución por tipo.
+  · Litio LATAM: reservas comparadas MX/AR/BO/CL (ene 2026).
+  · Baterías de litio: reciclaje y tecnologías emergentes.
+  · HDPE/Tetra Pak: reciclaje y recirculación de materiales.
+  · Ørsted como empresa objetivo (carta de presentación adaptada).
+  · Solarpunk como visión estética-filosófica.
+  · Absorption chillers (reacción química).
+  · Textiles y consumo de agua.
+  · Suplementos proteína con menor impacto ambiental.
+  · Transporte MX: % mercancía por tipo de transporte.
+  · Proteína de grillo (explorada como alternativa sostenible).
+  · CoolProp como herramienta termodinámica.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INSTRUCCIONES PARA CLAUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · No tratar este tema como cultura general — es un eje vocacional.
+  · En preguntas "simples" de energía: explorar segundo y tercer
+    orden del sistema (consecuencias no obvias, interdependencias).
+  · Cuando haya viabilidad de implementación: considerar contexto
+    político, económico y social mexicano específicamente.
+  · Fomentar que eldaniels construya criterio técnico propio,
+    no que adopte el marco de algún organismo o tendencia.
+  · Biodigestores: no empezar de cero. Ya exploró a fondo.
+    Si vuelve al tema, preguntar: ¿qué cambió desde la última vez?
+  · Ørsted/Siemens Energy/Iberdrola son empresas objetivo conocidas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LENTES CRUZADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Dimensión de inversión o costo-beneficio: activar Finanzas (P4)
+    (criterio: sostenibilidad > retorno puro; horizonte mediano plazo).
+  · Dimensión geopolítica (política energética, dependencia de
+    combustibles, nuclear por país): activar Geopolítica (P5).
+  · Dimensión de viabilidad técnica de sistemas: activar Ingeniería (P8).
+  · Dimensión de carrera o certificación: activar Ayuda Futuro (P6).

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cierre de sesión — fibonacci / Arch Linux</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #1a1a1a; color: #e0e0e0; padding: 20px; max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 18px; font-weight: 500; margin-bottom: 16px; color: #fff; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tab { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 0.5px solid #444; color: #aaa; background: transparent; transition: all 0.15s; }
+  .tab.active { background: #e0e0e0; color: #1a1a1a; border-color: transparent; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .section { margin-bottom: 16px; }
+  .section-title { font-size: 13px; font-weight: 500; color: #e0e0e0; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 0.5px solid #333; }
+  .item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #aaa; }
+  .item label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; flex: 1; }
+  .item input[type=checkbox] { margin-top: 1px; flex-shrink: 0; }
+  .badge { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 10px; flex-shrink: 0; margin-top: 1px; }
+  .b-done { background: #2d4a1e; color: #7dc44e; }
+  .b-now { background: #4a3a1e; color: #f0a030; }
+  .b-next { background: #1e304a; color: #60a0e0; }
+  .b-future { background: #333; color: #888; }
+  .b-warn { background: #4a1e1e; color: #e06060; }
+  .step-block { border: 0.5px solid #333; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+  .step-header { padding: 8px 12px; background: #252525; font-size: 13px; font-weight: 500; color: #e0e0e0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .step-body { padding: 10px 12px; font-size: 12px; color: #aaa; display: none; line-height: 1.6; }
+  .step-body.open { display: block; }
+  .cmd { font-family: monospace; font-size: 11px; background: #111; color: #b0d080; padding: 8px 10px; border-radius: 6px; margin: 6px 0; display: block; white-space: pre-wrap; border: 0.5px solid #333; }
+  .warn-box { background: #3a2a10; border: 0.5px solid #a07020; border-radius: 6px; padding: 8px 10px; font-size: 11px; color: #e0a040; margin: 6px 0; }
+  .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tool-card { border: 0.5px solid #333; border-radius: 6px; padding: 8px 10px; background: #252525; }
+  .tool-name { font-size: 12px; font-weight: 500; color: #e0e0e0; }
+  .tool-desc { font-size: 11px; color: #888; margin-top: 2px; }
+  .tool-cmd { font-family: monospace; font-size: 10px; color: #7dc44e; margin-top: 4px; }
+  a { color: #60a0e0; }
+</style>
+</head>
+<body>
+<h1>Cierre de sesión — fibonacci / Arch Linux VM</h1>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('roadmap', this)">Roadmap</button>
+  <button class="tab" onclick="showTab('backup', this)">Backup + dual boot</button>
+  <button class="tab" onclick="showTab('wishlist', this)">Wishlist completo</button>
+  <button class="tab" onclick="showTab('session', this)">Resumen de sesión</button>
+</div>
+
+<div id="roadmap" class="panel active">
+  <div class="section">
+    <div class="section-title">VM fibonacci — estado actual</div>
+    <div class="item"><label><input type="checkbox" checked disabled> Arch Linux instalado y arrancando <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> GRUB UEFI funcionando solo <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> Red automática + IPv6 deshabilitado (Totalplay) <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> Usuario eldaniels + sudo + wheel <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> i3wm + autotiling fibonacci <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> Firefox, git configurado, neovim base <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> yay (AUR helper) instalado <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> startx automático al login <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox"> LazyVim (requiere mejor conexión) <span class="badge b-now">pendiente</span></label></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Hardware real — próxima sesión</div>
+    <div class="item"><label><input type="checkbox"> Backup completo de Windows <span class="badge b-warn">CRÍTICO primero</span></label></div>
+    <div class="item"><label><input type="checkbox"> Dual boot — particionar sin borrar Windows <span class="badge b-next">siguiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> Instalar Arch en Dell Latitude 5400 <span class="badge b-next">siguiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> Instalar COSMIC (decisión tomada) <span class="badge b-next">siguiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> LazyVim con buena conexión <span class="badge b-next">siguiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> Configurar multi-monitor (horizontal + vertical) <span class="badge b-next">siguiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> IPv6 reactivar cuando cambies de ISP <span class="badge b-future">futuro</span></label></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Decisiones tomadas — no reabrir</div>
+    <div class="item"><label><input type="checkbox" checked disabled> DE: COSMIC (Wayland, tiling nativo, out-of-box) <span class="badge b-done">decidido</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> GPU futura: AMD (mejor soporte Linux) <span class="badge b-done">decidido</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> Boot: dual boot Windows + Arch (no triple) <span class="badge b-done">decidido</span></label></div>
+  </div>
+</div>
+
+<div id="backup" class="panel">
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 0 — antes de tocar el disco <span>▶</span></div>
+    <div class="step-body">
+      <div class="warn-box">CRÍTICO: sin backup no hay dual boot. Si el particionado falla, pierdes Windows.</div>
+      Opciones de backup (elige una):
+      <span class="cmd">Opción A: Macrium Reflect Free (Windows) → imagen completa del disco
+Opción B: OneDrive + exportar configuraciones importantes
+Opción C: Disco externo → documentos, proyectos, configuraciones</span>
+      Lo mínimo a respaldar: documentos, proyectos de código (nesting engine), configuraciones de AutoCAD, credenciales.
+    </div>
+  </div>
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 1 — preparar espacio en disco <span>▶</span></div>
+    <div class="step-body">
+      Desde Windows, reducir la partición para hacer espacio para Arch.
+      <span class="cmd">Win + X → Administración de discos
+Click derecho en C: → Reducir volumen
+Reducir ~60-80GB para Arch
+NO crear nueva partición — dejar el espacio sin asignar</span>
+    </div>
+  </div>
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 2 — arrancar ISO de Arch <span>▶</span></div>
+    <div class="step-body">
+      <span class="cmd">Descargar ISO: archlinux.org/download
+Windows: usar Balena Etcher o Rufus para grabar el USB
+BIOS Dell: F2 o F12 al arrancar → seleccionar USB</span>
+      Tu Dell Latitude 5400 tiene UEFI — proceso idéntico al que hicimos en VM.
+    </div>
+  </div>
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 3 — particionado (el más delicado) <span>▶</span></div>
+    <div class="step-body">
+      <div class="warn-box">No tocar las particiones de Windows. Solo usar el espacio sin asignar.</div>
+      <span class="cmd">lsblk                    # verificar discos
+cfdisk /dev/nvme0n1      # o /dev/sda según el Dell
+
+Crear en el espacio libre:
+→ 512MB  EFI (usar la misma partición EFI de Windows)
+→ 4GB    swap
+→ resto  ext4 (raíz /)</span>
+    </div>
+  </div>
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 4 — instalación Arch <span>▶</span></div>
+    <div class="step-body">
+      <span class="cmd">mount /dev/nvme0n1p3 /mnt
+mount /dev/nvme0n1p1 /mnt/boot
+pacstrap -K /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+
+# Dentro del chroot:
+pacman -S grub efibootmgr networkmanager sudo
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg   # detectará Windows automáticamente</span>
+    </div>
+  </div>
+  <div class="step-block">
+    <div class="step-header" onclick="toggleStep(this)">Paso 5 — instalar COSMIC <span>▶</span></div>
+    <div class="step-body">
+      <span class="cmd">sudo pacman -S cosmic-session
+# o desde AUR:
+yay -S cosmic-session
+
+sudo systemctl enable cosmic-greeter</span>
+      LazyVim instalar aquí con buena conexión.
+    </div>
+  </div>
+</div>
+
+<div id="wishlist" class="panel">
+  <div class="section">
+    <div class="section-title">Herramientas de desarrollo</div>
+    <div class="item"><label><input type="checkbox" checked disabled> git + github (eldaniels13) <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox" checked disabled> neovim base <span class="badge b-done">listo</span></label></div>
+    <div class="item"><label><input type="checkbox"> LazyVim <span class="badge b-now">pendiente</span></label></div>
+    <div class="item"><label><input type="checkbox"> .NET 8 SDK <span class="badge b-next">hardware real</span></label></div>
+    <div class="item"><label><input type="checkbox"> Python + pip + venv <span class="badge b-next">hardware real</span></label></div>
+    <div class="item"><label><input type="checkbox"> Docker <span class="badge b-next">hardware real</span></label></div>
+    <div class="item"><label><input type="checkbox"> VS Code (extensiones C#, Python) <span class="badge b-next">hardware real</span></label></div>
+  </div>
+  <div class="section">
+    <div class="section-title">IA y modelos locales</div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-name">Claude Code</div><div class="tool-desc">Agente de código en terminal</div><div class="tool-cmd">npm install -g @anthropic-ai/claude-code</div></div>
+      <div class="tool-card"><div class="tool-name">Ollama</div><div class="tool-desc">LLMs locales (llama, mistral...)</div><div class="tool-cmd">yay -S ollama</div></div>
+      <div class="tool-card"><div class="tool-name">DeepSeek local</div><div class="tool-desc">Vía Ollama</div><div class="tool-cmd">ollama run deepseek-r1</div></div>
+      <div class="tool-card"><div class="tool-name">Node.js + npm</div><div class="tool-desc">Requerido para Claude Code</div><div class="tool-cmd">sudo pacman -S nodejs npm</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">CAD y diseño</div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-name">LibreCAD</div><div class="tool-desc">2D CAD, mejor soporte .dwg</div><div class="tool-cmd">sudo pacman -S librecad</div></div>
+      <div class="tool-card"><div class="tool-name">FreeCAD</div><div class="tool-desc">3D CAD open source</div><div class="tool-cmd">sudo pacman -S freecad</div></div>
+      <div class="tool-card"><div class="tool-name">OpenSCAD</div><div class="tool-desc">CAD paramétrico con código</div><div class="tool-cmd">sudo pacman -S openscad</div></div>
+      <div class="tool-card"><div class="tool-name">Inkscape</div><div class="tool-desc">Vectores SVG, útil para nesting</div><div class="tool-cmd">sudo pacman -S inkscape</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Excel alternativo</div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-name">LibreOffice Calc</div><div class="tool-desc">Macros, fórmulas, .xlsx compatible</div><div class="tool-cmd">sudo pacman -S libreoffice-fresh</div></div>
+      <div class="tool-card"><div class="tool-name">Gnumeric</div><div class="tool-desc">Ligero, análisis estadístico</div><div class="tool-cmd">sudo pacman -S gnumeric</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Utilidades del sistema</div>
+    <div class="item"><label><input type="checkbox"> htop — monitor de procesos <span class="badge b-next">pacman -S htop</span></label></div>
+    <div class="item"><label><input type="checkbox"> ripgrep — búsqueda rápida en código <span class="badge b-next">pacman -S ripgrep</span></label></div>
+    <div class="item"><label><input type="checkbox"> fzf — fuzzy finder en terminal <span class="badge b-next">pacman -S fzf</span></label></div>
+    <div class="item"><label><input type="checkbox"> zsh + starship — prompt bonito <span class="badge b-next">hardware real</span></label></div>
+    <div class="item"><label><input type="checkbox"> Thunar — explorador de archivos <span class="badge b-next">pacman -S thunar</span></label></div>
+    <div class="item"><label><input type="checkbox"> Timeshift — snapshots del sistema <span class="badge b-next">yay -S timeshift</span></label></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Energías sostenibles (perfil profesional)</div>
+    <div class="item"><label><input type="checkbox"> Jupyter Lab — análisis de datos energéticos <span class="badge b-future">pip install jupyterlab</span></label></div>
+    <div class="item"><label><input type="checkbox"> Python pandas + matplotlib <span class="badge b-future">pip install pandas matplotlib</span></label></div>
+    <div class="item"><label><input type="checkbox"> QGIS — análisis geoespacial (solar, viento) <span class="badge b-future">pacman -S qgis</span></label></div>
+  </div>
+</div>
+
+<div id="session" class="panel">
+  <div class="section">
+    <div class="section-title">Lo aprendido en esta sesión</div>
+    <div class="item">Instalación completa de Arch Linux desde cero — particionado, pacstrap, chroot</div>
+    <div class="item">BIOS vs UEFI — targets de GRUB, EFI, initramfs</div>
+    <div class="item">Flujo de arranque: UEFI → GRUB → kernel → initramfs → sistema</div>
+    <div class="item">Comandos de verificación: lsblk, lsblk -f, df -h, ip link, ping</div>
+    <div class="item">systemctl — servicios, enable vs start</div>
+    <div class="item">Grupos en Linux: wheel, video, input</div>
+    <div class="item">sudo y visudo — por qué existe, cómo funciona</div>
+    <div class="item">IPv6 vs IPv4 — diagnóstico de red, limitación de Totalplay</div>
+    <div class="item">AUR y yay — repositorio comunitario vs oficial</div>
+    <div class="item">X11 vs Wayland — diferencias, seguridad, keystrokes</div>
+    <div class="item">Compositores Wayland — COSMIC, Hyprland, KDE, Sway, Niri</div>
+    <div class="item">i3wm — atajos, layouts, autotiling fibonacci</div>
+    <div class="item">git — config global, flujo de trabajo</div>
+  </div>
+  <div class="section">
+    <div class="section-title">Errores encontrados y resoluciones</div>
+    <div class="item">linux-firmware typo → reinstalar sin -K</div>
+    <div class="item">Espacio insuficiente → /mnt no estaba montada correctamente</div>
+    <div class="item">GRUB i386-pc en VM UEFI → reinstalar con --target=x86_64-efi</div>
+    <div class="item">fstab duplicado → genfstab corrido dos veces con >></div>
+    <div class="item">db.lck huérfano → sudo rm /var/lib/pacman/db.lck</div>
+    <div class="item">yay falla Go DNS → GOPROXY=direct + deshabilitar IPv6</div>
+    <div class="item">picom incompatible con VirtualBox GPU → deferido a hardware real</div>
+    <div class="item">LazyVim clone timeout → requiere mejor conexión</div>
+  </div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleStep(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('span');
+  body.classList.toggle('open');
+  arrow.textContent = body.classList.contains('open') ? '▼' : '▶';
+}
+</script>
+</body>
+</html>

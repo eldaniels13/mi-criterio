@@ -1,0 +1,329 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CIERRE DE SESIÓN — eldaniels · 2026-04-11
+  Sesión: Stack completo fibonacci — shell, herramientas, modelos IA,
+           email, .NET 8, locale, personalización del entorno
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESTADO DEL SISTEMA AL CERRAR
+──────────────────────────────────────────────────────────────────────
+
+  nvme0n1 (476.9G — Dell Latitude 5400 M.2 interno):
+    p1   260MB   FAT32   EFI SYSTEM       ← GRUB activo
+    p2   476.7G  LUKS2   cryptlvm
+         └─ vg0-lv_root   50G    ext4   /
+         └─ vg0-lv_swap    4G    swap   [SWAP]
+         └─ vg0-lv_home  422.7G  ext4   /home
+    LUKS UUID: cf17e13e-14aa-4ea5-9fe0-807d42e189ae
+
+  Hostname: fibonacci
+  Shell: zsh + starship (prompt personalizado con usuario, dir, rama git, hora 24h)
+  Usuario: eldaniels (wheel, sudo, docker)
+
+  STACK VERIFICADO (output 2026-04-11):
+    git          2.53.0
+    node         v24.14.1  (nvm LTS)
+    npm          11.11.0
+    claude       2.1.101   (Claude Code — actualizado automáticamente)
+    dotnet       8.0.125   (⚠ .NET 10 también instalado — ver nota)
+    python       3.14.4    (⚠ bleeding edge — ver nota)
+    code         1.114.0
+    nvim         0.12.1    (LazyVim — 31 plugins instalados)
+    docker       29.4.0    (daemon activo, eldaniels en grupo docker)
+    ollama       0.20.5    (daemon activo)
+    thunderbird  149.0.2
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INSTALADO EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SHELL Y ENTORNO
+  ✓ ~/.zshrc configurado     → nvm + plugins + starship
+  ✓ ~/.config/starship.toml  → prompt: usuario(verde) dir(cian) rama(amarillo) hora(24h)
+  ✓ bindkey navegación       → Ctrl+←/→ palabras, Shift+←/→ caracteres
+  ✓ nano                     → editor de texto en terminal
+  ✓ locale                   → LANG=en_US.UTF-8 / LC_TIME=es_MX / LC_MEASUREMENT=es_MX
+
+  EDITORES Y FUENTES
+  ✓ nvim 0.12.1 + LazyVim    → 31 plugins, LSP, treesitter, git integration
+  ✓ ttf-jetbrains-mono-nerd  → Nerd Font (íconos en LazyVim y starship)
+  ✓ gnome-text-editor        → editor GUI ligero para .txt y configs
+
+  UTILIDADES DEL SISTEMA
+  ✓ htop 3.5.0               → monitor de procesos interactivo
+  ✓ ripgrep 15.1.0           → búsqueda ultrarrápida en código
+  ✓ fzf 0.71.0               → fuzzy finder (Ctrl+R en terminal)
+  ✓ lazygit 0.61.0           → TUI para git
+  ✓ thunar 4.20.8            → explorador de archivos gráfico
+  ✓ timeshift                → snapshots del sistema
+
+  CAD Y DISEÑO
+  ✓ inkscape 1.4.3           → editor vectorial SVG
+  ✗ openscad                 → diferido (no prioritario para nesting engine)
+
+  OFIMÁTICA
+  ✓ gnumeric 1.12.60         → hoja de cálculo con motor estadístico preciso
+
+  DESARROLLO
+  ✓ dotnet-sdk-8.0  8.0.125  → SDK .NET 8 (requerido para PerformanceDesigns)
+  ✓ docker 29.4.0            → daemon activo, usuario en grupo
+  ✓ ~/.dotnet/global.json    → dotnet default: 8.0.125 (rollForward: latestPatch)
+
+  IA LOCAL
+  ✓ ollama 0.20.5            → servidor local de modelos
+  ✓ deepseek-coder:6.7b      → 3.8GB — código, C#/Python
+  ✓ qwen2.5-coder:7b         → 4.7GB — código, mejor benchmark que deepseek
+
+  CLAUDE CODE PLUGINS (via /plugin install)
+  ✓ claude-mem (thedotmack)          → memoria persistente entre sesiones
+  ✓ everything-claude-code (affaan-m) → flujos y utilidades extendidas
+  ✗ project-nomad (Crosstalk-Solutions) → diferido a próxima sesión
+
+  EMAIL
+  ✓ thunderbird 149.0.2      → cliente de email (configurado con cuentas)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADVERTENCIAS TÉCNICAS ACTIVAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ⚠ .NET 10 y .NET 8 coexisten
+    dotnet-host/runtime son compartidos entre versiones — pacman se
+    negó a eliminar .NET 10 porque .NET 8 runtime los requiere.
+    Solución implementada: ~/.dotnet/global.json apunta a 8.0.125.
+    Los proyectos de PerformanceDesigns compilarán con .NET 8.
+    ACCIÓN PENDIENTE: cuando retomes PerformanceDesigns, verificar
+    que cada .csproj tenga <TargetFramework>net8.0</TargetFramework>
+
+  ⚠ Python 3.14.4 (bleeding edge)
+    Algunas librerías científicas (pandas, scikit-learn, matplotlib)
+    pueden no tener wheels compilados para Python 3.14 todavía.
+    ACCIÓN PENDIENTE: cuando instales Jupyter/pandas, si hay error
+    de compatibilidad, usar pyenv para instalar Python 3.11 en paralelo.
+
+  ⚠ Selección de texto con teclado en cosmic-term
+    Shift+flechas mueve el cursor pero no produce resaltado visual.
+    Causa: cosmic-term está en desarrollo activo, función pendiente
+    de implementar a nivel emulador. No es problema de zsh.
+    Workaround actual: selección con mouse + Ctrl+Shift+C para copiar.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISIONES TOMADAS — NO REABRIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [x] .NET: mantener 8 y 10 coexistiendo, global.json fuerza 8 por defecto
+  [x] Modelos Ollama: deepseek-coder:6.7b + qwen2.5-coder:7b (ambos activos)
+  [x] Email: Thunderbird (no Geary — más maduro para fase de aplicación P6)
+  [x] Proveedor email futuro: Proton Mail (migración gradual, no urgente)
+  [x] Locale: en_US.UTF-8 base + LC_TIME/LC_MEASUREMENT en es_MX
+  [x] Aliases: diferidos — fase de aprendizaje activa, comandos completos
+  [x] Nerd Font: JetBrainsMono Nerd Font Mono (terminal configurada)
+  [x] LazyVim: instalado y funcional, configuración avanzada en sesión dedicada
+  [x] OpenSCAD: diferido — no prioritario para el nesting engine actual
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TODO GLOBAL — ESTADO AL CERRAR SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  LINUX / ARCH — HARDWARE REAL (fibonacci)
+  [x]  Arch Linux + LUKS2 + LVM + COSMIC instalado en Dell Latitude 5400
+  [x]  GRUB UEFI activo en p1 EFI
+  [x]  Hostname: fibonacci
+  [x]  Usuario eldaniels + sudo + wheel + docker
+  [x]  IPv6 deshabilitado (/etc/sysctl.d/99-disable-ipv6.conf — Totalplay)
+  [x]  NetworkManager + WiFi funcionando
+  [x]  Multi-monitor configurado (COSMIC detecta y recuerda)
+  [x]  VeraCrypt + backup_critico.vc accesible (flujo dominado)
+  [x]  zsh + starship + plugins configurados (~/.zshrc completo)
+  [x]  ~/.config/starship.toml personalizado
+  [x]  Locale: en_US base + es_MX para tiempo y medición
+  [~]  IPv6 reactivar cuando cambie ISP (borrar 99-disable-ipv6.conf)
+  [ ]  Wallpaper personalizado
+  [ ]  Atajos de teclado COSMIC configurados
+  [ ]  Script expulsión Kingston NV3 con atajo (Super+E o similar)
+      → udisksctl unmount -b /dev/sdc2 && udisksctl power-off -b /dev/sdc
+
+  HERRAMIENTAS DE DESARROLLO
+  [x]  git 2.53.0 + config global (eldaniels13, danyband02@gmail.com, main)
+  [x]  Node v24.14.1 (nvm LTS) + npm 11.11.0
+  [x]  Claude Code 2.1.101
+  [x]  dotnet-sdk-8.0 (8.0.125) — global.json apunta a .NET 8
+  [x]  Python 3.14.4
+  [x]  VS Code 1.114.0
+  [x]  Docker 29.4.0 (daemon activo, usuario en grupo)
+  [x]  nvim 0.12.1 + LazyVim (31 plugins)
+  [x]  ttf-jetbrains-mono-nerd (Nerd Font instalada)
+  [x]  lazygit 0.61.0
+  [x]  claude-mem (thedotmack) — instalado via Claude Code plugin
+  [x]  everything-claude-code (affaan-m) — instalado via Claude Code plugin
+  [ ]  project-nomad (Crosstalk-Solutions) — diferido
+  [ ]  Configuración avanzada LazyVim (LSP para C#, Python — sesión dedicada)
+  [ ]  Subir proyectos PerformanceDesigns a GitHub (eldaniels13)
+      → CutWindow_2, DeepNestSharp, NestingTesting, O2BToDxfConverter
+      → Verificar <TargetFramework>net8.0</TargetFramework> en cada .csproj
+
+  IA LOCAL (Ollama)
+  [x]  ollama 0.20.5 (daemon activo)
+  [x]  deepseek-coder:6.7b (3.8GB)
+  [x]  qwen2.5-coder:7b (4.7GB)
+  [ ]  Modelo generalista para razonamiento/escritura (llama3.1:8b)
+      → ollama pull llama3.1:8b (~4.7GB — cuando haya conexión estable)
+
+  UTILIDADES DEL SISTEMA
+  [x]  htop 3.5.0
+  [x]  ripgrep 15.1.0
+  [x]  fzf 0.71.0
+  [x]  thunar 4.20.8
+  [x]  timeshift
+  [x]  nano
+  [x]  gnome-text-editor
+  [ ]  OpenSCAD — diferido (no bloqueante)
+
+  CAD Y DISEÑO
+  [x]  LibreCAD
+  [x]  FreeCAD
+  [x]  Inkscape 1.4.3
+  [ ]  OpenSCAD — diferido
+
+  OFIMÁTICA
+  [x]  LibreOffice Fresh
+  [x]  Gnumeric 1.12.60
+
+  EMAIL
+  [x]  Thunderbird 149.0.2 instalado
+  [ ]  Crear cuenta Proton Mail (@proton.me)
+  [ ]  Configurar Thunderbird: Gmail personal, Gmail profesional, Outlook educativo
+  [ ]  Migrar historial Gmail → Proton (Proton Mail Import Assistant)
+  [ ]  Migrar docs sensibles de OneDrive → Keeper (acceso puntual Firefox)
+
+  REPO MI-CRITERIO (columna vertebral P1-P8)
+  [ ]  Inicializar repo git mi-criterio/ y primer commit
+  [ ]  Crear repo privado en GitHub (eldaniels13)
+  [ ]  Añadir .gitignore (*.key, *_privado.txt, *_sensible.*, git-crypt)
+  [ ]  Estructura de archivos: CLAUDE.md + proyectos/P1.md ... P8.md
+  [ ]  Crear cronograma_intereses.md como archivo permanente
+  [~]  Criterio vivo de P3, P4, P2 — expandir en sesiones futuras
+
+  P6 — POSGRADO Y EMPLEO (URGENTE — cero avance estructurado)
+  [ ]  Inventario de programas de posgrado en energía
+      → México: UNAM, IPN, TEC, CIATEQ
+      → Europa: TU Delft, KTH, ETH Zürich, Politecnico di Milano
+      → USA: MIT, Stanford, UT Austin (Energy)
+  [ ]  Inventario de becas con fechas de cierre
+      → CONAHCyT (becas nacionales e internacionales)
+      → Fulbright-García Robles (México-USA)
+      → DAAD (México-Alemania)
+      → CONACYT-SENER (energía específicamente)
+  [ ]  CV actualizado con enfoque en ingeniería en energía
+  [ ]  Statement of purpose — borrador inicial
+  [ ]  Lista de empresas de energía target para aplicar
+      → Renovables MX: Iberdrola México, Enel Green Power MX, Engie MX
+      → Internacionales con presencia MX: Siemens Energy, Vestas, GE Vernova
+  [ ]  Actualizar LinkedIn con perfil de ingeniería en energía
+  [ ]  Actualizar perfiles: Indeed, OCC, CompuTrabajo
+  [ ]  Acomodar CVs en Canva
+
+  BACKUP (P8)
+  [x]  FASE 0 completada (VeraCrypt, inventario, wiki, contraseña en Keeper)
+  [x]  FASE 1 completada (Kingston NV3, backup_critico.vc, hash SHA512 baseline)
+  [ ]  Guardar contraseña VeraCrypt en papel físico adicional
+  [ ]  FASE 2: HDD_A 2TB + LUKS full-disk (pendiente presupuesto)
+  [ ]  FASE 3: HDD_B redundancia geográfica (pendiente FASE 2)
+
+  FINANZAS
+  [ ]  Investigar estrategias de inversión
+  [~]  Desarrollar Excel plantilla de finanzas personales
+
+  PROYECTOS ACTIVOS
+  [~]  CutWindow_2 (nesting engine) — pausado durante migración
+  [~]  Terminar de aprender Git a fondo
+
+  FUTURO / NO URGENTE
+  [ ]  Jupyter Lab + pandas + matplotlib (verificar compatibilidad Python 3.14)
+  [ ]  QGIS (análisis geoespacial solar/viento)
+  [ ]  VPN: Mullvad o ProtonVPN
+  [ ]  ollama pull llama3.1:8b (modelo generalista)
+  [ ]  Reactivar IPv6 cuando cambie ISP
+  [ ]  GPU futura: AMD (decisión tomada)
+  [ ]  P8 FASE 3: HDD_B redundancia geográfica
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONCEPTOS APRENDIDOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  · nvm (Node Version Manager) — capa intermedia para gestionar versiones
+    de Node sin tocar el sistema. Todo vive en ~/.nvm/, sin sudo,
+    múltiples versiones coexistiendo. LTS = Long Term Support = estable.
+
+  · ~/.zshrc — script que zsh ejecuta al abrir cada terminal. Controla
+    PATH, plugins, prompt y comportamiento del shell. source ~/.zshrc
+    recarga sin cerrar la terminal.
+
+  · bindkey en zsh — mecanismo para mapear secuencias de escape de la
+    terminal a acciones del shell. Las terminales envían códigos como
+    ^[[1;5D cuando presionas Ctrl+←; bindkey le dice a zsh qué hacer.
+
+  · Capas de selección en terminal — zsh controla el movimiento del cursor
+    dentro de la línea de comandos; el emulador de terminal (cosmic-term)
+    controla el resaltado visual. Son independientes.
+
+  · GTK — toolkit gráfico del ecosistema GNOME/Linux. Aplicaciones GTK4
+    (como Geary) se integran visualmente con COSMIC mejor que apps con
+    su propio sistema visual (como Thunderbird).
+
+  · PGP/GPG — criptografía de llave pública para email. Llave pública
+    la comparten todos; llave privada nunca sale de tu máquina. Ni el
+    servidor de correo puede leer el contenido cifrado.
+
+  · MUA/MTA/MDA — tres capas del correo: interfaz (Thunderbird), envío
+    (SMTP), recepción/almacenamiento (IMAP). En clientes modernos están
+    integradas; en setups avanzados se separan para control total.
+
+  · Ollama — servidor HTTP local en puerto 11434 que gestiona modelos LLM.
+    Los modelos son archivos en ~/.ollama/models/. Solo uno activo en RAM
+    a la vez. Complementa Claude Code (offline/privado vs. razonamiento
+    complejo que justifica conexión a Anthropic).
+
+  · Docker — contenedores: paquetes autocontenidos con aplicación + entorno
+    completo. Resuelve "en mi máquina funciona". Definido como código en
+    Dockerfile, reproducible en cualquier máquina.
+
+  · LC_TIME / locale — sistema de configuración regional en Linux. LANG
+    define el idioma base; LC_* individuales sobreescriben aspectos
+    específicos. LC_TIME=es_MX.UTF-8 da formato DD/MM/YYYY y lunes=inicio.
+
+  · global.json en .NET — archivo de configuración que especifica qué
+    versión de SDK usar. En home (~/.dotnet/global.json) define el default
+    global; en cada proyecto tiene precedencia sobre el global.
+
+  · LazyVim — neovim preconfigurado con lazy.nvim como plugin manager.
+    31 plugins instalados automáticamente en primera ejecución: LSP,
+    treesitter, git, autocompletado, navegación de archivos y más.
+
+  · Nerd Fonts — fuentes tipográficas con miles de íconos adicionales
+    (lenguajes, git, archivos). Necesarias para que LazyVim y starship
+    muestren íconos en lugar de cuadros vacíos □.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTA DE CIERRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  fibonacci está completo como entorno de trabajo. La infraestructura
+  técnica que necesitabas para operar profesionalmente está instalada,
+  verificada y funcional.
+
+  El stack cubre desarrollo (.NET 8, Python, VS Code, LazyVim, Docker),
+  IA (Claude Code, Ollama con dos modelos de código), comunicación
+  (Thunderbird), backup cifrado (VeraCrypt + Kingston NV3), y utilidades
+  del sistema (htop, ripgrep, fzf, lazygit, Thunar, Timeshift).
+
+  Lo que sigue no es más infraestructura. Es usarla.
+
+  La próxima prioridad es P6: estructurar la candidatura para empresas
+  de energía y becas de posgrado. Eso requiere una sesión dedicada para
+  inventariar programas, becas con fechas de cierre, y construir el CV
+  con enfoque correcto. La herramienta está lista — la carrera empieza
+  en la próxima sesión.
+
+  Después de P6: mi-criterio/ en GitHub para dar estructura al sistema
+  de proyectos P1-P8 y conectar las conversaciones entre sesiones.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

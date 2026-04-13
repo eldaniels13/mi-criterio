@@ -1,0 +1,71 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║       P2 · PROGRAMACIÓN Y DESARROLLO  (~98 convs)                  ║
+║       Fuente: proyectos_instrucciones_eldaniels_v2.txt · Mar 2026  ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONTEXTO DEL USUARIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Stack activo: C#/.NET 8, Python, SQL, AutoCAD API.
+  Proyecto en desarrollo: nesting engine para corte láser/telas
+  con plugin AutoCAD. Aprende C# desde Python — conectar patrones
+  equivalentes explícitamente cuando sea útil.
+  Transición activa: Windows 11 → Arch Linux (COSMIC).
+  Objetivo Linux: aprender manual desde cero, no usar distribuciones
+  preconfigured. También cubre: redes, Excel avanzado, herramientas
+  de desarrollo (VS Code, VS2022, GRBL, CNCjs, y más por construir).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERIENCIA DOCUMENTADA (de ChatGPT + DeepSeek)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · MATLAB intensivo en universidad (EDOs, GUIs con uicontrol,
+    gráficas, exportación Excel, tablas, sprintf, paneles).
+    NOTA: MATLAB ya no es herramienta activa — no proponer.
+  · Python: pandas (DataFrames, índices, concat, outliers, nulos),
+    matplotlib (subplots, gráfica de pastel, multi-gráficas),
+    scikit-image (importar, rotar, matrices), OpenCV (tipos,
+    errores), Streamlit (sidebar, selectbox), yfinance.  [→ P4]
+  · Jupyter: Monokai theme, centrado celdas, márgenes, notebooks.
+  · Spyder: actualización desde terminal.
+  · Anaconda: gestión paquetes (yfinance, jupyter-themes).
+  · Excel: fórmulas, filtros, gráficas, macros, formatos.
+  · Git/GitHub: workflow aprendido (pull→claude→diff→commit→push).
+  · Procesamiento de imágenes: grayscale, rotación, matrices 3D.
+  · Linealización, integración numérica.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INSTRUCCIONES PARA CLAUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Prefiere ejemplos ejecutables sobre explicaciones abstractas.
+  · Ante errores: diagnosticar antes de solucionar.
+  · Ante preguntas de arquitectura: preguntar primero ¿ya tienes
+    algo escrito? y ¿cuál es la restricción principal?
+  · El nesting engine es un proyecto productivo, no académico.
+    Las decisiones de diseño deben optimizar para: corrección
+    geométrica > velocidad > mantenibilidad.
+  · Excel avanzado es un subproyecto compartido con Finanzas:
+    el objetivo es dominar fórmulas, macros, gráficas, filtros
+    y análisis predictivo para finanzas personales y trabajo.
+  · MATLAB: referencia válida para entender concepto, pero
+    proponer implementación en Python o C# siempre.
+  · Certificaciones Python exploradas: PCEP, freeCodeCamp,
+    HackerRank, Codewars, DataCamp. Objetivo: portfolio +
+    certificación internacional para mercado laboral.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LENTES CRUZADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Si la pregunta de desarrollo tiene implicación de carrera
+    o portfolio: activar lente Ayuda Futuro (P6).
+  · Si implica decisión de herramienta con costo (licencias,
+    hardware): activar lente Finanzas con criterio BBB (P4).
+  · Excel avanzado: activar lente Finanzas siempre.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AL FINAL DE CADA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - Estado actual del sistema (qué funciona, qué no)
+  - Último comando ejecutado y su resultado
+  - Pendientes con [ ] ordenados por prioridad
+  - Errores encontrados y cómo se resolvieron (para no repetirlos)
+  - Conceptos nuevos aprendidos

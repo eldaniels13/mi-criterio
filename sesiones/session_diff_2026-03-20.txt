@@ -1,0 +1,113 @@
+q━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SESSION DIFF — eldaniels · 2026-03-20
+  Sesión: análisis DeepSeek + arquitectura de conocimiento personal
+           + flujo Git/TODO/Diff + Claude Code CLI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+COMMITS — copia y ejecuta en orden
+────────────────────────────────────────────────────────────────────
+
+docs(perfil): update employment status to past tense
+  "trabaja" → "trabajó" como programador C#
+
+docs(perfil): update income to "búsqueda ingresos digitales internacionales"
+
+docs(perfil): expand TODO with full 9-item list
+  + Acomodar CVs en Canva
+  + Migrar docs de OneDrive a Keeper
+  + Desarrollar Excel plantilla de finanzas personales
+  + Investigar más estrategias de inversión
+  + Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
+  + Migrar de Win11Home a Linux Arch
+  + Terminar CutWindow_2
+  + Subir arquitectura a repo mi-criterio/
+  + Terminar de aprender a usar Git
+
+docs(perfil): update hub spec to PD 3.0 100W
+
+docs(perfil): rename sections to IA-agnostic language
+  "proyectos Claude" → "proyectos de IA"
+  "instrucciones para Claude" → "instrucciones para IA"
+
+docs(perfil): add git repo (mi-criterio/) structure (main + branches P1-P8) to section 07 
+
+docs(perfil): add commit-suggestion instructions to section 08
+  + "Cuando detectes algo relevante de actualizar, sugiere hacer commit"
+  + "Cuando detectes posibles merges, sugiérelas"
+
+refactor(naming): rename user reference from "dani" to "eldaniels"
+
+feat(arquitectura): define 8-project system with cross-lens method
+  Proyectos P1-P8 con descripciones, instrucciones y lentes cruzados
+
+feat(metodologia): create Contexto Puente / Activación Cruzada
+  5 sintaxis: Base · Cruce · Tensión★ · Transferencia · Proyección
+
+feat(metodologia): define session flow with 3 states
+  [ ] pendiente · [~] en construcción · [x] completado (solo en Diff)
+
+feat(metodologia): define commit message anatomy
+  type(scope): short description
+
+feat(cronograma): map 121 DeepSeek conversations to timeline
+  Feb 2025 – Mar 2026 · 8 categorías · patrón de diversificación visible
+
+docs(repo): define git strategy for living criterion
+  repo mi-criterio/ · main=perfil_maestro=CLAUDE.md · branches=proyectos
+
+docs(activacion_cruzada): add session flow section to guide
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ARCHIVOS DE ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [x]  perfil_maestro_eldaniels.txt          ← modificado
+  [x]  instrucciones_proyectos_eldaniels.txt ← creado
+  [x]  activacion_cruzada_eldaniels.txt      ← creado + sección flow añadida
+  [x]  session_diff_2026-03-20.txt           ← este archivo
+  [x]  memorias Claude actualizadas          8 entradas
+  [ ]  cronograma_intereses.md               ← PENDIENTE DE CREAR (ver nota)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TODO GLOBAL — estado al cerrar sesión
+  (solo [ ] y [~] — los [x] viven en este Diff)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  VIDA PERSONAL / ADMIN
+  [ ]  Acomodar CVs en Canva
+  [ ]  Migrar docs de OneDrive a Keeper
+  [ ]  Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
+
+  FINANZAS
+  [ ]  Investigar más estrategias de inversión
+  [~]  Desarrollar Excel plantilla de finanzas personales
+
+  TÉCNICO / DESARROLLO
+  [ ]  Crear cronograma_intereses.md como archivo permanente
+  [ ]  Instalar Claude Code CLI
+  [~]  Migrar de Win11Home a Linux Arch
+  [~]  Terminar CutWindow_2
+
+  REPO MI-CRITERIO
+  [ ]  Inicializar repo git mi-criterio/ y primer commit
+  [ ]  Repo privado en GitHub
+  [ ]  Añadir .gitignore con: *.key, *_privado.txt, *_sensible.*, git-crypt
+  [ ]  Subir arquitectura a repo mi-criterio/ en GitHub
+  [ ]  Terminar de aprender a usar Git
+  [ ]  Crear archivos P1-P8 individuales en proyectos/
+  [ ]  Renombrar perfil_maestro como CLAUDE.md en repo
+  [~]  Criterio vivo de P3, P4, P2 — expandir en sesiones futuras
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PASO DE VERIFICACIÓN ANTES DE CERRAR
+  (checklist merge / ready to go)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [ ]  Commits ejecutados en Git
+  [ ]  TODO global en perfil_maestro actualizado con esta lista
+  [ ]  Archivos descargados y guardados localmente
+  [ ]  Memorias de IA reflejan el estado actual

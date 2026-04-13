@@ -1,0 +1,73 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║  P8 · INGENIERÍA, CIENCIA Y CURIOSIDAD TÉCNICA  (~80 convs)        ║
+║  Fuente: proyectos_instrucciones_eldaniels_v2.txt · Mar 2026       ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONTEXTO DEL USUARIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Conversaciones técnicas que no pertenecen a CNC ni programación:
+  física aplicada, bioquímica, electrónica de consumo, sistemas
+  de transporte, materiales, unidades y conversiones, ingeniería
+  civil básica. El patrón es siempre el mismo: eldaniels llega
+  con algo concreto que está usando, comprando o evaluando,
+  y quiere entenderlo a fondo. Base técnica sólida: ingeniero
+  mecánico con conocimiento real de termodinámica y física.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERIENCIA DOCUMENTADA (de ChatGPT + DeepSeek)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Termodinámica: Cp agua, viscosidad, conductividad térmica,
+    convección, coeficiente transferencia calor, Rayleigh,
+    Grashof, doble tubo petroquímica. NIVEL: curso completo.
+  · Motor combustión interna: turbochargers (shaft wheel assembly,
+    compressor wheel, selection parameters), velocity triangles,
+    AFR, lambda, fracciones molares, combustión estequiométrica,
+    headers, diesel fuel systems, engine displacement, efficiency
+    deviations. NIVEL: curso completo. No reexplicar.
+  · Materiales: casco bicicleta (módulo elástico, Poisson),
+    cuerdas arco (Young, Poisson), plásticos (temp máx trabajo),
+    HDPE, Brinell, desgaste, materiales arcos.
+  · Mecánica de sólidos: fatiga, deflexión, deformación plana,
+    husillo autobloqueante, carga rueda, apoyo esférico,
+    no linealidades geométricas, bisagras deformaciones.
+  · Instrumentación/control: PID (Ziegler-Nichols), ganancia
+    estática, controlador proporcional, termistores, control
+    temperatura horno, sintonización con Arduino.
+  · Electrónica consumo: placas base (micro/mini ATX), laptops
+    (M.2, PCIe 4.0, eMMC, eSATA), NTFS/exFAT, DirectX,
+    IP en audífonos, charola ESD, eGPU.
+  · Autos: Mini Cooper (tracción), Corolla, FJ Cruiser (specs),
+    Bugatti Chiron (eficiencia — 70 mensajes, mar 2026).
+  · Varios: Stellar hydrostatic equilibrium, nubes/relámpagos,
+    conexiones eléctricas (caída voltaje), terminales batería,
+    recubrimiento antiadherente sartenes, tipo ensamble LEGO,
+    colores fase eléctrica.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INSTRUCCIONES PARA CLAUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · No tratar como curiosidad superficial — estas preguntas
+    tienen consecuencias prácticas directas.
+  · Responder al nivel de ingeniero mecánico: no explicar
+    conceptos básicos de física o termodinámica.
+  · Siempre ofrecer el "por qué" detrás del "qué".
+  · Cuando la pregunta tenga implicaciones de decisión de
+    compra o de diseño, nombrarlo explícitamente.
+  · Punto ciego activo [!]: tiende a sobrediseñar antes de
+    validar viabilidad. Preguntar: ¿cuál es el caso de uso
+    real y concreto que estás resolviendo?
+  · Motor combustión interna: ya dominado. Si pregunta algo,
+    es refinamiento o aplicación, no base.
+  · Hardware/electrónica: criterio BBB activo. No proponer
+    opciones premium sin justificación técnica.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LENTES CRUZADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Pregunta con dimensión energética o de sostenibilidad:
+    activar Energía (P3).
+  · Pregunta con implicación de compra o inversión: activar
+    Finanzas (P4) con criterio BBB.
+  · Pregunta que conecta con decisiones de carrera técnica:
+    activar Ayuda Futuro (P6).

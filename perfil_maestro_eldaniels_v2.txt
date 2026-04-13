@@ -1,0 +1,296 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║           PERFIL MAESTRO — ELDANIELS · versión Mar 2026 v2          ║
+║     Contexto transversal para proyectos de IA · uso: pegar al      ║
+║     inicio de conversaciones nuevas o en instrucciones de proyecto  ║
+║                                                                      ║
+║     Fuentes: 356 convs ChatGPT + 121 convs DeepSeek + Claude       ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  01 · IDENTIDAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Nombre           eldaniels
+  Perfil           Ingeniero mecánico (ITESO, Zapopan, México)
+  Egreso           ~2024 (último semestre con carga académica: abr 2024)
+  Situación actual En búsqueda de ingresos activos digitales
+                   internacionales. Vive solo, independiente.
+  Crédito educativo Activo — variable a considerar en decisiones financieras
+  Experiencia      · Programador C# en empresa manufactura paracaídas
+                     (USA, sede GDL) — trabajo anterior
+                   · Producción en serie de plásticos por termoformado
+                   · Mantenimiento maquinaria CNC (operativo, no supervisión)
+                   · Soldadura, ensamblado de maquinaria
+                   · Diseño por software CAD
+                   · Mantenimiento y reparación automotriz (experiencia
+                     laboral de verano)
+  Idiomas          Español (nativo) · Inglés (funcional, profesional)
+                   · Alemán (nivel básico — estudió en ITESO, posible
+                     intercambio planeado/frustrado)
+  Ubicación        Zapopan/Guadalajara, Jalisco, México
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  02 · PERFIL COGNITIVO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Estilo           Pensamiento sistémico: inputs → outputs → restricciones
+  Aprende          Haciendo. Prefiere ejemplos ejecutables sobre teoría.
+                   Cuando no entiende algo, reformula la pregunta varias
+                   veces hasta que encaja (visible en patrón ChatGPT:
+                   misma consulta CNC/MATLAB con variaciones).
+  Pregunta         Corto y denso. La reflexión previa es implícita.
+                   Pregunta rápida ≠ pregunta superficial.
+  Formato que pide Visual + estructurado + consola cuando aplica
+  Metacognición    Alta. Ha reflexionado explícitamente sobre cómo
+                   hacer buenas preguntas a la IA (feb 2026) y sobre
+                   la diferencia entre respuestas generadas y
+                   razonamiento propio.
+
+  PUNTOS CIEGOS (quiere pushback amistoso, no suavizado):
+  [!] Diseña sistemas antes de validar factibilidad/orden de magnitud
+  [!] Subestima análisis económico y de mercado
+  [!] Razonamiento principalmente interno; bajo uso de benchmarks
+  [!] En búsqueda laboral: sesga hacia diseño de estrategia
+      antes de ejecutar acciones concretas (CVs, Indeed, redes)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  03 · STACK TÉCNICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Lenguajes        C# / .NET 8  ·  Python  ·  SQL
+  Python libs      pandas · matplotlib · scikit-image · OpenCV ·
+                   Streamlit · yfinance · Jupyter/Spyder (Monokai)
+  MATLAB           Nivel intermedio-avanzado (EDOs, GUIs, uicontrol,
+                   tablas, gráficas, exportación Excel). Usado
+                   intensivamente en universidad, no actualmente.
+  CAD/CAM          SolidWorks CAD/CAM 2024 · SolidWorks FEA
+                   (estática, deformaciones, contacto Hertziano)
+                   · AutoCAD API · DXF · SVG→DXF workflow
+  CNC              G-code Fanuc · GRBL 1.1h · CNCjs · Haas TM-2P
+                   · PathPilot/Tormach (conocimiento teórico)
+                   · Materiales: aluminio, acero, Nylamid 6/6, blandos
+  Otros            Excel+Macros (avanzado, en desarrollo continuo)
+                   · GIMP básico · Anaconda
+  OS actual        Windows 11  →  transición activa a Arch Linux
+  WM objetivo      i3wm o Hyprland (aprender manual, no preconfigured)
+  Hardware         Dell Latitude 5400 · Thunderbolt 3 · ~32 GB RAM ·
+                   i7-8665U · 2× Yodoit 15.6" FHD IPS (USB-C/HDMI)
+                   · UGREEN Revodok Pro 210 · ATH-M50X
+                   · Bose Companion 3 II · Rapoo MT760L
+                   · Cubot KingKong 8 (USB-C, 10600 mAh, sin eSIM)
+  Criterio compra  BBB: máx funcionalidad técnica / costo
+
+  COMPETENCIAS LATENTES (no en uso activo pero documentadas):
+  · Gestión de proyectos: PMBOK, EDT/WBS, ruta crítica, método
+    de las dos pasadas, holguras, SCOPE CREEP, Ziegler-Nichols
+  · ISO 9001:2015 (conocimiento conceptual)
+  · Motor de combustión interna: nivel curso completo
+    (turbochargers, AFR, lambda, velocity triangles, fracciones
+    molares, combustión estequiométrica, headers)
+  · Instrumentación y control: PID, funciones de transferencia,
+    ganancia estática, controladores P/PI/PID con Arduino
+
+  PROYECTO EN DESARROLLO ACTIVO:
+  → Nesting engine para corte láser/telas + plugin AutoCAD (C#)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  04 · HARDWARE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Laptop           Dell Latitude 5400 · Thunderbolt 3 · ~32 GB RAM · i7-8665U · 3x USB 3.1 Gen 1
+  Red IPv6 deshabilitada
+  Monitores        2× Yodoit 15.6" FHD IPS (USB-C / HDMI)
+  Hub              UGREEN Revodok Pro 210 (10-in-1 · Dual HDMI · PD 3.0 100W)
+  Audio            ATH-M50X  ·  Bose Companion 3 Series II
+  Mouse            Rapoo MT760L
+  Phone            Cubot KingKong 8 (USB-C · 10,600 mAh · sin eSIM)
+  Compras          Amazon MX · Mercado Libre · Digital Life · [...]
+  Criterio compra  BBB: máx funcionalidad técnica / costo · [...]
+ Kingston NV3 500GB M.2 NVMe SSD con carcasa USB-C compatible M.2 NVMe
+ HDD_A — FASE 2 (futuro) 2TB, 3.5" SATA para rsync desde Kingston
+ HDD_B — FASE 3(futuro)  Idéntico a HDD_A para almacenamiento geográfico externo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  05 · PERFIL FINANCIERO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Estado           Literacy financiera en construcción activa
+  Criterio         Convicciones sostenibles > maximización de retorno
+  Instrumentos     SOFIPOs · ETFs renovables · Acciones (Bitso) ·
+  explorados       Bitcoin · Cannabis stocks · Criptomonedas
+  Herramienta      Excel propio (en desarrollo continuo)
+  Contexto         Conoce indicadores macroeconómicos MX, empresas
+                   más rentables MX, resolución miscelánea fiscal
+                   (Anexo 1-A), gravámenes, funciones económicas
+                   del Estado. Exploró exchanges para Bitcoin.
+  Necesita         Marcos de análisis, NO recomendaciones directas
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  06 · INTERESES VOCACIONALES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Sector objetivo  Energía renovable · Nuclear (sin rechazo ideológico)
+  Tecnologías      Solar (FV y concentración) · Eólica · Geotérmica ·
+                   Biomasa · Hidrógeno · Maremotriz · Biodigestores
+  Empresas         Ørsted (objetivo explícito) · Siemens Energy ·
+  objetivo         Iberdrola · empresas sostenibles MX/AU/DE
+  Transporte       BRT · Tren Wuppertal · movilidad sostenible urbana
+  Enfoque          Integraciones sistémicas inesperadas entre
+                   producción energética y biosfera / sociedad
+  Proyectos        · Biodigestores como emprendimiento (2024, con
+  explorados         métricas, propiedad intelectual, stakeholders)
+                   · Electrical load profiling (proyecto académico)
+                   · Biocombustibles y pirólisis
+                   · Reciclaje de baterías de litio
+                   · Reservas de litio en LATAM
+                   · Paneles solares dimensionamiento doméstico
+  España           Exploró becas (Erasmus, Iberdrola), posgrado en
+                   sostenibilidad/termodinámica, convalidación de
+                   estudios, doble grado. Interés serio pero no
+                   ejecutado aún.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  07 · PERFIL CULTURAL E INTELECTUAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Filosofía        Spinoza (panteísmo, ética como geometría) ·
+                   Simone de Beauvoir (impacto feminista/político) ·
+                   "La vida no se justifica" (existencialismo) ·
+                   Metacognición sobre preguntas trascendentales
+  Identidad LATAM  Chinampas · Xochimilco · Tenochtitlan · náhuatl ·
+                   Ayllu Pachacuti · desaparecidos Jalisco ·
+                   Tepito · cerveza artesanal prehispánica ·
+                   Acuerdos de San Andrés Larráinzar ·
+                   Reforma Agraria 1937
+  Visión           Solarpunk como estética-visión compartida
+  Geopolítica      Prebisch / estructuralismo LATAM · Bukele ·
+                   sistema político brasileño · anarco-liberalismo ·
+                   desigualdad de género en ingeniería ·
+                   funciones económicas del Estado · fentanilo
+  Gaming           Civilization VI · Cities: Skylines · Minecraft ·
+                   Age of Empires · NFS Heat
+  Otros intereses  Surf (quillas), DJ (mapeo controlador),
+                   plantas/poda, autos (FJ Cruiser, Mini Cooper)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  08 · CRONOGRAMA DE EVOLUCIÓN CON IA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  FASE 1 — Académica (may 2023 - abr 2024)  [ChatGPT]
+  ├─ Uso predominante: tareas ITESO (MATLAB, termodinámica,
+  │  transferencia de calor, materiales, FEA, motor combustión)
+  ├─ Primeros intereses energéticos: electrical load profiling
+  ├─ Alemán básico (posible intercambio)
+  ├─ Biodigestores como proyecto emprendimiento
+  ├─ Job to be done, 10 tipos de innovación
+  └─ Desigualdad de género en ingeniería (proyecto social)
+
+  FASE 2 — Transición laboral (jul 2024 - ene 2025)  [ChatGPT]
+  ├─ Cover letters, CVs orientados a energía sostenible
+  ├─ Búsqueda activa: Ørsted, Siemens Energy, empresas MX
+  ├─ Python intensivo (pandas, scikit, OpenCV, Streamlit)
+  ├─ CNC operativo real: GRBL, limit switches, G-code
+  ├─ Haas TM-2P y PathPilot
+  ├─ Becas España, convalidación, Erasmus
+  ├─ Bitcoin/cripto primeras preguntas
+  ├─ PMBOK/gestión de proyectos
+  └─ Hardware: setup dual monitor, Cubot KingKong 8
+
+  FASE 3 — Profesionalización (feb 2025 - jun 2025)  [DeepSeek]
+  ├─ CNC producción real (brocas, machuelos, SolidWorks CAM)
+  ├─ C# / .NET 8 (nesting engine, plugin AutoCAD)
+  ├─ Primeros pasos Linux (Arch, i3wm)
+  └─ Finanzas: SOFIPOs, ETFs, cannabis stocks
+
+  FASE 4 — Consolidación (jul 2025 - mar 2026)  [DeepSeek + Claude]
+  ├─ Diversificación: finanzas, geopolítica, Spinoza, Prebisch
+  ├─ Integración multi-IA: perfil maestro, proyectos con lentes
+  ├─ Metacognición: "hacer buenas preguntas"
+  ├─ Litio en LATAM, nuclear por país
+  ├─ Git/GitHub workflow con Claude Code
+  └─ Arquitectura de conocimiento personal (mi-criterio/)
+
+  PATRONES IDENTIFICADOS:
+  · Cada nueva fase absorbe las anteriores (no abandona, integra)
+  · Profundidad asimétrica: CNC/C# como experto, finanzas/geopol
+    como autodidacta construyendo base
+  · Curiosidad filosófica esporádica pero siempre auténtica
+  · Las preguntas "simples" esconden reflexión previa significativa
+  · Transición visible de consumidor de info → constructor de marcos
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  09 · ARQUITECTURA DE PROYECTOS IA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  mi-criterio/                         ← repo
+  ├── perfil_maestro_eldaniels.txt     ← main, siempre actualizando
+  ├── proyectos/                       ← branches
+  │   ├── P1_cnc_manufactura.txt
+  │   ├── P2_programacion_desarrollo.txt
+  │   ├── P3_energia_sostenibilidad.txt
+  │   ├── P4_finanzas_inversiones.txt
+  │   ├── P5_geopolitica_economia.txt
+  │   ├── P6_ayuda_futuro.txt
+  │   ├── P7_filosofia_humanidades.txt
+  │   └── P8_ingenieria_ciencia.txt
+  └── cronograma_intereses.md
+
+  DISTRIBUCIÓN DE CONVERSACIONES (477 total):
+  P1  CNC, Maquinado y Manufactura         ~47 convs
+  P2  Programación y Desarrollo             ~98 convs
+  P3  Energía, Transición y Sostenibilidad  ~55 convs  ← eje vocacional
+  P4  Finanzas Personales e Inversiones     ~22 convs
+  P5  Geopolítica, Política y Economía      ~20 convs
+  P6  Ayuda Futuro y Desarrollo Personal    ~45 convs
+  P7  Filosofía, Humanidades e Identidad    ~23 convs
+  P8  Ingeniería, Ciencia y Curiosidad      ~80 convs
+
+  Académico puro (ITESO):                   ~65 convs
+  Idiomas / Gaming / Cotidiano:             ~22 convs
+
+  INTERCONEXIONES CLAVE: (merge)
+  Finanzas  ↔  Geopolítica     (política fiscal, deuda, Prebisch)
+  Finanzas  ↔  Energía         (ETFs, viabilidad económica proyectos)
+  Energía   ↔  Geopolítica     (gas, nuclear por país, transición global)
+  Prog.     ↔  Finanzas        (Excel avanzado — proyecto compartido)
+  CNC       ↔  Ingeniería      (física aplicada, materiales, FEA)
+  CNC       ↔  Energía         (materiales sostenibles, ciclo de vida)
+  Energía   ↔  Filosofía       (Solarpunk, ética tecnológica)
+  Ingeniería↔  Energía         (termodinámica aplicada, motor→renovables)
+  Ayuda F.  ↔  todos           (decisiones carrera = lentes múltiples)
+  PMBOK     ↔  Ayuda F. + Prog (gestión de proyectos como competencia)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  10 · INSTRUCCIONES PARA IA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Responde al nivel de ingeniero mecánico con Python/C# funcional
+  · Prefiere ejemplos ejecutables sobre explicaciones abstractas
+  · Cuando detectes un punto ciego [!], nómbralo directamente
+  · Cuando detectes algo relevante de actualizar, sugiere hacer commit
+  · Cuando detectes posibles merges, sugiérelas
+  · Cuando algo quede pendiente, sugiere agregar a Todo y usa [...]
+  · En preguntas de análisis, activar lentes de proyectos relacionados
+  · En preguntas de inversión: dar marcos, no recomendaciones
+  · Fomentar que eldaniels construya posiciones propias fundamentadas
+  · Para preguntas operativas simples: respuesta corta y directa
+  · Para preguntas de decisión o estrategia: activar múltiples lentes
+  · MATLAB es conocido pero ya no activo — no proponer como solución
+  · Gestión de proyectos (PMBOK) es conocimiento latente — activar
+    cuando aplique a decisiones de carrera o proyectos productivos
+  · Motor combustión interna ya está cubierto — no reexplicar
+  · [...] en construcción
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CÓMO USAR ESTE ARCHIVO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Pégalo al inicio de una conversación nueva en IA cuando
+    quieras que tenga contexto completo desde el primer mensaje.
+  · Pégalo en la instrucción de sistema de un proyecto nuevo.
+  · Actualízalo cada vez que cambie algo relevante en tu situación.
+  · Versión actual: Mar 2026 v2
+  · Fuente: 356 ChatGPT + 121 DeepSeek + sesiones Claude
+  · Próxima revisión: cuando cambies situación laboral, stack
+    técnico, o criterios financieros.

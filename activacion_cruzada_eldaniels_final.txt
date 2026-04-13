@@ -1,0 +1,287 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║        ACTIVACIÓN CRUZADA DE PROYECTOS — GUÍA DE SINTAXIS          ║
+║                     eldaniels · Mar 2026                            ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+Las preguntas de activación cruzada tienen estructura modular.
+Como las matryoshkas: cada capa añade un lente, y el interior
+siempre es la pregunta núcleo. Puedes abrir todas las muñecas
+o quedarte con la que necesitas en ese momento.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LAS MATRYOSHKAS: CAPAS DE UNA PREGUNTA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  CAPA 4 (exterior) — RESTRICCIÓN DE CONTEXTO               │
+  │  ┌───────────────────────────────────────────────────────┐  │
+  │  │  CAPA 3 — LENTE ADICIONAL (perspectiva B)             │  │
+  │  │  ┌─────────────────────────────────────────────────┐  │  │
+  │  │  │  CAPA 2 — LENTE PRINCIPAL (perspectiva A)        │  │  │
+  │  │  │  ┌───────────────────────────────────────────┐  │  │  │
+  │  │  │  │  CAPA 1 (núcleo) — EL TEMA               │  │  │  │
+  │  │  │  │                                           │  │  │  │
+  │  │  │  │  "viabilidad del hidrógeno verde          │  │  │  │
+  │  │  │  │   en México"                              │  │  │  │
+  │  │  │  └───────────────────────────────────────────┘  │  │  │
+  │  │  │  desde el lente de [Finanzas]                    │  │  │
+  │  │  └─────────────────────────────────────────────────┘  │  │
+  │  │  cruzando con [Geopolítica]                            │  │
+  │  └───────────────────────────────────────────────────────┘  │
+  │  para [mi situación actual en México, sin empleo fijo]      │
+  └─────────────────────────────────────────────────────────────┘
+
+  PREGUNTA COMPLETA:
+  "Analiza la viabilidad del hidrógeno verde en México desde
+   el lente de Finanzas, cruzando con Geopolítica, para mi
+   situación actual en México sin empleo fijo."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SINTAXIS BASE (mínimo funcional)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Analiza [TEMA] desde [LENTE A].                           │
+  └─────────────────────────────────────────────────────────────┘
+
+  Ejemplo:
+  "Analiza el precio de la electricidad solar en México
+   desde el lente de Finanzas."
+
+  → Una sola muñeca abierta. Respuesta enfocada, bajo costo
+    de tokens. Útil para preguntas operativas o de entrada.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SINTAXIS DE CRUCE (dos lentes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Analiza [TEMA] desde [LENTE A], cruzando con [LENTE B].   │
+  └─────────────────────────────────────────────────────────────┘
+
+  Ejemplos:
+
+  "Analiza la transición energética en México desde el lente
+   de Geopolítica, cruzando con Finanzas."
+
+  "Analiza mi proyecto de nesting engine desde el lente de
+   Programación, cruzando con Ayuda Futuro."
+
+  "Analiza invertir en ETFs nucleares desde el lente de
+   Finanzas, cruzando con Energía."
+
+  → Dos muñecas abiertas. Respuesta más densa. Úsala cuando
+    una decisión tiene consecuencias en dos dominios distintos.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SINTAXIS DE TENSIÓN (la más poderosa — genera insight real)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  ¿En qué puntos [LENTE A] y [LENTE B] entran en            │
+  │  conflicto respecto a [TEMA]?                              │
+  └─────────────────────────────────────────────────────────────┘
+
+  Esta sintaxis es diferente. No pide una descripción —
+  pide que Claude nombre la FRICCIÓN entre dos formas de
+  ver el mismo problema. Eso es lo que produce insight:
+  ver dónde dos lógicas racionales se contradicen.
+
+  Ejemplos:
+
+  "¿En qué puntos la lógica de Finanzas y la lógica de
+   Energía entran en conflicto para decidir si invertir
+   en energía nuclear en 2026?"
+
+      → Finanzas dirá: riesgo regulatorio alto, horizonte
+        de retorno a 20+ años, poco líquido.
+      → Energía dirá: la nuclear es la única base firme
+        para descarbonizar la red base.
+      → La tensión: ¿convicción o liquidez?
+
+  "¿En qué puntos Geopolítica y Finanzas entran en conflicto
+   respecto a invertir en mercados emergentes desde México?"
+
+      → Geopolítica: MX tiene dependencia estructural de EE.UU.,
+        alta exposición a política arancelaria.
+      → Finanzas: los mercados emergentes tienen mayor retorno
+        esperado ajustado a horizonte largo.
+      → La tensión: ¿eficiencia de mercado vs riesgo sistémico?
+
+  "¿En qué puntos Ayuda Futuro y Programación entran en
+   conflicto respecto a seguir desarrollando el nesting engine?"
+
+      → Ayuda Futuro: el nesting engine es tu mejor portfolio
+        para entrar al sector de manufactura avanzada.
+      → Programación: el proyecto requiere aprender arquitecturas
+        complejas que podrían tomarte meses.
+      → La tensión: ¿construir portfolio rápido o profundizar lento?
+
+  "¿En qué puntos Filosofía y Geopolítica entran en conflicto
+   respecto al concepto de soberanía energética?"
+
+      → Filosofía: soberanía implica autodeterminación, que es
+        un derecho político, no un cálculo económico.
+      → Geopolítica: la soberanía energética real depende de
+        cadenas de suministro que ningún país controla solo.
+      → La tensión: ¿el valor o el sistema?
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SINTAXIS DE TRANSFERENCIA (conectar habilidades entre dominios)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  ¿Qué de [DOMINIO A] es transferible / aplicable a         │
+  │  [DOMINIO B] en mi caso específico?                        │
+  └─────────────────────────────────────────────────────────────┘
+
+  Ejemplos:
+
+  "¿Qué habilidades de CNC y manufactura son transferibles
+   al sector energético en mi caso específico?"
+
+  "¿Qué patrones de Python que ya conozco son directamente
+   aplicables al diseño del nesting engine en C#?"
+
+  "¿Qué lógica de la termodinámica es aplicable al análisis
+   de eficiencia económica de una planta solar?"
+
+  → Útil para decisiones de carrera, de aprendizaje, y para
+    descubrir ventajas comparativas no obvias.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SINTAXIS DE PROYECCIÓN (para planear hacia adelante)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Si [CONDICIÓN], ¿cómo cambiaría [TEMA] visto desde        │
+  │  [LENTE A] y [LENTE B]?                                    │
+  └─────────────────────────────────────────────────────────────┘
+
+  Ejemplos:
+
+  "Si consigo un ingreso digital internacional estable,
+   ¿cómo cambiaría mi estrategia de inversión vista desde
+   Finanzas y desde Ayuda Futuro?"
+
+  "Si México implementa una red BRT tipo Wuppertal en GDL,
+   ¿cómo cambiaría el análisis desde Energía y desde
+   Geopolítica?"
+
+  "Si Arch Linux + Hyprland se convierte en mi SO principal,
+   ¿cómo afecta eso a mi stack técnico visto desde
+   Programación y desde Ayuda Futuro?"
+
+  → Útil para escenarios, planificación, y para que Claude
+    te ayude a pensar consecuencias de segundo orden.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESUMEN VISUAL — LAS 5 SINTAXIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. BASE          "Analiza [TEMA] desde [LENTE]."
+                    → Una muñeca. Respuesta enfocada.
+
+  2. CRUCE         "Analiza [TEMA] desde [A], cruzando con [B]."
+                    → Dos muñecas. Decisiones con dos dominios.
+
+  3. TENSIÓN  ★   "¿En qué puntos [A] y [B] entran en conflicto
+                    respecto a [TEMA]?"
+                    → La más poderosa. Genera insight real.
+                    → Úsala cuando necesitas decidir algo difícil.
+
+  4. TRANSFERENCIA "¿Qué de [A] es transferible a [B] en mi caso?"
+                    → Para decisiones de carrera y aprendizaje.
+
+  5. PROYECCIÓN    "Si [CONDICIÓN], ¿cómo cambiaría [TEMA]
+                    visto desde [A] y [B]?"
+                    → Para escenarios y consecuencias futuras.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CUÁNDO NO USAR ACTIVACIÓN CRUZADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  No todo necesita múltiples lentes. Criterio simple:
+
+  ✓ Usa activación cruzada cuando:
+    · Necesitas tomar una decisión con consecuencias en varios
+      dominios (carrera, inversión, proyecto técnico)
+    · Sientes que una respuesta "de manual" no te alcanza
+    · Quieres descubrir tensiones o contradicciones no obvias
+
+  ✗ No la uses cuando:
+    · La pregunta es operativa y puntual
+      ("¿qué broca uso para M6?" — un lente, respuesta corta)
+    · Estás en modo debugging o troubleshooting
+    · Necesitas velocidad sobre profundidad
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  NOTA SOBRE TOKENS Y EFICIENCIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  · Cada lente añadido aumenta el tamaño de la respuesta
+    (~200-400 tokens por lente adicional en la salida)
+  · Para controlar el costo: especifica explícitamente qué
+    lentes activar y cuáles ignorar en esa pregunta
+  · Ejemplo eficiente: "Analiza esto desde Energía + Finanzas,
+    ignora Geopolítica por ahora."
+  · La sintaxis de TENSIÓN suele ser la más eficiente por
+    token: respuesta densa, insight alto, sin dispersión.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FLUJO DE SESIÓN — ESTADOS Y COMMITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TRES ESTADOS (y dónde vive cada uno)
+  ─────────────────────────────────────
+  [ ]  pendiente         → TODO global + Diff de sesión
+  [~]  en construcción   → TODO global + Diff de sesión
+  [x]  completado        → solo en Diff de sesión (NO en TODO global)
+
+  El TODO global solo contiene lo que está vivo: [ ] y [~].
+  El historial de [x] vive en los Diffs con fecha.
+
+  FLUJO AL CERRAR SESIÓN
+  ──────────────────────
+  1. IA genera Diff = colección de commits listos para ejecutar
+  2. Tú ejecutas los commits en Git (cada uno = un cambio específico)
+  3. Actualizas el TODO global en perfil_maestro / CLAUDE.md:
+       · Mueve los [x] fuera del TODO (ya están en el Diff)
+       · Añade nuevos [ ] que surgieron en la sesión
+       · Actualiza [~] que avanzaron
+  4. Commit final: docs(perfil): update TODO after session YYYY-MM-DD
+
+  MERGE DE CRITERIO vs MERGE DE REPO
+  ────────────────────────────────────
+  Merge de criterio  = activación cruzada en conversación
+                       "Analiza [TEMA] desde P4, cruzando con P3."
+                       Ocurre en cualquier pregunta, sin tocar repo.
+
+  Merge de repo      = editar archivos P1-P8 para que compartan
+                       criterio desarrollado, luego commit.
+                       Genera un [ ] en el TODO cuando se identifica,
+                       se ejecuta cuando hay tiempo y contexto.
+
+  ANATOMÍA DE UN MENSAJE DE COMMIT
+  ──────────────────────────────────
+  type(scope): short description
+
+  type    = docs · feat · fix · refactor · chore
+  scope   = perfil · p1..p8 · repo · metodologia
+  desc    = qué cambió, en imperativo, máx 50 chars
+
+  Ejemplos:
+  docs(perfil): expand TODO with 2 new pending items
+  feat(p4): add liquidity restriction to investment criteria
+  refactor(p3): merge urban transport into energy project
+  chore(repo): initialize mi-criterio with initial commit
