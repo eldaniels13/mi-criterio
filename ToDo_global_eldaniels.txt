@@ -1,0 +1,179 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TODO GLOBAL UNIFICADO — eldaniels · 2026-03-27
+  Fuentes: perfil_maestro · session_diff 2026-03-20 ·
+           cierre_sesion_fibonacci · memorias de sesiones P2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+  LINUX / ARCH — VM fibonacci
+  ─────────────────────────────────────────────────────────────────
+  [x]  Arch Linux instalado y arrancando en VirtualBox
+  [x]  GRUB UEFI funcionando
+  [x]  Red automática (systemd-networkd + systemd-resolved)
+  [x]  IPv6 deshabilitado (Totalplay no soporta)
+  [x]  Usuario eldaniels + sudo + wheel
+  [x]  i3wm + autotiling fibonacci
+  [x]  Firefox, git configurado, neovim base
+  [x]  yay (AUR helper) instalado
+  [x]  startx automático al login
+  [ ]  LazyVim (falló por timeout de conexión — requiere mejor red)
+  [x]  Terminar de configurar i3 (colores, fonts, gaps, i3status)
+  [x]  Configurar Git → GitHub (eldaniels13) en la VM
+  [ ]  Configuración de Neovim más allá de base
+
+
+  LINUX / ARCH — HARDWARE REAL (Dell Latitude 5400)
+  ─────────────────────────────────────────────────────────────────
+  [x]  Guardar P8_Backup_Wiki
+  [x]  Safe delete AppData\Roaming — carpetas identificadas
+  [x]  Backup completo de Windows (FASE 0) ⚠ CRÍTICO
+  [~]  Dual boot — particionar sin borrar Windows
+  [x]  Instalar Arch en Dell Latitude 5400
+  [x]  Instalar COSMIC (decisión tomada: el futuro es hoy — Wayland, auto tiling fibonacci)
+  [ ]  LazyVim con buena conexión para desarrollo y trabajo
+  [x]  sudo pacman -S veracrypt para backup_critico.vc
+  [x]  Configurar multi-monitor (horizontal + vertical)
+  [~]  IPv6 reactivar cuando cambies de ISP (borrar /etc/sysctl.d/99-disable-ipv6.conf)
+  [x] Configurar ~/.zshrc completo (starship + plugins + nvm) ~/.config/starship.toml
+  [x] Instalar Nerd Font (ttf-jetbrains-mono-nerd)
+  [ ] Configurar starship.toml personalizado
+
+
+  HERRAMIENTAS DE DESARROLLO
+  ─────────────────────────────────────────────────────────────────
+  [x]  git + GitHub (eldaniels13)
+  [x]  neovim base
+  [x]  VeraCrypt
+  [x]  LazyVim
+  [x]  lazygit
+  [ ]  .NET 8 SDK                                        → hardware real
+  [ ]  Python + pip + venv                                → hardware real
+  [x]  Docker                                             → hardware real
+  [ ]  VS Code (extensiones C#, Python)                   → hardware real
+  [x]  Node.js + npm (requerido para Claude Code)
+  [x]  Claude Code CLI (npm install -g @anthropic-ai/claude-code)
+  [x]  Ollama con deepseek-coder:6.7b y qwen2.5-coder:7b
+  [x]  Instalar https://github.com/thedotmack/claude-mem
+  [x]  Instalar https://github.com/affaan-m/everything-claude-code
+  [~]  project-nomad (Crosstalk-Solutions)
+  [ ] Verificar compatibilidad Python 3.14 con pandas/matplotlib cuando se instale Jupyter
+  
+  
+  EMAIL
+  ─────────────────────────────────────────────────────────────────
+  [x] Thunderbird instalado
+  [ ] Crear cuenta Proton Mail
+  [x] Configurar Thunderbird con todas las cuentas (Gmail personal, Gmail profesional, Outlook educativo)
+  [ ] Migrar historial Gmail → Proton con Import Assistant.
+
+
+  UTILIDADES DEL SISTEMA
+  ─────────────────────────────────────────────────────────────────
+  [ ]  htop                                               pacman -S htop
+  [ ]  ripgrep                                            pacman -S ripgrep
+  [ ]  fzf                                                pacman -S fzf
+  [x]  zsh + starship                                     → hardware real
+  [ ]  Thunar                                             pacman -S thunar
+  [ ]  Timeshift                                          yay -S timeshift
+
+
+  CAD Y DISEÑO
+  ─────────────────────────────────────────────────────────────────
+  [x]  LibreCAD                                           pacman -S librecad
+  [x]  FreeCAD                                            pacman -S freecad
+  [ ]  OpenSCAD                                           pacman -S openscad
+  [ ]  Inkscape                                           pacman -S inkscape
+
+
+  EXCEL / HOJAS DE CÁLCULO
+  ─────────────────────────────────────────────────────────────────
+  [x]  LibreOffice                                        pacman -S libreoffice-fresh
+  [ ]  Gnumeric                                           pacman -S gnumeric
+
+
+  ENERGÍA / PERFIL PROFESIONAL
+  ─────────────────────────────────────────────────────────────────
+  [ ]  Jupyter Lab                                        pip install jupyterlab
+  [ ]  Python pandas + matplotlib                         pip install pandas matplotlib
+  [ ]  QGIS                                               pacman -S qgis
+
+
+  REPO MI-CRITERIO
+  ─────────────────────────────────────────────────────────────────
+  [ ]  Inicializar repo git mi-criterio/ y primer commit
+  [ ]  Crear repo privado en GitHub
+  [ ]  Añadir .gitignore (*.key, *_privado.txt, *_sensible.*, git-crypt)
+  [ ]  Subir arquitectura a repo mi-criterio/ en GitHub
+  [ ]  Renombrar perfil_maestro como CLAUDE.md en repo
+  [ ]  Crear archivos P1-P8 individuales en proyectos/
+  [ ]  Crear cronograma_intereses.md como archivo permanente
+  [~]  Criterio vivo de P3, P4, P2 — expandir en sesiones futuras
+  [~]  Terminar de aprender a usar Git
+  [ ]  Inicializar git en proyectos de Programas PerformanceDesigns
+     (CutWindow_2, DeepNestSharp, NestingTesting, O2BToDxf...)
+  [ ]  Subir proyectos PerformanceDesigns a GitHub (eldaniels13)
+  [ ] Crear ~/.claude/CLAUDE.md global (copia perfil_maestro v2)
+  [ ] Crear ~/.claude/settings.json global (permisos base)
+  [ ] Crear mi-criterio/.claude/CLAUDE.md (resumen P1-P8)
+  [ ] Crear mi-criterio/.claude/settings.json (permisos repo)
+  [ ] Crear mi-criterio/.claude/commands/p1-cad.md
+  [ ] Crear mi-criterio/.claude/commands/p2-code.md
+  [ ] Crear mi-criterio/.claude/commands/p3-energy.md
+  [ ] Crear mi-criterio/.claude/commands/p6-future.md
+  [ ] Prueba: `claude /status` en mi-criterio y verificar CLAUDE.md's
+  [ ] Prueba: `/p1-cad` carga contexto P1 correctamente
+  [ ] Registrar P1-P8 proyectos bajo git (git init en cada uno)
+  [ ] Subir arquitectura completa a GitHub privado (mi-criterio)
+
+
+  PROYECTOS ACTIVOS
+  ─────────────────────────────────────────────────────────────────
+  [~]  Terminar CutWindow_2 (nesting engine)
+  [~]  Desarrollar Excel plantilla de finanzas personales
+  [x]  Migrar de Win11Home a Linux Arch
+
+DOCUMENTACIÓN PENDIENTE
+──────────────────────────────────────────────────────────────
+[~] Descripción detallada P4 (Finanzas) — estructura SOFIPOS/ETFs
+[~] Descripción detallada P5 (Geopolítica) — marcos Prebisch, Bukele
+[~] Descripción detallada P6 (Ayuda Futuro) — carrera, postgrad España
+
+  P6 VIDA PERSONAL / ADMIN / POSGRADO Y EMPLEO
+  ─────────────────────────────────────────────────────────────────
+  [ ]  Acomodar CVs en Canva
+  [ ]  Migrar docs de OneDrive a Keeper
+  [ ]  Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
+  [x]  Generar contraseña VeraCrypt y almacenar en keeper
+  [ ] Inventario de programas de posgrado en energía (México, Europa, Australia, etc.) 
+  [ ] Inventario de becas con fechas de cierre (CONAHCyT, Fulbright, DAAD, CONACYT-SENER)
+  [ ] CV actualizado con enfoque en energías renovables
+  [ ] Statement of purpose — borrador inicial
+  [ ] Lista de empresas de energía target para aplicar
+  [ ] Actualizar LinkedIn e Indeed con perfil de ingeniería en energía.
+
+
+  FINANZAS
+  ─────────────────────────────────────────────────────────────────
+  [ ]  Investigar más estrategias de inversión
+
+
+  DECISIONES TOMADAS — NO REABRIR
+  ─────────────────────────────────────────────────────────────────
+  [x]  DE para hardware real: COSMIC (Wayland, tiling nativo, out-of-box)
+  [x]  GPU futura: AMD (mejor soporte Linux)
+  [x]  Boot: dual boot Windows + Arch (no triple)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  NOTAS DE FUSIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  · Los ítems de VM fibonacci ya completados se marcan [x] según
+    el cierre_sesion_fibonacci.html
+  · "Instalar Ollama", "claude-mem", "everything-claude-code" vienen
+    del perfil_maestro pero no aparecían en session_diff — añadidos
+  · "Terminar de configurar i3" viene del perfil_maestro
+  · Picom deferido a hardware real (incompatible con VirtualBox GPU)
+    — no se lista porque COSMIC reemplaza esa necesidad
+  · LazyVim aparece en 3 fuentes — unificado en una sola entrada
+  · "Configurar Git en VM" y "Neovim config" vienen de memorias
+    de sesiones anteriores donde quedaron pendientes
