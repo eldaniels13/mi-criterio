@@ -1,8 +1,19 @@
-# Archivos sensibles — nunca versionar
+# Archivos de credenciales
 *_privado.txt
 *_sensible.*
 *.key
 *.vc
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*_privado.txt
+*_sensible.*
+*_credentials.*
+*_token.*
+.credentials.json
+credentials.json
 
 # Carpetas temporales de sesión
 Sesion*/
@@ -11,3 +22,89 @@ Sesion*/
 # Sistema
 .DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
+desktop.ini
+
+# SSH keys (CRÍTICO)
+~/.ssh/
+id_rsa
+id_rsa.pub
+known_hosts
+
+# IDE: ignorar configuración personal
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vim/
+.project
+.classpath
+
+# Claude Code: locales, temporales y credenciales
+.claude/settings.local.json
+.claude/projects/
+.claude/.credentials.json
+
+# Python: ignorar dependencias, builds, logs
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json (opcional — algunos lo versionan)
+
+# C# / .NET
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+.vs/
+.csproj.user
+
+# Logs
+*.log
+*.log.*
+logs/
+
+# Backups y Temporales
+*.bak
+*.backup
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+*.vc
+*.vault
+*.encrypted
+*_finanzas_personal.*
+*_inversiones_private.*
+*_declaracion_impuestos.*
+CV_*_draft.docx
+CV_*_personal.pdf
