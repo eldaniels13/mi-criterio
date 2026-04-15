@@ -46,10 +46,10 @@
   [x]  VeraCrypt
   [x]  LazyVim
   [x]  lazygit
-  [ ]  .NET 8 SDK                                        → hardware real
-  [ ]  Python + pip + venv                                → hardware real
+  [x]  .NET 8 SDK (dotnet 10.0.104)                       → hardware real
+  [x]  Python + pip + venv (Python 3.14.4)                → hardware real
   [x]  Docker                                             → hardware real
-  [ ]  VS Code (extensiones C#, Python)                   → hardware real
+  [x]  VS Code 1.114.0                                    → hardware real
   [x]  Node.js + npm (requerido para Claude Code)
   [x]  Claude Code CLI (npm install -g @anthropic-ai/claude-code)
   [x]  Ollama con deepseek-coder:6.7b y qwen2.5-coder:7b
@@ -69,43 +69,44 @@
 
   UTILIDADES DEL SISTEMA
   ─────────────────────────────────────────────────────────────────
-  [ ]  htop                                               pacman -S htop
-  [ ]  ripgrep                                            pacman -S ripgrep
-  [ ]  fzf                                                pacman -S fzf
+  [x]  htop                                               pacman -S htop
+  [x]  ripgrep (rg)                                       pacman -S ripgrep
+  [x]  fzf                                                pacman -S fzf
   [x]  zsh + starship                                     → hardware real
-  [ ]  Thunar                                             pacman -S thunar
-  [ ]  Timeshift                                          yay -S timeshift
+  [x]  Thunar                                             pacman -S thunar
+  [x]  Timeshift                                          yay -S timeshift
 
 
   CAD Y DISEÑO
   ─────────────────────────────────────────────────────────────────
   [x]  LibreCAD                                           pacman -S librecad
   [x]  FreeCAD                                            pacman -S freecad
-  [ ]  OpenSCAD                                           pacman -S openscad
-  [ ]  Inkscape                                           pacman -S inkscape
+  [x]  OpenSCAD                                           pacman -S openscad
+  [x]  Inkscape 1.4.3                                     pacman -S inkscape
 
 
   EXCEL / HOJAS DE CÁLCULO
   ─────────────────────────────────────────────────────────────────
   [x]  LibreOffice                                        pacman -S libreoffice-fresh
-  [ ]  Gnumeric                                           pacman -S gnumeric
+  [x]  Gnumeric 1.12.60                                   pacman -S gnumeric
 
 
   ENERGÍA / PERFIL PROFESIONAL
   ─────────────────────────────────────────────────────────────────
   [ ]  Jupyter Lab                                        pip install jupyterlab
-  [ ]  Python pandas + matplotlib                         pip install pandas matplotlib
+  [ ]  Python pandas                                      pip install pandas  ← pendiente
+  [x]  matplotlib 3.10.8                                  pip install matplotlib
   [ ]  QGIS                                               pacman -S qgis
 
 
   REPO MI-CRITERIO
   ─────────────────────────────────────────────────────────────────
-  [ ]  Inicializar repo git mi-criterio/ y primer commit
-  [ ]  Crear repo privado en GitHub
-  [ ]  Añadir .gitignore (*.key, *_privado.txt, *_sensible.*, git-crypt)
-  [ ]  Subir arquitectura a repo mi-criterio/ en GitHub
-  [ ]  Renombrar perfil_maestro como CLAUDE.md en repo
-  [ ]  Crear archivos P1-P8 individuales en proyectos/
+  [x]  Inicializar repo git mi-criterio/ y primer commit
+  [x]  Crear repo privado en GitHub
+  [x]  Añadir .gitignore (*.key, *_privado.txt, *_sensible.*, git-crypt)
+  [x]  Subir arquitectura a repo mi-criterio/ en GitHub
+  [x]  CLAUDE.md en root del repo (perfil_maestro integrado como CLAUDE.md)
+  [x]  Crear archivos P1-P8 individuales en proyectos/
   [ ]  Crear cronograma_intereses.md como archivo permanente
   [~]  Criterio vivo de P3, P4, P2 — expandir en sesiones futuras
   [~]  Terminar de aprender a usar Git
