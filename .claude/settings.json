@@ -1,0 +1,21 @@
+{
+  "projectName": "mi-criterio",
+  "projectDescription": "Personal knowledge architecture — context repository for eldaniels",
+  "defaultModel": "claude-sonnet-4-6",
+  "fastMode": false,
+  "allowedPermissions": [
+    "read",
+    "write",
+    "bash:safe",
+    "claude-mem:*"
+  ],
+  "claudeMem": {
+    "enabled": true,
+    "autoSaveObservations": true,
+    "memoryPath": "/home/eldaniels/.claude/projects/-home-eldaniels-Codes-mi-criterio/memory/"
+  },
+  "hooks": {
+    "onSessionStart": [],
+    "onToolUse": []
+  }
+}
