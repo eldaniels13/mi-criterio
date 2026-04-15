@@ -48,26 +48,28 @@ No es una colección de proyectos de código. Es mi **sistema de pensamiento doc
 
 ```
 mi-criterio/
-├── README.md (este archivo)
-├── perfil_maestro_eldaniels.txt      ← Baseline global, actualizado regularmente
+├── README.md                                    ← este archivo
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── CLAUDE.md                                    ← instrucciones para Claude Code
+├── perfil_maestro_eldaniels_v2.txt              ← baseline global, actualizado regularmente
+├── proyectos_instrucciones_eldaniels_v2.txt     ← cómo usar los lentes P1-P8
+├── activacion_cruzada_eldaniels_final.txt       ← sintaxis de análisis cruzado
+├── ToDo_global_eldaniels.txt                    ← lista maestra de tareas
+├── cronograma_intereses.md                      ← [PENDIENTE] timeline de evolución
 ├── proyectos/
-│   ├── P1_cnc_manufactura.txt         ← CNC, GRBL, maquinado, nesting engine
-│   ├── P2_programacion_desarrollo.txt ← C#/.NET, Python, AutoCAD plugin
-│   ├── P3_energia_sostenibilidad.txt  ← Energía renovable/nuclear, biodigestores
-│   ├── P4_finanzas_inversiones.txt    ← SOFIPOs, ETFs, criterio BBB
-│   ├── P5_geopolitica_economia.txt    ← Prebisch, mercados emergentes, antiimperialismo
-│   ├── P6_ayuda_futuro.txt            ← Carrera, posgrado España, empleo
-│   ├── P7_filosofia_humanidades.txt   ← Spinoza, identidad LATAM, Solarpunk
-│   └── P8_ingenieria_ciencia.txt      ← Termodinámica, materiales, física
-├── cronograma_intereses.md
-└── .claude/
-    ├── CLAUDE.md                     ← Instrucciones para Claude Code
-    ├── settings.json                 ← Permisos, configuración
-    └── commands/                     ← Slash commands personalizados
-        ├── p1-cad.md
-        ├── p2-code.md
-        ├── p3-energy.md
-        └── ...
+│   ├── P1/P1_cnc_manufactura.txt         ← CNC, GRBL, maquinado, nesting engine
+│   ├── P2/P2_programacion_desarrollo.txt ← C#/.NET, Python, AutoCAD plugin
+│   ├── P3/P3_energia_sostenibilidad.txt  ← Energía renovable/nuclear, biodigestores
+│   ├── P4/P4_finanzas_inversiones.txt    ← SOFIPOs, ETFs, criterio BBB
+│   ├── P5/P5_geopolitica_economia.txt    ← Prebisch, mercados emergentes
+│   ├── P6/P6_ayuda_futuro.txt            ← Carrera, posgrado España, empleo
+│   ├── P6/SECTOR_OBJETIVO_REFINADO_EJECUTABLE.md
+│   ├── P7/P7_filosofia_humanidades.txt   ← Spinoza, identidad LATAM, Solarpunk
+│   └── P8/P8_ingenieria_ciencia.txt      ← Termodinámica, materiales, física
+├── P8_Backup_Wiki/                              ← estrategia de backup y seguridad digital
+├── recursos/                                    ← guías de referencia guardadas
+└── sesiones/                                    ← logs de sesión y diffs con timestamp
 ```
 
 ---
@@ -132,7 +134,7 @@ Ejemplo:
 
 ## Qué está vivo
 
-Consulta **TODO_unificado_eldaniels.txt** para ver:
+Consulta **ToDo_global_eldaniels.txt** para ver:
 
 - ✓ Completado (en Diffs timestamped)
 - [ ] Pendiente (acción concreta)
@@ -218,7 +220,7 @@ Código (cuando lo haya): MIT
 - **Perfil maestro:** Mar 2026 v2
 - **Criterio P1-P8:** Mar 2026 v2
 - **Sector objetivo refinado:** Abr 2026 ← **NUEVA VERSIÓN**
-- **README:** Abr 2026
+- **README:** Abr 2026 (arquitectura actualizada)
 - **Próxima actualización:** cuando cambie situación laboral, consiga trabajo Tier 1, o avance en posgrado España
 
 ---
