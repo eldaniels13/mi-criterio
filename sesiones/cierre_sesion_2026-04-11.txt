@@ -142,7 +142,7 @@ TODO GLOBAL — ESTADO AL CERRAR SESIÓN
       → udisksctl unmount -b /dev/sdc2 && udisksctl power-off -b /dev/sdc
 
   HERRAMIENTAS DE DESARROLLO
-  [x]  git 2.53.0 + config global (eldaniels13, danyband02@gmail.com, main)
+  [x]  git 2.53.0 + config global (eldaniels13, [email oculto], main)
   [x]  Node v24.14.1 (nvm LTS) + npm 11.11.0
   [x]  Claude Code 2.1.101
   [x]  dotnet-sdk-8.0 (8.0.125) — global.json apunta a .NET 8

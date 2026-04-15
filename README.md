@@ -198,7 +198,7 @@ Necesito resolver liquidez AHORA. Luego puedo ser más selectivo con misión/pro
 
 ## Contacto
 
-- **Email:** danielgarciacastro64@gmail.com
+- **Email:** [ver perfil de GitHub]
 - **LinkedIn:** www.linkedin.com/in/josé-daniel-garcía-castro-ba44b4314
 - **GitHub:** eldaniels13
 - **Ubicación:** Guadalajara, Jalisco, México (abierto a reubicarse)

@@ -88,7 +88,7 @@ Prefiero PRs **pequeños y específicos**. No fusiones generales.
 ### 3. Contactarme en general (sin PR/issue formal)
 
 Si quieres comunicarte conmigo:
-- Email: danielgarciacastro64@gmail.com
+- Email: [ver perfil de GitHub]
 - LinkedIn: mensaje directo
 - Espacio: "Discussions"
 
