@@ -1,0 +1,345 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-mono); }
+  .wrap { padding: 16px 0; }
+  .section { margin-bottom: 20px; }
+  .section-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .row.single { grid-template-columns: 1fr; }
+  .cmd-card {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: border-color 0.12s;
+  }
+  .cmd-card:hover { border-color: var(--color-border-primary); }
+  .cmd {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-text-success);
+    font-weight: 500;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .desc {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+  .badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 500;
+    padding: 1px 5px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+  }
+  .b-safe { background: var(--color-background-success); color: var(--color-text-success); }
+  .b-caution { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .b-danger { background: var(--color-background-danger); color: var(--color-text-danger); }
+  .b-info { background: var(--color-background-info); color: var(--color-text-info); }
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .flow-step {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-text-success);
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 4px;
+    padding: 3px 7px;
+  }
+  .flow-arrow {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+  }
+  .tip {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    background: var(--color-background-info);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .tip strong { font-weight: 500; color: var(--color-text-primary); }
+</style>
+<div class="wrap">
+
+  <div class="section">
+    <div class="section-title">Flujo del día — en este orden</div>
+    <div class="flow">
+      <span class="flow-step">git status</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">git pull --rebase</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">git diff</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">git add</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">git commit</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">git push</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Orientación — siempre antes de todo</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git status</div>
+        <div class="desc">Estado del repo: rama actual, archivos modificados, sin commitear, adelante/atrás del remoto.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git log --oneline -5</div>
+        <div class="desc">Últimos 5 commits en una línea. Ver quién hizo qué sin scroll infinito.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git log --oneline --graph --all</div>
+        <div class="desc">Árbol visual de todas las ramas. Esencial cuando tienes P1–P8.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git diff</div>
+        <div class="desc">Qué cambió línea por línea en archivos todavía no stageados.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git diff --staged</div>
+        <div class="desc">Qué está en el stage listo para commitear. Revisar siempre antes de git commit.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git remote -v</div>
+        <div class="desc">Confirmar que origin apunta a github.com (SSH, no HTTPS).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Sincronización con GitHub</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git fetch origin</div>
+        <div class="desc">Descarga cambios del remoto sin aplicarlos. Ver antes de pull.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git pull origin main --rebase</div>
+        <div class="desc">Trae cambios y reescribe tus commits encima. Historial limpio, sin merge commits.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git push origin main</div>
+        <div class="desc">Subir commits locales a GitHub. Requiere que estés al día con el remoto.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-info">config global</div>
+        <div class="cmd">git config --global pull.rebase true</div>
+        <div class="desc">Hace que git pull use rebase por defecto en todos los repos. Set-and-forget.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Guardar cambios — el ciclo central</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git add archivo.cs</div>
+        <div class="desc">Stagear un archivo específico. Más preciso que git add .</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-caution">revisar antes</div>
+        <div class="cmd">git add .</div>
+        <div class="desc">Stagear todo lo modificado. Usar solo después de git diff para saber qué incluyes.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git commit -m "tipo(scope): msg"</div>
+        <div class="desc">Guardar el stage con mensaje. feat / fix / docs / refactor / chore.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-caution">corrige el último</div>
+        <div class="cmd">git commit --amend</div>
+        <div class="desc">Modificar el mensaje o agregar archivos al último commit. Solo si no has hecho push.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Pausar trabajo en progreso</div>
+    <div class="tip"><strong>Cuándo usarlo:</strong> quieres hacer pull o cambiar de rama pero tienes cambios sin commitear que no están listos.</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git stash</div>
+        <div class="desc">Guarda cambios sin commitear en un cajón temporal. El directorio queda limpio.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git stash pop</div>
+        <div class="desc">Recupera los cambios del cajón y los vuelve a aplicar en el directorio.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git stash list</div>
+        <div class="desc">Ver todos los stashes guardados si tienes varios acumulados.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-caution">destructivo</div>
+        <div class="cmd">git stash drop</div>
+        <div class="desc">Borra el stash más reciente permanentemente. No hay undo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Ramas — trabajo por proyecto (P1–P8)</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git branch</div>
+        <div class="desc">Lista todas las ramas locales. La rama activa tiene un asterisco.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git checkout -b P2-arch</div>
+        <div class="desc">Crea rama nueva y te cambia a ella en un solo comando.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git checkout main</div>
+        <div class="desc">Volver a main (o cualquier otra rama existente).</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-caution">fusiona historial</div>
+        <div class="cmd">git merge P2-arch</div>
+        <div class="desc">Integra la rama P2-arch en la rama donde estás. Correr desde main.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-caution">post-merge</div>
+        <div class="cmd">git branch -d P2-arch</div>
+        <div class="desc">Borra la rama ya fusionada. Git bloquea esto si hay commits sin fusionar.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro</div>
+        <div class="cmd">git show HEAD</div>
+        <div class="desc">Detalle completo del último commit: autor, fecha, diff incluido.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Deshacer — con cuidado</div>
+    <div class="tip"><strong>Regla de oro:</strong> antes del push, puedes reescribir historia libremente. Después del push, necesitas --force-with-lease y hay que saber lo que se hace.</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-safe">seguro — solo quita del stage</div>
+        <div class="cmd">git restore --staged archivo.cs</div>
+        <div class="desc">Saca un archivo del stage sin tocar el contenido del archivo.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-caution">borra cambios del archivo</div>
+        <div class="cmd">git restore archivo.cs</div>
+        <div class="desc">Descarta cambios no stageados en un archivo. Los cambios se pierden.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-caution">solo pre-push</div>
+        <div class="cmd">git reset HEAD~1</div>
+        <div class="desc">Deshace el último commit pero conserva los cambios como unstaged. Buen undo.</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-danger">destructivo</div>
+        <div class="cmd">git reset --hard HEAD~1</div>
+        <div class="desc">Deshace el último commit Y borra los cambios. No hay recuperación fácil.</div>
+      </div>
+    </div>
+    <div class="row single">
+      <div class="cmd-card">
+        <div class="badge b-caution">en medio de rebase/merge</div>
+        <div class="cmd">git rebase --abort  &nbsp;/&nbsp; git merge --abort</div>
+        <div class="desc">Salida de emergencia: cancela el rebase o merge en progreso y vuelve al estado anterior como si nada.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Conflictos — los pasos cuando git se detiene</div>
+    <div class="tip">Git se detiene, te muestra qué archivo tiene conflicto, y espera. No hay urgencia.</div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-info">paso 1</div>
+        <div class="cmd">git status</div>
+        <div class="desc">Ver exactamente qué archivos están en conflicto ("both modified").</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-info">paso 2</div>
+        <div class="cmd">nano archivo-en-conflicto</div>
+        <div class="desc">Abrir el archivo, editar hasta que quede como quieres, borrar los marcadores &lt;&lt;&lt;&lt;&lt; ===== &gt;&gt;&gt;&gt;&gt;.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cmd-card">
+        <div class="badge b-info">paso 3</div>
+        <div class="cmd">git add archivo-en-conflicto</div>
+        <div class="desc">Marcar el conflicto como resuelto. Git lo interpreta como "ya lo arreglé".</div>
+      </div>
+      <div class="cmd-card">
+        <div class="badge b-info">paso 4</div>
+        <div class="cmd">git rebase --continue</div>
+        <div class="desc">Continuar el rebase desde donde se pausó. O git merge --continue si era un merge.</div>
+      </div>
+    </div>
+  </div>
+
+</div>

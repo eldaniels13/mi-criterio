@@ -365,7 +365,7 @@ Solo aceptamos PRs **pequeños y específicos**. No fusiones generales.
 ### 3. Feedback general (sin PR/issue formal)
 
 Si tienes feedback que no es urgente:
-- Email: danielgarciacastro64@gmail.com
+- Email: [ver perfil de GitHub]
 - LinkedIn: mensaje directo
 - Espacio: "Discussions" (si lo activo)
 
