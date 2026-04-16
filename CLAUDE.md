@@ -42,14 +42,16 @@ mi-criterio/
 │   ├── SEGURIDAD_GITIGNORE_CONTRIBUTING.md
 │   ├── SSH_Y_CLAUDE_PROJECTS_EXPLICADO.md
 │   ├── git_daily_workflow_reference.html
-│   ├── claude-code-install.html
-│   └── cierre_sesion_fibonacci.html
+│   └── claude-code-install.html
 └── sesiones/                                    ← session logs and diffs
-    ├── cierre_sesion_2026-04-05.txt
-    ├── cierre_sesion_2026-04-07-4.txt
-    ├── cierre_sesion_2026-04-09.txt
-    ├── cierre_sesion_2026-04-11.txt
-    └── session_diff_2026-03-20.txt
+    ├── FibonacciArchSetup.html
+    ├── 20-03-26_PerfilGitDiff.txt
+    ├── 20-03-26_CVsCanva.md
+    ├── 05-04-26_ArchMftCorrupto.txt
+    ├── 07-04-26_MftRecoveryDecision.txt
+    ├── 09-04-26_FibonacciStackBase.txt
+    ├── 11-04-26_FibonacciStackCompleto.txt
+    └── 15-04-26_SshAgentDiagnosis.md
 ```
 
 ## Git Conventions
