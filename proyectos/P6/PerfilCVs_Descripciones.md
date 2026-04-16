@@ -43,7 +43,7 @@ Mixed-profile developer bridging mechanical engineering and software, specializi
 ## Ingeniería Mecánica General
 
 ### ES
-Ingeniero mecánico egresado del ITESO con experiencia en manufactura industrial, programación CNC, análisis FEA y desarrollo de software. Dominio del ciclo completo de ingeniería: diseño CAD, simulación estructural, fabricación y documentación técnica. Competencias complementarias en automatización (C#, Python) e integración de sistemas mecánicos con software. Perfil orientado al sector energético, manufactura de precisión o industria de procesos.
+Ingeniero mecánico egresado del ITESO con experiencia en manufactura industrial, programación CNC, Análisis de Elemento Finito y desarrollo de software. Dominio del ciclo completo de ingeniería: diseño CAD, simulación estructural, fabricación y documentación técnica. Competencias complementarias en automatización (C#, Python) e integración de sistemas mecánicos con software. Perfil orientado al sector energético, manufactura de precisión o industria de procesos.
 
 ### EN
 Mechanical engineer (ITESO) with experience in industrial manufacturing, CNC programming, FEA analysis, and software development. Proficient across the full engineering cycle: CAD design, structural simulation, fabrication, and technical documentation. Complementary skills in automation (C#, Python) and mechatronic system integration. Career focus: energy sector, precision manufacturing, or process industry roles.

@@ -21,8 +21,6 @@ mi-criterio/
 ├── disclaimer_soberania_datos.txt
 ├── ToDo_global_eldaniels.txt                    ← master task list
 ├── cronograma_intereses.md                      ← [PENDIENTE] timeline of interest evolution
-├── pendiente actualizar CVs.txt
-├── pendiente analizar etfs, acciones, etc.txt
 ├── proyectos/                                   ← one subdirectory per project lens
 │   ├── P1/P1_cnc_manufactura.txt
 │   ├── P2/P2_programacion_desarrollo.txt

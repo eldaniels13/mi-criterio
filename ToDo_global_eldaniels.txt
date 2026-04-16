@@ -148,6 +148,17 @@ DOCUMENTACIÓN PENDIENTE
   [ ] Inventario de programas de posgrado en energía (México, Europa, Australia, etc.) 
   [ ] Inventario de becas con fechas de cierre (CONAHCyT, Fulbright, DAAD, CONACYT-SENER)
   [ ] CV actualizado con enfoque en energías renovables
+     · Contenido pendiente de integrar en Canva:
+       — Programador C# · American Industries / Performance Designs
+           Mayo 2025 a Marzo 2026
+           Desarrollo de software en C# para corte laser de telas para paracaídas.
+           Mantenimiento especializado de servidores de datos industriales.
+       — Operador CNC / Técnico Mecánico · Moldtech S. de R.L.
+           Mayo 2022 a Agosto 2022 / Agosto 2025 a Diciembre 2024
+           Producción en serie plásticos por termoformado, manejo de CNC
+           (cambio herramientas, fixtures, centros, set-up completo),
+           metrología (Vernier, micrómetro, comparador óptico),
+           proyectos de ensamble, soldadura, sujeciones.
   [ ] Statement of purpose — borrador inicial
   [ ] Lista de empresas de energía target para aplicar
   [ ] Actualizar LinkedIn e Indeed con perfil de ingeniería en energía.
@@ -155,7 +166,22 @@ DOCUMENTACIÓN PENDIENTE
 
   FINANZAS
   ─────────────────────────────────────────────────────────────────
-  [ ]  Investigar más estrategias de inversión
+  [ ]  Investigar y decidir estrategia ETFs
+     · LuismiNegocios — candidatos a revisar:
+         ITOT  (mercado total USA)
+         S&P500 (500 más grandes USA)
+         IYW / SOXX (semiconductores — alta volatilidad)
+         EEM   (diversificación mercado global emergente)
+         VIG   (altos dividendos)
+         ETFs bonos / renta fija (pendiente identificar ticker)
+         XBI   (tendencias: IA, energía renovable, etc.)
+     · DeepSeek — ETFs renovables a analizar:
+         INRG  (solar, eólica, hidrógeno, almacenamiento)
+         RENG  (similar iShares, menor gasto)
+         RNRG  (productores energía renovable)
+         WREN  (menor sesgo USA, diversificación global)
+         RNWZ  (parques eólicos, flujos estables contratos LP)
+         RAYS  (específico solar)
 
 
   DECISIONES TOMADAS — NO REABRIR
