@@ -5,6 +5,14 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
+  RANDOM / por organizar
+  ─────────────────────────────────────────────────────────────────
+  [ ] hacer diagrama de red de conexion de PD (FWs, APs, ISP, etc)
+  [ ] expandir roles desepeñados enriquecer expandir
+  [ ] enriquecer experiencias y roles con recursos visuales
+  [x] crear arquitectura de /proyectos/P6/cv
+  
+  
   LINUX / ARCH — VM fibonacci
   ─────────────────────────────────────────────────────────────────
   [x]  Arch Linux instalado y arrancando en VirtualBox
@@ -120,7 +128,7 @@
   [ ] Crear mi-criterio/.claude/commands/p1-cad.md
   [ ] Crear mi-criterio/.claude/commands/p2-code.md
   [ ] Crear mi-criterio/.claude/commands/p3-energy.md
-  [ ] Crear mi-criterio/.claude/commands/p6-future.md
+  [~] Crear mi-criterio/.claude/commands/p6-future.md
   [ ] Prueba: `claude /status` en mi-criterio y verificar CLAUDE.md's
   [ ] Prueba: `/p1-cad` carga contexto P1 correctamente
   [ ] Registrar P1-P8 proyectos bajo git (git init en cada uno)
