@@ -153,9 +153,14 @@ DOCUMENTACIÓN PENDIENTE
   [ ]  Migrar docs de OneDrive a Keeper
   [ ]  Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
   [x]  Generar contraseña VeraCrypt y almacenar en keeper
-  [ ] Inventario de programas de posgrado en energía (México, Europa, Australia, etc.) 
+  [ ] Inventario de programas de posgrado en energía (México, Europa, Australia, etc.)
   [ ] Inventario de becas con fechas de cierre (CONAHCyT, Fulbright, DAAD, CONACYT-SENER)
-  [ ] CV actualizado con enfoque en energías renovables
+  [~] CV actualizado con enfoque en energías renovables
+     · Arquitectura /P6/cv creada ✓
+     · Templates IT y Software tracks creados ✓
+     · roles/role_mexico_performance_designs.md — completo ✓
+     · skills_master.md, education_master.md — completos ✓
+     · PerfilCVs_Descripciones.md — 4 perfiles bilingüe ✓
      · Contenido pendiente de integrar en Canva:
        — Programador C# · American Industries / Performance Designs
            Mayo 2025 a Marzo 2026
@@ -168,8 +173,23 @@ DOCUMENTACIÓN PENDIENTE
            metrología (Vernier, micrómetro, comparador óptico),
            proyectos de ensamble, soldadura, sujeciones.
   [ ] Statement of purpose — borrador inicial
-  [ ] Lista de empresas de energía target para aplicar
   [ ] Actualizar LinkedIn e Indeed con perfil de ingeniería en energía.
+
+  P6 BÚSQUEDA DE EMPLEO — EMPRESAS TARGET
+  ─────────────────────────────────────────────────────────────────
+  [x]  Crear directorio /P6/cv/companies/
+  [x]  Continental — perfil + carta de presentación redactados (REF95136I, San Luis Potosí)
+       · cover letter con lente solarpunk ✓
+       · perfil profesional enhanced ✓
+       · pendiente: subir a portal Continental y aplicar
+  [~]  Siemens Energy — perfil general en redacción (sin vacante específica)
+       · siemens_energy_profile.md en progreso
+       · título confirmado: "Mechanical Engineer — Sustainable Energy Systems"
+       · pendiente: completar secciones valores, skills, adjunto
+       · pendiente: investigar portal jobs.siemens-energy.com
+  [ ]  Ørsted — pendiente (objetivo explícito en SECTOR_OBJETIVO)
+  [ ]  Iberdrola — pendiente
+  [ ]  Empresas energía MX — pendiente (listado por definir)
 
 
   FINANZAS

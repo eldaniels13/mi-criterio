@@ -25,12 +25,26 @@ mi-criterio/proyectos/P6
     │   ├── role_mexico_performance_designs.md   ← master role files (one per job)
     │   ├── role_[company]_[year].md
     │   └── ...
+    ├── templates/
+    │   ├── cv_infrastructure_template.md        ← tailored CV: infrastructure track
+    │   ├── cv_software_template.md              ← tailored CV: software dev track
+    │   └── cv_hybrid_template.md               ← tailored CV: hybrid/manufacturing
+    ├── companies/
+    │   ├── _research_template.md               ← reusable research methodology (v1.0)
+    │   ├── [company]_profile.md                ← one file per company: research + profile
+    │   ├── continental_energy_efficiency_engineer.md  ← done (REF95136I)
+    │   ├── siemens_energy_profile.md           ← in progress (research Part 1 + profile Part 2)
+    │   └── bosch_profile.md                    ← empty (research Part 1 + profile Part 2)
     ├── skills_master.md                         ← global skills inventory
     ├── education_master.md                      ← education and certifications
-    ├── cv_infrastructure_template.md            ← tailored CV: infrastructure track
-    ├── cv_software_template.md                  ← tailored CV: software dev track
-    ├── cv_hybrid_template.md                    ← tailored CV: hybrid/manufacturing
+    ├── PerfilCVs_Descripciones.md              ← 4 bilingual profile summaries (ATS-ready)
     └── methodology.md                           ← this file
+
+**Workflow per new company:**
+1. Copy `_research_template.md` → `[company]_research.md` — fill via browser session
+2. Copy profile template → `[company]_profile.md` — fill via voice session
+3. Pick the right CV template from `templates/` — tailor for the vacancy
+4. Export PDF → upload to company portal
 ```
 
 ---
