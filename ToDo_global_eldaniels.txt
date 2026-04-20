@@ -8,7 +8,7 @@
   RANDOM / por organizar
   ─────────────────────────────────────────────────────────────────
   [ ] hacer diagrama de red de conexion de PD (FWs, APs, ISP, etc)
-  [ ] expandir roles desepeñados enriquecer expandir
+  [~] expandir roles desempeñados — EncoreTools v1.0 ✅, 4 skeletons creados, pendiente voice extraction (TDI > MoldTech > PEP > Automotive)
   [ ] enriquecer experiencias y roles con recursos visuales
   [x] crear arquitectura de /proyectos/P6/cv
   
@@ -157,6 +157,13 @@ DOCUMENTACIÓN PENDIENTE
   [ ] Inventario de becas con fechas de cierre (CONAHCyT, Fulbright, DAAD, CONACYT-SENER)
   [~] CV actualizado con enfoque en energías renovables
      · Arquitectura /P6/cv creada ✓
+     · roles/role_encoretools_cnc_programmer.md — completo v1.0 ✅
+     · roles/role_tdi_biomedical.md — skeleton v0.3 (HIGH PRIORITY voice session)
+     · roles/role_moldtech_thermoforming.md — skeleton v0.3 (voice session needed)
+     · roles/role_pep_iteso_ngo.md — skeleton v0.2 (voice + document retrieval)
+     · roles/role_mechanical_automotive_2021.md — minimal v0.1 (short voice session)
+     · roles/INDEX.md — tracker creado ✓
+     · Todos los skeletons estandarizados al formato EncoreTools v1.0 ✓
      · Templates IT y Software tracks creados ✓
      · roles/role_mexico_performance_designs.md — completo ✓
      · skills_master.md, education_master.md — completos ✓
