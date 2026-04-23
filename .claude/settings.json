@@ -1,21 +1,28 @@
 {
-  "projectName": "mi-criterio",
-  "projectDescription": "Personal knowledge architecture — context repository for eldaniels",
-  "defaultModel": "claude-sonnet-4-6",
-  "fastMode": false,
-  "allowedPermissions": [
-    "read",
-    "write",
-    "bash:safe",
-    "claude-mem:*"
-  ],
-  "claudeMem": {
-    "enabled": true,
-    "autoSaveObservations": true,
-    "memoryPath": "/home/eldaniels/.claude/projects/-home-eldaniels-Codes-mi-criterio/memory/"
-  },
-  "hooks": {
-    "onSessionStart": [],
-    "onToolUse": []
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "default",
+  "permissions": {
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.config/keeper/**)",
+      "Read(/run/media/veracrypt*/**)",
+      "Read(**/*.vc)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Bash(cat ~/.ssh/*)",
+      "Bash(cat ~/.gnupg/*)",
+      "Bash(ssh-keygen*)",
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | sh)",
+      "Bash(sudo*)"
+    ],
+    "ask": [
+      "Bash(rm -rf*)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)"
+    ]
   }
 }
