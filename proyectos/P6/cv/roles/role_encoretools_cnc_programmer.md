@@ -11,7 +11,7 @@
 - **Title (official):** Programador CNC
 - **Title (ATS-ready):** CNC Programmer & Operator (Full Lifecycle)
 - **Worker name (per letter):** José Daniel García Castro
-- **Company:** EncoreTools — *Repair Prototyping Manufacturing*
+- **Company:** EncoreTools — *Rapid Prototyping Manufacturing*
 - **Location:** Zapopan, Jalisco, México (area of Mariano Otero & Periférico)
 - **Dates:** Mid-February 2025 → May 2025 (~3 months)
 - **Employment type:** Formal full-time, 48 hrs/week (08:00–18:00 with 1 hr lunch)
