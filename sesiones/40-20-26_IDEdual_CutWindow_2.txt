@@ -1,0 +1,334 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CIERRE DE SESIÓN — eldaniels · 2026-04-20
+  Sesión: Modernización VSCodium post-VS Pro — estrategia IDE dual
+           Rider (C#) + VSCodium (Python/scripts) + stack IA local
+           Contexto arquitectural CutWindow_2 preparado
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESTADO DEL SISTEMA AL CERRAR
+──────────────────────────────────────────────────────────────────────
+
+  fibonacci (Arch Linux + COSMIC):
+    Stack dev ya operativo desde sesión 2026-04-09
+    Neovim 0.12.1 + LazyVim, zsh + starship, Claude Code CLI,
+    Git, Docker, Python, .NET 8, Node vía nvm
+
+  VSCodium:
+    Extensiones instaladas en esta sesión:
+    ✓ ms-python.python          (soporte Python core — disponible Open VSX)
+    ✓ usernamehw.errorlens      (errores inline)
+    ✓ eamodio.gitlens           (git integración visual)
+    ✓ muhammad-sammy.csharp     (OmniSharp + debugger MIT de Samsung)
+    ✓ ms-toolsai.jupyter        (notebooks)
+    ✓ charliermarsh.ruff        (linter + formatter Python)
+
+    Pendiente de verificar con:
+      codium --list-extensions --show-versions
+
+  JetBrains Rider:
+    ⟳ Descargando (yay -Syu rider, ~1.5GB)
+    Warnings PGP normales — PKGBUILD usa SHA256 para integridad
+
+  Ollama (daemon local systemd user):
+    Modelos disponibles:
+    ✓ qwen2.5-coder:7b       (chat técnico)
+    ✓ deepseek-coder:6.7b    (chat razonamiento)
+    ✓ qwen2.5-coder:1.5b     (autocomplete FIM, pulled esta sesión)
+    ✓ nomic-embed-text       (embeddings @codebase, pulled esta sesión)
+
+  CutWindow_2:
+    Ubicación: ~/Codes/CutWindow_2 + backup en Kingston NV3 (backup_critico.vc)
+    Última sesión activa: 2026-03-12 en VS Pro / Win11
+    Estructura: solución mixta con múltiples proyectos
+    Archivo contexto creado: CutWindow_2_contexto.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LO QUE SE LOGRÓ HOY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DECISIÓN ESTRATÉGICA — IDE DUAL (Camino B):
+  ✓ Diagnosticado: VSCodium ≠ VS Code. Open VSX vs Microsoft Marketplace.
+    Extensiones MS bloqueadas por licencia (C# Dev Kit, Pylance, Remote-*, Live Share)
+  ✓ Identificado: VSCodium + C# comunitario = downgrade real vs VS Pro para proyecto productivo
+  ✓ Evaluados 3 caminos: VSCodium puro / VSCodium+Rider / VS Code oficial
+  ✓ Elegido: Camino B (VSCodium para general + Rider para C# productivo)
+  ✓ Criterio BBB aplicado: Rider no-comercial gratis, Ollama local ya instalado,
+    Claude Code ya instalado → inversión $0
+
+  ANÁLISIS SOBERANÍA — PRAGMATISMO:
+  ✓ Separada soberanía en componentes: código fuente auditable, telemetría,
+    funcionamiento offline, vendor lock-in, verificación de licencia
+  ✓ Reglanteado principio: no "100% abierto" sino "reversibilidad real si
+    el vendor desaparece mañana"
+  ✓ Rider aceptado: binario cerrado pero ofensivamente honesto (vs hipocresía
+    Code-OSS/VS Code). Funciona offline. Código nunca sale. Revalidación c/30d
+    envía metadata de licencia, no código
+
+  VSCodium OPERATIVO:
+  ✓ 6 extensiones base instaladas
+  ✓ Estrategia de IA integrada definida: Continue.dev + Ollama local + Claude Code
+
+  OLLAMA AMPLIADO:
+  ✓ Diagnóstico hardware: i7-8665U sin GPU discreta → modelos 7B lentos para autocomplete
+  ✓ División de roles por tamaño: 1.5B para autocomplete (200-500ms) / 7B para chat
+  ✓ qwen2.5-coder:1.5b pulled (autocomplete FIM rápido)
+  ✓ nomic-embed-text pulled (embeddings para @codebase semántico)
+  ✓ Arquitectura de sovereignty real documentada: daemon :11434 local,
+    modelos GGUF en ~/.ollama/models/, corre offline comprobable con
+    `nmcli radio wifi off && ollama run ...`
+
+  CUTWINDOW_2 PREPARADO:
+  ✓ Archivo CutWindow_2_contexto.md creado con:
+    · Ubicación y última fecha de trabajo
+    · Stack IA disponible para el proyecto
+    · Comandos de inspección pre-apertura
+    · Tabla de compatibilidad Windows → Linux por tipo de proyecto
+    · Refactor propuesto: Core (net8.0) / AutoCAD (net48) / CLI nueva / Tests
+    · Secuencia sugerida para la primera sesión dedicada
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISIONES TOMADAS — NO REABRIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [x] IDE principal para C# productivo: JetBrains Rider (no-comercial)
+      → Razón: mejor tooling .NET en Linux, refactors avanzados, profiler,
+        test runner visual, NuGet UI, hot reload WPF/WinForms
+      → VSCodium + OmniSharp comunitario NO es suficiente para proyecto
+        productivo con algoritmos geométricos que requieren profiling
+
+  [x] IDE secundario (Python, scripts, docs, portfolio): VSCodium
+      → Soberanía donde importa, productividad donde importa
+
+  [x] NO usar VS Code oficial de Microsoft
+      → Telemetría por default + choque con línea editorial open-source
+        cuando VSCodium cubre 95% del caso
+
+  [x] Soberanía pragmática > pureza ideológica
+      → Criterio: reversibilidad (puedo cambiar si vendor desaparece),
+        no auditabilidad absoluta del binario
+
+  [x] Ollama local = default de IA para código del día a día
+      Claude Code = opt-in consciente para tareas grandes donde calidad
+      del modelo > privacidad del snippet
+
+  [x] División de modelos Ollama por rol:
+      autocomplete → qwen2.5-coder:1.5b (pequeño, rápido, FIM)
+      chat general → qwen2.5-coder:7b
+      chat razonamiento → deepseek-coder:6.7b
+      embeddings → nomic-embed-text
+
+  [x] Arquitectura CutWindow_2: separación Core/AutoCAD/CLI/Tests
+      (pendiente ejecutar en sesión dedicada)
+
+  [x] Telemetría Rider: desactivar siempre al primer arranque
+      Settings → Appearance & Behavior → System Settings → Data Sharing
+      AI Assistant integrado: DESACTIVAR (usar Ollama/Claude Code externo)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONCEPTOS APRENDIDOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  · Code-OSS — el código fuente MIT de VS Code que Microsoft publica.
+    VSCodium compila binarios directamente de ahí sin los componentes
+    propietarios. VS Code (binario de microsoft.com) incluye piezas
+    cerradas: C# Dev Kit, Remote-*, Live Share, client del marketplace.
+
+  · Open VSX Registry — marketplace alternativo mantenido por Eclipse
+    Foundation. Vendor-neutral. Usado por VSCodium, Theia, Eclipse Che,
+    Gitpod, Coder. Los términos de uso del Microsoft Marketplace
+    prohíben a editores no-Microsoft jalar extensiones de ahí — no es
+    técnico, es legal.
+
+  · Extensiones MS bloqueadas en Open VSX por licencia: ms-dotnettools.csharp,
+    C# Dev Kit, ms-python.pylance, Remote-SSH, Remote-Containers, Live Share.
+    Alternativas comunitarias: muhammad-sammy.csharp (OmniSharp + debugger
+    MIT de Samsung), ms-pyright.pyright (motor abierto de Pylance).
+
+  · FIM — Fill-in-the-Middle. Formato especial de prompt donde el modelo
+    recibe contexto antes Y después del cursor. Los modelos "coder" pequeños
+    (1.5B-3B) entrenados para FIM hacen autocomplete usable en CPU sin
+    necesidad de 7B+. Separa autocomplete (pequeño, rápido) de chat
+    (grande, inteligente).
+
+  · Embeddings — vectores numéricos que representan significado semántico
+    de texto/código. Continue usa embeddings para @codebase: cuando
+    preguntas "dónde está la función de rotación", no hace grep textual,
+    busca por similitud semántica. nomic-embed-text es el modelo para eso.
+
+  · Continue.dev config — cambió de config.json (legacy) a config.yaml
+    (schema v1) en 2025. La nueva sintaxis permite roles por modelo:
+    chat, autocomplete, edit, apply, embed.
+
+  · Licencia no-comercial JetBrains — disponible desde oct 2024.
+    Activación gratuita con cuenta JetBrains, revalidación cada 30 días
+    (envía email + fingerprint + versión, no código). Funciona offline
+    entre revalidaciones.
+
+  · Arquitectura Ollama — daemon HTTP en localhost:11434. Modelos cuantizados
+    (GGUF) en ~/.ollama/models/. Carga a RAM on-demand. Inferencia en CPU
+    (sin GPU aceleración práctica para Intel UHD). Verifica soberanía real:
+    `nmcli radio wifi off && ollama run modelo "prompt"` → funciona.
+
+  · Soberanía de datos — framework de 4 componentes:
+    1. Código fuente auditable del editor
+    2. Telemetría y dónde va
+    3. Dónde corre la inferencia (local vs cloud)
+    4. Lock-in del formato/vendor
+    La soberanía pragmática prioriza #3 y reversibilidad sobre #1 absoluto.
+
+  · Continue dev_data — ~/.continue/dev_data/ guarda localmente prompts
+    y completions aceptados. No sube a ningún servidor (si Continue
+    telemetry está off), pero queda en disco. Relevante para modelo
+    de amenaza si laptop compartida o en reparación.
+
+  · Proyectos .NET compatibilidad Linux:
+    · net8.0 / netstandard2.0 class library → ✓ compila
+    · net8.0 + xUnit/NUnit tests → ✓ compila
+    · net48 (.NET Framework) → ✗ no compila
+    · net8.0-windows + WPF/WinForms → ✗ requiere Windows Desktop Runtime
+    · AutoCAD plugin (ObjectARX/Managed) → ✗ SDK Windows-only
+    Rider marca con ícono tachado los proyectos que no cargan.
+
+  · Separación Core vs Adapters — patrón de arquitectura limpia.
+    El Core contiene lógica de dominio pura (algoritmos, modelos),
+    sin dependencias de plataforma. Los adapters son las piezas que
+    hablan con sistemas externos (AutoCAD, WPF, CLI, webapp, DB).
+    Permite que el Core compile y se pruebe en cualquier lado, y que
+    los adapters se cambien sin tocar lógica.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HERRAMIENTAS PROBADAS / COMANDOS CLAVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  VSCodium:
+    codium --list-extensions --show-versions   listar extensiones instaladas
+    Ctrl+Shift+X                               panel de extensiones
+
+  Ollama:
+    ollama list                                modelos descargados
+    ollama pull qwen2.5-coder:1.5b             descargar autocomplete model
+    ollama pull nomic-embed-text               descargar embeddings model
+    curl http://localhost:11434/api/tags       verificar endpoint HTTP
+    systemctl --user enable --now ollama       daemon persistente
+    nmcli radio wifi off && ollama run ...     test soberanía offline
+
+  yay / AUR:
+    yay -Syu rider                             instalar Rider desde AUR
+    yay -Gp rider | less                       inspeccionar PKGBUILD
+      → buscar sha256sums=(...) — si hay hashes reales (no SKIP),
+        la integridad está verificada aunque PGP se skip
+
+  CutWindow_2 inspección (pendiente ejecutar):
+    cd ~/Codes/CutWindow_2
+    find . -name "*.csproj" -o -name "*.sln"
+    grep -r "TargetFramework" --include="*.csproj" .
+    grep -r "PackageReference\|Reference Include" --include="*.csproj" .
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TODO — ORDENADO POR PRIORIDAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  INMEDIATO (próxima sesión, 30 min):
+  [ ] Verificar extensiones VSCodium con `codium --list-extensions --show-versions`
+  [ ] Verificar Rider instalado: `which rider && rider --version`
+  [ ] Rider primer arranque:
+      → activar licencia no-comercial (cuenta JetBrains)
+      → desactivar telemetría completa
+      → desactivar AI Assistant integrado
+      → configurar tema y fuente (JetBrains Mono Nerd ya disponible)
+  [ ] Instalar Continue.dev desde Open VSX en VSCodium
+  [ ] Instalar Claude Code extension en VSCodium
+      (ejecutar `claude` en terminal integrado, auto-instala la extensión)
+  [ ] Crear ~/.continue/config.yaml con los 4 modelos y roles
+      (Claude entregará config completo en la próxima sesión)
+
+  SESIÓN CutWindow_2 DEDICADA:
+  [ ] Correr comandos de inspección del proyecto
+  [ ] Abrir solución en Rider, dejar indexar
+  [ ] Build Solution, leer errores por proyecto
+  [ ] Identificar qué proyectos cargan en Linux, cuáles no
+  [ ] Diseñar refactor concreto Core/AutoCAD/CLI/Tests
+  [ ] Implementar primer paso del refactor
+  [ ] Agregar tests xUnit al Core conforme se extrae
+
+  ARRASTRADO (prioridad alta):
+  [ ] Desmontar Z:\ VeraCrypt antes de desconectar Kingston NV3 (recordatorio vivo)
+  [ ] P6 — estructurar tareas reales de graduate programs + energy sector jobs
+      (urgente persistente, sin tareas estructuradas documentadas)
+  [ ] SSH agent persistence fibonacci — systemd user service
+  [ ] Windows MFT recovery — Rufus + Repair Install en PC prestada
+
+  ARRASTRADO (prioridad media):
+  [ ] Mover archivos sensibles de OneDrive a Keeper
+  [ ] Acomodar CVs en Canva
+  [ ] Actualizar perfiles Indeed, LinkedIn, OCC, CompuTrabajo
+  [ ] Push proyectos PerformanceDesigns a GitHub (eldaniels13)
+      CutWindow_2, DeepNestSharp, NestingTesting, O2BToDxfConverter
+  [ ] Inicializar repo mi-criterio/ privado en GitHub
+  [ ] Migrar correo principal a Proton Mail
+
+  FUTURO:
+  [ ] Script expulsión Kingston NV3 con atajo de teclado
+  [ ] Atajos de teclado COSMIC + wallpaper personalizado
+  [ ] P8 Fase 2: HDD_A 2TB + LUKS
+  [ ] VPN (Mullvad o ProtonVPN)
+  [ ] IPv6 per-profile NetworkManager (cuando cambie ISP)
+  [ ] project-nomad de Crosstalk-Solutions (deferido)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARCHIVOS GENERADOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CutWindow_2_contexto.md           → contexto para sesión dedicada
+  cierre_sesion_2026-04-20.txt      → este archivo
+
+  Memoria actualizada — 3 entradas nuevas:
+    · IDE strategy fibonacci: Rider (C# productivo) + VSCodium (Python/scripts)
+    · Ollama models fibonacci: stack completo de 4 modelos con roles
+    · CutWindow_2 arquitectura refactor: Core/AutoCAD/CLI/Tests
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PUNTOS CIEGOS DETECTADOS EN ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [!] Soberanía absolutista sin benchmark de costo real
+      → Rechazar Rider por principio sin evaluar el tax diario de
+        VSCodium + OmniSharp para proyecto productivo habría sido
+        decisión ideológica, no pragmática. Cumple patrón conocido
+        (subestima análisis de costo).
+      → Corrección: evaluaste trade-off, no cerraste puerta incondicional.
+
+  [!] Diseñar sistema antes de validar factibilidad (patrón activo)
+      → Refactor arquitectural CutWindow_2 (Core/AutoCAD/CLI/Tests)
+        es plan razonable, PERO no se validó aún si los algoritmos
+        actuales están realmente acoplados al AutoCAD SDK o si el
+        Core ya está mayormente limpio. La inspección concreta
+        (grep, análisis de usings) debe preceder la decisión de
+        refactor grande.
+      → Acción próxima sesión: inspeccionar ANTES de refactorizar.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTA DE CIERRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Esta sesión cerró la pregunta de IDE que había quedado abierta desde
+  la migración a fibonacci. No era una pregunta trivial — venías de
+  Visual Studio Pro que es de clase otra, y bajar a VSCodium sin más
+  habría sido una regresión silenciosa en productividad para el
+  nesting engine.
+
+  La decisión final no es VSCodium ni Rider aislados, sino un
+  sistema dual con roles claros: cada herramienta en su dominio
+  específico, con Ollama local como capa de IA transversal que
+  respeta la soberanía donde más importa (el código nunca sale).
+
+  El archivo CutWindow_2_contexto.md convierte toda la deuda técnica
+  acumulada desde el 12 de marzo en un plan concreto de ataque para
+  la próxima sesión dedicada. El proyecto no está perdido. Está
+  pausado y ahora con dirección clara.
+
+  Lo único que falta antes de empezar CutWindow_2 es 30 minutos de
+  setup final de Continue.dev + Claude Code en VSCodium y el primer
+  arranque limpio de Rider.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
