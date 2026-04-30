@@ -42,14 +42,20 @@ mi-criterio/
 │   ├── git_daily_workflow_reference.html
 │   └── claude-code-install.html
 └── sesiones/                                    ← session logs and diffs
-    ├── FibonacciArchSetup.html
+    ├── 12-03-26_CutWindow_2_contexto.md
     ├── 20-03-26_PerfilGitDiff.txt
     ├── 20-03-26_CVsCanva.md
     ├── 05-04-26_ArchMftCorrupto.txt
     ├── 07-04-26_MftRecoveryDecision.txt
     ├── 09-04-26_FibonacciStackBase.txt
     ├── 11-04-26_FibonacciStackCompleto.txt
-    └── 15-04-26_SshAgentDiagnosis.md
+    ├── 14-04-26_FibonacciArchSetup.html
+    ├── 15-04-26_SshAgentDiagnosis.md
+    ├── 20-04-26_IDEdual_CutWindow_2.txt
+    ├── 23-04-26_Seguridad_Settings.txt
+    ├── 23-04-26_cierre_sesion.txt
+    ├── 23-04-26_session_compact.md
+    └── 27-04-26_K2SystemsProfile.md
 ```
 
 ## Git Conventions

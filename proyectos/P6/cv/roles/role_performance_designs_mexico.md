@@ -18,8 +18,8 @@ I was the sole IT and software developer for the Mexico operations of a US-based
 - I self-taught C# .NET from near-zero, using Visual Studio 2022 Professional as my primary IDE
 - I was responsible for the development of both the front and back end for an open-source nesting engine, and I integrated it with an AutoCAD plugin (netload) to optimise fabric and material cutting layouts used in the manufacturing of parachutes using laser tables.
 - My development workflow involved several key stages. Firstly, I received high-level requirements from the Florida team via Microsoft Teams. I then undertook self-directed learning through official documentation and video resources. I also used AI-assisted pattern learning and debugging, and iterative development with progressive code cleanup using VS as the main IDE.
-- During my time there, I achieved the functional integration of the plugin within AutoCAD and as standalone app; however, the nesting engine was still under active development when I left, as well as full integration with SQL servers.
-- I maintained the codebase with README files and inline documentation; the source code is retained locally on USB storage
+- During my time there, I achieved the functional integration of the plugin within AutoCAD and as standalone app, however, the nesting engine was still under active development when I left, as well as full integration with SQL servers.
+- I maintained the codebase with README files and inline documentation. The source code is retained locally on USB storage
 
 ### ERP Migration — M2M to Epicor
 - I received especial training on Epicor as the company migrated its ERP system from Made2Manage (M2M)
@@ -35,7 +35,7 @@ I was the sole IT and software developer for the Mexico operations of a US-based
 ### Network Migration — CAT5e to CAT6
 - I managed the full CAT5e to CAT6 cabling upgrade across both buildings of the Mexico plant, working alongside third-party contractors
 - While the migration phase, the internet was sometimes down for a few hours a week. This was because the system was unstable while it was being updated.
-- Once the migration was finished, outages dropped to near-zero; the only remaining failure mode was full external power loss, but compensaded with a self disgn UPS sytem for both sites.
+- Once the migration was finished, outages dropped to near-zero. The only remaining failure mode was full external power loss, but compensaded with a self disgn UPS sytem for both sites.
 
 ### Internet Continuity — Starlink + UPS Backup System
 - I identified the need for a redundant Internet connection independent of the primary ISP

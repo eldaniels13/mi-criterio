@@ -24,10 +24,10 @@ mi-criterio/proyectos/P6
     ├── roles/
     │   ├── INDEX.md                            ← role tracker, priority, session log
     │   ├── role_encoretools_cnc_programmer.md  ← ✅ v1.0 COMPLETE
-    │   ├── role_mexico_performance_designs.md  ← ✅ v1.0 COMPLETE
-    │   ├── role_tdi_biomedical.md              ← v0.3 skeleton (HIGH PRIORITY)
+    │   ├── role_performance_designs_mexico.md  ← ✅ v1.0 COMPLETE
+    │   ├── role_tdi_biomedical.md              ← ✅ v1.0 COMPLETE
     │   ├── role_moldtech_thermoforming.md      ← v0.3 skeleton
-    │   ├── role_pep_iteso_ngo.md               ← v0.2 skeleton
+    │   ├── role_pap_iteso_entreamigos.md       ← ✅ v1.0 COMPLETE
     │   ├── role_mechanical_automotive_2021.md  ← v0.1 minimal
     │   └── voice_extraction_cnc_manufacturing.md ← archived template
     ├── templates/
@@ -163,9 +163,9 @@ Before finalizing any CV version, do a quick verbal run-through of each bullet. 
 ## Remaining Roles to Document
 
 - [x] EncoreTools — CNC Programmer (Feb–May 2025) → `role_encoretools_cnc_programmer.md` v1.0 ✅
-- [ ] TDI Biomedical — CNC Operator (May–Aug 2023) → `role_tdi_biomedical.md` v0.3 skeleton — **HIGH PRIORITY**
+- [x] TDI Biomedical — CNC Operator (May–Aug 2023) → `role_tdi_biomedical.md` v1.0 COMPLETE ✅
 - [ ] MoldTech — Thermoforming Mold Manufacturing (summers 2022 + 2024) → `role_moldtech_thermoforming.md` v0.3 skeleton
-- [ ] PEP / NGO San Pancho — CNC Repair (Dec 2024 – Jan 2025) → `role_pep_iteso_ngo.md` v0.2 skeleton
+- [x] PAP / Entreamigos — Reparación CNC + fab. (Dic 2024 – Ene 2025) → `role_pap_iteso_entreamigos.md` v1.0 COMPLETE ✅
 - [ ] Mechanical/Automotive 2021 — first job → `role_mechanical_automotive_2021.md` v0.1 minimal
 - [ ] Independent projects (if relevant)
 
@@ -175,8 +175,8 @@ Before finalizing any CV version, do a quick verbal run-through of each bullet. 
 
 | Date | Session | Output |
 |---|---|---|
-| April 2026 | Mexico role extraction (voice interview) | `role_mexico_performance_designs.md` v1.0 |
-| April 19, 2026 | CNC roles voice extraction (~90 min) | `role_encoretools_cnc_programmer.md` v1.0 + 4 skeletons (TDI, MoldTech, PEP, Automotive) |
+| April 2026 | Mexico role extraction (voice interview) | `role_performance_designs_mexico.md` v1.0 |
+| April 19, 2026 | CNC roles voice extraction (~90 min) | `role_encoretools_cnc_programmer.md` v1.0 + skeletons (MoldTech, Automotive) + TDI v1.0 + PAP v1.0 ✅ |
 | April 19, 2026 | Format standardization pass | All skeleton files aligned to EncoreTools canonical section order |
 
 ---

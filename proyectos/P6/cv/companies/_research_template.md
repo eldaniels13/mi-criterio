@@ -15,15 +15,15 @@ Before writing a values-driven application for any company, verify:
 
 ---
 
-## Block 1: Mexico Presence
+## Block 1: Mexico & LATAM Presence
 
 | Item | Finding | Source |
 |---|---|---|
-| HQ in Mexico | | |
-| Operations / plants | | |
+| HQ in Mexico / LATAM | | |
+| Operations / plants / offices | | |
 | Cities | | |
 | # employees MX | | |
-| Expansion plans | | |
+| Expansion plans (LATAM) | | |
 
 **Summary:**
 _______________________________________________
@@ -63,14 +63,16 @@ _______________________________________________
 
 ## Block 4: Labour Practices
 
-| Question | Finding |
-|---|---|
-| Standard workweek (MX) | |
-| ILO conventions alignment | |
-| Union presence in Mexico | |
-| Glassdoor / Indeed rating MX | |
-| Known labour disputes | |
-| Benefits vs. market standard | |
+| Question | Publicly Available | Presumed / Inferred |
+|---|---|---|
+| Standard workweek (MX) | | |
+| ILO conventions alignment | | |
+| Union presence in Mexico | | |
+| Glassdoor / Indeed rating MX | | |
+| Known labour disputes | | |
+| Benefits vs. market standard | | |
+
+**Note:** For small (<100 employees) or privately held companies, most labour data won't exist publicly — use the "Presumed" column for reasoned inference (e.g., EcoVadis certification implies compliance; small office is unlikely to be unionised).
 
 **Red flags?**
 _______________________________________________
@@ -124,6 +126,7 @@ Answer each with: Aligned / Partial / Misaligned / Unknown
 ## Block 8: Signals & Verdict
 
 **Overall signal:** 🟢 Green / 🟡 Yellow / 🔴 Red
+**Confidence level:** High / Medium / Low *(High = large public company with abundant data; Low = small/private with significant gaps)*
 
 **Why I would apply:**
 _______________________________________________
@@ -138,5 +141,9 @@ _______________________________________________
 
 ---
 
-*_research_template.md — methodology v1.0 — April 2026*
+**Citation note:** Per-finding sources are preferred, but grouped citations per paragraph are acceptable when findings come from a single research session or source cluster.
+
+---
+
+*_research_template.md — methodology v1.1 — April 2026 (updated after K2 Systems session)*
 *Use this template for every new target company in P6/cv/companies/*

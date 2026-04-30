@@ -1,5 +1,5 @@
 # Education & Certifications — Master Record
-**Status:** v1.0 — initial structure
+**Status:** v1.1 — education dates corrected (Apr 2026)
 **Expansion status:** Open for additions
 
 ---
@@ -12,9 +12,9 @@ Centralized record of formal education, certifications, and structured training.
 
 ## Formal Education
 
-### Mechanical Engineering — ITESO (Zapopan, Jalisco, Mexico)
-**Period:** ~2020 – April 2024
-**Status:** Completed (last semester with academic load: April 2024)
+### Ingeniería Mecánica — ITESO Universidad Jesuita de Guadalajara (Zapopan, Jalisco, México)
+**Período:** 2020 – Dic. 2024
+**Estado:** Egresado Dic. 2024 (último semestre con carga académica plena: Otoño 2024)
 
 **Key coursework areas:**
 - Thermodynamics and heat transfer
@@ -25,8 +25,21 @@ Centralized record of formal education, certifications, and structured training.
 - Manufacturing processes
 - MATLAB (intermediate-advanced: ODEs, GUIs, data visualization)
 
-<!-- EXPANSION SLOT: Add thesis/capstone project details if applicable -->
-<!-- EXPANSION SLOT: Add specific professors or lab experiences worth mentioning -->
+<!-- EXPANSION SLOT: Agregar proyecto de tesis/capstone si aplica -->
+<!-- EXPANSION SLOT: Agregar profesores o experiencias de laboratorio relevantes -->
+
+---
+
+### Bachillerato — Colegio Guadalajara (Guadalajara, Jalisco, México)
+**Período:** 2018 – 2020
+**Estado:** Completado
+
+---
+
+### Educación Secundaria Obligatoria (ESO) — Colegio Claret de Madrid (Madrid, España)
+**Período:** 12 Ene. 2015 – 19 Jul. 2018
+**Estado:** Completado
+**Nota:** Residencia completa en España durante este período — activo en contexto de visas y becas europeas (NIE, posible padrón recuperable).
 
 ---
 
@@ -63,13 +76,16 @@ Centralized record of formal education, certifications, and structured training.
 
 ## ISO & Standards Knowledge
 
-| Standard | Level |
+| Norma | Nivel |
 |---|---|
-| ISO 9001:2015 | Conceptual knowledge (academic) |
+| ISO 9001:2015 | Conocimiento conceptual (académico) |
+| ISO 13485 | Exposición operativa — TDI Biomedical (dispositivos médicos, pendiente documentar) |
+| ISO 2768 | Aplicado en planos de fabricación — EncoreTools |
+| NOM (dispositivos médicos) | Exposición operativa — TDI Biomedical (pendiente documentar) |
 
-<!-- EXPANSION SLOT: Add any other standards exposure -->
+<!-- EXPANSION SLOT: Agregar exposición a otras normas -->
 
 ---
 
-*education_master.md — v1.0 — April 2026*
+*education_master.md — v1.1 — Abr. 2026*
 *Populated from: perfil_maestro_eldaniels_v2.txt*

@@ -11,7 +11,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Nombre           eldaniels
   Perfil           Ingeniero mecánico (ITESO, Zapopan, México)
-  Egreso           ~2024 (último semestre con carga académica: abr 2024)
+  Egreso           ~2024 (último semestre con carga académica: dic 2024)
   Situación actual En búsqueda de ingresos activos digitales
                    internacionales. Vive solo, independiente.
   Crédito educativo Activo — variable a considerar en decisiones financieras
@@ -70,7 +70,7 @@
                    · Materiales: aluminio, acero, Nylamid 6/6, blandos
   Otros            Excel+Macros (avanzado, en desarrollo continuo)
                    · GIMP básico · Anaconda
-  OS actual        Windows 11  →  transición activa a Arch Linux
+  OS actual        Arch Linux → transición desde Windows 11 
   WM objetivo      i3wm o Hyprland (aprender manual, no preconfigured)
   Hardware         Dell Latitude 5400 · Thunderbolt 3 · ~32 GB RAM ·
                    i7-8665U · 2× Yodoit 15.6" FHD IPS (USB-C/HDMI)

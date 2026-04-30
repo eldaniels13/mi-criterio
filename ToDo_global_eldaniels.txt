@@ -121,16 +121,16 @@
   [ ]  Inicializar git en proyectos de Programas PerformanceDesigns
      (CutWindow_2, DeepNestSharp, NestingTesting, O2BToDxf...)
   [ ]  Subir proyectos PerformanceDesigns a GitHub (eldaniels13)
-  [ ] Crear ~/.claude/CLAUDE.md global (copia perfil_maestro v2)
-  [ ] Crear ~/.claude/settings.json global (permisos base)
-  [ ] Crear mi-criterio/.claude/CLAUDE.md (resumen P1-P8)
-  [ ] Crear mi-criterio/.claude/settings.json (permisos repo)
-  [ ] Crear mi-criterio/.claude/commands/p1-cad.md
-  [ ] Crear mi-criterio/.claude/commands/p2-code.md
-  [ ] Crear mi-criterio/.claude/commands/p3-energy.md
-  [~] Crear mi-criterio/.claude/commands/p6-future.md
+  [x] Crear ~/.claude/CLAUDE.md global (copia perfil_maestro v2)
+  [x] Crear ~/.claude/settings.json global (permisos base)
+  [x] Crear mi-criterio/.claude/CLAUDE.md (resumen P1-P8)
+  [x] Crear mi-criterio/.claude/settings.json (permisos repo)
+  [x] Crear mi-criterio/.claude/commands/p1-cad.md
+  [x] Crear mi-criterio/.claude/commands/p2-code.md
+  [x] Crear mi-criterio/.claude/commands/p3-energy.md
+  [x] Crear mi-criterio/.claude/commands/p6-future.md
   [ ] Prueba: `claude /status` en mi-criterio y verificar CLAUDE.md's
-  [ ] Prueba: `/p1-cad` carga contexto P1 correctamente
+  [x] Prueba: `/p1-cad` carga contexto P1 correctamente
   [ ] Registrar P1-P8 proyectos bajo git (git init en cada uno)
   [ ] Subir arquitectura completa a GitHub privado (mi-criterio)
 
@@ -158,14 +158,14 @@ DOCUMENTACIÓN PENDIENTE
   [~] CV actualizado con enfoque en energías renovables
      · Arquitectura /P6/cv creada ✓
      · roles/role_encoretools_cnc_programmer.md — completo v1.0 ✅
-     · roles/role_tdi_biomedical.md — skeleton v0.3 (HIGH PRIORITY voice session)
+     · roles/role_tdi_biomedical.md — completo v1.0 ✅
      · roles/role_moldtech_thermoforming.md — skeleton v0.3 (voice session needed)
-     · roles/role_pep_iteso_ngo.md — skeleton v0.2 (voice + document retrieval)
-     · roles/role_mechanical_automotive_2021.md — minimal v0.1 (short voice session)
+     · roles/role_pap_iteso_entreamigos.md — completo v1.0 ✅
+     · roles/role_automotive_mechanic_2021.md — minimal v0.1 (short voice session)
      · roles/INDEX.md — tracker creado ✓
      · Todos los skeletons estandarizados al formato EncoreTools v1.0 ✓
      · Templates IT y Software tracks creados ✓
-     · roles/role_mexico_performance_designs.md — completo ✓
+     · roles/role_performance_designs_mexico.md — completo ✓
      · skills_master.md, education_master.md — completos ✓
      · PerfilCVs_Descripciones.md — 4 perfiles bilingüe ✓
      · Contenido pendiente de integrar en Canva:
@@ -174,7 +174,7 @@ DOCUMENTACIÓN PENDIENTE
            Desarrollo de software en C# para corte laser de telas para paracaídas.
            Mantenimiento especializado de servidores de datos industriales.
        — Operador CNC / Técnico Mecánico · Moldtech S. de R.L.
-           Mayo 2022 a Agosto 2022 / Agosto 2025 a Diciembre 2024
+           Mayo 2022 a Agosto 2022 / Agosto 2024 a Diciembre 2024
            Producción en serie plásticos por termoformado, manejo de CNC
            (cambio herramientas, fixtures, centros, set-up completo),
            metrología (Vernier, micrómetro, comparador óptico),
