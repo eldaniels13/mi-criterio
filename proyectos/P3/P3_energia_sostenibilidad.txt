@@ -64,3 +64,40 @@
     combustibles, nuclear por país): activar Geopolítica (P5).
   · Dimensión de viabilidad técnica de sistemas: activar Ingeniería (P8).
   · Dimensión de carrera o certificación: activar Ayuda Futuro (P6).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TRACK NACIONAL — INSTITUCIONES Y NICHOS MX (May 2026)
+  Fuente: sesiones/04-05-26_resultado_universidades_sostenibilidad.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  INSTITUCIONES NACIONALES CLAVE (mapa de entrada):
+  · CFE         — Generación y redes; vacantes técnicas (mec/elec)
+  · SENER       — Política energética; Servicio Profesional de Carrera
+  · CENACE      — Operación del sistema eléctrico nacional
+  · IER-UNAM    — Investigación; vía vía posgrado
+  · CONUEE      — Eficiencia energética y regulación técnica
+  · ANES        — Comunidad solar / networking renovables
+  · IMTA        — Agua + energía; investigación
+
+  NICHOS MX CON MAYOR OPORTUNIDAD:
+  · Redes inteligentes (modernización CFE/CENACE)
+  · BESS / almacenamiento (crecimiento renovable + nearshoring)
+  · Automatización energética (industrialización + nearshoring)
+  · Solar distribuida (ventaja geográfica)
+  · Movilidad ferroviaria (infraestructura emergente)
+  · Bioenergía y residuos (economía circular)
+  · Debate nuclear nacional (soberanía energética)
+
+  NICHO RECOMENDADO PARA ESTE PERFIL:
+  Integración energética + automatización industrial.
+  Razón: aprovecha mecánica + C#/.NET + CNC + CAD/CAM ya existentes,
+  y conecta directo con BESS, smart grids, y electrificación industrial.
+
+  POSGRADOS NACIONALES IDENTIFICADOS (orden de fit):
+  · UNAM IER (Temixco, Morelos)        — renovables, investigación
+  · IPN                                 — técnico duro, infraestructura
+  · UAM Energía y Medio Ambiente        — sistémico
+  · UdG Ingeniería en Energías Renov.   — local GDL
+  · UAEM Sustentabilidad Energética     — Morelos
+  · CINVESTAV                           — investigación + automatización

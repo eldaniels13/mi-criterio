@@ -5,6 +5,18 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
+  CARRERA / TRACK ENERGÍA NACIONAL (May 2026 — voz ChatGPT)
+  ─────────────────────────────────────────────────────────────────
+  [ ] Activar alertas: CFE vacantes, SENER SPC, CENACE, LinkedIn "energía MX"
+  [ ] Investigar Fundación Carolina (deadlines, requisitos UPM)
+  [ ] Investigar Beca Iberdrola y Santander (energía/sostenibilidad)
+  [ ] Curso corto BESS / smart grids (Coursera o equivalente)
+  [ ] Mejorar inglés técnico energético (vocabulario redes, BESS, FERC)
+  [ ] Mapear hiring managers Siemens Energy MX / Enel MX en LinkedIn
+  [ ] Investigar UNAM IER (Temixco) — convocatoria, requisitos
+  [ ] Networking ANES (Asociación Nacional de Energía Solar)
+
+
   RANDOM / por organizar
   ─────────────────────────────────────────────────────────────────
   [ ] hacer diagrama de red de conexion de PD (FWs, APs, ISP, etc)

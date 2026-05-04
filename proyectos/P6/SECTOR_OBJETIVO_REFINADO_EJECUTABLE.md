@@ -413,3 +413,44 @@ Si en 3 meses hay 0 interviews → Pivot a Tier 2.
 **Bottom line:** Tu sector objetivo NO es abstracto. Es Ørsted, Siemens, Enel. AHORA. Dinero primero. Luego España. Luego México.
 
 Ese es el plan que tiene chance de funcionar.
+
+---
+
+## ADENDA — TRACK NACIONAL + POSGRADO (May 2026)
+**Fuente:** `sesiones/04-05-26_resultado_universidades_sostenibilidad.md` (conversación voz ChatGPT)
+
+### Cambio de marco
+
+El track original (Ørsted/Siemens/Enel → España → México) sigue válido como ruta corporativa.
+Esta adenda agrega un **track institucional nacional paralelo**: trabajar en/cerca del ecosistema energético MX desde ya, pagar deuda, y converger a posgrado.
+
+### Hallazgo biográfico relevante
+
+Vivió ~3.5 años en Madrid (adolescencia) por beca CONACYT de su madre. La afinidad con España es **vivencial**, no aspiracional. Esto reposiciona UPM como destino realista, no exótico.
+
+### Posgrado — opción top identificada
+
+**UPM Madrid — Máster en Ingeniería de la Energía / ERMA**
+- Cubre: redes, mercados, CFD, hidrógeno, almacenamiento, nuclear, integración
+- Becas viables: Fundación Carolina, Iberdrola, Santander, Erasmus Mundus, DAAD (si pivota a Alemania)
+- Idioma: español (sin barrera) / inglés disponible
+
+Alternativa nacional fuerte: **UNAM IER** (Temixco) — bajo costo, alta calidad, vínculo institucional con CFE/SENER.
+
+### 3 horizontes (versión condensada)
+
+**H1 (0–6 meses) — Liquidez + entrada al ecosistema**
+- Empleo técnico estable (manufactura/automatización/EPC solar)
+- Alertas activas: CFE, SENER, CENACE, LinkedIn energía MX
+- Cursos cortos: BESS, redes, automatización energética
+- Mejorar inglés técnico
+
+**H2 (6–24 meses) — Especialización + preparación posgrado**
+- Experiencia energética real (no solo manufactura)
+- Networking: ANES, eventos técnicos, hiring managers Siemens/Enel MX
+- Aplicar a Fundación Carolina / Iberdrola / Santander
+- Construir portafolio técnico publicable
+
+**H3 (2–5 años) — Posgrado + posición institucional**
+- UPM o UNAM-IER
+- Retorno (o no) a posición técnica institucional (CFE/SENER/CENACE) o industria con impacto LATAM
