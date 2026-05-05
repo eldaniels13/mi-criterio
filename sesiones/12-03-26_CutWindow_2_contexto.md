@@ -9,7 +9,7 @@
 ## Ubicación del código
 
 - **Primaria**: `~/Codes/CutWindow_2` en fibonacci (Arch Linux)
-- **Backup**: Kingston NV3 externo → `backup_critico.vc` (VeraCrypt) → carpeta `Programas/`
+- **Backup**: tenochtitlan externo → `xochimilco.vc` (VeraCrypt) → carpeta `Programas/`
 
 ---
 

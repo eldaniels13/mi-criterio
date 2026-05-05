@@ -10,7 +10,7 @@
 ## 📋 Índice Rápido
 
 - [FASE 0: Preparación (AHORA)](#fase-0-preparación-ahora)
-- [FASE 1: Kingston + VeraCrypt](#fase-1-kingston--veracrypt)
+- [FASE 1: tenochtitlan + VeraCrypt](#fase-1-tenochtitlan--veracrypt)
 - [FASE 2: HDD_A LUKS](#fase-2-hdd_a-luks)
 - [FASE 3: HDD_B Redundancia](#fase-3-hdd_b-redundancia)
 - [Timeline General](#timeline-general)
@@ -20,7 +20,7 @@
 
 ## FASE 0: Preparación (AHORA)
 
-**Objetivo**: Preparar todo lo que podemos hacer mientras llega Kingston NV3 + carcasa USB-C.  
+**Objetivo**: Preparar todo lo que podemos hacer mientras llega tenochtitlan + carcasa USB-C.  
 **Duración estimada**: 7-10 días  
 **Recursos requeridos**: Laptop actual (Windows 11), conexión internet, papel/notas  
 **Costo**: $0
@@ -95,7 +95,7 @@
 
 ### 0.2 Documentación de Estructura de Datos Críticos
 
-**¿Por qué ahora?**: Necesitas saber EXACTAMENTE qué entra en `backup_critico.vc` antes de crear el contenedor.
+**¿Por qué ahora?**: Necesitas saber EXACTAMENTE qué entra en `xochimilco.vc` antes de crear el contenedor.
 
 **Nota**: La selección granular de archivos está en otra conversación (P2). Aquí definimos **estructura y categorías**.
 
@@ -134,7 +134,7 @@
 
 ### 0.3 Medición Real de Tamaños (Fase 0.5)
 
-**¿Por qué?**: No puedes crear `backup_critico.vc` de 480GB si solo tienes 200GB de datos.
+**¿Por qué?**: No puedes crear `xochimilco.vc` de 480GB si solo tienes 200GB de datos.
 
 ```
 □ Abrir PowerShell como Admin
@@ -165,7 +165,7 @@
 
 ### 0.4 Plan de Contraseña VeraCrypt (SEGURIDAD CRÍTICA)
 
-**¿Por qué ahora?**: La contraseña es tu única defensa si Kingston se roba.
+**¿Por qué ahora?**: La contraseña es tu única defensa si tenochtitlan se roba.
 
 ```
 □ Generar contraseña fuerte
@@ -196,7 +196,7 @@
   └─ Crear base de datos KeePass con contraseña FUERTE para KeePass misma
   └─ Generar contraseña VeraCrypt dentro de KeePass
   └─ Guardar base de datos en C:\Users\[tu_usuario]\AppData\Local\KeePass\
-  └─ BACKUP de base de datos KeePass en Kingston (cuando llegue)
+  └─ BACKUP de base de datos KeePass en tenochtitlan (cuando llegue)
 
   Opción C: Manager integrado Windows (NO RECOMENDADO)
   └─ Windows Credential Manager no está diseñado para secretos de larga vida
@@ -223,7 +223,7 @@
       └─ Link a cada sección de la wiki
 
    2. Hardware_Specs.md
-      └─ Kingston NV3 500GB: specs, llegada estimada
+      └─ tenochtitlan 500GB: specs, llegada estimada
       └─ Carcasa USB-C: compatibilidad verificada
       └─ Modelos HDD futuros (cuando llegue Fase 2)
 
@@ -236,7 +236,7 @@
    4. Archivos_Criticos_Inventory.md
       └─ Categorías + tamaños medidos
       └─ Rutas exactas en Windows
-      └─ Checklist de qué entra en backup_critico.vc
+      └─ Checklist de qué entra en xochimilco.vc
 
    5. Seguridad_Credenciales.md
       └─ Dónde está guardada contraseña VeraCrypt
@@ -281,17 +281,17 @@
 
 ---
 
-## FASE 1: Kingston + VeraCrypt
+## FASE 1: tenochtitlan + VeraCrypt
 
-**Objetivo**: Backup crítico en Kingston con VeraCrypt, acceso desde Windows y Linux.  
+**Objetivo**: Backup crítico en tenochtitlan con VeraCrypt, acceso desde Windows y Linux.  
 **Duración**: 2-3 semanas (espera + creación + validación)  
-**Trigger**: Recepción Kingston NV3 + carcasa USB-C  
+**Trigger**: Recepción tenochtitlan + carcasa USB-C  
 **Prerequisito**: FASE 0 completada
 
 ### 1.1 Recepción y Setup Físico
 
 ```
-□ Kingston NV3 500GB llega
+□ tenochtitlan 500GB llega
   └─ Desempaque
   └─ Inspecciona: sin daño físico
 
@@ -299,25 +299,25 @@
   └─ Desempaque
   └─ Verifica incluya: cable USB-C, adaptador poder, manual
 
-□ Instalar Kingston en carcasa
+□ Instalar tenochtitlan en carcasa
   └─ Apaga laptop
   └─ Abre carcasa (típicamente: destornillador Phillips pequeño)
-  └─ Inserta Kingston en slot M.2 (ángulo 30°, presiona suavemente)
+  └─ Inserta tenochtitlan en slot M.2 (ángulo 30°, presiona suavemente)
   └─ Asegura con tornillo
   └─ Cierra carcasa
   └─ Enciende laptop
 
-□ Conectar Kingston vía USB-C
+□ Conectar tenochtitlan vía USB-C
   └─ Usa puerto USB-C principal (si tienes Thunderbolt 3/4 mejor)
   └─ Windows debe detectar automáticamente como "Disco externo"
   └─ Verifica en Administrador de discos (diskmgmt.msc)
   └─ Nota la letra asignada (ej: D:\)
 ```
 
-### 1.2 Crear Contenedor VeraCrypt en Kingston
+### 1.2 Crear Contenedor VeraCrypt en tenochtitlan
 
 ```
-□ Conecta Kingston (si no está conectada)
+□ Conecta tenochtitlan (si no está conectada)
 
 □ Abre VeraCrypt (Windows)
   └─ Click: Create Volume
@@ -326,8 +326,8 @@
   └─ Click: Next
 
 □ Ubicación del contenedor:
-  └─ Browse → D:\backup_critico.vc (donde D:\ es Kingston)
-  └─ Nombre: backup_critico
+  └─ Browse → D:\xochimilco.vc (donde D:\ es tenochtitlan)
+  └─ Nombre: xochimilco
   └─ Extensión: .vc (automática)
 
 □ Tamaño del contenedor:
@@ -355,8 +355,8 @@
 □ Verificar creación
   └─ Cierra VeraCrypt
   └─ Abre Administrador de archivos
-  └─ Ve a D:\ → debe estar vacía (Kingston, no el contenedor)
-  └─ Busca archivo backup_critico.vc (~400GB)
+  └─ Ve a D:\ → debe estar vacía (tenochtitlan, no el contenedor)
+  └─ Busca archivo xochimilco.vc (~400GB)
   └─ Si lo ves → ✓ Contenedor creado correctamente
 ```
 
@@ -366,7 +366,7 @@
 □ Montar contenedor en VeraCrypt
   └─ Abre VeraCrypt
   └─ Click: Select File
-  └─ Navega a D:\backup_critico.vc
+  └─ Navega a D:\xochimilco.vc
   └─ Click: Mount
   └─ Pide contraseña → introduce la guardada
   └─ Asigna letra (ej: E:\)
@@ -409,7 +409,7 @@
   └─ VeraCrypt → Select E:\ (VERACRYPT VOLUME)
   └─ Click: Dismount
   └─ E:\ desaparece del explorador
-  └─ backup_critico.vc sigue en D:\ (cifrado)
+  └─ xochimilco.vc sigue en D:\ (cifrado)
 ```
 
 ### 1.4 Verificación de Integridad (Windows)
@@ -431,7 +431,7 @@
        Get-FileHash -Algorithm SHA256 | 
        Export-Csv -Path "C:\hash_fotos_baseline.csv" -NoTypeInformation
 
-  └─ Guarda este CSV en lugar seguro (también en Kingston, carpeta separada)
+  └─ Guarda este CSV en lugar seguro (también en tenochtitlan, carpeta separada)
   └─ Usarás para verificaciones futuras (Fase 2)
 
 □ Desmountar
@@ -456,7 +456,7 @@
   sudo pacman -S veracrypt
   
   # Montaje:
-  veracrypt --text --mount /media/usb/backup_critico.vc /mnt/backup_mounted --password=TU_CONTRASEÑA
+  veracrypt --text --mount /media/usb/xochimilco.vc /mnt/backup_mounted --password=TU_CONTRASEÑA
   
   # Acceso:
   ls -lah /mnt/backup_mounted/
@@ -474,18 +474,18 @@
 ### 1.6 Checklist Fase 1
 
 ```
-□ Recibir Kingston NV3 + carcasa USB-C
-□ Instalar Kingston en carcasa (físico)
-□ Conectar Kingston vía USB-C a laptop
+□ Recibir tenochtitlan + carcasa USB-C
+□ Instalar tenochtitlan en carcasa (físico)
+□ Conectar tenochtitlan vía USB-C a laptop
 □ Descargar VeraCrypt (Windows)
 □ Instalar VeraCrypt (Windows)
-□ Crear contenedor backup_critico.vc (200GB)
+□ Crear contenedor xochimilco.vc (200GB)
 □ Montar contenedor en VeraCrypt
 □ Copiar archivos críticos (Categorías A-E)
 □ Verificar integridad (lectura post-copia)
 □ Generar hash baseline (SHA512)
 □ Documentar procedimiento montaje Linux
-□ Desmountar y guardar Kingston en lugar seguro
+□ Desmountar y guardar tenochtitlan en lugar seguro
 □ ACTUALIZAR P8_Backup_Wiki con datos reales
 ```
 
@@ -585,14 +585,14 @@
   Si funciona → permisos OK
 ```
 
-### 2.4 Sincronizar Kingston → HDD_A (rsync)
+### 2.4 Sincronizar tenochtitlan → HDD_A (rsync)
 
 ```
-□ Montar Kingston en Linux
-  veracrypt --text --mount /media/usb/backup_critico.vc /mnt/backup_kingston --password=TU_CONTRASEÑA
+□ Montar tenochtitlan en Linux
+  veracrypt --text --mount /media/usb/xochimilco.vc /mnt/backup_tenochtitlan --password=TU_CONTRASEÑA
 
-□ Sincronizar Kingston hacia HDD_A
-  rsync -avz --checksum /mnt/backup_kingston/ /mnt/hdd_a/backup/ --delete
+□ Sincronizar tenochtitlan hacia HDD_A
+  rsync -avz --checksum /mnt/backup_tenochtitlan/ /mnt/hdd_a/backup/ --delete
   
   Explicación flags:
   ├─ -a: archive (permisos, timestamps)
@@ -610,13 +610,13 @@
   sha256sum -c /mnt/hdd_a/backup/hash_fotos_baseline.csv
   
   Opción B: Contar archivos
-  find /mnt/backup_kingston -type f | wc -l
+  find /mnt/backup_tenochtitlan -type f | wc -l
   find /mnt/hdd_a/backup -type f | wc -l
   
   (Ambos deben ser idénticos)
 
-□ Desmountar Kingston
-  veracrypt --text --dismount /mnt/backup_kingston
+□ Desmountar tenochtitlan
+  veracrypt --text --dismount /mnt/backup_tenochtitlan
 ```
 
 ### 2.5 Automatizar rsync con cron (Futuro)
@@ -626,34 +626,34 @@
   crontab -e
   
   Añadir línea (ejecutar rsync cada mes, primer domingo a las 02:00):
-  0 2 * * 0 rsync -av --checksum /media/usb/backup_kingston/ /mnt/hdd_a/backup/ --delete >> /var/log/rsync_hdd_a.log 2>&1
+  0 2 * * 0 rsync -av --checksum /media/usb/backup_tenochtitlan/ /mnt/hdd_a/backup/ --delete >> /var/log/rsync_hdd_a.log 2>&1
 
 □ Alternativa: Script bash + cron
-  Crear archivo: ~/bin/sync_kingston_to_hdd_a.sh
+  Crear archivo: ~/bin/sync_tenochtitlan_to_hdd_a.sh
   
   ```bash
   #!/bin/bash
-  KINGSTON_MOUNT="/mnt/backup_kingston"
+  TENOCHTITLAN_MOUNT="/mnt/backup_tenochtitlan"
   HDD_A="/mnt/hdd_a/backup"
   LOGFILE="/var/log/rsync_hdd_a.log"
   
-  # Montar Kingston
-  veracrypt --text --mount /media/usb/backup_critico.vc $KINGSTON_MOUNT --password=TU_CONTRASEÑA
+  # Montar tenochtitlan
+  veracrypt --text --mount /media/usb/xochimilco.vc $TENOCHTITLAN_MOUNT --password=TU_CONTRASEÑA
   
   # Sincronizar
-  rsync -avz --checksum $KINGSTON_MOUNT/ $HDD_A/ --delete >> $LOGFILE 2>&1
+  rsync -avz --checksum $TENOCHTITLAN_MOUNT/ $HDD_A/ --delete >> $LOGFILE 2>&1
   
   # Desmountar
-  veracrypt --text --dismount $KINGSTON_MOUNT
+  veracrypt --text --dismount $TENOCHTITLAN_MOUNT
   
   echo "Backup sync completado: $(date)" >> $LOGFILE
   ```
   
   Hacer ejecutable:
-  chmod +x ~/bin/sync_kingston_to_hdd_a.sh
+  chmod +x ~/bin/sync_tenochtitlan_to_hdd_a.sh
   
   Añadir a crontab:
-  0 2 * * 0 ~/bin/sync_kingston_to_hdd_a.sh
+  0 2 * * 0 ~/bin/sync_tenochtitlan_to_hdd_a.sh
 ```
 
 ### 2.6 Checklist Fase 2
@@ -666,7 +666,7 @@
 □ Cifrar con LUKS full-disk
 □ Formatear con ext4
 □ Montar en /mnt/hdd_a
-□ Sincronizar Kingston → HDD_A (rsync)
+□ Sincronizar tenochtitlan → HDD_A (rsync)
 □ Verificar integridad (SHA256 o count files)
 □ Automatizar rsync con cron
 □ Documentar procedimiento en P8_Backup_Wiki/LUKS_Setup.md
@@ -756,7 +756,7 @@
   sudo cryptsetup luksClose hdd_b_decrypted
 
 □ Crear archivo de verificación
-  └─ Guarda hash/logs en Kingston o local
+  └─ Guarda hash/logs en tenochtitlan o local
   └─ Documenta fecha clonación, tamaño, resultado
 ```
 
@@ -847,8 +847,8 @@ FASE 0 (Ahora - Semana 1-2)
 ├─ Generar y almacenar contraseñas
 └─ Tiempo: 7-10 días, $0
 
-FASE 1 (Semana 2-4, tras recepción Kingston)
-├─ Instalar Kingston en carcasa
+FASE 1 (Semana 2-4, tras recepción tenochtitlan)
+├─ Instalar tenochtitlan en carcasa
 ├─ Crear contenedor VeraCrypt (480GB)
 ├─ Copiar archivos críticos
 ├─ Verificar integridad
@@ -858,7 +858,7 @@ FASE 1 (Semana 2-4, tras recepción Kingston)
 FASE 2 (6-12 meses después, presupuesto HDD_A)
 ├─ Comprar HDD_A + enclosure
 ├─ Instalar LUKS full-disk
-├─ rsync Kingston → HDD_A
+├─ rsync tenochtitlan → HDD_A
 ├─ Automatizar con cron
 └─ Tiempo: 1-2 semanas, ~$90-100
 
@@ -880,9 +880,9 @@ MÁXIMA PROTECCIÓN: Redundancia geográfica, cifrado full-disk, backups verific
 | Gap | Descripción | Solución |
 |---|---|---|
 | **Contraseña VeraCrypt** | Dónde guardarla de forma segura | Fase 0.4: Papel físico + KeePass dual backup |
-| **Sincronización automática** | Kingston → HDD_A sin intervención manual | Fase 2.5: Script bash + cron (mensual) |
+| **Sincronización automática** | tenochtitlan → HDD_A sin intervención manual | Fase 2.5: Script bash + cron (mensual) |
 | **Verificación periódica** | Confirmar que no hay bit rot en HDD_B | Fase 3.6: Alarma anual, log de auditoría |
-| **Recuperación de desastre** | Qué hacer si Kingston se pierde/daña | Respuesta: HDD_A es origen, HDD_B copia; recrear Kingston desde HDD_A |
+| **Recuperación de desastre** | Qué hacer si tenochtitlan se pierde/daña | Respuesta: HDD_A es origen, HDD_B copia; recrear tenochtitlan desde HDD_A |
 | **Escalabilidad futura** | ¿Qué si necesitas más de 2TB? | Expandir LUKS: agregar nuevo HDD (LUKS soporta múltiples discos) |
 | **Auditoría y trazabilidad** | Tracking de cambios y accesos | Mantener logs en P8_Backup_Wiki/ (fechas, hashes, operaciones) |
 | **Obsolescencia tecnológica** | ¿Y si LUKS se vuelve inseguro en 20 años? | Verificaciones periódicas + migrar si es necesario (LUKS es resiliente a cambios SO) |

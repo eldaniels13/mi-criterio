@@ -19,7 +19,7 @@ ESTADO DEL SISTEMA AL CERRAR
          Python_coding   26
          CutWindow_2     12
          '2632610216'    10    ← sesiones sin proyecto asignado
-    · Service Tag FDKF2R2 redactado de observation ID 10
+    · Service Tag [REDACTED-SERVICE-TAG] redactado de observation ID 10
       → string reemplazado por [REDACTED-ServiceTag] en 1 fila
       → remaining_matches = 0 verificado
       → triggers FTS (observations_au) actualizaron índice auto
@@ -52,7 +52,7 @@ LO QUE SE LOGRÓ HOY
     containing "discovery_tokens"
   ✓ Segunda query (FTS5 sobre observations_fts): 30 filas con
     términos sensibles → revisadas una por una
-  ✓ Tercera query (LIKE multi-columna para FDKF2R2): 1 hit real
+  ✓ Tercera query (LIKE multi-columna para [REDACTED-SERVICE-TAG]): 1 hit real
 
   PARTE 3 — Recalibración del marco de riesgo
   ✓ Separación en 3 categorías:
@@ -170,7 +170,7 @@ HÁBITO A INSTALAR
       cat ~/.ssh/config
       cat .env
       contenido dentro de /run/media/veracrypt*/
-      tokens de KeeperSecurity pegados para debug
+      tokens de tepito pegados para debug
 
   No es paranoia. Es disciplina de sesión.
 
@@ -188,7 +188,7 @@ TODO — ORDENADO POR PRIORIDAD
 
   PENDIENTE (recuperación Windows):
   [ ] Conseguir PC prestada con Rufus
-  [ ] Grabar Win11 ISO (ADATA NEGROROJO) en KingstonDataTraveler
+  [ ] Grabar Win11 ISO (ADATA NEGROROJO) en tenochtitlanDataTraveler
       con GPT/UEFI/FAT32
   [ ] Repair Install conservando archivos
   [ ] Reinstalar Arch con shrink desde Windows (NUNCA ntfsresize

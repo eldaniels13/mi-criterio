@@ -30,7 +30,7 @@
   [x]  Arch Linux instalado y arrancando en VirtualBox
   [x]  GRUB UEFI funcionando
   [x]  Red automática (systemd-networkd + systemd-resolved)
-  [x]  IPv6 deshabilitado (Totalplay no soporta)
+  [x]  IPv6 deshabilitado (ISP no soporta)
   [x]  Usuario eldaniels + sudo + wheel
   [x]  i3wm + autotiling fibonacci
   [x]  Firefox, git configurado, neovim base
@@ -51,7 +51,7 @@
   [x]  Instalar Arch en Dell Latitude 5400
   [x]  Instalar COSMIC (decisión tomada: el futuro es hoy — Wayland, auto tiling fibonacci)
   [ ]  LazyVim con buena conexión para desarrollo y trabajo
-  [x]  sudo pacman -S veracrypt para backup_critico.vc
+  [x]  sudo pacman -S veracrypt para xochimilco.vc
   [x]  Configurar multi-monitor (horizontal + vertical)
   [~]  IPv6 reactivar cuando cambies de ISP (borrar /etc/sysctl.d/99-disable-ipv6.conf)
   [x] Configurar ~/.zshrc completo (starship + plugins + nvm) ~/.config/starship.toml

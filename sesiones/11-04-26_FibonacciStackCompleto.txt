@@ -128,17 +128,17 @@ TODO GLOBAL — ESTADO AL CERRAR SESIÓN
   [x]  GRUB UEFI activo en p1 EFI
   [x]  Hostname: fibonacci
   [x]  Usuario eldaniels + sudo + wheel + docker
-  [x]  IPv6 deshabilitado (/etc/sysctl.d/99-disable-ipv6.conf — Totalplay)
+  [x]  IPv6 deshabilitado (/etc/sysctl.d/99-disable-ipv6.conf — ISP)
   [x]  NetworkManager + WiFi funcionando
   [x]  Multi-monitor configurado (COSMIC detecta y recuerda)
-  [x]  VeraCrypt + backup_critico.vc accesible (flujo dominado)
+  [x]  VeraCrypt + xochimilco.vc accesible (flujo dominado)
   [x]  zsh + starship + plugins configurados (~/.zshrc completo)
   [x]  ~/.config/starship.toml personalizado
   [x]  Locale: en_US base + es_MX para tiempo y medición
   [~]  IPv6 reactivar cuando cambie ISP (borrar 99-disable-ipv6.conf)
   [ ]  Wallpaper personalizado
   [ ]  Atajos de teclado COSMIC configurados
-  [ ]  Script expulsión Kingston NV3 con atajo (Super+E o similar)
+  [ ]  Script expulsión tenochtitlan con atajo (Super+E o similar)
       → udisksctl unmount -b /dev/sdc2 && udisksctl power-off -b /dev/sdc
 
   HERRAMIENTAS DE DESARROLLO
@@ -223,7 +223,7 @@ TODO GLOBAL — ESTADO AL CERRAR SESIÓN
 
   BACKUP (P8)
   [x]  FASE 0 completada (VeraCrypt, inventario, wiki, contraseña en Keeper)
-  [x]  FASE 1 completada (Kingston NV3, backup_critico.vc, hash SHA512 baseline)
+  [x]  FASE 1 completada (tenochtitlan, xochimilco.vc, hash SHA512 baseline)
   [ ]  Guardar contraseña VeraCrypt en papel físico adicional
   [ ]  FASE 2: HDD_A 2TB + LUKS full-disk (pendiente presupuesto)
   [ ]  FASE 3: HDD_B redundancia geográfica (pendiente FASE 2)
@@ -312,7 +312,7 @@ NOTA DE CIERRE
 
   El stack cubre desarrollo (.NET 8, Python, VS Code, LazyVim, Docker),
   IA (Claude Code, Ollama con dos modelos de código), comunicación
-  (Thunderbird), backup cifrado (VeraCrypt + Kingston NV3), y utilidades
+  (Thunderbird), backup cifrado (VeraCrypt + tenochtitlan), y utilidades
   del sistema (htop, ripgrep, fzf, lazygit, Thunar, Timeshift).
 
   Lo que sigue no es más infraestructura. Es usarla.

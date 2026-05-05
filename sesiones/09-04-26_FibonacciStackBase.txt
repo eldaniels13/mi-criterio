@@ -19,8 +19,8 @@ ESTADO DEL SISTEMA AL CERRAR
   Shell activo: zsh (recién instalado, reemplaza bash)
   Usuario: eldaniels (wheel, sudo)
 
-  Kingston NV3 (M.2 externo — backup_critico):
-    → backup_critico.vc (VeraCrypt, 149GiB, montado en
+  tenochtitlan (M.2 externo — xochimilco):
+    → xochimilco.vc (VeraCrypt, 149GiB, montado en
       /run/media/veracrypt1 cuando está abierto)
     → Flujo de acceso: GUI VeraCrypt → Select File → Mount ✓
     → Flujo de expulsión: cerrar procesos → Dismount VeraCrypt
@@ -31,7 +31,7 @@ STACK INSTALADO EN ESTA SESIÓN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   SISTEMA BASE
-  ✓ exfatprogs           → soporte exFAT para Kingston NV3
+  ✓ exfatprogs           → soporte exFAT para tenochtitlan
   ✓ power-profiles-daemon → gestión de batería laptop (Dell)
   ✓ xdg-user-dirs        → carpetas estándar XDG creadas
   ✓ hostname fibonacci   → hostnamectl set-hostname fibonacci
@@ -79,7 +79,7 @@ FLUJOS APRENDIDOS EN ESTA SESIÓN
   · Flujo correcto: veracrypt --text [archivo.vc] [mountpoint]
   · "target is busy" → algún proceso tiene abierto un archivo adentro
     → lsof [ruta] para identificar → pkill [nombre] para matar
-  · Orden de desmontaje: primero VeraCrypt, después el Kingston
+  · Orden de desmontaje: primero VeraCrypt, después el tenochtitlan
 
   COPY/PASTE EN TERMINAL (WAYLAND)
   · Copiar:   Ctrl+Shift+C
@@ -127,7 +127,7 @@ TODO — ORDENADO POR PRIORIDAD
   SESIÓN DEDICADA — PERSONALIZACIÓN:
   [ ] Configurar ~/.zshrc y ~/.bashrc tailored a perfil eldaniels
   [ ] Configurar atajos de teclado en COSMIC (con recomendaciones)
-  [ ] Script expulsión Kingston NV3 con atajo de teclado (P8)
+  [ ] Script expulsión tenochtitlan con atajo de teclado (P8)
       → udisksctl unmount -b /dev/sdc2 && udisksctl power-off -b /dev/sdc
       → asignar a Super+E o similar en COSMIC Settings
   [ ] Wallpaper personalizado (wallpaper engine / steam o alternativa Linux)
@@ -147,7 +147,7 @@ TODO — ORDENADO POR PRIORIDAD
       (acceder puntualmente desde Firefox)
   [ ] P8 Fase 2: HDD_A 2TB + LUKS (pendiente presupuesto)
   [ ] Guardar contraseña VeraCrypt en papel físico adicional
-      (actualmente solo en KeeperSecurity)
+      (actualmente solo en tepito)
 
   VIDA PERSONAL / ADMIN:
   [ ] Acomodar CVs en Canva
@@ -181,7 +181,7 @@ CONCEPTOS APRENDIDOS EN ESTA SESIÓN
     en el idioma del sistema.
   · udisks2 — daemon que permite a usuarios normales montar/desmontar
     dispositivos USB sin sudo. Equivalente al "quitar hardware con
-    seguridad" de Windows. Con exfatprogs instalado, Kingston NV3
+    seguridad" de Windows. Con exfatprogs instalado, tenochtitlan
     aparece automáticamente en el explorador al conectar.
   · lsof — "list open files", muestra qué proceso tiene abierto
     un archivo o directorio. Clave para diagnosticar "target is busy".

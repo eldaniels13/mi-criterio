@@ -105,8 +105,8 @@
   Phone            Cubot KingKong 8 (USB-C · 10,600 mAh · sin eSIM)
   Compras          Amazon MX · Mercado Libre · Digital Life · [...]
   Criterio compra  BBB: máx funcionalidad técnica / costo · [...]
- Kingston NV3 500GB M.2 NVMe SSD con carcasa USB-C compatible M.2 NVMe
- HDD_A — FASE 2 (futuro) 2TB, 3.5" SATA para rsync desde Kingston
+ tenochtitlan 500GB M.2 NVMe SSD con carcasa USB-C compatible M.2 NVMe
+ HDD_A — FASE 2 (futuro) 2TB, 3.5" SATA para rsync desde tenochtitlan
  HDD_B — FASE 3(futuro)  Idéntico a HDD_A para almacenamiento geográfico externo
 
 

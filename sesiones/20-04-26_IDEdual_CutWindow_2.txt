@@ -37,7 +37,7 @@ ESTADO DEL SISTEMA AL CERRAR
     ✓ nomic-embed-text       (embeddings @codebase, pulled esta sesión)
 
   CutWindow_2:
-    Ubicación: ~/Codes/CutWindow_2 + backup en Kingston NV3 (backup_critico.vc)
+    Ubicación: ~/Codes/CutWindow_2 + backup en tenochtitlan (xochimilco.vc)
     Última sesión activa: 2026-03-12 en VS Pro / Win11
     Estructura: solución mixta con múltiples proyectos
     Archivo contexto creado: CutWindow_2_contexto.md
@@ -252,7 +252,7 @@ TODO — ORDENADO POR PRIORIDAD
   [ ] Agregar tests xUnit al Core conforme se extrae
 
   ARRASTRADO (prioridad alta):
-  [ ] Desmontar Z:\ VeraCrypt antes de desconectar Kingston NV3 (recordatorio vivo)
+  [ ] Desmontar Z:\ VeraCrypt antes de desconectar tenochtitlan (recordatorio vivo)
   [ ] P6 — estructurar tareas reales de graduate programs + energy sector jobs
       (urgente persistente, sin tareas estructuradas documentadas)
   [ ] SSH agent persistence fibonacci — systemd user service
@@ -268,7 +268,7 @@ TODO — ORDENADO POR PRIORIDAD
   [ ] Migrar correo principal a Proton Mail
 
   FUTURO:
-  [ ] Script expulsión Kingston NV3 con atajo de teclado
+  [ ] Script expulsión tenochtitlan con atajo de teclado
   [ ] Atajos de teclado COSMIC + wallpaper personalizado
   [ ] P8 Fase 2: HDD_A 2TB + LUKS
   [ ] VPN (Mullvad o ProtonVPN)

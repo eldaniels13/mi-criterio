@@ -18,7 +18,7 @@ ESTADO DEL SISTEMA AL CERRAR
   Arch Linux: DESINSTALADO (p7 swap y p8 ext4 fueron eliminados para expandir p3)
   GRUB: ACTIVO en EFI (p1) — menú funciona, Arch no arranca por falta de root
 
-  KingstonDataTraveler (micro SD 57GB):
+  tenochtitlanDataTraveler (micro SD 57GB):
     → Windows ISO grabada con dd (NO booteable UEFI correctamente)
 
   ADATA "NEGROROJO" (USB 29GB):
@@ -26,8 +26,8 @@ ESTADO DEL SISTEMA AL CERRAR
     → Fido.ps1
     → uup_download.tar (basura, se puede borrar)
 
-  Kingston NV3 (M.2 externo — backup_critico):
-    → backup_critico.vc (VeraCrypt, contiene serial SolidWorks y archivos críticos)
+  tenochtitlan (M.2 externo — xochimilco):
+    → xochimilco.vc (VeraCrypt, contiene serial SolidWorks y archivos críticos)
     → Win11_25H2_Spanish_Mexico_x64_v2.iso (copia de la ISO)
 
   SupportAssist OS Recovery: DISPONIBLE en menú F12 de Dell
@@ -114,7 +114,7 @@ PRÓXIMA SESIÓN — ACCIÓN INMEDIATA
 
   PASO 1 — En computadora prestada (10 minutos):
     a) Descargar Rufus portable: https://rufus.ie
-    b) Conectar micro SD KingstonDataTraveler
+    b) Conectar micro SD tenochtitlanDataTraveler
     c) Rufus → seleccionar ISO del ADATA: Win11_25H2_Spanish_Mexico_x64_v2.iso
        O descargarla de nuevo desde: microsoft.com/es-mx/software-download/windows11
     d) Configuración Rufus:
@@ -126,7 +126,7 @@ PRÓXIMA SESIÓN — ACCIÓN INMEDIATA
 
   PASO 2 — En Dell Latitude 5400:
     a) Conectar micro SD
-    b) Encender → F12 → seleccionar KingstonDataTraveler
+    b) Encender → F12 → seleccionar tenochtitlanDataTraveler
     c) Arrancar instalador Windows 11
     d) En pantalla de instalación: click "Reparar el equipo" (esquina inferior izquierda)
        NO click en "Instalar ahora"
@@ -141,7 +141,7 @@ PRÓXIMA SESIÓN — ACCIÓN INMEDIATA
     reboot → Windows debe arrancar
 
   PASO 4 — Una vez Windows funcionando:
-    a) Verificar SolidWorks (serial en backup_critico.vc en Kingston NV3)
+    a) Verificar SolidWorks (serial en xochimilco.vc en tenochtitlan)
     b) Reinstalar Arch Linux con el proceso correcto aprendido hoy
     c) Esta vez: shrink desde Windows primero, particionado desde live después
        SIN correr ntfsfix entre operaciones
@@ -195,12 +195,12 @@ APRENDIZAJES TÉCNICOS DE ESTA SESIÓN
 PASSWORDS Y CREDENCIALES RELEVANTES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  WiFi: Totalplay-5G-d4e8 (la contraseña ya la conoces)
+  WiFi: [REDACTED-SSID] (la contraseña ya la conoces)
   Arch usuario: eldaniels (con sudo, grupo wheel)
   Arch root: configurado durante instalación
-  VeraCrypt backup_critico.vc: en KeeperSecurity
-  Serial SolidWorks: en backup_critico.vc (Kingston NV3 externo)
-  Dell Service Tag: FDKF2R2 (visible en SupportAssist)
+  VeraCrypt xochimilco.vc: en tepito
+  Serial SolidWorks: en xochimilco.vc (tenochtitlan externo)
+  Dell Service Tag: [REDACTED-SERVICE-TAG] (visible en SupportAssist)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TODO — ORDENADO POR PRIORIDAD
@@ -222,7 +222,7 @@ TODO — ORDENADO POR PRIORIDAD
   [ ] LazyVim
   [ ] Configurar multi-monitor
   [ ] Inicializar repo git mi-criterio/
-  [ ] Desmontar Z:\ VeraCrypt antes de desconectar Kingston NV3
+  [ ] Desmontar Z:\ VeraCrypt antes de desconectar tenochtitlan
 
   FUTURO:
   [ ] P8 Fase 2: HDD_A LUKS
@@ -238,16 +238,16 @@ INVENTARIO DE HARDWARE Y DISPOSITIVOS
     M.2 interno: Intel SSDPEKNU512GZ (476.9GB) — en slot único
     GPU: Intel UHD Graphics (integrada) → driver: vulkan-intel
     BIOS: Revision 1.33.0
-    Service Tag: FDKF2R2
+    Service Tag: [REDACTED-SERVICE-TAG]
 
   Almacenamiento externo:
-    KingstonDataTraveler 57GB (micro SD + adaptador) — "negro azul"
+    tenochtitlanDataTraveler 57GB (micro SD + adaptador) — "negro azul"
       → Actualmente: Win11 ISO grabada con dd (no booteable UEFI)
       → Destino: regrebar con Rufus como USB booteable Windows
     ADATA "NEGROROJO" 29GB (USB negro con rojo)
       → Contiene: Win11_25H2_Spanish_Mexico_x64_v2.iso (7.6GB)
-    Kingston NV3 M.2 en carcasa USB-C (externo backup)
-      → Contiene: backup_critico.vc + copia ISO Windows
+    tenochtitlan M.2 en carcasa USB-C (externo backup)
+      → Contiene: xochimilco.vc + copia ISO Windows
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 NOTA PARA PRÓXIMA SESIÓN

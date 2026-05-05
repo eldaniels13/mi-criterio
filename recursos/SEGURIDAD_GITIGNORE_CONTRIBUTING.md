@@ -212,7 +212,7 @@ logs/
 # DATOS PERSONALES: SÍ si tienes estos archivos
 # ═══════════════════════════════════════════════════════════════
 
-# Backups cifrados (si guardas backup_critico.vc aquí — lo harías con VeraCrypt)
+# Backups cifrados (si guardas xochimilco.vc aquí — lo harías con VeraCrypt)
 *.vc
 *.vault
 *.encrypted

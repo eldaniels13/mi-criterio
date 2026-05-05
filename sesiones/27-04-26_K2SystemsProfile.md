@@ -97,7 +97,7 @@ role_supplementary_experience.md      ✅ v1.0 (aggregator)
 ### Educación / documentos
 - [ ] Recuperar documentos de Colegio Claret de Madrid: expediente, certificado ESO, padrón municipal — valor para visas y becas europeas
 - [ ] Confirmar fecha exacta de titulación ITESO (¿Dic 2024 o fecha de acto de graduación posterior?)
-- [ ] Verificar cuál email usar en aplicaciones: `danielgarciacastro64@gmail.com` vs. `danyband02@gmail.com`
+- [ ] Confirmar que `danielgarciacastro64@gmail.com` es el correo profesional canónico para aplicaciones
 
 ### CV — pendiente de editar en Canva
 - [ ] Corregir fechas ESO (2015–2018) y Bachillerato (2018–2020)
@@ -128,7 +128,7 @@ Revisado para consistencia con archivos de roles y perfil maestro.
 |---|---|---|
 | 4 | PAP/Entreamigos como bala bajo "Otros trabajos" — valor no visible | Promover a entrada independiente (borrador abajo) |
 | 5 | MoldTech tercer bullet genérico ("diseño, ensamble y operación") | Sustituir tras sesión de voz MoldTech |
-| 6 | Email público: `danielgarciacastro64@gmail.com` — confirmar si es el correcto | Verificar cuál usar en aplicaciones (¿vs. danyband02?) |
+| 6 | Email público: `danielgarciacastro64@gmail.com` | Correo canónico para aplicaciones |
 
 **Consistente con archivos de roles (sin cambios):**
 - Bullets Performance Designs ✓

@@ -26,8 +26,8 @@ ESTADO DEL SISTEMA AL CERRAR
     → Win11_25H2_Spanish_Mexico_x64_v2.iso (grabado con Rufus GPT/UEFI)
     → BOOTEABLE ← usar este para instalar Windows
 
-  Kingston NV3 (M.2 externo):
-    → backup_critico.vc (VeraCrypt, archivos críticos + serial SolidWorks)
+  tenochtitlan (M.2 externo):
+    → xochimilco.vc (VeraCrypt, archivos críticos + serial SolidWorks)
     → Win11_25H2_Spanish_Mexico_x64_v2.iso (copia del ISO)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -76,7 +76,7 @@ DECISIÓN TOMADA
 PRÓXIMA SESIÓN — INSTALACIÓN LIMPIA WINDOWS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  PREREQUISITO: tener Kingston NV3 conectado para acceder a backup_critico.vc
+  PREREQUISITO: tener tenochtitlan conectado para acceder a xochimilco.vc
 
   PASO 1 — Arrancar desde ADATA:
     a) Conectar ADATA "NEGROROJO"
@@ -92,7 +92,7 @@ PRÓXIMA SESIÓN — INSTALACIÓN LIMPIA WINDOWS
   PASO 3 — Post instalación:
     a) Configurar cuenta local (NO cuenta Microsoft)
     b) Verificar que Windows arranca correctamente
-    c) Montar backup_critico.vc desde Kingston NV3
+    c) Montar xochimilco.vc desde tenochtitlan
     d) Verificar contenido del backup
 
   PASO 4 — Reinstalar Arch Linux (después de Windows estable):
@@ -141,7 +141,7 @@ TODO — ORDENADO POR PRIORIDAD
   CRÍTICO AHORA:
   [ ] Instalación limpia Windows desde ADATA
   [ ] Verificar arranque correcto post-instalación
-  [ ] Montar backup_critico.vc y verificar contenido
+  [ ] Montar xochimilco.vc y verificar contenido
 
   UNA VEZ WINDOWS FUNCIONANDO:
   [ ] Gestionar situación SolidWorks (contactar ITESO o evaluar alternativas)
@@ -152,7 +152,7 @@ TODO — ORDENADO POR PRIORIDAD
   [ ] Configurar multi-monitor
   [ ] IPv6 deshabilitado en Arch (igual que fibonacci)
   [ ] Inicializar repo git mi-criterio/
-  [ ] Desmontar Z:\ VeraCrypt antes de desconectar Kingston NV3
+  [ ] Desmontar Z:\ VeraCrypt antes de desconectar tenochtitlan
 
   FUTURO:
   [ ] P8 Fase 2: HDD_A LUKS
@@ -168,15 +168,15 @@ INVENTARIO DE HARDWARE Y DISPOSITIVOS
     M.2 interno: Intel SSDPEKNU512GZ (476.9GB) — slot único
     GPU: Intel UHD Graphics (integrada)
     BIOS: Revision 1.33.0 — modo AHCI activo
-    Service Tag: FDKF2R2
+    Service Tag: [REDACTED-SERVICE-TAG]
 
   Almacenamiento externo:
     Verbatim 57GB (micro SD) — "negro azul"
       → SystemRescue 13.00 grabado con dd ← booteable
     ADATA "NEGROROJO" 29GB
       → Win11_25H2_Spanish_Mexico_x64_v2.iso grabado con Rufus ← booteable UEFI
-    Kingston NV3 M.2 en carcasa USB-C
-      → backup_critico.vc (VeraCrypt 200GB)
+    tenochtitlan M.2 en carcasa USB-C
+      → xochimilco.vc (VeraCrypt 200GB)
       → Win11_25H2_Spanish_Mexico_x64_v2.iso (copia)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
