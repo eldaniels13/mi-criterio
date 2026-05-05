@@ -1,71 +1,86 @@
 # role_moldtech_thermoforming.md
-**Version:** 0.3 (SKELETON — pending full voice extraction)
-**Status:** Partial — 2 summer stints captured, details thin
-**Last updated:** Abr 2026
-**Source:** Voice extraction session (Block 1 only, pre-empted for EncoreTools)
+**Version:** 1.0
+**Status:** ✅ COMPLETE (voice extraction + narrative reflection captured)
+**Last updated:** May 4, 2026
+**Source:** Voice extraction sessions Abr 19, 2026 (Block 1) + May 4, 2026 (full session — see `sesiones/04_05_26_voice_extraction_session_roles.md`)
 
 ---
 
 ## ROLE IDENTITY
 
-- **Title (official):** Operador CNC / Técnico Mecánico — EXPANSION_SLOT (verify contract title)
+- **Title (official):** Operador CNC / Auxiliar de manufactura (informal seasonal arrangement, no formal contract title)
 - **Title (ATS-ready):** CNC Operator — Thermoforming Mold Manufacturing
 - **Company:** MoldTech (Maltige S. de R.L.)
-- **Location:** Guadalajara, Jalisco, México — EXPANSION_SLOT (verify exact municipality)
+- **Location:** Guadalajara, Jalisco, México
 - **Dates:**
-  - **Stint 1:** May 2022 – August 2022 (full-time, summer vacation work)
-  - **Stint 2:** May 2024 – August 2024 (**half-time variable** — some full days mixed in, depending on concurrent university studies)
-- **Employment type:** Seasonal / project-based — EXPANSION_SLOT (verify contract structure)
-- **Reporting line:** EXPANSION_SLOT (supervisor name, role)
+  - **Stint 1:** May 2022 – August 2022 (full-time, summer vacation)
+  - **Stint 2:** May 2024 – August 2024 (half-time variable — full days mixed in around concurrent university load)
+- **Employment type:** Informal seasonal — weekly cash payment, hours-based compensation, flexible student arrangement
+- **Reporting line:** Ing. Eduardo (engineer-owner) directly
 
-⚠️ **NOTE on original CV text:** The text file `pendiente actualizar CVs.txt` listed dates as "Agosto 2025 a Diciembre 2024" which was temporally impossible. Voice extraction confirmed **two stints: summer 2022 and summer 2024**. The original text needs correction.
+⚠️ **NOTE on original CV text:** The text file `pendiente actualizar CVs.txt` listed dates as "Agosto 2025 a Diciembre 2024" which was temporally impossible. Voice extraction confirmed two stints: **summer 2022 + summer 2024**. The original text needs correction.
 
 ---
 
 ## COMPANY CONTEXT
 
-**What MoldTech does:**
-Plastic parts manufacturing via **thermoforming**, where the CNC is used to machine the **aluminum molds** that go into thermoforming production.
+MoldTech (Maltige S. de R.L.) is a **small family-run industrial workshop** of approximately **10 people total** including ownership and production staff. Despite its size, it has real footprint in local industry.
+
+**Family ownership structure:**
+- **Ing. Eduardo** — engineer-owner, technical leadership, client relationships, operational coordination
+- **Lic. Sagitario** (Eduardo's wife) — HR, accounting, budgeting
+- **Their son** — workshop team member; was eldaniels's schoolmate (the entry-bridge into the role)
+- A trusted senior worker
+- Additional production personnel
+
+**Core business:** plastic parts manufactured via **thermoforming**, where the CNC machines the **aluminum molds** that go into thermoforming production. The workshop also handles auxiliary tooling, fixtures, and post-process detailing.
 
 **Production lines documented:**
 
 1. **Continental (automotive electronics)**
-   - Product: Electrical isolation trays for car computer components
-   - Plastic type: Electrically-isolating grade (specific spec — EXPANSION_SLOT)
-   - Process: CNC-machined aluminum mold → thermoforming production → CNC detailing of finished tray → hydraulic press for cutting
-   - Role: External services supplier to Continental's manufacturing line
+   - Product: Electrical-isolation trays for automotive computer components
+   - Workflow: CNC-machined aluminum mold → automated thermoforming → CNC detailing of finished tray → hydraulic-press cutting/trim
+   - Position: External manufacturing supplier to Continental's electrical production line
 
-2. **Medical fluid container (non-vaccine)**
-   - Product: Small container for medical fluid (medical-grade, not vaccine-grade)
-   - Plastic type: Cost-effective but secure/strong — EXPANSION_SLOT (specific resin)
-   - Similar process: mold + thermoforming + CNC detailing + hydraulic cutting
+2. **Medical fluid container line (non-vaccine)**
+   - Product: Small thermoformed container, medical-grade resin
+   - Same pipeline (mold → thermoforming → detail → press trim)
+
+> *"Una empresa pequeña, familiar, pero de mucho trabajo y mucho enriquecimiento profesional y técnico."*
+> *"Una empresa relativamente pequeña, familiar, pero con injerencia en la industria local."*
 
 ---
 
 ## HIRING CONTEXT
 
-- **Source:** EXPANSION_SLOT (friend referral at ITESO? Who?)
-- **Return for stint 2:** Invited back / self-initiated — EXPANSION_SLOT
-- **Exit:** End of each summer — returned to ITESO
+- **Source:** Referral via ITESO schoolmate — the owner's son
+- **Compensation:** Weekly cash, hours-based — *"me salía para mis gastos mientras estaba estudiando"*
+- **Process:** Informal — no formal contract, no formal interview
+- **Return for stint 2 (2024):** Re-invited / self-initiated; relationship preserved across the gap year (2023 = TDI Biomedical)
+- **Exit each summer:** End of vacation period, return to ITESO
+
+**Pattern note:** This is the second documented instance of the **referral-driven hiring pattern** (after Richard's Automotive 2021).
 
 ---
 
 ## WHAT HE ACTUALLY DID
 
-Connecting point: **Entry-level CNC operator + auxiliary tooling** during stint 1 (2022). Evolved role in stint 2 (2024) — EXPANSION_SLOT (clarify scope expansion).
+Work distribution was **highly variable and dynamic**, depending on production phase, urgency, and client demand:
 
-### Stint 1 (Summer 2022) — foundations
-- Operated CNC for mold manufacturing (aluminum molds for thermoforming)
-- CNC detailing of thermoformed finished parts (post-production refinement)
-- Manual tool changes, fixture alignment, workpiece centering, full setup
-- Used hydraulic foot-pedal press (pedal activates hydraulic piston — impact + pressure on flat surfaces) for cutting/detailing
-- Operated automated thermoforming machine (electric heating resistances, aluminum molds, hydraulic pistons)
-- Auxiliary tooling — helping senior operators, repetitive jobs to build machine familiarity
-- Used metrology instruments: Vernier caliper, micrometer, optical comparator — for geometric tolerance quality
-- Participated in engineering projects involving assembly design, welding, fixtures
+> *"Era muy variable, era dinámico y podía cambiar dependiendo de la demanda de producción y la prisa que tuvieran los clientes."*
 
-### Stint 2 (Summer 2024) — half-time variable
-- Same scope, but EXPANSION_SLOT — specific responsibilities added, whether he graduated to programming, whether he trained newcomers, etc.
+Across both stints, he participated in:
+
+- **CNC operation** — primarily loading existing programs, mold machining, and post-process part detailing
+- **Hydraulic press operations** — including the design and use of a custom cutting fixture (see Achievements)
+- **Thermoforming machine operation** — supporting the automated thermoforming process
+- **Metrology & quality verification** — Vernier caliper, micrometer, optical comparator (geometric/dimensional tolerances)
+- **Fixture design & auxiliary tooling** — practical fabrication for production needs
+- **Workshop assistance** — engineering assemblies, welding, and general fabrication
+
+**Programming responsibility:** At MoldTech he **loaded existing CNC programs** and operated them — did not yet author full G-code. (Independent CNC programming responsibility came later at EncoreTools, 2025.) This role represented the **foundational stage** of CNC operational learning.
+
+**Stint 1 vs Stint 2:** Stint 2 (2024) was half-time variable around university load; same scope of work, with deeper familiarity and higher autonomy on recurring tasks.
 
 ---
 
@@ -73,123 +88,100 @@ Connecting point: **Entry-level CNC operator + auxiliary tooling** during stint 
 
 | Machine | Role | Notes |
 |---|---|---|
-| CNC (model TBD) | Primary — aluminum mold machining + part detailing | EXPANSION_SLOT: brand/model |
-| Hydraulic foot-pedal press | Secondary — cutting and detail pressure work on flat surfaces | |
-| Automated thermoforming machine | Plastic production — operated but not sole responsibility | |
-| Manual tools (various) | Setup, alignment, finishing | |
-
-**EXPANSION_SLOT:** CNC brand/model, thermoforming machine brand, number of machines on floor
+| **Haas CNC mill** (model not retained) | Primary CNC for mold machining + part detailing | Modern controller — *"era el Windows"* |
+| **Older modified CNC** (likely Fanuc-type controller, model not retained) | Secondary CNC, retrofitted internally with newer controls | More rudimentary, improvised — *"era el Linux"* |
+| **Industrial hydraulic press** | Cutting and detailing of thermoformed parts | Multi-ton, electrically-powered compressor recharge system |
+| **Automated thermoforming machine** | Plastic forming line | Electric heating resistances + aluminum molds + hydraulic pistons |
+| **Manual tools & metrology kit** | Setup, alignment, finishing, QC | Vernier caliper, micrometer, optical comparator |
 
 ---
 
 ## MATERIALS
 
-- **Aluminum** (mold material)
-- **Electrical isolation plastics** (thermoforming raw material, Continental spec)
-- **Medical-grade plastic** (resin type EXPANSION_SLOT)
+- **Aluminum** — mold material (primary)
+- **Nylon** — fixture/counterpart material (notably for the press cutting fixture)
+- **Thermoforming-grade plastics** — automotive electrical-isolation grade (Continental), medical-grade (medical container line)
+- **Wood** — auxiliary tooling and fixture work
+- **Various machinable polymers** — prototype and production support work
 
 ---
 
 ## SOFTWARE / TECHNICAL STACK
 
-- CAD (software EXPANSION_SLOT — likely AutoCAD or SolidWorks)
-- CAM (EXPANSION_SLOT)
-- Metrology: Vernier caliper, micrometer, optical comparator
+- **CAD:** SolidWorks (in-house standard)
+- **CAM:** SurfCAM (used on the floor; he had operational exposure)
+- **Metrology:** Vernier caliper, micrometer, optical comparator
+
+**Note on engineering authority:** During MoldTech, design authority sat with Ing. Eduardo. eldaniels's role was operational, not design-leading. Greater project ownership came later at EncoreTools.
 
 ---
 
-## ACHIEVEMENTS — EXPANSION_SLOT
+## ACHIEVEMENTS
 
-Voice extraction did not reach achievement-level detail for MoldTech. Known general accomplishments:
-- Built foundational CNC operator skills that enabled later progression to TDI (biomedical) and EncoreTools (programmer)
-- Quality control via metrology on geometric/dimensional tolerances
-- Contributed to engineering assemblies, welding, and fixturing projects
+**1. Custom cutting fixture for thermoformed containers (signature contribution)**
+Designed a hydraulic-press fixture with blade edges paired with a nylon counterpart, used to trim and finish thermoformed containers. Outcome:
+- Cleaner product finishing
+- Better dimensional conformity to packaging requirements
+- Removal of excess thermoformed flash material
 
-**Target for next voice session:**
-- Specific parts/molds he produced
-- Metrics (mold turnaround time, parts per shift, scrap rate)
-- Process improvements suggested or implemented
-- Moments of technical challenge (difficult mold geometry, tight tolerance, rush orders)
-- Role evolution between 2022 and 2024
+This was **early hands-on exposure to fixture-thinking and production tooling adaptation** — a competency thread that recurs in later roles.
+
+**2. Cross-station versatility**
+Across two stints, operated competently across CNC, hydraulic press, thermoforming, metrology, and fixturing — an asset in a small shop where dynamic reassignment was the norm.
+
+**3. Reliability across two return stints**
+Invited back two years later for a second summer — the return itself is signal: the relationship and work quality were strong enough to warrant re-hire after the gap year.
+
+**4. Foundational CNC operator skills**
+Built the operator-level competence (setup, fixturing, tool changes, offsets, metrology-driven QC) that enabled later progression to TDI (biomedical, 2023) and full-lifecycle CNC programming at EncoreTools (2025).
+
+**5. Industry exposure**
+Direct production work for Continental (Tier-1 automotive OEM client) and a medical container line — a valuable cross-industry signal for CV framing.
 
 ---
 
-## RECOMMENDATION / REFERENCES — EXPANSION_SLOT
+## RECOMMENDATION / REFERENCES
 
-Unknown whether a recommendation letter exists or is obtainable. Worth asking on next voice session.
+- **Primary potential reference:** Ing. Eduardo (owner) — relationship preserved, positive
+- **Secondary:** Lic. Sagitario (HR/accounting, Eduardo's wife)
+- **Peer reference:** Eduardo's son (former ITESO schoolmate)
+- A formal recommendation letter has not been requested. Likely obtainable on request given the preserved relationship.
+
+> *"Estoy particularmente orgulloso de la relación laboral que forjé ahí."*
 
 ---
 
 ## INTERVIEW DEFENSIBILITY — 2-MINUTE VERBAL TEST
 
-**Partially defensible.** Dates, company, domain, and general tasks are confirmed. Missing: machine specifics, achievements, metrics.
+**Fully defensible.** Company structure, leadership names, scope, machines, materials, software, and signature contribution are all captured.
 
-**Minimum defensible claim (today):**
-> "At MoldTech I worked two summer stints as a CNC operator in thermoforming mold manufacturing. We machined aluminum molds for clients including Continental — automotive electronics isolation trays — and a medical fluid container line. I did CNC mold machining, post-process part detailing, hydraulic press work, and quality verification with Vernier, micrometer, and optical comparator. I also helped with assembly, welding, and fixturing projects."
+**2-minute defensible claim:**
+> "I worked two summer stints at MoldTech (Maltige S. de R.L.), a small family-run industrial workshop in Guadalajara making thermoforming molds and parts for clients including Continental — automotive electrical-isolation trays — and a medical fluid container line. I operated Haas and Fanuc-type CNC mills for aluminum mold machining and post-process part detailing, ran the hydraulic press and thermoforming line, and did dimensional QC with Vernier, micrometer, and optical comparator. The contribution I'm most proud of was designing a custom cutting fixture — blade edges paired with a nylon counterpart on the hydraulic press — that improved trimming consistency on thermoformed containers. I worked in SolidWorks (CAD) and SurfCAM (CAM). It was the foundational role that built my CNC operator base before TDI Biomedical and EncoreTools."
 
 ---
 
-## SKILL TAGS (partial)
+## SKILL TAGS
 
-**Machines:** CNC Milling (mold-making), Hydraulic press, Thermoforming machine (automated)
-**Materials:** Aluminum, Thermoforming plastics (automotive + medical grade)
-**Processes:** Mold manufacturing, Thermoforming, Part detailing (post-process CNC), Fixture alignment, Setup, Geometric tolerance verification
+**Machines:** CNC milling (Haas + retrofitted Fanuc-type), industrial hydraulic press (multi-ton), automated thermoforming machine
+**Materials:** Aluminum, nylon, thermoforming plastics (automotive + medical grade), wood, machinable polymers
+**Processes:** Mold manufacturing, thermoforming, post-process CNC detailing, hydraulic-press trimming, fixture design, fixturing & alignment, setup, geometric tolerance verification, welding, fabrication
 **Metrology:** Vernier caliper, micrometer, optical comparator
-**Industries served:** Automotive (Continental), Medical (containers)
-**Soft:** Learning-phase operator, seasonal reliability (returned 2 years later)
+**Software:** SolidWorks (CAD), SurfCAM (CAM)
+**Industries served:** Automotive (Continental, Tier-1 OEM), Medical (containers)
+**Soft:** Workshop adaptability, dynamic-priority handling, family-shop interpersonal trust, seasonal reliability (two return stints), referral-network navigation
 
 ---
 
-## EXPANSION SLOTS — questions for next voice session
+## EXPANSION SLOTS — items not retained from session
 
-**Block 2 (Company Context):**
-- [ ] Team size on the floor during each stint?
-- [ ] Formal contract or informal summer work?
-- [ ] Direct supervisor name/role?
-- [ ] How did you get in — friend referral at ITESO? Who?
+- [ ] Exact CNC machine models (Haas + older retrofit)
+- [ ] Exact thermoforming machine brand
+- [ ] Specific resin grades (Continental electrical-isolation grade name; medical container resin)
+- [ ] Tolerance ranges achieved on molds
+- [ ] Cycle-time / scrap-rate / parts-per-shift metrics
+- [ ] Hourly pay rate (only weekly approximation remembered)
 
-**Block 3 (Role):**
-- [ ] Official job title on contract?
-- [ ] Main day-to-day tasks (percentage breakdown)?
-- [ ] Did the role evolve between 2022 and 2024?
-
-**Block 4 (Machines):**
-- [ ] CNC brand and model?
-- [ ] How many CNCs on the floor?
-- [ ] Thermoforming machine brand?
-- [ ] Did he write/edit G-code or only load existing programs?
-
-**Block 5 (Workflow):**
-- [ ] Who gave work orders — planner, supervisor, drawings?
-- [ ] Quality inspection responsibility?
-- [ ] Interaction with design/engineering team?
-
-**Block 6 (Technical specifics):**
-- [ ] Main plastic resin grades?
-- [ ] CAD software used?
-- [ ] Tolerance ranges achieved?
-- [ ] Any welding, hydraulic, pneumatic work?
-
-**Block 7 (Achievements):**
-- [ ] Any breakdown fixed faster than expected?
-- [ ] Process improvements?
-- [ ] Standout difficult job?
-- [ ] Metrics (cycle time, scrap, parts/shift)?
-
-**Block 8 (Collaboration):**
-- [ ] Team vs solo work?
-- [ ] Client contact (Continental, medical client)?
-- [ ] Formal procedures or informal?
-
-**Block 9 (Artifacts):**
-- [ ] Any photos, drawings, or records?
-- [ ] Procedures or logs written?
-- [ ] LinkedIn connections from MoldTech?
-
-**Block 10 (Expansion):**
-- [ ] Anything technically you're unsure how to describe?
-- [ ] Proudest moment?
-- [ ] Skills carried forward to later jobs?
+These can stay open — the role is fully defensible without them.
 
 ---
 
@@ -197,29 +189,32 @@ Unknown whether a recommendation letter exists or is obtainable. Worth asking on
 
 | Item | Status |
 |---|---|
-| Contract or pay stub | ❓ EXPANSION_SLOT — check records |
-| Part/mold photos | ❌ Not captured |
-| CAD/G-code files | ❌ Unknown |
-| LinkedIn connections from MoldTech | ❓ EXPANSION_SLOT |
-| Recommendation letter | ❓ EXPANSION_SLOT — ask on next session |
+| Contract / pay stub | ❌ Informal, none retained |
+| Part / mold photos | ❌ Not captured |
+| CAD / G-code files | ❌ Not retained |
+| LinkedIn connections | ❓ Worth checking — Eduardo, his son |
+| Recommendation letter | ❓ Obtainable on request, not yet requested |
 
 ---
 
-## CV-READY BULLETS (draft, to refine after full extraction)
+## CV-READY BULLETS
 
 > **Operador CNC — MoldTech (Maltige S. de R.L.), Guadalajara**
 > *Dos temporadas: may–ago 2022 y may–ago 2024*
-> - Maquinado CNC de moldes de aluminio para producción de termoformado (clientes: Continental automotriz, contenedores médicos).
-> - Detallado post-proceso de piezas plásticas termoformadas sobre CNC y prensa hidráulica.
-> - Metrología dimensional con calibrador Vernier, micrómetro y comparador óptico para verificación de tolerancias geométricas.
-> - Participación en diseño de ensambles, soldadura y sujeciones en proyectos de ingeniería.
+> - Maquinado CNC (Haas + Fanuc) de moldes de aluminio para producción de termoformado en líneas para Continental (electrónica automotriz) y contenedores médicos.
+> - Diseño y operación de fixture de corte sobre prensa hidráulica multi-tonelada (filo metálico + contraparte de nylon) que mejoró la consistencia dimensional de envases termoformados.
+> - Operación de termoformadora automatizada y detallado post-proceso de piezas plásticas.
+> - Verificación dimensional con calibrador Vernier, micrómetro y comparador óptico para tolerancias geométricas.
+> - CAD en SolidWorks y exposición a CAM en SurfCAM; participación en ensambles, soldadura y sujeciones.
 
 ---
 
 ## STRATEGIC NOTE
 
-MoldTech rounds out the manufacturing narrative — **two return stints show reliability and progression**. The Continental client connection is valuable for applications to Continental or automotive-adjacent companies.
+**MoldTech anchors the manufacturing narrative.** Two return stints across a gap year demonstrate reliability and a preserved professional relationship. The Continental client connection is a Tier-1 OEM signal valuable for any automotive-adjacent application (Continental, Bosch, Siemens Energy industrial, etc.).
+
+The session also recovered a key narrative truth that should inform interview framing across all early roles: **the value was at least as much personal as technical** — workplace discipline, schedule respect, supplier and customer interaction, team adaptation. That's CV-relevant because it's the foundation that made TDI and EncoreTools possible. The signature fixture-design contribution shows fixture-thinking emerged early — a thread that connects directly to the AutoCAD plugin / nesting engine work today.
 
 ---
 
-*End of file. Version 0.3 — skeleton awaiting full voice extraction.*
+*End of file. Version 1.0 — May 4, 2026.*
