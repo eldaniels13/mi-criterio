@@ -1,5 +1,5 @@
 # ROLES — INDEX & STATUS
-**Last updated:** Abr 25, 2026
+**Last updated:** May 4, 2026
 **Owner:** José Daniel García Castro (eldaniels)
 **Purpose:** Single-source tracker of all professional role extractions in preparation for CV consolidation (CV_2025_Manufactura, CV_2025_Programacion, CV_2025_Energia) and multi-platform profile updates (Indeed, LinkedIn, OCC, Computrabajo).
 
@@ -8,10 +8,10 @@
 ## TIMELINE OVERVIEW
 
 ```
- 2021 ─ Summer ──── Automotive Mechanic (family workshop) [v0.2 — skeleton, referral pattern]
- 2022 ─ May–Aug ─── MoldTech CNC (stint 1)              [v0.3 — partial skeleton]
- 2023 ─ May–Aug ─── TDI Biomedical CNC                  [v0.3 — partial — HIGH VALUE]
- 2024 ─ May–Aug ─── MoldTech CNC (stint 2, half-time)   [v0.3 — partial skeleton]
+ 2021 ─ Summer ──── Richard's Automotive (family workshop) [✅ v1.0 COMPLETE]
+ 2022 ─ May–Aug ─── MoldTech CNC (stint 1)              [✅ v1.0 COMPLETE]
+ 2023 ─ May–Aug ─── TDI Biomedical CNC                  [✅ v1.0 COMPLETE]
+ 2024 ─ May–Aug ─── MoldTech CNC (stint 2, half-time)   [✅ v1.0 COMPLETE — same file]
  2024 ─ Sep–Dec ─── PAP ITESO / Entreamigos (San Pancho) [✅ v1.0 COMPLETE]
  2025 ─ Feb–May ─── EncoreTools CNC Programmer          [✅ v1.0 COMPLETE]
  2025 ─ May    ─┐
@@ -29,11 +29,12 @@
 | `role_encoretools_cnc_programmer.md` | 1.0 | ✅ COMPLETE (letter verified) | — |
 | `role_pap_iteso_entreamigos.md` | 1.0 | ✅ COMPLETE (3 CV variants) | — |
 | `role_performance_designs_mexico.md` | 1.0 | ✅ COMPLETE (track-based format — see note below) | — |
-| `role_tdi_biomedical.md` | 0.3 | 🟡 SKELETON — **high priority** | ~45 min |
-| `role_moldtech_thermoforming.md` | 0.3 | 🟡 SKELETON (both stints) | ~45 min |
-| `role_automotive_mechanic_2021.md` | 0.2 | 🟡 SKELETON — context framed | ~20 min |
+| `role_tdi_biomedical.md` | 1.0 | ✅ COMPLETE | — |
+| `role_moldtech_thermoforming.md` | 1.0 | ✅ COMPLETE (both stints, signature fixture documented) | — |
+| `role_automotive_mechanic_2021.md` | 1.0 | ✅ COMPLETE (Richard's, Pinar de la Calma) | — |
 | `voice_extraction_cnc_manufacturing.md` | — | 📦 ARCHIVED — superseded by per-role files | — |
-| `voice_extraction_tdi_session2.md` | — | 📋 TEMPLATE — continuation guide for TDI session | — |
+| `voice_extraction_tdi_session2.md` | — | 📦 ARCHIVED — TDI session 2 completed | — |
+| `voice_extraction_pending_session.md` | — | 📦 ARCHIVED — May 4 session completed | — |
 
 **Supplementary (different format — not a single-role file):**
 
@@ -51,16 +52,10 @@
 
 ## PRIORITY ORDER FOR NEXT SESSIONS
 
-**Tier 1 — Strategic value for international CV:**
-1. **TDI Biomedical** — regulated-industry experience, strong differentiator for scholarship and Europe applications
-2. **EncoreTools** — DONE ✅
-3. **PAP / Entreamigos** — DONE ✅
+✅ **All seven role files at v1.0 as of May 4, 2026.** Pipeline closed.
 
-**Tier 2 — Round out the manufacturing narrative:**
-4. **MoldTech (both stints)** — two of the four biggest items on CV_2025_Manufactura
-
-**Tier 3 — Completeness:**
-5. **Automotive Mechanic 2021** — short session, just to have it documented
+Remaining low-effort polish (non-blocking):
+- EncoreTools: supervisor full name, exact Haas + Fanuc model numbers, salary confirmation (likely already in recommendation letter / prior docs)
 
 ---
 
@@ -73,7 +68,7 @@
 - [ ] Any photos, G-code, CAD files recoverable from pre-Linux migration (likely none)
 
 ### Facts to confirm
-- [ ] Original `pendiente actualizar CVs.txt` had MoldTech dates as "Agosto 2025 a Diciembre 2024" — **impossible**. Voice extraction confirmed **May–Aug 2022 + May–Aug 2024**. Update the source file.
+- [ ] **`pendiente actualizar CVs.txt` still needs correction:** had MoldTech dates as "Agosto 2025 a Diciembre 2024" — **impossible**. Voice extraction confirmed **May–Aug 2022 + May–Aug 2024**. Source file not yet updated.
 - [ ] EncoreTools exit date in May 2025 (letter signed May 13 — likely ±3 days)
 - [ ] Performance Designs start date (May 2025, exact day?)
 
@@ -96,13 +91,12 @@
 - [ ] NGO name (Entreamigos most likely, needs confirmation)
 - [ ] Small CNC brand (phonetic "Satiska" — possibly Shapeoko, Stepcraft, or X-Carve)
 
-### TDI — needs deep extraction
-- [ ] Everything beyond dates, pay, and domain
+### TDI — ✅ resolved (v1.0)
 
-### MoldTech — needs extraction + distinction between stints
-- [ ] Role evolution between 2022 and 2024
-- [ ] Supervisor name
-- [ ] How he entered (university friend referral?)
+### MoldTech — ✅ resolved (v1.0)
+- Supervisor: Ing. Eduardo (engineer-owner) + Lic. Sagitario (HR)
+- Entry: Referral via owner's son (ITESO schoolmate)
+- Both stints documented in single file
 
 ---
 
@@ -141,6 +135,8 @@ Reframe TDI (precision + regulated) and PEP (social impact + community engineeri
 | Abr 19, 2026 | Format standardization | All skeleton files aligned to EncoreTools canonical section order | ✅ All files now follow same structure |
 | Abr 23, 2026 | File audit + cleanup | Resolved duplicate automotive/PEP files, registered new files, updated INDEX | ✅ role_automotive_mechanic v0.2 canonical; role_pap_iteso_entreamigos v1.0 canonical; role_supplementary_experience added |
 | Abr 25–28, 2026 | K2 Systems research | Company profile researched and filed; template improved | ✅ k2_systems_profile.md COMPLETE; _research_template.md v1.1 |
+| Abr 30, 2026 | Voice extraction | TDI Biomedical v1.0 + EncoreTools v1.0 confirm + skills_master v1.1 | ✅ TDI v1.0 |
+| May 4, 2026 | Voice extraction | MoldTech v1.0 (both stints), Automotive 2021 v1.0 (Richard's), EncoreTools polish queued | ✅ Pipeline closed — 7/7 at v1.0 |
 
 ---
 
