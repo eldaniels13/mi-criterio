@@ -1,144 +1,133 @@
 # role_automotive_mechanic_2021.md
-**Version:** 0.2 (SKELETON — context expanded, technical detail pending voice extraction)
-**Status:** Thin but framed — hiring context and relationship angle confirmed
-**Last updated:** Abr 2026
-**Source:** Voice extraction sessions (Abr 19 + Abr 23)
+**Version:** 1.0
+**Status:** ✅ COMPLETE (light extraction — narrative + technical scope captured)
+**Last updated:** May 4, 2026
+**Source:** Voice extraction sessions (Abr 19 + Abr 23 + May 4, 2026 — see `sesiones/04_05_26_voice_extraction_session_roles.md`)
 **Supersedes:** role_mechanical_automotive_2021.md v0.1
 
 ---
 
 ## ROLE IDENTITY
 
-- **Title:** EXPANSION_SLOT — likely "Mecánico Automotriz Auxiliar" or "Ayudante de Taller"
+- **Title (official):** Ayudante de mecánica automotriz (informal)
 - **Title (ATS-ready):** Automotive Mechanic's Assistant — Independent Workshop
-- **Company:** Family-owned independent automotive workshop — **EXPANSION_SLOT (name)**
-- **Owner relationship:** Father of an **ITESO classmate** (hijo del patrón = compañero de universidad)
-- **Location:** Guadalajara metro area (assumed) — EXPANSION_SLOT
-- **Dates:** Summer 2021 — EXPANSION_SLOT (confirm exact months)
+- **Company:** **Richard's Automotive Mechanic Workshop** (independent, family-operated)
+- **Owner:** Ricardo (father of an ITESO classmate)
+- **Location:** Pinar de la Calma — Cruz del Sur / 18 de Marzo area, Guadalajara–Zapopan metro, Jalisco, México
+- **Dates:** Summer 2021
 - **Employment type:** Seasonal summer job, informal / by-hour
-- **Reporting line:** The owner directly + his son (ITESO classmate) as peer-collaborator
+- **Reporting line:** Ricardo (owner + lead mechanic) directly; ITESO classmate as peer collaborator
 
-🏷️ **Career-arc position:** One of José Daniel's **earliest university-era jobs** (along with others documented in `role_supplementary_experience.md`). Pre-Moldtech. Pre-CNC.
+🏷️ **Career-arc position:** eldaniels's **first paid technical role** — pre-MoldTech, pre-CNC. Foundational hands-on mechanical experience.
 
 ---
 
-## COMPANY CONTEXT — EXPANSION_SLOT
+## COMPANY CONTEXT
 
-Small independent automotive workshop. Family-operated. Owner's son (a mechanical engineering student at ITESO) worked alongside him, which established the bridge for José Daniel's entry.
+A small, independent, family-operated automotive workshop in the Pinar de la Calma / Cruz del Sur / 18 de Marzo area of Guadalajara–Zapopan. Hands-on, practical, multi-brand general repair shop.
 
-**Unknown but worth asking:**
-- Vehicle focus (brand specialists? mixed? commercial vehicles?)
-- Shop size (1-bay, multi-bay?)
-- Services offered (diagnostics, engine, transmission, electrical, bodywork?)
+The owner's son — eldaniels's mechanical engineering classmate at ITESO — worked alongside him in the shop, which is how the entry was bridged.
 
 ---
 
 ## HIRING CONTEXT
 
-- **Source:** **Referral network** — "contactos de contactos que me refirieron"
-- **Specific bridge:** ITESO classmate whose father owned the shop
-- **Process:** Informal (no formal interview/contract)
+- **Source:** Referral via ITESO classmate (the owner's son) — *"contactos de contactos que me refirieron"*
+- **Process:** Informal — no formal interview, no formal contract
 - **Exit:** End of summer, return to ITESO classes
 
-🔑 **Pattern observation:** This is **the first documented instance of the referral-driven hiring pattern** that repeats across José Daniel's career:
-- 2021 — Taller automotriz ← referred by ITESO classmate
-- 2022/2024 — Moldtech ← referred by friend (helping unload trailers built the relationship)
-- 2025 — EncoreTools ← reached out directly via LinkedIn/Indeed (break from pattern)
+🔑 **Pattern observation — first instance of the referral-driven hiring pattern:**
+- 2021 — Richard's Automotive ← referred by ITESO classmate (owner's son)
+- 2022/2024 — MoldTech ← referred by ITESO schoolmate (owner's son)
+- 2023 — TDI Biomedical ← (independent application)
+- 2025 — EncoreTools ← reached out via LinkedIn/Indeed (break from pattern)
 - 2025–2026 — Performance Designs camera install side-gigs ← referred by plant contractor
 
-This is a professional competency: **relationship-based job acquisition**. Worth naming in motivation letters for markets where this matters (Spain, Latin America).
+This is a professional competency: **relationship-based job acquisition**. Worth naming explicitly in motivation letters for markets where this matters (Spain, Latin America).
 
 ---
 
-## WHAT HE ACTUALLY DID — EXPANSION_SLOT
+## WHAT HE ACTUALLY DID
 
-**Known:**
-- **Domain:** Automotive mechanics (hands-on)
-- **Seniority:** Entry-level assistant / apprentice
-- **Peer collaboration:** Worked alongside the owner's son (ITESO-trained mechanical engineering peer)
+Entered as a young learner / workshop assistant. Daily work was hands-on, broad, and unspecialized — *"se hizo de todo."*
 
-**Questions for full voice extraction:**
-- [ ] Typical day — what did you actually touch?
-- [ ] Brake work, oil changes, engine diagnostics, electrical, transmission, suspension?
-- [ ] Did you learn on specific vehicle brands?
-- [ ] Did you use a diagnostic scanner (OBD-II)? Which brand?
-- [ ] Did you do any welding, cutting, grinding?
-- [ ] Did you learn to read wiring diagrams?
-- [ ] Any part replacements you did solo? Any that required supervision?
-- [ ] How were you paid — weekly, by-job, daily?
-- [ ] Approximate total income from that summer?
+**Responsibilities:**
+- Assembly and disassembly
+- Tool handling and shop discipline
+- Mechanical support work alongside senior mechanics
+- Participating in repair teams
+- Adapting to dynamic repair scopes
+
+**Vehicle exposure:** Multi-brand — Volkswagen Jetta, Nissan Tsuru, Honda models, and others.
+
+**Specific repairs / systems touched:**
+- Steering rack work
+- Fluid services (engine oil, coolant, brake fluid, transmission fluid)
+- Brake servicing — pad replacement, disc resurfacing
+- Drivetrain cleaning
+- Engine cleaning
+- Transmission removal
+- Suspension-related work
+
+**Signature memorable repair:**
+Disassembly of a **Jeep Grand Cherokee inline-6 engine head** — valve cleaning, replacement of valve retainers and springs, reassembly to manufacturer torque specifications.
 
 ---
 
-## MACHINES / TOOLS — EXPANSION_SLOT
+## TOOLS / TECHNICAL EXPOSURE
 
-Typical independent shop toolkit (to verify):
+Independent shop toolkit:
 - Hand tools (wrenches, sockets, torque wrenches)
-- Jack + jack stands / lift
-- Impact tools (pneumatic or electric)
-- Diagnostic scanner (OBD-II)
-- Multimeter
-- Possibly welding (MIG) for bodywork/exhaust
-- Brake-service tools
-- Parts press
+- Jack + jack stands
+- Diagnostic and brake-service tools
+- Vehicle-system fluids and consumables
+
+No specialized software (typical for an independent shop at this scale).
 
 ---
 
-## MATERIALS — EXPANSION_SLOT
+## ACHIEVEMENTS
 
-Automotive consumables: engine oil, coolant, brake fluid, transmission fluid, grease, hardware (bolts, gaskets, hoses).
-
----
-
-## SOFTWARE / TECHNICAL STACK — EXPANSION_SLOT
-
-Unlikely that software was part of this role beyond OBD-II scanner interface.
-
----
-
-## ACHIEVEMENTS — EXPANSION_SLOT
-
-Not yet documented. Likely candidates:
-- First paid hands-on technical work
-- Built fluency with vehicle systems that later contextualized mechanical engineering coursework
-- Established a professional reference (owner = potential contact)
-- Maintained the relationship with ITESO classmate
+1. **First paid hands-on technical role** — confirmed the pull toward mechanical work and pushed eldaniels toward manufacturing the next summer (MoldTech, 2022).
+2. **Broad mechanical literacy** — across brakes, drivetrain, suspension, fluids, engine internals — built fluency that contextualized later mechanical engineering coursework at ITESO.
+3. **Engine-internals competence** — the Grand Cherokee inline-6 head job is a defensible technical anchor (valves, retainers, springs, torque-spec reassembly).
+4. **Established a referral relationship** — Ricardo and his son remain potential references.
 
 ---
 
 ## RECOMMENDATION / REFERENCES
 
-- **Potential reference:** The owner (classmate's father) — relationship is warm, referral-based
-- **Potential peer reference:** ITESO classmate who introduced him
-- [ ] Worth recovering contact info if CV-relevant
+- **Potential reference:** Ricardo (owner) — relationship is warm, referral-based
+- **Potential peer reference:** Ricardo's son (ITESO classmate)
+- Worth recovering contact info if CV-relevant; not yet requested
 
 ---
 
 ## INTERVIEW DEFENSIBILITY — 2-MINUTE VERBAL TEST
 
-**Partially defensible.** Contextual framing is clear; technical detail is thin.
+**Defensible at narrative level + one technical anchor.**
 
-**Minimum defensible claim (today):**
-> "My first technical job was in the summer of 2021 at a family-run automotive workshop in Guadalajara, introduced through an ITESO classmate whose father owned the shop. I worked alongside him as an assistant mechanic — my first paid hands-on technical experience. It confirmed that I was drawn to mechanical work and pushed me toward manufacturing the following summer at Moldtech."
-
----
-
-## SKILL TAGS (partial)
-
-**Processes:** Automotive diagnostics (assistant level), hands-on mechanical work, tool familiarity, shop discipline
-**Soft:** Early professional exposure, referral-network navigation, peer collaboration with engineering student, informal-shop adaptability
+**2-minute defensible claim:**
+> "My first paid technical job was in the summer of 2021 at Richard's Automotive Mechanic Workshop in Pinar de la Calma, Guadalajara — a small independent shop owned by Ricardo, the father of an ITESO classmate. I worked alongside him as a mechanic's assistant. We serviced multi-brand vehicles — Jettas, Tsurus, Hondas — across brakes, suspension, drivetrain, and fluids. The job I'm proudest of was disassembling a Jeep Grand Cherokee inline-6 engine head: valve cleaning, replacing retainers and springs, and reassembling to manufacturer torque specs. It was the role that confirmed I was drawn to mechanical work and pushed me toward manufacturing the following summer at MoldTech."
 
 ---
 
-## EXPANSION SLOTS — minimum viable voice session (15–20 min)
+## SKILL TAGS
 
-1. Company/shop name + owner name
-2. Classmate name (reference preservation)
-3. What specific work you touched
-4. One memorable repair or vehicle
-5. What you earned (approximate)
-6. Why you didn't go back in 2022 (went to Moldtech instead)
-7. What you took away from it technically and personally
+**Processes:** Automotive diagnostics & repair (assistant level), engine head disassembly/reassembly to torque spec, brake service, suspension work, drivetrain & transmission service, fluid service, hands-on shop discipline
+**Soft:** First professional exposure, referral-network navigation, peer collaboration with engineering student, informal-shop adaptability, labor-dignity awareness
+**Vehicles:** VW Jetta, Nissan Tsuru, Honda multi-model, Jeep Grand Cherokee
+
+---
+
+## EXPANSION SLOTS — items not retained from session
+
+- [ ] Total earnings / weekly pay rate
+- [ ] Exact week count of the summer
+- [ ] Specific OBD-II scanner brand (if used)
+- [ ] Whether welding / cutting was part of his scope
+
+These can stay open — the role is fully defensible without them.
 
 ---
 
@@ -146,32 +135,37 @@ Not yet documented. Likely candidates:
 
 | Item | Status |
 |---|---|
-| Any records | ❌ Unknown |
-| Photos | ❌ Unknown |
+| Records / pay stubs | ❌ Informal, none retained |
+| Photos | ❌ Not captured |
 | Classmate's contact | ❓ Retrievable via ITESO network |
 | Owner's contact | ❓ Via classmate |
 
 ---
 
-## CV-READY BULLET (placeholder)
+## CV-READY BULLET
 
-> **Asistente de mecánica automotriz — Taller independiente, Guadalajara**
+> **Asistente de mecánica automotriz — Richard's Automotive Mechanic Workshop, Guadalajara**
 > *Verano 2021*
-> - Primera experiencia técnica remunerada: asistencia en diagnóstico y reparación automotriz en taller familiar independiente.
+> - Primera experiencia técnica remunerada: diagnóstico y reparación automotriz multimarca (VW, Nissan, Honda, Jeep) en taller independiente.
+> - Servicios de frenos, suspensión, transmisión y fluidos; desarmado y rearmado de cabeza de motor inline-6 (Grand Cherokee) con torque a especificación de fabricante.
 > - Acceso mediante red de referidos ITESO (hijo del dueño, compañero de ingeniería mecánica).
 
 ---
 
 ## STRATEGIC NOTE
 
-**Low CV priority, but high narrative value:**
-- Not a headline role — typically goes into "earlier experience" or gets omitted on technical CVs
-- **Useful in motivation letters** as the origin of the hands-on mechanical trajectory
-- **First data point** in the referral-network pattern that defined most subsequent hiring
-- Can be combined with `role_supplementary_experience.md` for a one-line footer: *"Additional hands-on professional experience since 2019 — see supplementary file."*
+**Low CV priority, high narrative value.**
 
-**Priority for full voice extraction:** LOW. 15-min session is sufficient; more detail has diminishing return unless this specific role becomes CV-central (unlikely).
+Not a headline role — typically goes into "earlier experience" or gets omitted on technical CVs. But:
+
+- **Origin point of the hands-on mechanical trajectory** — useful in motivation letters
+- **First data point** in the referral-network pattern that defined most subsequent hiring
+- **Source of an ethical/philosophical foundation** that surfaces in interviews and motivation letters: the experience shaped eldaniels's view of labor, dignity, and the worker–employer relationship as one of equals — *"creo que trabajar dignifica a la persona"*, *"la patronal debe de vernos como iguales, debe de ser capaz de identificar la humanidad por encima del beneficio del capital."* This frame is genuine, not aspirational, and reads as such.
+
+Can be combined with `role_supplementary_experience.md` for a one-line CV footer when space is tight: *"Additional hands-on professional experience since 2019 — see supplementary file."*
+
+**Priority for future deepening:** LOW. Current detail is sufficient for any CV use case unless this role becomes central (unlikely).
 
 ---
 
-*End of file. Version 0.2 — skeleton awaiting short voice session.*
+*End of file. Version 1.0 — May 4, 2026.*
