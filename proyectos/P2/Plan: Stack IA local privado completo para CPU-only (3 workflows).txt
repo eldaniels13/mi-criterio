@@ -1,0 +1,212 @@
+Plan: Stack IA local privado completo para CPU-only (3
+ workflows)
+
+ Context
+
+ Pregunta estratégica: ¿Aider + Ollama es el camino
+ correcto para IA local privada en hardware actual
+ (i7-8665U, 32GB RAM, sin GPU, ~49GB root casi lleno), con
+  3 workflows objetivo?
+
+ Workflows objetivo:
+ 1. Coding assistant (Aider) — edición de código,
+ refactor, debug en repos
+ 2. RAG sobre mi-criterio — Q&A semántico sobre tu repo de
+  conocimiento personal
+ 3. Chat / razonamiento general — reemplazo de
+ ChatGPT/Claude para preguntas no-código
+
+ Decisión del usuario: no upgrade de hardware ahora —
+ extraer el máximo del setup actual.
+
+ Veredicto honesto: Sí, este stack es correcto. Razones:
+ - Software stack es el mismo independiente del hardware —
+  cuando upgrades GPU en el futuro, cero migración (mismo
+ Ollama, mismos modelos, misma config). Tu trabajo se
+ acumula.
+ - Privacidad/soberanía garantizadas — todo local, sin
+ telemetría, código abierto auditable.
+ - Ya tienes 60% del trabajo hecho: Ollama + Aider +
+ nomic-embed-text (embeddings) + modelos coder pulled.
+ - El único "techo" es velocidad, no capacidad. CPU-only
+ te limita a respuestas lentas, NO a respuestas malas.
+
+ Lo que NO funciona en CPU-only (ser claro):
+ - Agentic loops complejos (Aider haciendo 10+ rondas
+ autónomas) → frustrante
+ - Modelos >16B → no caben o son inutilizables
+ - Respuestas en tiempo real estilo Claude Code → no
+ - Pero sí funciona: edición asistida, RAG, chat con
+ paciencia
+
+ Diagnóstico del bloqueo actual
+
+ aider corrió pero timeout 600s en primer prompt. Causa
+ probable: servicio Ollama quedó en mal estado tras el
+ disk-full incident (los modelos qwen2.5-coder:7b y
+ :latest aparecían en ollama list pero ollama rm decía
+ "not found" → manifests corruptos). Restart de Ollama
+ probablemente lo arregla.
+
+ Diseño del stack completo
+
+ ┌────────────────────────────────────────────────────────
+ ─────┐
+ │  CAPA 1: Modelo runtime — Ollama (ya instalado)
+      │
+ │  ├── deepseek-coder:6.7b      → Aider primary (3.8 GB)
+     │
+ │  ├── deepseek-coder-v2:16b    → smart mode (8.9 GB,
+ MoE)   │
+ │  ├── qwen2.5-coder:1.5b       → tareas triviales (986
+ MB)  │
+ │  └── nomic-embed-text         → embeddings RAG (274 MB)
+     │
+ ├────────────────────────────────────────────────────────
+ ─────┤
+ │  CAPA 2: Interfaces
+       │
+ │  ├── Aider (CLI)              → Workflow 1: coding
+     │
+ │  └── Open WebUI (browser)     → Workflows 2+3: RAG +
+ chat  │
+ └────────────────────────────────────────────────────────
+ ─────┘
+
+ Por qué Open WebUI (no Continue.dev, LibreChat,
+ AnythingLLM, etc.):
+ - Integración nativa con Ollama (cero config extra)
+ - RAG built-in usando nomic-embed-text (que ya tienes)
+ - UI estilo ChatGPT — familiar, conversaciones guardadas
+ localmente
+ - Instalación trivial (Docker o pip)
+ - Mismo backend que Aider → consistencia, no duplica
+ modelos
+
+ Críticos a modificar/crear
+
+ ┌─────────────────────────┬──────────────┬───────────┐
+ │    Archivo / acción     │   Para qué   │  Estado   │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │                         │ Desbloquear  │           │
+ │ Restart servicio Ollama │ timeout      │ Pendiente │
+ │                         │ actual       │           │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │ ~/.aider.conf.yml       │ Tuning CPU — │           │
+ │ añadir                  │  3-4x        │ Pendiente │
+ │ max-repo-map-tokens:    │ speedup en   │           │
+ │ 512, max-tokens: 1000   │ repo-map     │           │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │                         │ Usar los 8   │           │
+ │ ~/.zshrc añadir export  │ hilos        │ Pendiente │
+ │ OLLAMA_NUM_THREAD=8     │ lógicos del  │           │
+ │                         │ i7-8665U     │           │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │ Instalar Open WebUI vía │ Workflows 2  │           │
+ │  pip (uv tool install   │ y 3 (RAG +   │ Pendiente │
+ │ open-webui)             │ chat)        │           │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │ Cargar mi-criterio en   │              │           │
+ │ Open WebUI como         │ Setup RAG    │ Pendiente │
+ │ "Knowledge Collection"  │              │           │
+ ├─────────────────────────┼──────────────┼───────────┤
+ │ Disk cleanup (~5GB      │ Prevenir     │           │
+ │ libres tras pull v2:16b │ otro         │ Pendiente │
+ │  — frágil)              │ disk-full    │           │
+ └─────────────────────────┴──────────────┴───────────┘
+
+ Plan de ejecución por fases
+
+ Fase 0 — Desbloquear (5 min)
+
+ 1. systemctl --user restart ollama (o systemctl restart
+ ollama si es system-wide)
+ 2. ollama ps para verificar
+ 3. Test: ollama run deepseek-coder:6.7b "hola" —
+ confirmar que responde
+ 4. Si funciona → Aider debe funcionar también
+
+ Fase 1 — Optimizar Aider para CPU (10 min)
+
+ 1. Editar ~/.aider.conf.yml: añadir max-repo-map-tokens:
+ 512 y max-tokens: 1000
+ 2. Editar ~/.zshrc: añadir export OLLAMA_NUM_THREAD=8
+ 3. source ~/.zshrc
+ 4. Test en mi-criterio: aider, pedir cambio simple, medir
+  tiempo
+ 5. Si aún lento → bajar max-repo-map-tokens a 256 o usar
+ --no-show-model-warnings
+
+ Fase 2 — Workflows 2+3: Open WebUI (15 min)
+
+ 1. uv tool install open-webui (Python, mismo método que
+ aider)
+ 2. open-webui serve — corre en http://localhost:8080
+ 3. Abrir browser → crear cuenta local (admin)
+ 4. Settings → Models → confirmar que ve los modelos de
+ Ollama
+ 5. Workspace → Knowledge → crear collection "mi-criterio"
+ 6. Subir archivos .txt y .md de ~/Codes/mi-criterio/ (o
+ apuntar al directorio)
+ 7. Open WebUI indexa con nomic-embed-text automáticamente
+ 8. Crear chat nuevo → asignar collection "mi-criterio" →
+ preguntar: "¿qué es P3 en mi arquitectura?"
+ 9. Verificar respuesta cita fuentes del repo
+
+ Fase 3 — Disk management (5 min)
+
+ - Verificar df -h / tras todo lo anterior
+ - Si <5GB libre: considerar borrar qwen2.5-coder:1.5b
+ (986 MB, redundante con coder:6.7b para mayoría de casos)
+ - Si quieres modelo de razonamiento dedicado tipo
+ deepseek-r1:7b: pulling requiere ~5GB libres — postergar
+
+ Verificación end-to-end
+
+ Después de Fase 0-2, los 3 workflows deben funcionar:
+
+ Workflow 1 — Coding:
+ cd ~/Codes/mi-criterio && aider
+ # Pedir: "agrega una sección de troubleshooting al
+ CONTRIBUTING.md"
+ # Esperar: edición propuesta en <3 min
+
+ Workflow 2 — RAG mi-criterio:
+ - Browser → localhost:8080 → chat con collection
+ "mi-criterio"
+ - Pregunta: "¿cuáles son mis empresas objetivo en energía
+  y por qué?"
+ - Esperar: respuesta cita perfil_maestro_eldaniels_v2.txt
+
+ Workflow 3 — Chat general:
+ - Browser → localhost:8080 → chat sin collection
+ - Pregunta: "explícame el panteísmo de Spinoza en
+ relación al solarpunk"
+ - Esperar: razonamiento coherente (lento, ~30-60s para
+ respuesta completa)
+
+ Plan de upgrade futuro (zero-migration)
+
+ Cuando quieras GPU (referencia, no se ejecuta ahora):
+ - eGPU TB3 + RTX 3060 12GB usada (~$500 USD) → 10-15x
+ speedup, mismo software exacto
+ - Build dedicado workstation (~$1500+) → 20B+ models
+ cómodos, networking local
+ - Estrategia de modelos al upgradear: pasar a
+ qwen2.5-coder:32b, deepseek-r1:32b, llama3.3:70b-q4 —
+ todo via misma config de Ollama, solo cambiar model: en
+ .aider.conf.yml y aliases en Open WebUI.
+
+ Lo que NO incluye este plan
+
+ - Image gen (Stable Diffusion) o TTS/STT — postergado
+ (usuario lo descartó implícitamente al elegir solo
+ coding/RAG/chat)
+ - Comandos slash de mi-criterio (/p1-cad, etc.) en Aider
+ — postergado, Open WebUI cubre el use case de "lentes"
+ mejor con prompts guardados
+ - claude-mem persistencia entre sesiones — Aider no lo
+ soporta; Open WebUI sí guarda chats localmente
+ - Migrar a otra alternativa (Continue.dev, Cline, etc.) —
+  no aporta sobre Aider + Open WebUI para tu workflow
+ - Hardware upgrade — usuario decidió posponer
