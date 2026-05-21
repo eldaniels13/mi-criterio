@@ -1,0 +1,195 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CIERRE DE SESIÓN — eldaniels · 2026-04-07
+  Sesión: Intento recuperación MFT con herramientas Windows + SystemRescue
+           + DMDE fallido por dependencias + decisión instalación limpia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESTADO DEL SISTEMA AL CERRAR
+──────────────────────────────────────────────────────────────────────
+
+  nvme0n1 (476.9G — Dell Latitude 5400 M.2 interno):
+    p1   260MB   FAT32   EFI SYSTEM       ← GRUB instalado aquí
+    p2    16MB   MSR     Microsoft Reserved
+    p3   453GB   RAW     Windows C:       ← MFT CORRUPTO (datos físicos intactos)
+    p4   1.3GB   NTFS    Recovery
+    p5    22GB   NTFS    RESTORE Dell
+    p6   200MB   FAT32   MYASUS
+
+  Arch Linux: DESINSTALADO (p7/p8 eliminados sesión anterior)
+  GRUB: ACTIVO en EFI (p1)
+  Windows: NO ARRANCA — MFT corrupto, partición aparece como RAW
+
+  Verbatim 57GB (micro SD):
+    → SystemRescue 13.00 grabado con dd ← booteable y funcional
+
+  ADATA "NEGROROJO" 29GB:
+    → Win11_25H2_Spanish_Mexico_x64_v2.iso (grabado con Rufus GPT/UEFI)
+    → BOOTEABLE ← usar este para instalar Windows
+
+  tenochtitlan (M.2 externo):
+    → xochimilco.vc (VeraCrypt, archivos críticos + serial SolidWorks)
+    → Win11_25H2_Spanish_Mexico_x64_v2.iso (copia del ISO)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LO QUE SE INTENTÓ HOY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DESDE INSTALADOR WINDOWS (ADATA booteable con Rufus):
+  ✗ Reparación de inicio → "no pudo reparar tu PC"
+  ✗ chkdsk C: /f /r /x → "MFT dañada, CHKDSK abortado"
+  ✗ Repair Install ("Reparar mi PC") → no ve C: (aparece RAW en diskpart)
+  ✗ diskpart list volume → C: aparece como RAW 453GB (confirma MFT inaccesible)
+
+  DESDE SYSTEMRESCUE 13.00 (Verbatim booteable con dd):
+  ✗ ntfsfix --clear-dirty /dev/nvme0n1p3 → "Unrecoverable error / Volume is corrupt"
+     ✓ PERO: "Checking for self-located MFT segment... OK" ← $MFTMirr intacto
+  ✗ DMDE GUI → falla por dependencia libgdk-x11-2.0 (gtk2 no disponible en SystemRescue)
+  ✗ pacman -Sy gtk2 → "target not found: gtk2" (SystemRescue solo tiene gtk3)
+  ✗ curl dmde consola → descargó HTML en lugar del zip (URL incorrecta)
+  ✗ TestDisk → encontró particiones pero "Can't open filesystem. Filesystem seems damaged"
+  ✗ mount -t ntfs-3g -o ro,recover → "Failed to load $MFT: No such file or directory"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DIAGNÓSTICO FINAL MFT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  MFT primario ($MFT):     CORRUPTO — ninguna herramienta puede acceder
+  MFT espejo ($MFTMirr):   INTACTO (confirmado por ntfsfix)
+  Datos físicos:            PROBABLEMENTE INTACTOS
+  Filesystem visible:       RAW (Windows y Linux no pueden montarlo)
+
+  Herramientas que PODRÍAN recuperarlo (no intentadas por falta de recursos):
+  → DMDE consola: requiere gtk2 o versión sin GUI — URL correcta:
+    https://dmde.com/download/dmde_lin64_con.zip  (verificar URL actual en dmde.com)
+  → chkdsk desde Windows instalado: Windows a veces repara MFT en primer boot
+  → PhotoRec: recupera archivos por firma binaria pero necesita ~453GB libres de destino
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISIÓN TOMADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Instalación limpia de Windows 11 — proceder en próxima sesión
+  Razón: MFT irrecuperable con herramientas disponibles sin disco destino externo
+  SolidWorks: licencia universitaria — gestionar con ITESO o buscar alternativa
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRÓXIMA SESIÓN — INSTALACIÓN LIMPIA WINDOWS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  PREREQUISITO: tener tenochtitlan conectado para acceder a xochimilco.vc
+
+  PASO 1 — Arrancar desde ADATA:
+    a) Conectar ADATA "NEGROROJO"
+    b) F12 → seleccionar ADATA UEFI
+    c) Instalar ahora → siguiente → aceptar licencia
+
+  PASO 2 — Seleccionar partición:
+    a) "¿Dónde deseas instalar Windows?"
+    b) Seleccionar partición de 453GB (p3)
+    c) Click "Formatear" → confirmar
+    d) Siguiente → instalar
+
+  PASO 3 — Post instalación:
+    a) Configurar cuenta local (NO cuenta Microsoft)
+    b) Verificar que Windows arranca correctamente
+    c) Montar xochimilco.vc desde tenochtitlan
+    d) Verificar contenido del backup
+
+  PASO 4 — Reinstalar Arch Linux (después de Windows estable):
+    a) Desde Windows: shrink C: a ~300GB con Administrador de discos
+       SIN usar ntfsresize desde Linux
+    b) Arrancar Arch live ISO
+    c) Particionar espacio libre con cfdisk
+    d) Instalar Arch + COSMIC con proceso aprendido el 05/04
+    e) NO correr ntfsfix entre operaciones
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+APRENDIZAJES TÉCNICOS DE ESTA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Rufus con NTFS + GPT/UEFI:
+  - Windows ISOs >4GB no caben en FAT32 — Rufus crea partición FAT32 para EFI
+    y NTFS para install.wim automáticamente. Es correcto y booteable.
+  - dd graba imagen plana — no crea estructura dual FAT32/NTFS que UEFI necesita
+  - Rufus es la herramienta correcta para ISOs de Windows, no dd
+
+  SystemRescue:
+  - Incluye: testdisk, ntfsfix, ntfs-3g, photorec, gparted, firefox
+  - NO incluye: gtk2, dmde, ntfsck
+  - pacman funciona si hay internet (nmtui para conectar WiFi)
+  - Útil para recuperación pero limitado para MFT muy corrupto
+
+  DMDE en SystemRescue:
+  - Versión GUI requiere libgdk-x11-2.0 (gtk2) — no disponible en SystemRescue
+  - Solución futura: descargar versión consola desde dmde.com antes de arrancar
+    y copiarla al USB junto con SystemRescue
+
+  MFT vs $MFTMirr:
+  - $MFTMirr intacto no garantiza recuperación automática
+  - Todas las herramientas de Linux (ntfsfix, ntfs-3g, testdisk) usan $MFT primario
+  - Solo DMDE y chkdsk de Windows pueden reconstruir $MFT desde $MFTMirr
+
+  diskpart en WinRE:
+  - Si C: aparece como RAW → Repair Install no puede proceder
+  - RAW confirma que el filesystem es completamente ilegible para Windows
+  - No significa pérdida de datos físicos — solo pérdida del índice (MFT)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TODO — ORDENADO POR PRIORIDAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CRÍTICO AHORA:
+  [ ] Instalación limpia Windows desde ADATA
+  [ ] Verificar arranque correcto post-instalación
+  [ ] Montar xochimilco.vc y verificar contenido
+
+  UNA VEZ WINDOWS FUNCIONANDO:
+  [ ] Gestionar situación SolidWorks (contactar ITESO o evaluar alternativas)
+  [ ] Shrink C: desde Windows a ~300GB (Administrador de discos, NO ntfsresize)
+  [ ] Reinstalar Arch Linux + COSMIC con proceso correcto
+  [ ] Instalar stack completo: .NET 8, Python, Docker, VS Code, Node.js, Claude Code
+  [ ] Configurar zsh + starship + LazyVim
+  [ ] Configurar multi-monitor
+  [ ] IPv6 deshabilitado en Arch (igual que fibonacci)
+  [ ] Inicializar repo git mi-criterio/
+  [ ] Desmontar Z:\ VeraCrypt antes de desconectar tenochtitlan
+
+  FUTURO:
+  [ ] P8 Fase 2: HDD_A LUKS
+  [ ] Reactivar IPv6 cuando cambie ISP
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INVENTARIO DE HARDWARE Y DISPOSITIVOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Laptop: Dell Latitude 5400
+    CPU: Intel i7-8665U 1.90GHz (4 cores / 8 threads)
+    RAM: 32GB
+    M.2 interno: Intel SSDPEKNU512GZ (476.9GB) — slot único
+    GPU: Intel UHD Graphics (integrada)
+    BIOS: Revision 1.33.0 — modo AHCI activo
+    Service Tag: [REDACTED-SERVICE-TAG]
+
+  Almacenamiento externo:
+    Verbatim 57GB (micro SD) — "negro azul"
+      → SystemRescue 13.00 grabado con dd ← booteable
+    ADATA "NEGROROJO" 29GB
+      → Win11_25H2_Spanish_Mexico_x64_v2.iso grabado con Rufus ← booteable UEFI
+    tenochtitlan M.2 en carcasa USB-C
+      → xochimilco.vc (VeraCrypt 200GB)
+      → Win11_25H2_Spanish_Mexico_x64_v2.iso (copia)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTA PARA PRÓXIMA SESIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  El objetivo del dual boot sigue en pie.
+  El proceso de instalación de Arch + COSMIC ya está dominado.
+  La lección más cara de este incidente:
+  → Siempre shrink desde Windows primero, nunca ntfsresize desde Linux
+  → Nunca correr ntfsfix entre operaciones de particionado
+
+  SolidWorks es una conversación pendiente, no un bloqueo.
+  Instalación limpia → Windows estable → Arch dual boot → stack completo.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
