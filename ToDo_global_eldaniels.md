@@ -170,6 +170,10 @@ DOCUMENTACIÓN PENDIENTE
       · Decidir qué es publicable vs privado (¿nombre legal? ¿colegios? ¿empleadores?)
       · Pipeline de scrub/anonimizado en la generación, no a mano post-hoc
       · Solo entonces quitar de .gitignore lo que sea seguro
+  [ ] RESTMO-MONITOR REPO CLEANUP (para futura publicación en GitHub):
+      · Crear .gitignore en ~/Codes/restmo-monitor/ ANTES de `git init`
+      · Excluir: devices.json, tinytuya.json, *.key, .env, *.db (water_flow.db)
+      · Proyecto luce listo para ser público (device ya sin pairing, claves rotadas)
   [ ] CRÍTICO: Resolver 113 nodos débilmente conectados
      · ¿Qué edges faltan para conectar Identidad, Puntos ciegos, Stack técnico al grafo?
      · ¿Hay nodos que sobren y deban eliminarse?
