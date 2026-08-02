@@ -23,7 +23,7 @@ A personal knowledge architecture — not a software project. Contains:
 
 - `perfil_maestro_eldaniels_v2.txt` — Always-current master context
 - `proyectos/P*/` — Individual project lenses (use `/p1`, `/p2`, etc. to load)
-- `ToDo_global_eldaniels.txt` — Master task list
+- `ToDo_global_eldaniels.md` — Master task list
 - `cronograma_intereses.md` — Timeline of skill evolution (PENDIENTE)
 
 ## Guidance for this work

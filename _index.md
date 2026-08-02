@@ -101,7 +101,7 @@ Solo se actualiza cuando cambia identidad, criterio, o stack técnico.
 | `perfil_maestro_eldaniels_v2.txt` | contexto completo — pegar al inicio de cualquier conversación |
 | `proyectos_instrucciones_eldaniels_v2.txt` | cómo usar los lentes P1–P8 |
 | `activacion_cruzada_eldaniels_final.txt` | sintaxis de activación cruzada entre lentes |
-| `ToDo_global_eldaniels.txt` | lista de tareas activas |
+| `ToDo_global_eldaniels.md` | lista de tareas activas |
 
 ---
 
@@ -110,6 +110,7 @@ Solo se actualiza cuando cambia identidad, criterio, o stack técnico.
 | Carpeta / Archivo | Propósito |
 |---|---|
 | `recursos/` | guías de referencia guardadas (Git, SSH, licencias, Claude Code) |
+| `recursos/MEMORIA_SISTEMA_CLAUDE.md` | migración completa de toda la memoria de Claude Code (feedback, proyectos, 50 obs claude-mem, jun 2026) |
 | `P8_Backup_Wiki/` | estrategia de backup y seguridad digital |
 | `P8_Backup_Wiki/mft_recovery_decision.md` | decisión técnica: instalación Linux limpia tras MFT corrupto |
 | `CLAUDE.md` | instrucciones para Claude Code en este repo |

@@ -1,3 +1,12 @@
+# Viaticos: xlsx generado con datos reales (RFCs, ruta de red) — no publicar
+proyectos/P4/Control_Viaticos.xlsx
+
+# Restmo monitor: Tuya credentials + local_key
+proyectos/P2/restmo-monitor/tinytuya.json
+proyectos/P2/restmo-monitor/devices.json
+proyectos/P2/restmo-monitor/tuya-raw.json
+proyectos/P2/restmo-monitor/water_flow.db
+
 # Archivos de credenciales
 *_privado.txt
 *_sensible.*
@@ -110,3 +119,22 @@ logs/
 CV_*_draft.docx
 CV_*_personal.pdf
 .aider*
+graphify-out/cache/
+skills-lock.json
+.agents/
+.claude/skills/
+
+# graphify: knowledge-graph output mirrors ALL repo content (incl. full legal name,
+# schools, employers) — derived artifact, never publish. Regenerate locally with /graphify.
+graphify-out/
+
+# P4 finanzas: TODOS los xlsx llevan cifras reales / clientes — nunca versionar.
+# (backups sensibles viven FUERA del repo, ver memoria feedback_backups_outside_repo)
+proyectos/P4/*.xlsx
+proyectos/P4/.~lock.*#
+proyectos/P4/*.bak-*.xlsx
+"proyectos/P4/Clientes Daniel.xlsx"
+
+# Documentos personales sensibles (contratos, cartas)
+inbox/*.pdf
+proyectos/P6/cv/CoverLetter_*.pdf

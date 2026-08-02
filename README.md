@@ -55,7 +55,7 @@ mi-criterio/
 ├── perfil_maestro_eldaniels_v2.txt              ← baseline global, actualizado regularmente
 ├── proyectos_instrucciones_eldaniels_v2.txt     ← cómo usar los lentes P1-P8
 ├── activacion_cruzada_eldaniels_final.txt       ← sintaxis de análisis cruzado
-├── ToDo_global_eldaniels.txt                    ← lista maestra de tareas
+├── ToDo_global_eldaniels.md                    ← lista maestra de tareas
 ├── cronograma_intereses.md                      ← [PENDIENTE] timeline de evolución
 ├── proyectos/
 │   ├── P1/P1_cnc_manufactura.txt         ← CNC, GRBL, maquinado, nesting engine
@@ -134,7 +134,7 @@ Ejemplo:
 
 ## Qué está vivo
 
-Consulta **ToDo_global_eldaniels.txt** para ver:
+Consulta **ToDo_global_eldaniels.md** para ver:
 
 - ✓ Completado (en Diffs timestamped)
 - [ ] Pendiente (acción concreta)

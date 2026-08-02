@@ -19,7 +19,7 @@ mi-criterio/
 ├── proyectos_instrucciones_eldaniels_v2.txt     ← how to use the P1-P8 lenses
 ├── activacion_cruzada_eldaniels_final.txt       ← cross-lens activation syntax
 ├── disclaimer_soberania_datos.txt
-├── ToDo_global_eldaniels.txt                    ← master task list
+├── ToDo_global_eldaniels.md                    ← master task list
 ├── cronograma_intereses.md                      ← [PENDIENTE] timeline of interest evolution
 ├── proyectos/                                   ← one subdirectory per project lens
 │   ├── P1/P1_cnc_manufactura.txt
@@ -74,7 +74,7 @@ mi-criterio/
 | `proyectos/P*/` | Paste individually when working in a specific domain |
 | `cronograma_intereses.md` | [PENDIENTE] Timeline of skill/interest evolution over time |
 | `activacion_cruzada_eldaniels_final.txt` | Syntax for cross-lens problem analysis |
-| `ToDo_global_eldaniels.txt` | Master task list — what is live, in progress, pending |
+| `ToDo_global_eldaniels.md` | Master task list — what is live, in progress, pending |
 | `P8_Backup_Wiki/` | Backup strategy and critical files inventory |
 | `recursos/` | Saved reference guides (Git, SSH, licenses, Claude Code) |
 | `sesiones/` | Session logs — timestamped record of decisions and diffs |

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporte Seguro GDL - Traslados Privados Aeropuerto Guadalajara</title>
+  <meta name="description" content="Traslados privados desde el Aeropuerto Internacional de Guadalajara. Precio fijo, sin sorpresas. Servicio en ingles. Ideal para visitantes del Mundial FIFA 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #07091a;
+      --bg-card:     #0d1226;
+      --bg-raised:   #141d35;
+      --bg-glass:    rgba(10, 14, 32, 0.85);
+      --blue:        #2563eb;
+      --blue-light:  #60a5fa;
+      --blue-dim:    rgba(37, 99, 235, 0.12);
+      --blue-border: rgba(37, 99, 235, 0.25);
+      --wa:          #22c55e;
+      --wa-dark:     #16a34a;
+      --text:        #e8eeff;
+      --text-sub:    #7c90b8;
+      --text-dim:    #3d4e70;
+      --border:      rgba(148, 163, 184, 0.1);
+      --border-faint:rgba(148, 163, 184, 0.06);
+      --r:           16px;
+      --r-sm:        10px;
+      --r-pill:      999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ========= LANGUAGE TOGGLE ========= */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="es"] { display: none; }
+    body.lang-en [data-lang="en"] { display: inline; }
+
+    /* ========= NAV ========= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-mark svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo-name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .nav-logo-city { display: block; font-size: 0.62rem; color: var(--text-sub); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-pill);
+      padding: 0.2rem;
+      gap: 0.15rem;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-sub);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.28rem 0.65rem;
+      border-radius: var(--r-pill);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.active { background: var(--blue); color: white; }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--wa);
+      color: white;
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--r-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-wa:hover { background: var(--wa-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(34,197,94,0.3); }
+    .btn-wa:active { transform: scale(0.98); }
+
+    .btn-wa-lg {
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      box-shadow: 0 4px 24px rgba(34,197,94,0.28);
+    }
+    .btn-wa-lg:hover { box-shadow: 0 10px 36px rgba(34,197,94,0.42); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.75rem 1.35rem;
+      border: 1px solid var(--border);
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { color: var(--text); border-color: rgba(148,163,184,0.3); transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.65rem;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* ========= HERO ========= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100dvh - 68px);
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4.5rem);
+      padding-right: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      color: var(--blue-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--r-pill);
+      margin-bottom: 1.75rem;
+      width: fit-content;
+    }
+    .badge-pulse {
+      width: 6px; height: 6px;
+      background: var(--blue-light);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+
+    .hero-copy h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+    }
+    .hero-copy h1 em {
+      font-style: normal;
+      color: var(--blue-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+      color: var(--text-sub);
+      max-width: 46ch;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-sub);
+    }
+    .trust-item svg { color: var(--blue-light); flex-shrink: 0; }
+
+    .hero-img-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-panel img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: brightness(0.65) saturate(0.75);
+      display: block;
+    }
+    .hero-img-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, var(--bg) 0%, transparent 45%),
+        linear-gradient(to top, var(--bg) 0%, transparent 35%);
+    }
+
+    /* ========= MARQUEE STRIP ========= */
+    .strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+      overflow: hidden;
+      padding: 0.8rem 0;
+    }
+    .strip-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .strip-track { animation: none; } }
+
+    .strip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      padding: 0 2.25rem;
+    }
+    .strip-item svg { color: var(--blue-light); }
+    .strip-dot {
+      width: 3px; height: 3px;
+      background: var(--text-dim);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ========= SECTION SHARED ========= */
+    .section {
+      padding: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 6vw, 4rem);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-head { margin-bottom: 2.75rem; }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 0.65rem;
+    }
+    .section-head p {
+      font-size: 0.975rem;
+      color: var(--text-sub);
+      max-width: 52ch;
+      line-height: 1.75;
+    }
+
+    /* ========= STEPS ========= */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 32px 1fr 32px 1fr;
+      align-items: start;
+      gap: 1rem;
+    }
+    .step-arrow {
+      padding-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .step-card:hover { border-color: var(--blue-border); transform: translateY(-3px); }
+    .step-num {
+      width: 40px; height: 40px;
+      background: var(--blue);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 800; color: white;
+      margin-bottom: 1.25rem;
+    }
+    .step-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.65; }
+
+    /* ========= ROUTES ========= */
+    .routes-bg {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .routes-inner {
+      padding: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 6vw, 4rem);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .route-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .route-card:hover {
+      border-color: var(--blue-border);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 42px rgba(0,0,0,0.35);
+    }
+    .route-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .route-dest { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+    .route-icon {
+      width: 38px; height: 38px;
+      background: var(--blue-dim);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .route-icon svg { color: var(--blue-light); }
+    .route-meta {
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
+    .route-meta-item { display: flex; align-items: center; gap: 0.3rem; }
+    .route-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-faint);
+      margin-top: auto;
+    }
+    .price-amount { font-size: 1.5rem; font-weight: 800; }
+    .price-currency { font-size: 0.78rem; color: var(--text-sub); font-weight: 500; }
+    .price-usd { margin-left: auto; font-size: 0.75rem; color: var(--text-dim); }
+
+    .routes-note {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.4rem;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      border-radius: var(--r-sm);
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+    .routes-note svg { color: var(--blue-light); flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* ========= WHY US BENTO ========= */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.1rem;
+    }
+    .bento-cell {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .bento-cell:hover { border-color: var(--blue-border); transform: translateY(-2px); }
+    .bento-a { grid-column: span 3; }
+    .bento-b { grid-column: span 3; background: linear-gradient(135deg, rgba(37,99,235,0.13), rgba(37,99,235,0.04)); border-color: rgba(37,99,235,0.2); }
+    .bento-c { grid-column: span 2; }
+    .bento-d { grid-column: span 2; }
+    .bento-e { grid-column: span 2; }
+    .bento-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-dim);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .bento-icon svg { color: var(--blue-light); }
+    .bento-cell h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .bento-cell p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.65; }
+
+    /* ========= FAQ ========= */
+    .faq-bg {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-width: 740px;
+    }
+    .faq-item {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 1.15rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--blue-light); }
+    .faq-chevron { flex-shrink: 0; color: var(--text-sub); transition: transform 0.25s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 200px; }
+    .faq-answer-inner {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* ========= CTA BAND ========= */
+    .cta-band {
+      text-align: center;
+      padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 6vw, 4rem);
+      background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.12) 0%, transparent 70%), var(--bg);
+    }
+    .cta-band h2 {
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      max-width: 20ch;
+      margin: 0 auto 1rem;
+    }
+    .cta-band p { font-size: 1rem; color: var(--text-sub); max-width: 42ch; margin: 0 auto 2.5rem; }
+    .cta-sub {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .cta-sub a { color: var(--blue-light); text-decoration: none; font-weight: 600; }
+    .cta-sub a:hover { text-decoration: underline; }
+
+    /* ========= FOOTER ========= */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 2rem clamp(1.5rem, 6vw, 4rem);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand { font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; }
+    .footer-brand strong { display: block; color: var(--text-sub); font-size: 0.875rem; }
+    .footer-nav { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-nav a {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--text-sub); }
+
+    /* ========= SCROLL REVEAL ========= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ========= RESPONSIVE ========= */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-copy { padding: 3rem 1.5rem 2rem; }
+      .hero-img-panel { height: 300px; order: -1; }
+      .hero-img-panel::after { background: linear-gradient(to top, var(--bg) 0%, transparent 50%); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .step-arrow { display: none; }
+      .bento { grid-template-columns: 1fr 1fr; }
+      .bento-a, .bento-b { grid-column: span 2; }
+      .bento-c, .bento-d, .bento-e { grid-column: span 1; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .bento { grid-template-columns: 1fr; }
+      .bento-a, .bento-b, .bento-c, .bento-d, .bento-e { grid-column: span 1; }
+      .routes-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .btn-wa-lg { width: 100%; justify-content: center; }
+    }
+
+    /* mobile nav open state */
+    nav.nav-open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 68px; left: 0; right: 0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+      z-index: 99;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+      </svg>
+    </div>
+    <div>
+      <span class="nav-logo-name">Transporte Seguro GDL</span>
+      <span class="nav-logo-city">Aeropuerto de Guadalajara</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#como-funciona"><span data-lang="es">Como funciona</span><span data-lang="en">How it works</span></a></li>
+    <li><a href="#rutas"><span data-lang="es">Rutas y precios</span><span data-lang="en">Routes</span></a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="https://wa.me/5233XXXXXXXX?text=Hola%2C%20quiero%20reservar%20un%20traslado%20desde%20el%20aeropuerto" class="btn-wa" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-lang="es">Reservar</span><span data-lang="en">Book</span>
+    </a>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-copy">
+    <div class="hero-badge">
+      <span class="badge-pulse"></span>
+      <span data-lang="es">Mundial FIFA 2026 - Guadalajara</span>
+      <span data-lang="en">FIFA World Cup 2026 - Guadalajara</span>
+    </div>
+
+    <h1>
+      <span data-lang="es">Traslados privados desde el <em>Aeropuerto</em> de Guadalajara</span>
+      <span data-lang="en">Private transfers from <em>Guadalajara</em> International Airport</span>
+    </h1>
+
+    <p class="hero-sub">
+      <span data-lang="es">Precio fijo, sin sorpresas. Servicio privado para grupos e individuales. Atencion en ingles. Ideal para visitantes del Mundial 2026.</span>
+      <span data-lang="en">Fixed price, no surprises. Private service for groups and individuals. English-speaking drivers. Perfect for FIFA World Cup 2026 visitors.</span>
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://wa.me/5233XXXXXXXX?text=Hola%2C%20quiero%20reservar%20un%20traslado%20desde%20el%20aeropuerto" class="btn-wa btn-wa-lg" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-lang="es">Reservar por WhatsApp</span>
+        <span data-lang="en">Book via WhatsApp</span>
+      </a>
+      <a href="#rutas" class="btn-outline">
+        <span data-lang="es">Ver rutas y precios</span>
+        <span data-lang="en">See routes and prices</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <span data-lang="es">Precio fijo</span>
+        <span data-lang="en">Fixed price</span>
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-lang="es">Servicio privado</span>
+        <span data-lang="en">Private service</span>
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span data-lang="es">Ingles disponible</span>
+        <span data-lang="en">English spoken</span>
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>24/7</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-img-panel">
+    <img src="https://picsum.photos/seed/guadalajara-city-night-lights/900/720" alt="Ciudad de Guadalajara de noche" loading="eager">
+  </div>
+</div>
+
+<!-- ============ MARQUEE STRIP ============ -->
+<div class="strip">
+  <div class="strip-track" aria-hidden="true">
+    <!-- first half -->
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Precio Fijo Garantizado</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Disponible 24/7</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sin Recargos Nocturnos</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Grupos Bienvenidos</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>English Spoken</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Equipaje Incluido</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monitoreo de Vuelo</span>
+    <span class="strip-dot"></span>
+    <!-- second half (duplicate for seamless loop) -->
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Precio Fijo Garantizado</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Disponible 24/7</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sin Recargos Nocturnos</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Grupos Bienvenidos</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>English Spoken</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Equipaje Incluido</span>
+    <span class="strip-dot"></span>
+    <span class="strip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Monitoreo de Vuelo</span>
+    <span class="strip-dot"></span>
+  </div>
+</div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="como-funciona" class="section">
+  <div class="section-head reveal">
+    <h2>
+      <span data-lang="es">Como funciona</span>
+      <span data-lang="en">How it works</span>
+    </h2>
+    <p>
+      <span data-lang="es">Reservar tu traslado es rapido y sencillo. Sin apps, sin esperas innecesarias.</span>
+      <span data-lang="en">Booking your transfer is quick and simple. No apps, no unnecessary waiting.</span>
+    </p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card reveal" style="transition-delay: 0s">
+      <div class="step-num">1</div>
+      <h3><span data-lang="es">Envia un mensaje</span><span data-lang="en">Send a message</span></h3>
+      <p>
+        <span data-lang="es">Contactanos por WhatsApp con tu fecha, hora de llegada y destino. Respondemos en minutos.</span>
+        <span data-lang="en">Contact us via WhatsApp with your date, arrival time, and destination. We respond in minutes.</span>
+      </p>
+    </div>
+
+    <div class="step-arrow" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <div class="step-card reveal" style="transition-delay: 0.1s">
+      <div class="step-num">2</div>
+      <h3><span data-lang="es">Confirmamos tu reserva</span><span data-lang="en">We confirm your booking</span></h3>
+      <p>
+        <span data-lang="es">Recibes confirmacion con el precio fijo, datos del conductor y monitoreo de tu vuelo incluido.</span>
+        <span data-lang="en">You receive confirmation with the fixed price, driver details, and flight monitoring included.</span>
+      </p>
+    </div>
+
+    <div class="step-arrow" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <div class="step-card reveal" style="transition-delay: 0.2s">
+      <div class="step-num">3</div>
+      <h3><span data-lang="es">Te recogemos en el aeropuerto</span><span data-lang="en">We pick you up at the airport</span></h3>
+      <p>
+        <span data-lang="es">Tu conductor te espera con letrero. Llegamos a tu destino al precio acordado. Sin sorpresas.</span>
+        <span data-lang="en">Your driver waits with a sign. We take you to your destination at the agreed price. No surprises.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTES ============ -->
+<div class="routes-bg" id="rutas">
+  <div class="routes-inner">
+    <div class="section-head reveal">
+      <h2>
+        <span data-lang="es">Rutas y precios</span>
+        <span data-lang="en">Routes and prices</span>
+      </h2>
+      <p>
+        <span data-lang="es">Tarifa fija por trayecto. Sin taximetro, sin recargos nocturnos.</span>
+        <span data-lang="en">Fixed rate per trip. No meter, no night surcharges.</span>
+      </p>
+    </div>
+
+    <div class="routes-grid">
+      <div class="route-card reveal" style="transition-delay: 0s">
+        <div class="route-top">
+          <div class="route-dest"><span data-lang="es">Centro Historico</span><span data-lang="en">Historic Downtown</span></div>
+          <div class="route-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+        </div>
+        <div class="route-meta">
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~25 min
+          </div>
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span data-lang="es">hasta 4 personas</span><span data-lang="en">up to 4 people</span>
+          </div>
+        </div>
+        <div class="route-price">
+          <span class="price-amount">$350</span>
+          <span class="price-currency">MXN</span>
+          <span class="price-usd">~$18 USD</span>
+        </div>
+      </div>
+
+      <div class="route-card reveal" style="transition-delay: 0.07s">
+        <div class="route-top">
+          <div class="route-dest"><span data-lang="es">Zona Expo Guadalajara</span><span data-lang="en">Expo Guadalajara Zone</span></div>
+          <div class="route-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+        </div>
+        <div class="route-meta">
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~20 min
+          </div>
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span data-lang="es">hasta 4 personas</span><span data-lang="en">up to 4 people</span>
+          </div>
+        </div>
+        <div class="route-price">
+          <span class="price-amount">$300</span>
+          <span class="price-currency">MXN</span>
+          <span class="price-usd">~$15 USD</span>
+        </div>
+      </div>
+
+      <div class="route-card reveal" style="transition-delay: 0.14s">
+        <div class="route-top">
+          <div class="route-dest">Zapopan / Andares</div>
+          <div class="route-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+        </div>
+        <div class="route-meta">
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~30 min
+          </div>
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span data-lang="es">hasta 4 personas</span><span data-lang="en">up to 4 people</span>
+          </div>
+        </div>
+        <div class="route-price">
+          <span class="price-amount">$400</span>
+          <span class="price-currency">MXN</span>
+          <span class="price-usd">~$20 USD</span>
+        </div>
+      </div>
+
+      <div class="route-card reveal" style="transition-delay: 0.21s">
+        <div class="route-top">
+          <div class="route-dest">Tlaquepaque</div>
+          <div class="route-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+        </div>
+        <div class="route-meta">
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~35 min
+          </div>
+          <div class="route-meta-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span data-lang="es">hasta 4 personas</span><span data-lang="en">up to 4 people</span>
+          </div>
+        </div>
+        <div class="route-price">
+          <span class="price-amount">$420</span>
+          <span class="price-currency">MXN</span>
+          <span class="price-usd">~$21 USD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="routes-note reveal">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>
+        <span data-lang="es">Precios de referencia sujetos a confirmacion al reservar. Para grupos de mas de 4 personas o destinos no listados, contactanos directamente. Tarifas en MXN, equivalencias en USD aproximadas.</span>
+        <span data-lang="en">Reference prices subject to confirmation at booking. For groups of more than 4 people or unlisted destinations, contact us directly. Rates in MXN, USD equivalents are approximate.</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WHY US ============ -->
+<section class="section">
+  <div class="section-head reveal">
+    <h2>
+      <span data-lang="es">Por que elegirnos</span>
+      <span data-lang="en">Why choose us</span>
+    </h2>
+    <p>
+      <span data-lang="es">No somos un taxi ni una app de ride-hailing. Somos un servicio privado pensado para visitantes internacionales.</span>
+      <span data-lang="en">We are not a taxi or a ride-hailing app. We are a private service designed for international visitors.</span>
+    </p>
+  </div>
+
+  <div class="bento">
+    <div class="bento-cell bento-a reveal">
+      <div class="bento-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <h3><span data-lang="es">Precio fijo, sin sorpresas</span><span data-lang="en">Fixed price, no surprises</span></h3>
+      <p>
+        <span data-lang="es">El precio que ves al reservar es el que pagas. Sin tarifas dinamicas, sin recargos nocturnos, sin cobros extra por equipaje.</span>
+        <span data-lang="en">The price you see when booking is what you pay. No dynamic pricing, no night surcharges, no extra baggage fees.</span>
+      </p>
+    </div>
+
+    <div class="bento-cell bento-b reveal">
+      <div class="bento-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      </div>
+      <h3><span data-lang="es">Atencion en ingles</span><span data-lang="en">English-speaking drivers</span></h3>
+      <p>
+        <span data-lang="es">Comunicacion en ingles desde la reserva hasta el destino. Orientacion para visitantes internacionales incluida.</span>
+        <span data-lang="en">Communication in English from booking to destination. Guidance for international visitors included.</span>
+      </p>
+    </div>
+
+    <div class="bento-cell bento-c reveal">
+      <div class="bento-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3><span data-lang="es">Servicio privado</span><span data-lang="en">Private vehicle</span></h3>
+      <p>
+        <span data-lang="es">Tu unidad exclusiva. Sin paradas adicionales ni pasajeros desconocidos.</span>
+        <span data-lang="en">Your exclusive vehicle. No extra stops or unknown passengers.</span>
+      </p>
+    </div>
+
+    <div class="bento-cell bento-d reveal">
+      <div class="bento-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3><span data-lang="es">Ideal para grupos</span><span data-lang="en">Ideal for groups</span></h3>
+      <p>
+        <span data-lang="es">Viajan juntos sin dividirse. Capacidad ampliada bajo consulta.</span>
+        <span data-lang="en">Travel together without splitting up. Extended capacity on request.</span>
+      </p>
+    </div>
+
+    <div class="bento-cell bento-e reveal">
+      <div class="bento-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3><span data-lang="es">Monitoreo de vuelo</span><span data-lang="en">Flight monitoring</span></h3>
+      <p>
+        <span data-lang="es">Rastreamos tu vuelo. Si hay retraso, ajustamos sin costo adicional.</span>
+        <span data-lang="en">We track your flight. If delayed, we adjust at no extra cost.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<div class="faq-bg" id="faq">
+  <section class="section">
+    <div class="section-head reveal">
+      <h2>
+        <span data-lang="es">Preguntas frecuentes</span>
+        <span data-lang="en">Frequently asked questions</span>
+      </h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          <span><span data-lang="es">Como pago el servicio?</span><span data-lang="en">How do I pay?</span></span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span data-lang="es">Aceptamos efectivo (pesos mexicanos o dolares americanos) y transferencia bancaria. Puedes pagar al conductor al llegar a tu destino o anticipar via transferencia.</span>
+            <span data-lang="en">We accept cash (Mexican pesos or US dollars) and bank transfer. You can pay the driver on arrival or pay in advance via bank transfer.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          <span><span data-lang="es">Con cuanta anticipacion debo reservar?</span><span data-lang="en">How far in advance should I book?</span></span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span data-lang="es">Recomendamos reservar con al menos 24 horas de anticipacion. Durante el Mundial FIFA 2026 la demanda sera alta, por lo que sugerimos reservar con varios dias de antelacion.</span>
+            <span data-lang="en">We recommend booking at least 24 hours in advance. During the FIFA World Cup 2026, demand will be very high, so we suggest booking several days ahead.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          <span><span data-lang="es">Que pasa si mi vuelo se retrasa?</span><span data-lang="en">What if my flight is delayed?</span></span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span data-lang="es">Monitoreamos tu vuelo automaticamente. Si hay un retraso, ajustamos la hora de recogida sin costo adicional. Solo comparte tu numero de vuelo al reservar.</span>
+            <span data-lang="en">We automatically monitor your flight. If there is a delay, we adjust the pickup time at no extra cost. Just share your flight number when booking.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          <span><span data-lang="es">Cuanto equipaje puedo llevar?</span><span data-lang="en">How much luggage can I bring?</span></span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span data-lang="es">El equipaje estandar esta incluido sin costo extra. Para grupos con mucho equipaje, indicalo al reservar y asignamos el vehiculo adecuado.</span>
+            <span data-lang="en">Standard luggage is included at no extra cost. For groups with lots of luggage, mention it when booking and we assign the right vehicle.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          <span><span data-lang="es">Pueden llevarme a estadios y sedes del Mundial?</span><span data-lang="en">Can you take me to World Cup stadiums and venues?</span></span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span data-lang="es">Si. Ademas de traslados desde el aeropuerto, ofrecemos servicio a estadios, sedes oficiales, hoteles y cualquier destino en el area metropolitana de Guadalajara. Consultanos.</span>
+            <span data-lang="en">Yes. In addition to airport transfers, we offer service to stadiums, official venues, hotels, and any destination in the Guadalajara metropolitan area. Ask us.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CTA BAND ============ -->
+<div class="cta-band">
+  <h2>
+    <span data-lang="es">Reserva tu traslado hoy</span>
+    <span data-lang="en">Book your transfer today</span>
+  </h2>
+  <p>
+    <span data-lang="es">Envianos un mensaje por WhatsApp. Respondemos en minutos.</span>
+    <span data-lang="en">Send us a WhatsApp message. We respond in minutes.</span>
+  </p>
+  <a href="https://wa.me/5233XXXXXXXX?text=Hola%2C%20quiero%20reservar%20un%20traslado%20desde%20el%20aeropuerto" class="btn-wa btn-wa-lg" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span data-lang="es">Reservar por WhatsApp</span>
+    <span data-lang="en">Book via WhatsApp</span>
+  </a>
+  <p class="cta-sub">
+    <span data-lang="es">O llamanos: </span><span data-lang="en">Or call us: </span>
+    <a href="tel:+5233XXXXXXXX">+52 33 XXXX XXXX</a>
+  </p>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Transporte Seguro GDL</strong>
+      Guadalajara, Jalisco, Mexico &copy; 2026
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#como-funciona"><span data-lang="es">Como funciona</span><span data-lang="en">How it works</span></a></li>
+      <li><a href="#rutas"><span data-lang="es">Rutas</span><span data-lang="en">Routes</span></a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Language toggle
+  function setLang(lang) {
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    });
+  }
+
+  // FAQ accordion
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Mobile nav toggle
+  function toggleNav() {
+    document.getElementById('main-nav').classList.toggle('nav-open');
+  }
+
+  // Scroll reveal via IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

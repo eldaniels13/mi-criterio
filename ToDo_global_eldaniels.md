@@ -73,6 +73,7 @@
   [x]  Node.js + npm (requerido para Claude Code)
   [x]  Claude Code CLI (npm install -g @anthropic-ai/claude-code)
   [x]  Ollama con deepseek-coder:6.7b y qwen2.5-coder:7b
+  [x]  Krokiet (czkawka GUI) — ~/tools/krokiet, instalado Jun 29 2026 (bin directo GitHub, no AUR)
   [x]  Instalar https://github.com/thedotmack/claude-mem
   [x]  Instalar https://github.com/affaan-m/everything-claude-code
   [~]  project-nomad (Crosstalk-Solutions)
@@ -159,12 +160,54 @@ DOCUMENTACIÓN PENDIENTE
 [~] Descripción detallada P5 (Geopolítica) — marcos Prebisch, Bukele
 [~] Descripción detallada P6 (Ayuda Futuro) — carrera, postgrad España
 
+  GRAPHIFY — mi-criterio knowledge graph (iniciado Jun 14, 2026)
+  ──────────────────────────────────────────────────────────────
+  [!] PRIVACIDAD (2026-08-01): graphify-out/ SACADO del repo + gitignored.
+      El grafo replica TODO el contenido del repo → arrastra PII (nombre legal
+      completo, colegios, empleadores) y, antes del scrub, SSIDs de casa. graph.json
+      y graph.html son un dossier de identidad geolocalizable.
+  [ ] SESIÓN PROPIA: hacer graphify PUBLICABLE antes de volver a trackearlo.
+      · Decidir qué es publicable vs privado (¿nombre legal? ¿colegios? ¿empleadores?)
+      · Pipeline de scrub/anonimizado en la generación, no a mano post-hoc
+      · Solo entonces quitar de .gitignore lo que sea seguro
+  [ ] CRÍTICO: Resolver 113 nodos débilmente conectados
+     · ¿Qué edges faltan para conectar Identidad, Puntos ciegos, Stack técnico al grafo?
+     · ¿Hay nodos que sobren y deban eliminarse?
+  [ ] CRÍTICO: Cohesión baja en comunidades grandes — ¿split o dejar?
+     · "CV English & Career History" (cohesion 0.05) — muy suelta, ¿dividir?
+     · "Repo Governance & Backup" (cohesion 0.09) — misma pregunta
+  [ ] VERIFICAR: 2 edges INFERRED en "Plan Stack IA Local CPU-only"
+     · ¿Son correctos los links a Stack IA Veredicto y P2 Programacion?
+  [ ] VERIFICAR: el nodo de identidad (nombre legal) como único puente CV↔roles
+     · ¿Las comunidades CV-documento y role-narratives deben enlazarse directamente?
+  [ ] VERIFICAR: ¿Hay temas/proyectos enteros ausentes del grafo?
+     · Nesting engine (C# AutoCAD plugin), trabajo específico sector energía, otros
+  [ ] REVISAR: 5 conexiones sorprendentes — confirmar que son correctas
+  [ ] EVALUAR: ¿Fusionar o renombrar alguna de las 22 comunidades?
+  [ ] Leer sección "Knowledge Gaps" en graphify-out/GRAPH_REPORT.md
+  → Grafo vive en: graphify-out/graph.html + GRAPH_REPORT.md + graph.json
+  → Para actualizar: /graphify --update
+
+  MEMORIA E INTEGRACIÓN IA
+  ──────────────────────────────────────────────────────────────
+  [x] Crear guía cross-AI para inbox integration (@inbox/chatgpt-memory.md)
+     · Explica cómo ChatGPT, DeepSeek, Ollama pueden contribuir a mi-criterio
+     · Template de formato para sesiones (DD-MM-YY_topic.md)
+     · Integración con /process-inbox workflow
+     · Ejemplos prácticos de P1-P6 conversaciones
+  [ ] Docstring en perfil_maestro.txt para mencionar cross-AI capability
+  [ ] Crear shortcut/alias para copiar guide cuando se abre nueva sesión ChatGPT
+  [ ] Documentar las 356 convs ChatGPT + 121 DeepSeek como fuentes de esta arquitectura
+
   P6 VIDA PERSONAL / ADMIN / POSGRADO Y EMPLEO
   ─────────────────────────────────────────────────────────────────
   [ ]  Acomodar CVs en Canva
   [ ]  Migrar docs de OneDrive a Keeper
   [ ]  Actualizar perfil Indeed, LinkedIn, OCC y CompuTrabajo
   [x]  Generar contraseña VeraCrypt y almacenar en keeper
+  [ ]  PENDIENTE BACKUP: Montar backup_critico.vc → correr Krokiet → eliminar PAP.zip (duplicado de PAP/) → desmontar
+       · PAP/ (114MB, 53 archivos) = copia primaria. PAP.zip en raíz = redundante, borrar.
+       · Comando mount: veracrypt backup_critico.vc /mnt/backup && ~/tools/krokiet
   [ ] Inventario de programas de posgrado en energía (México, Europa, Australia, etc.)
   [ ] Inventario de becas con fechas de cierre (CONAHCyT, Fulbright, DAAD, CONACYT-SENER)
   [~] CV actualizado con enfoque en energías renovables
