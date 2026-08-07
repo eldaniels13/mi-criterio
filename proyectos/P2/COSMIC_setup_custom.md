@@ -41,7 +41,7 @@ indentación 4-espacios y coma final en cada entrada.
 | `blue-light-toggle` | Toggle gammastep, estado en `$XDG_RUNTIME_DIR` (reset en reboot) |
 | `battery-warn` | Notificación crítica batería ≤5% descargando, loop 60s, un solo aviso por evento |
 | `micled-invert` | Invierte LED `platform::micmute` según mute real (`pactl subscribe`) |
-| `hwinfo` | Snapshot compacto hardware |
+| `hwinfo` | Snapshot compacto hardware — barras de uso RAM/disco por montaje, aviso térmico ≥85 °C; sin root (DMI vía sysfs). Detalle por DIMM sólo con `sudo` — 2026-08-06 |
 | `open-finanzas` | Lanza LibreOffice sobre finanzas P4, avisa si ya abierto (lock file) — 2026-07-18 |
 
 ---

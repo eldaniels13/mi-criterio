@@ -370,6 +370,104 @@ Resúmenes de sesión (one-liners) para trazabilidad. El detalle de cada una est
 
 ---
 
+## 13. Hallazgos de sistema — agosto 2026
+
+### 13.1 `dmidecode` era la herramienta equivocada (2026-08-06)
+
+`/sys/class/dmi/id/` es **legible por cualquier usuario** — el firmware nunca necesitó root.
+`hwinfo` mostraba `FIRMWARE: BIOS () · Board` vacío porque usaba `dmidecode -t 0 / -t 2`,
+que falla en silencio sin privilegios.
+
+`MEMORY` estaba vacío por una causa **distinta**: `dmidecode -t 17` (detalle por DIMM: tipo,
+velocidad, slot) sí requiere root de verdad. Además, el bucle que imprimía las líneas de DIMM
+no emitía salto de línea cuando no había datos → `GPU:` se pegaba sobre el renglón de `MEMORY:`.
+
+| Dato | Fuente correcta | ¿Root? |
+|---|---|---|
+| BIOS version/date, vendor, product, board | `/sys/class/dmi/id/*` | no |
+| Total/usado de RAM, swap | `/proc/meminfo` | no |
+| Tipo/velocidad/slot por DIMM | `dmidecode -t 17` | **sí** |
+
+**Lección transferible:** antes de asumir "esto necesita sudo", comprobar si el kernel ya
+expone el dato por sysfs/procfs.
+
+### 13.2 Edits a `~/.local/bin/hwinfo` (2026-08-06)
+
+- **FIRMWARE** — `dmidecode` → `/sys/class/dmi/id/*`. Rinde sin root:
+  `BIOS 1.33.0 (08/08/2024) · Dell Inc. Latitude 5400 · Board 0PD9KD`.
+- **MEMORY** — `/proc/meminfo` (`MemTotal`/`MemAvailable`) + barra de uso + línea de swap.
+  Detalle por DIMM sólo si `EUID == 0`; corregido el salto de línea que rompía el layout.
+- **STORAGE** — barra por punto de montaje (`/`, `/home`, `/boot`) vía
+  `df --output=target,used,size,pcent`, bajo la línea del dispositivo.
+- **Nueva función `bar()`** — ancho 20, porcentaje centrado dentro. Umbrales:
+  verde <75 %, amarillo 75–89 %, rojo ≥90 %. Fallback ASCII `[###---] 69%` sin TTY.
+- **THERMAL** — marca `[!] thermal throttle range` a partir de 85 °C.
+
+### 13.3 Caché de pacman: 17 GB sin podar (2026-08-06)
+
+`/` (LV `vg0-lv_root`, 49 GB) llegó al **98 %** y `pacman` abortó:
+`error: Partition / too full: 407724 blocks needed, 360111 blocks free`.
+Causa: `/var/cache/pacman/pkg` con **17 GB / 9013 archivos** para sólo 1496 paquetes
+instalados — nunca se purgó desde la instalación.
+
+`sudo pacman -Sc` liberó ~14 GB (46 G → 32 G usados, 69 %). Los errores
+`could not open file .../download-XXXX: Error reading fd 7` son inofensivos: restos de
+descargas parciales que pacman no sabe leer como paquete.
+
+**Causa estructural (sin resolver):** `lv_root` de 49 GB aloja `/usr` (16 G) + `/var` +
+`/opt` (7.2 G), mientras `lv_home` tiene 415 GB al 22 %. Recurrirá.
+**Restricción del usuario:** NO redimensionar el NVMe — mala experiencia previa. Decisión
+respetada; la mitigación es podar caché + no acumular, no reparticionar.
+
+### 13.4 Fallo intermitente de contraseña en `sudo` (2026-08-06) — SIN RESOLVER
+
+Síntoma: `sudo` rechaza la contraseña correcta. El usuario creía que sólo se arreglaba
+forzando apagado con el botón de encendido.
+
+**Refutado por el journal:** 3 intentos fallidos a las 15:23–15:24, y `sudo` funcionando
+normal a las 16:06 — **sin reinicio de por medio** (boot 0 arrancó 08:52 y seguía activo).
+Se resuelve solo. El apagado forzado no era la cura, sólo coincidía.
+
+Descartado: `faillock` limpio, sin `deny=` configurado → no es bloqueo de cuenta.
+Hipótesis viva: modificador de teclado atascado en COSMIC/Wayland.
+
+> ⚠️ **Riesgo:** el apagado forzado es el mecanismo que corrompe sistemas de archivos, y ya
+> hay antecedente (`P8_Backup_Wiki/mft_recovery_decision.md`). No volver a usarlo para esto.
+> Alternativa: cambiar a TTY con `Ctrl+Alt+F3` y autenticar ahí. Si hace falta reiniciar de
+> verdad, usar SysRq (`REISUB`) antes que el botón.
+
+### 13.5 Origen del hardware: equipo reacondicionado
+
+**fibonacci (Dell Latitude 5400) se compró REACONDICIONADO.** La batería pudo llegar ya
+usada de fábrica — la salud de **66.6 %** no implica degradación causada por el uso del
+usuario, y el número real de ciclos es desconocido. Contexto necesario para no diagnosticar
+mal el desgaste ni la gestión de energía (ver §1, TLP).
+
+Térmicas 2026-08-06: **87–92 °C bajo carga** (crítico a 100 °C), **58 °C en reposo**. El pico
+bajo carga en un equipo de 2019 apunta a limpieza de ventiladores y cambio de pasta térmica
+— arreglo físico, no de software.
+
+### 13.6 Exposición a "Atomic Arch" (AUR, junio 2026): **NEGATIVA**
+
+Verificado 2026-08-06 contra el protocolo de `inbox/18-07-26_aur-atomic-arch-report.md`.
+`grep -E '2026-06-1[0-6].*(installed|upgraded)' /var/log/pacman.log` en la ventana del
+ataque (10–16 jun) devuelve **sólo paquetes de repos oficiales** — cero compilaciones AUR.
+Los repos oficiales nunca se vieron afectados. `yay` ya está en **13.0.1** (muestra fecha de
+última modificación del PKGBUILD). No se requiere rotación de credenciales.
+
+### 13.7 `containerd` activo sin uso + `/opt/containerd` huérfano
+
+`containerd.service` lleva **9 h corriendo** desde el arranque, pese a estar `disabled` en
+preset — algo lo activa (probablemente `docker.socket`). El usuario no usa contenedores.
+`/opt/containerd/{bin,lib}` existen pero están **vacíos** (fechados Apr 10) y **no pertenecen
+a ningún paquete** de pacman: residuo de una instalación manual.
+
+Contexto: la auditoría de mayo 2026 ya retiró a `eldaniels` del grupo `docker` por escalada
+de privilegios. Un runtime de contenedores corriendo sin uso es superficie de ataque y
+consumo inútil en un equipo con térmicas justas.
+
+---
+
 > **Migración completada sin pérdida.** Este archivo consolida las 10 memorias de archivo
 > (`memory/`) + las 50 observaciones de claude-mem (IDs 1097, 1711, 1748–1796) + el índice
 > de sesiones. Fuentes originales intactas; esta es la copia de confianza en `mi-criterio/`.
