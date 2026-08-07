@@ -23,8 +23,27 @@
   [~] expandir roles desempeñados — EncoreTools v1.0 ✅, 4 skeletons creados, pendiente voice extraction (TDI > MoldTech > PEP > Automotive)
   [ ] enriquecer experiencias y roles con recursos visuales
   [x] crear arquitectura de /proyectos/P6/cv
-  
-  
+
+
+  SPOTIFY → SOBERANÍA DE DATOS MUSICALES  (P2 × P4 · multi-sesión)
+  ─────────────────────────────────────────────────────────────────
+  Contexto: Spotify es propietario y contradice el principio open source /
+  copyleft. Se mantiene por una razón válida: TODOS los datos históricos de
+  escucha viven ahí. Migrar no es instalar otra app, es un proyecto.
+  Decisión (2026-08-06): no migrar a ciegas — primero extraer y poseer los datos.
+
+  [ ] Solicitar descarga completa vía Spotify for Developers / Privacy
+      (extended streaming history — tarda ~30 días en llegar)
+  [ ] Registrar app en developer.spotify.com → client_id / secret (Web API)
+  [ ] Extraer con API: top artists/tracks, audio features, playlists propias
+  [ ] App Python de estadísticas — mejor que el Wrapped anual:
+      · stack: pandas + matplotlib (o Streamlit, ya en el perfil)
+      · métricas que Wrapped NO da: evolución multi-año, horarios de escucha,
+        diversidad de géneros, tasa de descubrimiento vs. repetición
+  [ ] Sólo entonces evaluar alternativa (Navidrome / Jellyfin / Funkwhale)
+  [ ] Dar de baja Spotify cuando los datos estén fuera y la app funcione
+
+
   LINUX / ARCH — VM fibonacci
   ─────────────────────────────────────────────────────────────────
   [x]  Arch Linux instalado y arrancando en VirtualBox
