@@ -1,127 +1,161 @@
 #!/usr/bin/env python3
 """
-Reconciliation audit for PlantillaFinanzas2026.xlsx.
-Read-only analysis — never writes to the live file.
-Usage: python3 audit_finanzas.py
+Auditoría de conciliación para PlantillaFinanzas2026.xlsx (no versionado).
+
+Verifica el invariante del libro: para cada cuenta listada en la hoja `Saldos`,
+    C (calculado) = D (saldo inicial) + Ingresos - Egresos + E (rendimientos)
+                    + transferencias_entrantes - transferencias_salientes
+    G = C - F  debe ser 0,  donde F es el saldo real tecleado desde la app.
+
+Un G distinto de cero es siempre un error de registro:
+    G > 0  -> el libro cree que hay más dinero del que existe
+              (falta un egreso, o hay un ingreso/transferencia duplicado)
+    G < 0  -> el libro cree que hay menos dinero del que existe
+              (falta un ingreso o rendimiento, o hay un egreso duplicado)
+
+Solo lectura: nunca escribe en el libro.
+Uso: python3 audit_finanzas.py
 """
 
 from openpyxl import load_workbook
 from pathlib import Path
-from markitdown import MarkItDown
 
 EXCEL_PATH = Path.home() / "Codes/mi-criterio/proyectos/P4/PlantillaFinanzas2026.xlsx"
 
+HOJA_SALDOS = "Saldos"
+HOJA_TRANS = "Transacciones"
+FILA_ENCABEZADO = 29          # los encabezados C/D/E/F/G viven aquí
+TOLERANCIA = 0.01             # por debajo de esto es residuo de punto flotante
 
-def structure_overview():
-    """Quick markitdown pass — sheet/column overview, not used for numeric calc."""
-    md = MarkItDown()
-    result = md.convert(str(EXCEL_PATH))
-    return result.text_content[:2000]
-
-CUENTAS = ["BBVA", "Uala", "Nu", "Edenred", "Didi cuenta", "efectivo", "Bitso", "GBM"]
+# Columnas de Transacciones
+COL_MONTO, COL_TIPO, COL_CAT, COL_CUENTA, COL_FECHA, COL_DESC = "A", "B", "C", "D", "E", "F"
 
 
-def load_data():
+def cargar():
+    """Devuelve (cuentas, movimientos). Los nombres de cuenta salen del libro,
+    nunca están escritos aquí — así el script no expone dónde se guarda el dinero."""
     wb = load_workbook(EXCEL_PATH, data_only=True)
-    ws_trans = wb["Transacciones"]
-    ws_cat = wb["Catalogos"]
+    saldos, trans = wb[HOJA_SALDOS], wb[HOJA_TRANS]
 
-    rows = []
-    for row_idx in range(2, ws_trans.max_row + 1):
-        monto = ws_trans[f"A{row_idx}"].value
-        tarjeta = ws_trans[f"D{row_idx}"].value
-        if monto is None or tarjeta is None:
+    cuentas = []
+    for fila in range(FILA_ENCABEZADO + 1, saldos.max_row + 1):
+        nombre = saldos[f"B{fila}"].value
+        real = saldos[f"F{fila}"].value
+        if not isinstance(nombre, str) or not nombre.strip():
             continue
-        rows.append({
-            'row': row_idx,
-            'monto': monto,
-            'tipo': ws_trans[f"B{row_idx}"].value,
-            'categoria': ws_trans[f"C{row_idx}"].value,
-            'tarjeta': tarjeta,
-            'fecha': ws_trans[f"E{row_idx}"].value,
-            'desc': ws_trans[f"F{row_idx}"].value,
+        if not isinstance(real, (int, float)):
+            continue          # filas de notas o leyenda, no cuentas
+        cuentas.append({
+            "fila": fila,
+            "nombre": nombre.strip(),
+            "inicial": saldos[f"D{fila}"].value or 0,
+            "rendim": saldos[f"E{fila}"].value or 0,
+            "real": real,
         })
 
-    return wb, ws_cat, rows
+    movs = []
+    for fila in range(2, trans.max_row + 1):
+        monto = trans[f"{COL_MONTO}{fila}"].value
+        cuenta = trans[f"{COL_CUENTA}{fila}"].value
+        if monto is None or cuenta is None:
+            continue
+        movs.append({
+            "fila": fila,
+            "monto": monto,
+            "tipo": trans[f"{COL_TIPO}{fila}"].value,
+            "categoria": trans[f"{COL_CAT}{fila}"].value,
+            "cuenta": str(cuenta).strip(),
+            "fecha": trans[f"{COL_FECHA}{fila}"].value,
+            "desc": trans[f"{COL_DESC}{fila}"].value,
+        })
+
+    wb.close()
+    return cuentas, movs
 
 
-def reconcile(cuenta, real, si_val, rows):
-    # Ingreso/Egreso: exact tarjeta match (avoids Nu matching Nu Turbo/Nu Cajita)
-    exact_rows = [r for r in rows if str(r['tarjeta']).strip() == cuenta]
-    ing = sum(r['monto'] for r in exact_rows if r['tipo'] == 'Ingreso')
-    egr = sum(r['monto'] for r in exact_rows if r['tipo'] == 'Egreso')
+def conciliar(cuenta, movs):
+    n = cuenta["nombre"]
 
-    # Transferencia: match "cuenta->X" / "X->cuenta" over full rows (not exact-filtered)
-    trans_rows = [r for r in rows if r['tipo'] == 'Transferencia' and '->' in str(r['tarjeta'])]
-    trans_in = sum(r['monto'] for r in trans_rows if str(r['tarjeta']).split('->')[-1].strip() == cuenta)
-    trans_out = sum(r['monto'] for r in trans_rows if str(r['tarjeta']).split('->')[0].strip() == cuenta)
+    # Ingreso/Egreso: coincidencia exacta, para que una cuenta no absorba
+    # los movimientos de sus sub-cuentas (p. ej. "X" vs "X Plus")
+    propios = [m for m in movs if m["cuenta"] == n]
+    ing = sum(m["monto"] for m in propios if m["tipo"] == "Ingreso")
+    egr = sum(m["monto"] for m in propios if m["tipo"] == "Egreso")
 
-    acct_rows = exact_rows + [r for r in trans_rows
-                               if str(r['tarjeta']).split('->')[-1].strip() == cuenta
-                               or str(r['tarjeta']).split('->')[0].strip() == cuenta]
+    # Transferencias: la cuenta se codifica como "Origen->Destino"
+    trans = [m for m in movs if m["tipo"] == "Transferencia" and "->" in m["cuenta"]]
+    entra = sum(m["monto"] for m in trans if m["cuenta"].split("->")[-1].strip() == n)
+    sale = sum(m["monto"] for m in trans if m["cuenta"].split("->")[0].strip() == n)
 
-    calc = si_val + ing - egr + trans_in - trans_out
-    residual = real - calc
-
-    return {
-        'cuenta': cuenta, 'si': si_val, 'ing': ing, 'egr': egr,
-        'trans_in': trans_in, 'trans_out': trans_out,
-        'calc': calc, 'real': real, 'residual': residual,
-        'n_rows': len(acct_rows), 'rows': acct_rows,
-    }
+    calc = cuenta["inicial"] + ing - egr + cuenta["rendim"] + entra - sale
+    return {**cuenta, "ing": ing, "egr": egr, "entra": entra, "sale": sale,
+            "calc": calc, "dif": calc - cuenta["real"],
+            "n_movs": len(propios) + sum(1 for m in trans
+                                         if n in (m["cuenta"].split("->")[0].strip(),
+                                                  m["cuenta"].split("->")[-1].strip()))}
 
 
-def print_summary(result):
-    r = result
-    print(f"{r['cuenta']}:")
-    print(f"  Calc: {r['si']} + {r['ing']} - {r['egr']} + {r['trans_in']} - {r['trans_out']} = {r['calc']}")
-    print(f"  Real: {r['real']}")
-    print(f"  Residual: {r['residual']}")
-    print(f"  Rows: {r['n_rows']}\n")
+def malformados(movs):
+    """Transferencias sin '->': los SUMIFS con comodín las ignoran en silencio."""
+    return [m for m in movs if m["tipo"] == "Transferencia" and "->" not in m["cuenta"]]
 
 
-def audit_inversiones(wb, rows):
-    """Dump Inversiones sheet + locate all investment-instrument transactions."""
-    print("\n" + "=" * 60)
-    print("=== HOJA INVERSIONES (estado actual) ===")
-    ws_inv = wb["Inversiones"]
-    for row_idx in range(1, ws_inv.max_row + 1):
-        vals = [ws_inv.cell(row=row_idx, column=c).value for c in range(1, 9)]
-        if any(v is not None for v in vals):
-            print(f"  r{row_idx}: {vals}")
-
-    print("\n=== TRANSACCIONES POR INSTRUMENTO ===")
-    instrumentos = ["Bitso", "GBM", "Nu Turbo", "Nu Cajita", "Didi cuenta", "Edenred"]
-    for inst in instrumentos:
-        hits = [r for r in rows if inst.lower() in str(r['tarjeta']).lower()]
-        print(f"\n{inst} ({len(hits)} registros):")
-        for r in sorted(hits, key=lambda x: (x['fecha'] or '')):
-            f = r['fecha'].strftime('%Y-%m-%d') if hasattr(r['fecha'], 'strftime') else r['fecha']
-            print(f"  r{r['row']:>3} | {f} | {r['tipo']:<14} | {r['monto']:>10} | {r['tarjeta']:<22} | {r['desc']}")
+def huerfanas(movs, cuentas):
+    """Transferencias que apuntan a una cuenta que no existe en `Saldos`."""
+    conocidas = {c["nombre"] for c in cuentas}
+    fuera = []
+    for m in movs:
+        if m["tipo"] != "Transferencia" or "->" not in m["cuenta"]:
+            continue
+        origen, destino = [x.strip() for x in m["cuenta"].split("->", 1)]
+        desconocidas = {x for x in (origen, destino) if x not in conocidas}
+        if desconocidas:
+            fuera.append((m, sorted(desconocidas)))
+    return fuera
 
 
 def main():
-    wb, ws_cat, rows = load_data()
+    cuentas, movs = cargar()
+    print(f"{len(movs)} movimientos · {len(cuentas)} cuentas\n")
 
-    cat_row_map = {'BBVA': 30, 'Uala': 31, 'Nu': 32, 'Edenred': 33,
-                   'Didi cuenta': 34, 'efectivo': 35, 'Bitso': 36, 'GBM': 37}
+    ancho = max(len(c["nombre"]) for c in cuentas)
+    print(f"{'Cuenta':<{ancho}} {'Calculado':>12} {'Real':>12} {'Dif':>10}  Estado")
+    print("-" * (ancho + 46))
 
-    print("=== REAL BALANCES (Catalogos F30:F37) ===")
-    for cuenta, cat_row in cat_row_map.items():
-        real = ws_cat[f"F{cat_row}"].value
-        print(f"{cuenta}: {real}")
-    print(f"\nTotal transaction rows: {len(rows)}\n")
+    descuadres, total = [], 0.0
+    for c in cuentas:
+        r = conciliar(c, movs)
+        total += r["real"]
+        if abs(r["dif"]) <= TOLERANCIA:
+            estado = "cuadra"
+        elif r["dif"] > 0:
+            estado = "SOBRA en el libro (falta egreso / ingreso duplicado)"
+            descuadres.append(r)
+        else:
+            estado = "FALTA en el libro (falta ingreso / egreso duplicado)"
+            descuadres.append(r)
+        print(f"{r['nombre']:<{ancho}} {r['calc']:>12.2f} {r['real']:>12.2f} "
+              f"{r['dif']:>10.2f}  {estado}")
 
-    for cuenta, cat_row in cat_row_map.items():
-        real = ws_cat[f"F{cat_row}"].value
-        si_val = ws_cat[f"D{cat_row}"].value or 0
-        if real is None:
-            continue
-        result = reconcile(cuenta, real, si_val, rows)
-        print_summary(result)
+    print("-" * (ancho + 46))
+    print(f"{'DINERO TOTAL':<{ancho}} {'':>12} {total:>12.2f}\n")
 
-    audit_inversiones(wb, rows)
-    wb.close()
+    mal = malformados(movs)
+    if mal:
+        print(f"[!] {len(mal)} transferencia(s) sin '->' — los SUMIFS las ignoran:")
+        for m in mal:
+            print(f"    fila {m['fila']}: {m['monto']} · '{m['cuenta']}'")
+        print()
+
+    fuera = huerfanas(movs, cuentas)
+    if fuera:
+        print(f"[!] {len(fuera)} transferencia(s) hacia cuentas no dadas de alta:")
+        for m, desc in fuera:
+            print(f"    fila {m['fila']}: {m['monto']} · {m['cuenta']} → {', '.join(desc)}")
+        print()
+
+    if not descuadres and not mal and not fuera:
+        print("Todo cuadra.")
 
 
 if __name__ == "__main__":
