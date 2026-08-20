@@ -12,19 +12,19 @@ Procesamiento: semanal o con `/process-inbox`.
 
 | Archivo | Tipo | Estado |
 |---|---|---|
-| `02-05-26_cv_siemens_energy_canva_edit.md` | sesión Canva | archivado |
-| `04_05_26_voice_extraction_session_roles.md` | extracción voz | archivado |
-| `05-04-26_ArchMftCorrupto.txt` | incidente técnico | archivado |
-| `09-04-26_FibonacciStackBase.txt` | sesión infra | archivado |
-| `11-04-26_FibonacciStackCompleto.txt` | sesión infra | archivado |
-| `14-04-26_FibonacciArchSetup.html` | sesión infra | archivado |
-| `15-04-26_SshAgentDiagnosis.md` | diagnóstico SSH | archivado |
-| `20-03-26_CVsCanva.md` | sesión CV | archivado |
-| `20-03-26_PerfilGitDiff.txt` | diff perfil | archivado |
-| `20-04-26_IDEdual_CutWindow_2.txt` | sesión setup | archivado |
-| `23-04-26_Seguridad_Settings.txt` | seguridad | archivado |
-| `23-04-26_session_compact.md` | sesión compacta | archivado |
-| `27-04-26_K2SystemsProfile.md` | perfil empresa | archivado |
+| `02-05-26_cv-siemens-energy-canva-edit.md` | sesión Canva | archivado |
+| `04-05-26_voice-extraction-session-roles.md` | extracción voz | archivado |
+| `05-04-26_arch-mft-corrupto.txt` | incidente técnico | archivado |
+| `09-04-26_fibonacci-stack-base.txt` | sesión infra | archivado |
+| `11-04-26_fibonacci-stack-completo.txt` | sesión infra | archivado |
+| `14-04-26_fibonacci-arch-setup.html` | sesión infra | archivado |
+| `15-04-26_ssh-agent-diagnosis.md` | diagnóstico SSH | archivado |
+| `20-03-26_cvs-canva.md` | sesión CV | archivado |
+| `20-03-26_perfil-git-diff.txt` | diff perfil | archivado |
+| `20-04-26_ide-dual-cutwindow-2.txt` | sesión setup | archivado |
+| `23-04-26_seguridad-settings.txt` | seguridad | archivado |
+| `23-04-26_session-compact.md` | sesión compacta | archivado |
+| `27-04-26_k2-systems-profile.md` | perfil empresa | archivado |
 
 ---
 
