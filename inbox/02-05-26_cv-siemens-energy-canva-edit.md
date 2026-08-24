@@ -8,13 +8,13 @@
 | Topic | CV edit in Canva for Siemens Energy Software Developer (Querétaro) application |
 | Target job | Siemens Energy — Grid Technologies — Software Developer (mid/senior, full-time, on-site Querétaro) |
 | JD stack required | C#, .NET Framework, SQL, Git, CI/CD, Azure, Agile/SAFe, DevOps |
-| Master template (untouched) | `DAHHJbbwdj4` |
-| Working copy edited | `DAHIcG3dvTg` (titled `CV_2026_SW_Energia_Siemens`, renamed by user before session) |
-| Edit URL | https://www.canva.com/design/DAHIcG3dvTg/ITsb24b6AABwbjgBLCd6CA/edit |
+| Master template (untouched) | `[redactada]` |
+| Working copy edited | `[redactada]` (titled `CV_2026_SW_Energia_Siemens`, renamed by user before session) |
+| Edit URL | `[redactada]` — el segundo segmento de una URL de Canva es un token de acceso, no un identificador. IDs y URLs viven en memoria local, fuera de este repo público. |
 | Result | committed |
 | Tools used | `tool_search`, `Canva:get-design`, `Canva:start-editing-transaction`, `Canva:perform-editing-operations`, `Canva:get-design-thumbnail`, `Canva:cancel-editing-transaction`, `Canva:commit-editing-transaction`, `Canva:resolve-shortlink`, `Canva:merge-designs` (failed twice — see notes), `ask_user_input_v0` |
 
-The master template was confirmed separately at the end of the session by resolving the user-provided shortlink. Master ID `DAHHJbbwdj4` differs from the working copy ID `DAHIcG3dvTg`, confirming all edits in this session affected only the copy.
+The master template was confirmed separately at the end of the session by resolving the user-provided shortlink. Master ID and working copy ID differ, confirming all edits in this session affected only the copy. *(IDs redactadas — ver `reference_canva_design_ids.md`)*
 
 ## Context and pre-edit clarifications
 
@@ -46,7 +46,7 @@ The bachillerato entry (Colegio Guadalajara) was preserved despite its low value
 
 The session opened with a `tool_search` for Canva editing operations, which loaded the ten Canva MCP tools relevant to the work. An initial `Canva:start-editing-transaction` (transaction `6487937226198378610`) returned the full element map of approximately fifty elements, after which the transaction was cancelled to release the lock while clarifying questions were posed to the user.
 
-A planned API duplication via `Canva:merge-designs` failed twice as noted above. When the user later supplied two Canva links, the second link (`DAGLly2fmnU`) was checked through `Canva:get-design` to avoid editing the wrong design. That call revealed the link pointed to a separate design titled "Cover letter_Siemens" created in July 2024, so no edits were attempted there.
+A planned API duplication via `Canva:merge-designs` failed twice as noted above. When the user later supplied two Canva links, the second link was checked through `Canva:get-design` to avoid editing the wrong design. That call revealed the link pointed to a separate design titled "Cover letter_Siemens" created in July 2024, so no edits were attempted there. *(ID redactada)*
 
 The main edit pass opened a fresh transaction (`7344747055272475326`) and applied fifteen operations in a single `Canva:perform-editing-operations` call: one typo fix via `find_and_replace_text`, ten text replacements covering the subtitle, perfil, Performance Designs bullets, seven skill slots, and three language slots, and two `delete_element` operations targeting the "Otros trabajos" header and its child list. The header deletion succeeded; the child list deletion failed because its parent had already been marked as orphaned, with a new element ID assigned (`LBvqm8s5b69vhjwX`).
 
@@ -56,7 +56,7 @@ A third `perform-editing-operations` call added the Procesos line through `posit
 
 After a final visual check via `Canva:get-design-thumbnail`, the transaction was committed through `Canva:commit-editing-transaction`.
 
-After commit, the user shared the Canva shortlink for the master template. `Canva:resolve-shortlink` resolved `tg8u2ynmgswixw5` to design `DAHHJbbwdj4`, confirming this was a separate design from the working copy `DAHIcG3dvTg`. The master template is therefore intact and untouched by this session.
+After commit, the user shared the Canva shortlink for the master template. `Canva:resolve-shortlink` resolved it to the master-template design ID, confirming this was a separate design from the working copy. The master template is therefore intact and untouched by this session. *(Shortlink and both design IDs redacted — see local memory `reference_canva_design_ids`.)*
 
 ## Final CV state (committed)
 
@@ -93,7 +93,7 @@ The page ID is `PBwpc48HS8jcgBps` and is non-responsive. The relevant element ID
 
 ## Pending user actions
 
-The CV must be exported from Canva as a PDF (Share → Download → PDF Standard) for the actual application; the Canva edit URL is not what gets submitted. The English cover letter drafted by the user is solid and openly addresses the CI/CD and Azure gaps, which is the correct posture given the job description's senior framing. It has not been migrated into Canva; if branding consistency with the CV matters, this can be done in a separate session by editing the existing "Cover letter_Siemens" design (`DAGLly2fmnU`). When completing the Siemens portal or Indeed application form, the user should report ten months of C# development experience (May 2025 – March 2026) without inflating to "1+ year"; the CV is honest and the form must match.
+The CV must be exported from Canva as a PDF (Share → Download → PDF Standard) for the actual application; the Canva edit URL is not what gets submitted. The English cover letter drafted by the user is solid and openly addresses the CI/CD and Azure gaps, which is the correct posture given the job description's senior framing. It has not been migrated into Canva; if branding consistency with the CV matters, this can be done in a separate session by editing the existing "Cover letter_Siemens" design. *(Redactada para repo público)* When completing the Siemens portal or Indeed application form, the user should report ten months of C# development experience (May 2025 – March 2026) without inflating to "1+ year"; the CV is honest and the form must match.
 
 ## Patterns and lessons for future Canva MCP sessions
 
@@ -117,4 +117,4 @@ Element IDs returned in the first transaction response are stable for the durati
 
 The pattern of role-per-file extraction documented in `INDEX.md` and `SESSION_COMPACT_2026-04-23.md` was not affected by this session. Role files such as `role_encoretools_cnc_programmer.md` and `role_pap_iteso_entreamigos.md` remain the source of truth for CV bullets across all variants. This session operated downstream of those raw extractions, applying the consolidated content directly to a Canva design via MCP.
 
-The user's CV variants in Canva now include `CV_2026_SW_Energia_Siemens` (this session, committed), the master template at `DAHHJbbwdj4`, plus the previously documented `CV_2025_Energia`, `CV_2025_Programacion`, and `CV_2025_Manufactura`, and the separate `Cover letter_Siemens` design at `DAGLly2fmnU`.
+The user's CV variants in Canva now include `CV_2026_SW_Energia_Siemens` (this session, committed), the master template, plus the previously documented `CV_2025_Energia`, `CV_2025_Programacion`, and `CV_2025_Manufactura`, and the separate `Cover letter_Siemens` design. *(IDs redactadas — están en memoria local `reference_canva_design_ids.md`)*

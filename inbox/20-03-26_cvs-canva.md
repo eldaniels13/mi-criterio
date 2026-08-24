@@ -37,11 +37,13 @@ Agreed approach: one CV per target audience, each with differentiated framing, s
 
 | Design | ID | Status |
 |---|---|---|
-| `CV_2025_Energia` | `DAGitXjqLNk` | ✅ Updated |
-| `CV_2025_Programacion` | `DAHEfjwwq7E` | ✅ Updated |
-| `CV_2025_Manufactura` | `DAHEfq5t3IQ` | ✅ Updated |
-| `CV_2025_esp` | `DAGZrbwKJ5U` | Not modified |
-| `Cover letter` | `DAGLly2fmnU` | Not modified |
+| `CV_2025_Energia` | `[redactada]` | ✅ Updated |
+| `CV_2025_Programacion` | `[redactada]` | ✅ Updated |
+| `CV_2025_Manufactura` | `[redactada]` | ✅ Updated |
+| `CV_2025_esp` | `[redactada]` | Not modified |
+| `Cover letter` | `[redactada]` | Not modified |
+
+*Design IDs viven en memoria local `reference_canva_design_ids.md` — ver allí para acceso.*
 
 **Process:** User duplicated `CV_2025_ing` twice → Claude edited all three via Canva API (start-editing-transaction → perform-editing-operations → commit), 30 operations per CV, 90 total — all successful.
 

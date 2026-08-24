@@ -102,13 +102,13 @@ Remaining low-effort polish (non-blocking):
 
 ## CV CONSOLIDATION STRATEGY (after all roles extracted)
 
-**CV_2025_Manufactura (`DAHEfq5t3IQ`):**
+**CV_2025_Manufactura** (`[redactada]`):
 Prioritize EncoreTools → TDI → MoldTech (both stints compressed to one entry with two date ranges).
 
-**CV_2025_Programacion (`DAHEfjwwq7E`):**
+**CV_2025_Programacion** (`[redactada]`):
 Performance Designs → EncoreTools (present as "programmer" not operator) → relevant academic projects.
 
-**CV_2025_Energia (`DAGitXjqLNk`):**
+**CV_2025_Energia** (`[redactada]`):
 Reframe TDI (precision + regulated) and PEP (social impact + community engineering) as energy-pivot-compatible signals. Performance Designs shows software-for-industry capability (relevant for smart grid, energy data analysis). EncoreTools can be compressed.
 
 ---

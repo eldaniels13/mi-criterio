@@ -97,7 +97,7 @@ role_supplementary_experience.md      ✅ v1.0 (aggregator)
 ### Educación / documentos
 - [ ] Recuperar documentos de Colegio Claret de Madrid: expediente, certificado ESO, padrón municipal — valor para visas y becas europeas
 - [ ] Confirmar fecha exacta de titulación ITESO (¿Dic 2024 o fecha de acto de graduación posterior?)
-- [ ] Confirmar que `danielgarciacastro64@gmail.com` es el correo profesional canónico para aplicaciones
+- [ ] Confirmar cuál es el correo profesional canónico para aplicaciones — la dirección concreta vive fuera del repo (memoria local `feedback_cv_contact_privacy`), no se escribe aquí
 
 ### CV — pendiente de editar en Canva
 - [ ] Corregir fechas ESO (2015–2018) y Bachillerato (2018–2020)

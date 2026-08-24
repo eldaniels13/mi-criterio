@@ -5,6 +5,18 @@
 **Source:** Voice extraction session + PAP.zip archive (59 files, 113MB)
 **Supersedes:** role_pep_iteso_ngo.md v0.2 (skeleton, "PEP" was an OCR typo — actual program is PAP)
 
+> **⚠️ Este repo es público (portafolio laboral activo).** Cifras económicas de cliente
+> redactadas a `[monto redactado]` — el desglose vive sólo en el plan de trabajo privado.
+> Horas, entregables, líneas de G-code y alcance técnico **sí** se conservan: son el valor
+> profesional del registro.
+>
+> **📌 PENDIENTE — expandir este archivo para perfiles laborales públicos.**
+> Es el rol con mejor evidencia primaria del repo (59 archivos, 113 MB) y hoy está escrito
+> como nota interna. Falta la versión de cara al público: narrativa de impacto social,
+> antes/después del router CNC, fotos/renders si los hay, y el arco
+> *PAP académico → voluntariado → contrato freelance con itemización propia* —
+> que es la historia que un empleador realmente compra. Ver `evidence_index.md`.
+
 ---
 
 ## ROLE IDENTITY
@@ -25,7 +37,7 @@
 - **Dates (three phases):**
   - **Phase 1 — PAP (academic):** Agosto 2024 – Diciembre 2024 (Otoño 2024, 8th semester, 15 weeks)
   - **Phase 2 — Voluntariado:** late 2024 (post-PAP closure, pre-billing) — **SOFT GAP: confirm exact dates**
-  - **Phase 3 — Freelance (billed):** 9 Dic 2024 – 17 Dic 2024 (documented in formal work plan, $4,999 MXN invoiced)
+  - **Phase 3 — Freelance (billed):** 9 Dic 2024 – 17 Dic 2024 (documented in formal work plan, invoiced — amount redacted)
 - **Employment type:** PAP credit → voluntary continuation → paid freelance contract
 - **Reporting line:**
   - PAP professors (ITESO): **Mtra. Jared Jiménez Rodríguez** (lead), Mtro. Luis Enrique Flores Flores, Mtro. Juan Pablo Mora Torres, Mtro. Jesús Enrique Cueva Lomas
@@ -126,17 +138,17 @@ Municipal recycling lab. Provided larger-scale infrastructure (1×1 m thermal pr
 
 **Formal work plan document + invoice structure:**
 - **Client:** Centro Comunitario Educativo EntreAmigos
-- **Total billed:** **$4,999 MXN** ($749 materials + $4,250 labor)
+- **Total billed:** `[monto redactado]` — itemized as materials + labor (split documented in the private work plan)
 - **17 documented hours** across two work streams
 
-**Work stream 1 — G-code programming (6 hrs, $1,500):**
-- University-professor consulting session (1 hr, $250) — formalized CAM workflow
+**Work stream 1 — G-code programming (6 hrs):**
+- University-professor consulting session (1 hr, billed) — formalized CAM workflow
 - **Logo EA** (Entreamigos logo) — SolidWorks → G-code, **23,429 lines**
 - **Logo EA v2** (iteration) — **26,244 lines**
 - **Quilla de surf** (surf fin) — culturally apt for San Pancho (surf town)
 - G-code characteristics: inch-units (G20), 1/4" flat endmill, 7,000 RPM spindle, 25 in/min feed, 6.25 in/min plunge
 
-**Work stream 2 — CNC assembly & electrical (11 hrs, $2,750):**
+**Work stream 2 — CNC assembly & electrical (11 hrs):**
 - Y-axis mounted on worktable rails (2 hrs)
 - **Limit-switch soldering and calibration** (4 hrs) — replaced with KW4-3Z micro-switches
 - Controller communications (Arduino + GRBL 1.1h + PC host) (2 hrs)
@@ -306,7 +318,7 @@ Custom-designed plastic shredder, pre-existing parts from prior cohorts. Key dim
 
 **Institutional records held by ITESO:**
 - [ ] Full RPAP O24 final report (in possession)
-- [ ] Final presentation Canva: `canva.com/design/DAGW8E6KZtU`
+- [ ] Final presentation Canva: `[redactada]` — ID en memoria local
 - [ ] Servicio Social constancia (confirm whether 480 hrs covered by PAP or separate)
 
 ---
@@ -356,7 +368,7 @@ Custom-designed plastic shredder, pre-existing parts from prior cohorts. Key dim
 | Item | Status | Path (local) |
 |---|---|---|
 | PAP final deliverable (RPAP O24) | ✅ Recovered | `PAP/I&D - RPAP_O24.docx` |
-| Final presentation (Canva) | ✅ URL archived | `canva.com/design/DAGW8E6KZtU` |
+| Final presentation (Canva) | ✅ URL archived | `[redactada]` |
 | CNC assembly/repair slide deck | ✅ Recovered | `PAP/ROUTER CNC/CNC EntreAmigos.pptx` |
 | CNC process documentation | ✅ Recovered | `PAP/ROUTER CNC/Documentacion proceso.docx` |
 | CNC work plan Dec 2024 (freelance billing) | ✅ Recovered | `PAP/ROUTER CNC/Plan de trabajo CNC diciembre 2024.docx` |
