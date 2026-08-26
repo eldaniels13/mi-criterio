@@ -297,7 +297,7 @@ Custom-designed plastic shredder, pre-existing parts from prior cohorts. Key dim
 3. **Authored >49,000 lines of production G-code** across two logo iterations and one surf-fin design, establishing Entreamigos' first CAM → CNC pipeline
 4. **Designed and 3D-printed 7+ custom structural brackets** (limit-switch supports, cable-chain supports, axis brackets) — SolidWorks source + STL + sliced G-code retained
 5. **Contributed to the Trituradora 2.0 assembly**, correcting shaft dimensions to ±0.05 mm and applying countersinking to lateral plates — a pre-existing project unblocked
-6. **Formalized a freelance engagement with an NGO**: itemized work plan, deliverables, hours, and invoice structure ($4,999 MXN across 17 hours) — early self-management of a client relationship
+6. **Formalized a freelance engagement with an NGO**: itemized work plan, deliverables, hours, and invoice structure (****MXN across 17 hours) — early self-management of a client relationship
 7. **Authored a safety SOP** for Entreamigos operators using the CNC
 8. **Sustained a three-phase relationship (PAP → voluntariado → freelance)** with the same client — a signal of trust and competence beyond the minimum academic requirement
 9. **Worked in a multidisciplinary 8-person team** across mechanical, chemical, design, and architecture — delivered a PAP report that became part of Materioteca's institutional record
@@ -328,7 +328,7 @@ Custom-designed plastic shredder, pre-existing parts from prior cohorts. Key dim
 **Fully defensible across three framings:**
 
 **Short form (technical interview):**
-> "As part of my PAP at ITESO — that's a capstone applied-engineering program — I worked with Entreamigos, an NGO in San Pancho that runs the town's recycling program. They'd bought a Router CNC that never worked. I diagnosed a bent pin on the Arduino GRBL controller, repaired it, wrote the CAM workflow, 3D-printed replacement brackets, and commissioned the machine on-site. The engagement started as PAP credit, continued as volunteering, and closed as a $5,000-peso freelance contract. I also contributed to assembling a plastic shredder with ±0.05 mm shaft tolerance for Materioteca's Artifex line."
+> "As part of my PAP at ITESO — that's a capstone applied-engineering program — I worked with Entreamigos, an NGO in San Pancho that runs the town's recycling program. They'd bought a Router CNC that never worked. I diagnosed a bent pin on the Arduino GRBL controller, repaired it, wrote the CAM workflow, 3D-printed replacement brackets, and commissioned the machine on-site. The engagement started as PAP credit, continued as volunteering, and closed as a ****-peso freelance contract. I also contributed to assembling a plastic shredder with ±0.05 mm shaft tolerance for Materioteca's Artifex line."
 
 **Long form (scholarship motivation letter):**
 > "During my final semester at ITESO I joined the PAP Materioteca y Sustentabilidad — a multidisciplinary program awarded the Pedro Arrupe Prize. Our cohort worked with Entreamigos, a community center in San Pancho, Nayarit, to support their circular-plastics workshop. My role as a mechanical engineer spanned diagnosis of a broken CNC router, assembly of a custom plastic shredder, and production of G-code for product finishing. What started as an academic project grew into a voluntary continuation and then into a paid freelance engagement — a trajectory that showed me engineering can sustain community livelihoods, not just industrial pipelines. This is the experience that clarified my interest in energy systems for community resilience."
@@ -397,7 +397,7 @@ Custom-designed plastic shredder, pre-existing parts from prior cohorts. Key dim
 > - Diagnóstico, reparación y comisionado de un router CNC (Satycsa 6174, GRBL 1.1h) para el taller de ecodiseño de una ONG comunitaria, incluyendo firmware, electrónica (pin Arduino dañado), mecánica (ensamble eje Y) y software de control (Universal G-Code Sender, CNCjs).
 > - Diseño e impresión 3D de soportes estructurales de reemplazo (SolidWorks + UltiMaker Cura); generación de más de 49,000 líneas de código G para productos del centro (logos, quillas de surf).
 > - Ensamblaje de máquina trituradora de plásticos Artifex 2.0, corrigiendo tolerancias dimensionales a ±0.05 mm y realizando avellanados estructurales.
-> - Engagement evolutivo: PAP académico → voluntariado → contrato freelance con plan de trabajo e itemización propia (17 h, $4,999 MXN facturados).
+> - Engagement evolutivo: PAP académico → voluntariado → contrato freelance con plan de trabajo e itemización propia (17 h, ****MXN facturados).
 
 ### For technical / manufacturing CV
 

@@ -14,7 +14,7 @@
 - **Location:** Guadalajara, Jalisco, México
 - **Dates:** May 2023 – August 2023 (full-time, summer vacation work)
 - **Employment type:** Full-time, formal contract, 48 hrs/week
-- **Compensation:** $3,500 MXN/week
+- **Compensation:** ****/week
 - **Reporting line:** Direct supervisor on the floor → Project engineer (overall project oversight)
 
 🏷️ **Self-identification:** First "serious professional" CNC role — step up in regulatory discipline and documentation rigor from prior CNC experience.

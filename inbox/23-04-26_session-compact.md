@@ -39,7 +39,7 @@
 
 3. **Team (Otoño 2024):** 8 students, 4 disciplines. Lead professor: **Mtra. Jared Jiménez Rodríguez**.
 
-4. **Three phases confirmed:** PAP academic (Ago-Dic 2024) → voluntariado (soft gap) → freelance contract **9–17 Dic 2024, $4,999 MXN billed** across 17 documented hours.
+4. **Three phases confirmed:** PAP academic (Ago-Dic 2024) → voluntariado (soft gap) → freelance contract **9–17 Dic 2024, ****MXN billed** across 17 documented hours.
 
 5. **What he actually did on the CNC:**
    - Diagnosed and straightened a bent Arduino pin (GRBL 1.1h controller)

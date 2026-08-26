@@ -14,7 +14,7 @@
 - Reviewed professional background from memory + Indeed resume pull.
 - Identified three distinct profiles: **Programación**, **Manufactura**, **Energía**.
 - Key insight: hybrid CNC + software profile is a differentiator if positioned correctly.
-- Indeed salary minimum flagged as critically low (MXN $4,000).
+- Indeed salary minimum flagged as critically low (MXN ****).
 - Blind spots noted: implementation-before-validation tendency; low use of market benchmarks.
 
 ---
@@ -28,6 +28,8 @@ Agreed approach: one CV per target audience, each with differentiated framing, s
 | Programación | C#, Python, Linux, CLI, automation | English |
 | Manufactura | CNC, G-code, metrology, ISO 9001 | Spanish |
 | Energía | Thermodynamics, H₂, renewables, MATLAB/Simulink | English |
+
+(Indeed minimum: ****)
 
 ---
 
@@ -88,7 +90,7 @@ Agreed approach: one CV per target audience, each with differentiated framing, s
 ## Pending
 
 - [ ] Manually fix remaining legacy date fields in Canva editor
-- [ ] Update Indeed salary minimum (current: MXN $4,000 — far below market)
+- [ ] Update Indeed salary minimum (current: MXN **** — far below market)
 - [ ] Platform optimization guide: LinkedIn, Indeed, OCC, Computrabajo (started, not delivered)
 - [ ] Add GitHub URL to all CVs once portfolio is populated
 - [ ] Cambridge C1 certification — highest-priority credential for Spain pathway

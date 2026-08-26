@@ -1,7 +1,7 @@
 # Voice Extraction — TDI Biomedical · Session 2 (Continuation)
 **Status:** Skeleton v0.3 → target v1.0
 **Use:** Paste the CONTEXT BLOCK + SESSION PROMPT into Claude mobile (voice mode). Answer one question at a time.
-**What was already captured (Block 1):** May–Aug 2023 · full-time 48 h/sem · $3,500 MXN/week · biomedical metal devices (bone fixation plates, prosthetic components) · first "serious professional" CNC role
+**What was already captured (Block 1):** May–Aug 2023 · full-time 48 h/sem · ****/week · biomedical metal devices (bone fixation plates, prosthetic components) · first "serious professional" CNC role
 
 ---
 

@@ -128,7 +128,7 @@ Revisado para consistencia con archivos de roles y perfil maestro.
 |---|---|---|
 | 4 | PAP/Entreamigos como bala bajo "Otros trabajos" — valor no visible | Promover a entrada independiente (borrador abajo) |
 | 5 | MoldTech tercer bullet genérico ("diseño, ensamble y operación") | Sustituir tras sesión de voz MoldTech |
-| 6 | Email público: `danielgarciacastro64@gmail.com` | Correo canónico para aplicaciones |
+| 6 | Email público: `[redactada — ver feedback_cv_contact_privacy]` | Correo canónico para aplicaciones |
 
 **Consistente con archivos de roles (sin cambios):**
 - Bullets Performance Designs ✓

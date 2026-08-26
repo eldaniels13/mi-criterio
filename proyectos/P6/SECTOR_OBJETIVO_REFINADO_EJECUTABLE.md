@@ -211,7 +211,7 @@ Ejemplos:
 ### FASE 3: ACEPTAR OFERTA (Cualquier mes)
 
 Criterios mínimos:
-- ✓ Salario: Mínimo USD 3,500/mes neto (suficiencia liquidez)
+- ✓ Salario: Mínimo USD ****/mes neto (suficiencia liquidez)
 - ✓ Empresa: Establecida, estructura clara
 - ✓ Rol: Donde puedas crecer a líder técnico
 - ✓ Modelo: Híbrido público-privado O clara misión sostenibilidad
