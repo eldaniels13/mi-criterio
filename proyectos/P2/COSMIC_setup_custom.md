@@ -36,7 +36,8 @@ indentación 4-espacios y coma final en cada entrada.
 | Script | Qué hace |
 |---|---|
 | `clip-history` / `clip-history-del` | Frontend fuzzel sobre `cliphist` (daemon vía `wl-paste --watch`) |
-| `screenshot-clip` | Región interactiva → clipboard, usa `cosmic-screenshot` nativo (no grim+slurp) |
+| `screenshot-clip` | Región interactiva, respeta destino real (Pictures/Clipboard/Documents→picker nativo). Detalle §9.5 — 2026-08-29 |
+| `portal-save-file` | Invoca `SaveFile` de `org.freedesktop.portal.FileChooser` vía D-Bus (mismo diálogo que `Win+H`). Usado por `screenshot-clip` — 2026-08-29 |
 | `safe-eject` | Desmonta USB, detecta y desmonta volúmenes VeraCrypt antes de power-off, picker fuzzel |
 | `refresh-system` / `refresh-system-key` | Refresh seguro, dos tiers (§9.4). NO toca cosmic-comp/i915/Firefox/Spotify/Thunderbird/swap; `-key` abre cosmic-term visible — 2026-08-28 |
 | `blue-light-toggle` | Toggle gammastep, estado en `$XDG_RUNTIME_DIR` (reset en reboot) |
@@ -339,6 +340,48 @@ Log completo: `~/.local/state/refresh-system.log`.
 | `d[journal_freed_kb]: unbound variable` | Faltaba espacio antes de `]` en `[ -n "${d[k]:-}"]`. Slip de alineación por columnas → se eliminó el padding y se extrajeron helpers `have()`/`add()` |
 | Separadores salían como espacios | `IFS=' · '` — IFS es un *conjunto de caracteres*, no un separador multi-carácter; `"${parts[*]}"` une con el primero. Se concatena a mano |
 | `refresh` en terminal no notificaba | El alias viejo seguía vivo en la shell y gana sobre la función. `unalias refresh; source ~/.zshrc` |
+
+---
+
+### 9.5 `screenshot-clip` — misplacement bug: `--save-dir` mentía en modo interactivo (2026-08-29)
+
+**Síntoma:** `Super+Shift+S` → menú de `cosmic-screenshot` → cualquier botón (Pictures/Clipboard/
+Documents) terminaba copiando al portapapeles, o marcando "cancelada" sin guardar nada.
+
+**Causa raíz:** el script pasaba `--interactive=true --save-dir "$DIR"` (tempdir). El `--help` de
+`cosmic-screenshot` dice que `--save-dir` es *"only for non-interactive"* — **falso** en el código
+real: el flag se aplica con solo comprobar `is_dir()`, ignorando el modo. Mueve el archivo al
+tempdir sin importar qué botón elegiste. El script después hacía `ls` sobre ese tempdir y copiaba
+lo que encontraba al portapapeles siempre — por eso todo terminaba en clipboard.
+
+**Fix:** no pasar `--save-dir`. El portal ya guarda donde el usuario eligió; el CLI imprime esa
+ruta real por stdout. Contrato verificado en fuente (`pop-os/cosmic-screenshot`, `xdg-desktop-
+portal-cosmic`), instalado `1:1.5.0-1`:
+
+| Botón elegido | stdout de `cosmic-screenshot` |
+|---|---|
+| Clipboard | línea vacía (compositor ya copió; el CLI no toca el portapapeles) |
+| Pictures | ruta real del archivo ya guardado en `~/Pictures/Screenshots/` |
+| Documents | ruta real en `~/Documents/` |
+
+**Los 3 botones están compilados en el backend del portal** (`xdg-desktop-portal-cosmic`) — no se
+pueden renombrar/agregar sin parchear y recompilar ese paquete. Se descartó por *stable*.
+Decisión: reusar "Documents" como disparador de "elegir ubicación" — si la ruta impresa cae bajo
+`~/Documents`, el script invoca el picker nativo real (mismo backend que `Win+H`) vía
+`portal-save-file` y mueve el archivo ahí; si el usuario cancela el picker, queda en `~/Documents`
+como fallback.
+
+**`portal-save-file`:** llama `org.freedesktop.portal.FileChooser.SaveFile` por D-Bus directo
+(`python-gobject` + `Gio`/`GLib`), con el patrón estándar `handle_token` + señal `Response` que usan
+GTK/Qt internamente. Se evaluaron alternativas y se descartaron:
+- `zenity` (GTK, no el picker nativo COSMIC; además es dependencia de Steam, no algo para construir
+  encima)
+- `gdbus monitor` + `grep`/`awk` (parseo de texto de variant anidado, frágil con rutas con espacios)
+- `libportal` (envolvería el mismo patrón, pero no está instalado ni es dependencia de nada — un
+  paquete nuevo solo para esto viola *minimal*)
+
+`python-gobject` ya es dependencia existente de `inkscape`/`input-remapper`/`python-pydbus`/etc —
+cero paquetes nuevos.
 
 ---
 
