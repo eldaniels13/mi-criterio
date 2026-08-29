@@ -476,5 +476,122 @@ usuario el riesgo es bajo, pero es una divergencia real respecto al paquete — 
 
 ---
 
+## 10. Gestión térmica y energía — diagnóstico 2026-08-29
+
+> Medido bajo carga (npm + Claude + monitores + dock), todo en vivo. Riesgo catastrófico: **cero.**
+> Problemas reales: orden de preferencia.
+
+### 10.1 Estado de batería
+
+| Parámetro | Valor | Juicio |
+|---|---|---|
+| Voltaje celda | 4.196 V (8.392 / 2S) | **bajo nominal** (rango seguro: <4.4 V/celda; runaway >4.4) |
+| Tasa de carga | 0.51C (3.06 A sobre 5957 mAh) | normal; Li-poly aguanta 1C |
+| Corte automático | 80% | implementado, fijo en `/sys/class/power_supply/BAT0/charge_control_end_threshold` |
+| Salud | 5957 / 8948 = **66.6%** | degradada (~2 años de ciclos); no peligrosa |
+| Ciclos contados | 0 | BMS no reporta (Dell C5GV285 firmware, no crítico) |
+
+**Verificación:** doble cierre (BMS celda + EC Dell) antes de cualquier sobretensión. Explosión requiere:
+perforación + sobrecarga >4.4 V + corto interno. Ninguna presente.
+
+### 10.2 Térmico — el problema real
+
+| Zona | Temp | Límite | Margen | Estado |
+|---|---|---|---|---|
+| CPU package | **92 °C** | 100 °C crit | 8 °C | **apretado** |
+| PCH (Cannonlake) | 80 °C | — | — | alto |
+| NVMe | 46.9 °C | 79.8 °C crit | bien | estable |
+| Ventilador | 5985 RPM | 5300 RPM nom | **+13% sobrerrevolucionado** | manual |
+
+**Causa:** `pwm1_enable=1` (control **manual**, no automático). En `pwm1=255` (máximo) el ventilador
+enfría hoy. Pero si algo escribe un valor menor, **el ventilador no responde a temperatura** — el
+BIOS apaga a 100 °C, así que lo peor es shutdown, no daño. Igual: hay que devolverlo a automático.
+
+Agravante: perfil en `performance` (i7-8665U es chip de 15 W). Con dock + 2 monitores + 3 almacenamientos
+ese es el 92 °C.
+
+**Throttle histórico:** package 29,135 eventos / 282 s (12h44m uptime). Normal en Cannonlake bajo
+carga sostenida, no es degradación.
+
+**Fix inmediato:**
+
+```bash
+echo 2 | sudo tee /sys/devices/platform/dell_smm_hwmon/hwmon/hwmon5/pwm1_enable
+# (2 = automático; persiste solo en sesión; kernel lo resetea en boot)
+```
+
+**Bajo a mediano plazo:** cambiar perfil a `balanced`:
+
+```bash
+powerprofilesctl set balanced
+```
+
+### 10.3 USB over-current — 189 eventos, 10:35:44 → 10:45:20 (resuelto)
+
+**Qué pasó:** puertos USB3 y USB4 dispararon el switch de protección 189 veces en 10 min. Cero en últimos
+5 min → ya paró.
+
+**Causa física:** aritmética de bus USB 2 (USB3):
+- RTL9210C (Kingston NV3): 896 mA
+- Lector SD: 896 mA
+- AX88179B (Ethernet): 184 mA
+- **Total solicitado: 1976 mA** por un puerto raíz (900 mA nominal)
+
+Si el dock UGREEN estaba corriendo **sin su ladrillo PD** (desconectado o negociación PD caída), ese
+es exactamente el escenario. El overload protector cortó el riel repetidamente en loop.
+
+**Verificación necesaria:** conectar físicamente el **UGREEN Revodok Pro 210** a su fuente PD externa
+(100 W nominal) y confirmar que no enciende el loop otra vez. Si loop vuelve → hardware del dock en fallo.
+
+### 10.4 Gestión de energía — conflicto no resuelto
+
+| Servicio | Estado | Rol |
+|---|---|---|
+| `power-profiles-daemon` | **active** | autoridad principal (COSMIC usa) |
+| `tlp` | enabled **pero inactivo** | bloqueado por ppd |
+
+TLP avisa: "Warning: CPU_ENERGY_PERF_POLICY_ON_AC/BAT is not set because power-profiles-daemon is running."
+
+**Resolución:** elegir uno. `power-profiles-daemon` integra mejor con COSMIC:
+
+```bash
+sudo systemctl disable tlp
+```
+
+---
+
+### 10.5 Acciones en orden de prioridad
+
+**Inmediatas (hoy, sin reboot):**
+
+```bash
+# 1. Ventilador a automático (afecta el único riesgo real — térmico)
+echo 2 | sudo tee /sys/devices/platform/dell_smm_hwmon/hwmon/hwmon5/pwm1_enable
+
+# 2. Bajar el perfil
+powerprofilesctl set balanced
+
+# 3. Resolver gestor de energía
+sudo systemctl disable tlp
+```
+
+**Antes de siguiente reboot:**
+
+```bash
+# 4. Verificar dock UGREEN físicamente conectado a su fuente PD 100W
+ls -l /sys/class/power_supply/ | grep -i ucsi    # debe mostrar voltaje >0
+
+# 5. Revisar los .pacnew del upgrade (§9.7)
+```
+
+**Después del reboot (kernel 7.1.11 + COSMIC 1.7.0):**
+
+```bash
+# 6. Re-verificar screenshot-clip y portal-save-file (§9.5 medido en 1.5.0)
+Super+Shift+S → seleccionar Pictures y Documents, confirmar rutas reales
+```
+
+---
+
 **Regla de mantenimiento:** cualquier hallazgo nuevo sobre config COSMIC (atajo, script, panel,
-tema, systemd unit) se agrega aquí — no crear archivos nuevos para esto.
+tema, systemd unit, térmica, energía) se agrega aquí — no crear archivos nuevos para esto.
