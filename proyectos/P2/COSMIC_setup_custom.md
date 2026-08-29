@@ -1,7 +1,7 @@
 # COSMIC Custom Setup — compacto
 
 > **Sistema:** Arch Linux · COSMIC DE (Wayland) · máquina `fibonacci`
-> **Última actualización:** 2026-08-28 — actualizar siempre que haya hallazgo nuevo
+> **Última actualización:** 2026-08-29 — actualizar siempre que haya hallazgo nuevo
 
 ---
 
@@ -345,6 +345,9 @@ Log completo: `~/.local/state/refresh-system.log`.
 
 ### 9.5 `screenshot-clip` — misplacement bug: `--save-dir` mentía en modo interactivo (2026-08-29)
 
+> ⚠️ **Medido en COSMIC `1:1.5.0-1`. El mismo día se subió a `1:1.7.0-1` (§9.7) — re-verificar
+> el contrato de stdout tras el reboot pendiente.**
+
 **Síntoma:** `Super+Shift+S` → menú de `cosmic-screenshot` → cualquier botón (Pictures/Clipboard/
 Documents) terminaba copiando al portapapeles, o marcando "cancelada" sin guardar nada.
 
@@ -382,6 +385,94 @@ GTK/Qt internamente. Se evaluaron alternativas y se descartaron:
 
 `python-gobject` ya es dependencia existente de `inkscape`/`input-remapper`/`python-pydbus`/etc —
 cero paquetes nuevos.
+
+---
+
+### 9.6 Acceso al Cubot por MTP — `gvfs-mtp` (2026-08-29)
+
+**Necesidad:** inventariar y respaldar fotos/música del Cubot KingKong 8 desde `fibonacci`.
+
+**Síntoma inicial:** teléfono ya en *Transferencia de archivos* (MTP) y visible en `lsusb`
+(`0e8d:2008 MediaTek Inc.`), pero nada aparecía en `/run/user/1000/gvfs/`.
+
+**Causa:** sólo estaba el paquete `gvfs` base. **No había `gvfs-mtp` ni `libmtp`** — el teléfono
+hablaba MTP y Linux no sabía MTP. Nada que ver con el teléfono ni con el cable.
+
+**Fix:** `sudo pacman -S gvfs-mtp` (repo `extra`, arrastra `libmtp`). Efecto inmediato, sin
+reiniciar sesión: aparece el monitor `GProxyVolumeMonitorMTP` en `gio mount -l`.
+
+**Alternativas evaluadas y descartadas:**
+
+| Opción | Por qué no |
+|---|---|
+| `jmtpfs` / `simple-mtpfs` (FUSE) | AUR → exige verificación de PKGBUILD; montaje manual cada vez |
+| `adb pull` (`android-tools`) | Obliga a dejar Depuración USB activa en el teléfono — superficie permanente por un inventario |
+| Modo PTP (ya en el menú del Cubot) | Necesita `gvfs-gphoto2`, mismo costo, y sólo ve fotos: perdería música y documentos |
+
+`gvfs-mtp` gana por *minimal*: 157 KiB, se engancha al `gvfs` que ya corre, el daemon `gvfsd-mtp`
+arranca sólo al conectar el teléfono y muere al desconectar (cero costo en reposo),
+y `pacman -Rs` lo revierte limpio.
+
+**Procedimiento de montaje** — el volumen aparece pero **no se auto-monta**:
+
+```bash
+# 1. Teléfono: Preferencias de USB → "Este dispositivo" + "Transferencia de archivos"
+# 2. Descubrir el activation_root (contiene el serial del equipo):
+gio mount -li | grep -A6 MTP        # → activation_root=mtp://CUBOT_KINGKONG_8_<SERIAL>/
+# 3. Montar:
+gio mount "mtp://CUBOT_KINGKONG_8_<SERIAL>/"
+# 4. Queda en:
+ls "/run/user/$(id -u)/gvfs/mtp:host=CUBOT_KINGKONG_8_<SERIAL>"
+# 5. Al terminar:
+gio mount -u "mtp://CUBOT_KINGKONG_8_<SERIAL>/"
+```
+
+`<SERIAL>` no se escribe aquí a propósito — es fingerprint del dispositivo y este repo es público.
+Sale del paso 2 en cada sesión.
+
+**[!] MTP no es un sistema de archivos real.** Sin mtimes fiables, sin operaciones atómicas, sin
+`rename` seguro. Sirve para inventariar y para un `cp` de una vez.
+**No usar `rsync` incremental sobre MTP** para el backup recurrente del teléfono — el diseño de esa
+capa queda abierto en el plan de backups (P8).
+
+**Dos almacenamientos** expuestos: `Almacenamiento interno compartido` y `Tarjeta SD de SanDisk`
+(esta última prácticamente vacía: 13 archivos en total).
+
+### 9.7 Upgrade completo del sistema 2026-08-29 — consecuencias abiertas
+
+Se corrió `pacman -Syu gvfs-mtp` (no `-S`): **464 paquetes**, 2.4 GiB. El objetivo era un paquete de
+157 KiB; salió un upgrade completo del sistema. Queda registrado porque dejó estado pendiente.
+
+| Cambio | Consecuencia |
+|---|---|
+| Kernel `7.1.6` → `7.1.11` | **`uname -r` sigue en 7.1.6 · reboot pendiente.** Módulos nuevos no cargables hasta reiniciar. `refresh --hard` **no** cubre esto (§9.4, fuera de alcance por diseño) |
+| COSMIC `1:1.5.0` → `1:1.7.0` (comp, portal, screenshot, panel, settings) | **Invalida la verificación de §9.5.** El contrato de stdout de `cosmic-screenshot` y el backend del portal se midieron en `1:1.5.0-1`. Re-verificar `screenshot-clip` y `portal-save-file` tras el reboot |
+| `glibc`, `mesa`, `gcc-libs`, `nss` | Binarios viejos siguen corriendo con libs viejas en memoria hasta reiniciar |
+| `tar` ya no trae `/usr/bin/backup` ni `/usr/bin/restore` | Movidos al paquete `tar-scripts`. **Verificar que ningún procedimiento del plan P8 los invoque** antes de asumir que restaura |
+| `rsync` → `3.5.0` | Es la herramienta de las FASE 2/3 del plan de backups. Sin cambio de comportamiento conocido, pero la versión medida cambió |
+| `python-py-cpuinfo` → `python-py-cpuinfo2` | Reemplazo automático. Revisar si algún script propio importa `cpuinfo` |
+
+**Pendientes concretos (no ejecutados):**
+
+```bash
+# 1. Reiniciar — kernel + glibc. Nada de esto se arregla en caliente.
+# 2. Revisar los .pacnew antes de que se acumulen:
+#    /etc/mkinitcpio.conf.pacnew        ← ojo: hooks sd-encrypt/lvm2, ver §9.4
+#    /etc/locale.gen.pacnew
+#    /etc/pacman.d/mirrorlist.pacnew
+#    /etc/systemd/resolved.conf.pacnew
+#    /etc/tpm2-tss/fapi-profiles/P_{RSA3072SHA384,ECCP384SHA384}.json.pacnew
+# 3. Permisos de /etc/ssl/private divergen del paquete:
+ls -ld /etc/ssl/private     # filesystem 755 · paquete espera 700
+sudo chmod 700 /etc/ssl/private
+```
+
+⚠️ `/etc/mkinitcpio.conf` es el que arma el initramfs de un disco **LUKS+LVM**. Un merge descuidado
+del `.pacnew` deja la máquina sin arrancar. Comparar con `diff` y conservar los hooks actuales
+(`sd-encrypt`, `lvm2`) antes de tocar nada.
+
+⚠️ `/etc/ssl/private` en `755` es legible por cualquier usuario local. En una máquina de un solo
+usuario el riesgo es bajo, pero es una divergencia real respecto al paquete — corregir.
 
 ---
 
