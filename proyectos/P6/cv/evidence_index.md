@@ -1,7 +1,7 @@
 # evidence_index.md
 # Path: proyectos/P6/cv/evidence_index.md
 # Generated: 2026-06-09
-# Claims: 35 total
+# Claims: 36 total
 # Schema: tipo (proyecto > laboral > declarativo) | status (defendible|parcial|gap|sin_calibrar)
 # Filled by /calibrate: defense_line, learn_flag, calibrated_at
 
@@ -417,6 +417,20 @@
 - defense_line: —
 - learn_flag: —
 - calibrated_at: —
+
+---
+
+## Renewable Energy
+
+## claim: renewable-systems-interview-cometer
+- evidencia: proyectos/P6/cv/interview_cometer_pm_solar.md
+- tipo: declarativo
+- recencia: 2026-05
+- status: sin_calibrar
+- defense_line: —
+- learn_flag: —
+- calibrated_at: —
+# discusión técnica sostenida en entrevista (fotovoltaico interconectado/off-grid/híbrido) sin evidencia formal previa; usar solo si se puede defender en vivo, no como línea de CV suelta
 
 ---
 
