@@ -593,5 +593,144 @@ Super+Shift+S → seleccionar Pictures y Documents, confirmar rutas reales
 
 ---
 
+### 10.6 Comandos de diagnóstico usados (reproducible)
+
+```bash
+upower -e                              # inventario de power supplies
+lsusb                                  # árbol USB completo
+cat /sys/class/power_supply/BAT0/uevent # propiedades crudas batería
+sensors                                # lecturas térmicas (coretemp, dell_smm, pch_cannonlake)
+ls /sys/class/thermal/thermal_zone*/   # zonas térmicas
+journalctl -b -p warning               # warnings desde boot
+ps -eo pid,pcpu,comm --sort=-pcpu      # top CPU
+cat /sys/devices/platform/dell_smm_hwmon/hwmon/hwmon5/{pwm1,pwm1_enable,fan1_input}
+systemctl list-units --type=service | grep thermal
+```
+
+**Regla de mantenimiento:** cualquier hallazgo nuevo sobre config COSMIC (atajo, script, panel,
+tema, systemd unit, térmica, energía) se agrega aquí — no crear archivos nuevos para esto.
+
+---
+
+## 11. Shell, navegador y privacidad de red (2026-08-06 / 2026-08-12)
+
+### 11.1 zsh — fzf-tab dropdown de autocompletado
+
+**Host:** fibonacci · Zsh 5.9.2 · Estado: ✅ funcionando (ejecutado y verificado, no solo diseñado)
+
+Objetivo: `Tab` sobre prefijo parcial abre menú navegable con preview `tldr`/`man`, sin tocar
+`zsh-autosuggestions`. Separado a propósito de `Ctrl+R` (historial): fzf-tab sólo completa
+comandos del sistema, no busca en historial — el spec original asumía lo contrario y habría fallado.
+
+**Stack final:** `zsh-autosuggestions` (ya estaba) + `zsh-syntax-highlighting` (ya estaba) +
+`fzf-tab` (nuevo, `~/.zsh/fzf-tab`) + `fzf` (ya estaba) + `tealdeer`/`tldr` (nuevo) + `man`/`whatis` fallback.
+
+**Config aplicada (`.zshrc`):**
+
+```zsh
+# Historial — prerrequisito no documentado en el spec original
+HISTSIZE=100000        # RAM — DEBE ser >= SAVEHIST o zsh poda el archivo al cerrar
+SAVEHIST=100000
+setopt HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS SHARE_HISTORY
+HISTORY_IGNORE='(*--password*|*--token*|*API_KEY*|*SECRET*|*Authorization:*)'
+ZSH_AUTOSUGGEST_HISTORY_IGNORE=$HISTORY_IGNORE
+
+# Marca visual de modo privado — comando con espacio inicial = línea en magenta = no entra a historial
+autoload -Uz add-zle-hook-widget
+_private_mode_indicator() {
+  [[ $BUFFER == ' '* ]] && region_highlight+=("0 ${#BUFFER} fg=magenta,bold")
+}
+add-zle-hook-widget zle-line-pre-redraw _private_mode_indicator
+
+# fzf-tab — ORDEN: después de compinit, ANTES de autosuggestions/syntax-highlighting
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no                      # OBLIGATORIO en versiones actuales
+zstyle ':completion:*:git-checkout:*' sort false
+source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-):*' \
+  fzf-preview '(tldr --color always $word 2>/dev/null || man $word 2>/dev/null || whatis $word 2>/dev/null) | head -200'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-j:down,ctrl-k:up'
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-flags --height=60% --layout=reverse --border --preview-window='right:55%:wrap'
+
+source /usr/share/fzf/key-bindings.zsh
+# NO cargar /usr/share/fzf/completion.zsh — le roba ^I a fzf-tab (ver error #5 abajo)
+```
+
+**Keybindings:** `Tab` abre menú · `Ctrl+J`/`Ctrl+K` o ↑↓ navega · `<`/`>` cambia grupo ·
+`Ctrl+Space` multi-selección · `/` completado continuo · `Esc` cancela · `Ctrl+R` fuzzy historial ·
+`Ctrl+T`/`Alt+C` archivos/directorio.
+
+**6 errores del spec original — corregidos tras ejecución (lección: verificable antes de escribir, no después):**
+
+1. **Orden de carga invertido** — README oficial: fzf-tab debe cargar *después* de `compinit` pero *antes* de plugins que envuelvan widgets (autosuggestions/syntax-highlighting). El spec lo invertía.
+2. **Faltaba `zstyle ':completion:*' menu no`** — obligatorio en versiones actuales o el menú nativo interfiere.
+3. **"Historial primero" no es función de fzf-tab** — el spec pedía `group-order history-words commands`; fzf-tab sólo muestra resultados del sistema de completado. `Ctrl+R` es la herramienta correcta para esto.
+4. **Diagnóstico incompleto → 2 suposiciones falsas** — `man` se asumió preinstalado (no lo estaba); el grep de diagnóstico no incluía `syntax-highlighting`, así que se dio por ausente un plugin ya cargado en línea 23 del `.zshrc`, y se propuso `zle -N zle-line-pre-redraw` que habría **sobrescrito el hook y roto el coloreado de sintaxis**. Corrección: encadenar con `add-zle-hook-widget` + `region_highlight+=()`, nunca `zle -N` directo.
+5. **Conflicto `^I`** — `source /usr/share/fzf/completion.zsh` enlaza `^I` a `fzf-completion` y le roba el Tab a fzf-tab. Detectar con `bindkey "^I"`. Se eliminó el binding de fzf.
+6. **Preview sin `wrap`** — fzf corta líneas largas del preview en vez de envolverlas; requiere `--preview-window='...:wrap'` explícito.
+
+**Verificación:**
+```zsh
+bindkey "^I"    # → fzf-tab-complete (NO fzf-completion)
+bindkey "^R"    # → fzf-history-widget
+zle -l | grep pre-redraw   # → _zsh_highlight__zle-line-pre-redraw Y zle-line-pre-redraw, ambos vivos
+```
+
+**Errores de ejecución (no del spec) — para el registro:** `HISTSIZE=100` con `SAVEHIST=99999` habría podado el historial al cerrar (palanca equivocada: `HISTSIZE` es buffer RAM, la exposición se controla con `HIST_IGNORE_SPACE`+`HISTORY_IGNORE`, no con el tamaño) · comandos ya ejecutados en otra terminal reportados como "fallo" (`pacman -Rns` → `target not found`, verificar `/var/log/pacman.log` antes de repetir) · caché de pacman nunca podada, 17 GB / 9013 archivos, `/` al 98% bloqueó una instalación.
+
+**Pendiente:** `build-fzf-tab-module` (módulo binario) si el coloreado se siente lento. Si se instala `fast-syntax-highlighting` o `zsh-autocomplete` en el futuro: revisar conflicto de `zle-line-pre-redraw` y `^I` **antes** de instalar.
+
+### 11.2 Navegador — Chrome vs Firefox vs Chromium
+
+**Problema:** links de unsubscribe de email (SendGrid, CleverTap) no cargan con Firefox en modo privacidad máxima (`privacy.resistFingerprinting=true`) — detección antibot: JS+telemetría = "navegador normal", JS ausente+resistFingerprinting = "bot/privacidad-first". No es incompatibilidad técnica, es fingerprinting defensivo del lado del servicio.
+
+**Descartado:** `google-chrome` vía AUR — binario precompilado con telemetría integrada, contradice copyleft/soberanía declarados.
+
+**Decisión:** perfil Firefox dual — `firefox-compat` (perfil "compatibility", sin `resistFingerprinting`, para sitios que lo requieren) vs perfil default (privacidad máxima, uso diario). Fallback si dual-mode falla: `chromium-bin` (pacman oficial, no Google, sin compilación). Ungoogled-Chromium (AUR, 1-2h compilación) descartado por ahora — innecesario si dual-mode funciona.
+
+```zsh
+alias firefox-compat='firefox -P compatibility --new-instance'
+```
+
+### 11.3 Causa raíz real del bloqueo de unsubscribe: firejail, no el navegador
+
+Diagnóstico llevó por un camino más largo de lo necesario: se descartaron en orden VPN/proxy activo (`ip route`, `env | grep proxy` — vacíos), Mozilla VPN (no instalado), hasta llegar a la causa real.
+
+**Causa raíz confirmada: `firejail` rompe el estado de sesión.** El link de CleverTap se ejecutaba como `firejail /usr/bin/firefox -P compatibility --new-instance`, que intercepta cookies de sesión necesarias para el flujo de unsubscribe, modifica el user-agent implícitamente, y genera ruido de AppArmor ("Cannot confine the application"). uBlock Origin activo era sospechoso secundario (no confirmado como bloqueante).
+
+**Aprendizaje:** AppArmor/SELinux ya sandboxean COSMIC a nivel de sistema; firejail encima es redundancia que rompe flujos normales de navegación en hardware ULV, sin beneficio claro (Firefox es un binario de confianza, firejail tiene sentido para binarios *untrusted*).
+
+```zsh
+alias firefox-compat='firefox -P compatibility --new-instance'                    # sin firejail, para unsubscribe/flujos de sesión
+alias firefox-private='firejail firefox -P default --new-instance'                # con firejail, para navegación general
+```
+
+### 11.4 hBlock bloqueando unsubscribe real de CleverTap — resuelto con allowlist temporal
+
+**Causo raíz distinta de 11.3, mismo síntoma (error genérico "no pudimos recuperar tu email"):** hBlock 3.5.1 tenía 4 dominios CleverTap bloqueados a nivel `/etc/hosts` (444,284 líneas): `clevertap-prod.com`, `eu1.clevertap-prod.com`, `static.clevertap.com`, `clevertapsendgrid.branch.rocks`. Descartado: interferencia de Firefox/addons (bloqueo es a nivel OS/DNS, no navegador), VPN/proxy (nada corriendo), Mozilla VPN "IP Protection" (no instalado).
+
+**Solución ejecutada:**
+```bash
+cat > /tmp/clevertap-allowlist.txt <<EOF
+clevertap-prod.com
+eu1.clevertap-prod.com
+static.clevertap.com
+clevertapsendgrid.branch.rocks
+EOF
+sudo hblock -A /tmp/clevertap-allowlist.txt   # 456054 dominios bloqueados (4 excepciones)
+# ... unsubscribe completado en el navegador ...
+sudo hblock                                    # restaura bloqueo completo, 456058 dominios
+```
+Sin cambios permanentes al sistema. Si hBlock se actualiza, CleverTap vuelve a bloquearse a menos que se repita la allowlist temporal — no hay excepción persistente configurada (decisión: no la hay, se repite manualmente si vuelve a hacer falta).
+
+### 11.5 Decisión final: sin VPN
+
+Análisis extenso de VPN hecho en `inbox/23-05-26_vpn-privacidad-y-seguridad-linux.md` (Surfshark salió favorito por balance precio/Linux/privacidad — mayo 2026, análisis conservado ahí). **Decisión posterior (agosto 2026, no reabrir): NO usar VPN.** `ip route` sin interfaces tunnel (tun/wg/ppp), `which mozillavpn` → not found, ningún proceso VPN activo — confirmado en las sesiones de troubleshooting de red de agosto. El caso de uso que motivó el análisis de mayo (redes públicas, movilidad) no se materializó en necesidad operativa real.
+
+---
+
 **Regla de mantenimiento:** cualquier hallazgo nuevo sobre config COSMIC (atajo, script, panel,
 tema, systemd unit, térmica, energía) se agrega aquí — no crear archivos nuevos para esto.

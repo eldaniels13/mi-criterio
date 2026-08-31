@@ -183,7 +183,7 @@ Refactor multi-archivo (solo con mucha paciencia) · debugging sutil de race con
 ### Bloque A — Reconciliar el estado (30-45 min, hacer primero)
 
 - [ ] `ollama pull qwen2.5-coder:1.5b` — **necesario**: es el único modelo local con capability `tools` para probar el agent loop
-- [ ] Decidir sobre los `*-cloud`: eliminarlos para que "Ollama" sea estrictamente local (recomendado — no mezclar local/cloud bajo un mismo badge)
+- [x] Decidir sobre los `*-cloud`: eliminarlos para que "Ollama" sea estrictamente local — **hecho 2026-08-27**, ver §9
 - [ ] Resolver el drift de versión servidor/cliente de Ollama (`pacman -Syu` + `systemctl restart ollama`)
 - [ ] Crear `/etc/systemd/system/ollama.service.d/override.conf` con `OLLAMA_KEEP_ALIVE`, `OLLAMA_NUM_THREAD=8`, `OLLAMA_CONTEXT_LENGTH=16384`; retirar los exports duplicados de `~/.zshrc`
 - [ ] Arreglar o retirar el switcher Alt+P (`~/.zshrc:115-144`) — hoy es deuda silenciosa que contradice "minimal"
@@ -235,6 +235,43 @@ Refactor multi-archivo (solo con mucha paciencia) · debugging sutil de race con
 2. **El deadlock de Aider es el riesgo #1.** Cualquier herramienta agéntica nueva sobre Ollama CPU-only debe probarse contra ese mismo escenario **antes** de invertir en configurarla.
 3. **Nada de config ni secretos dentro de `mi-criterio`.** Es repo de conocimiento.
 4. **No subir de peldaño de hardware sin evidencia de uso diario.** Criterio BBB.
+
+---
+
+## 9 · Actualización 2026-08-27 — fix Alt+P, limpieza Ollama Cloud, "Openclaw" aclarado
+
+**Estado global sigue igual:** OpenCode elegido en D7 sigue **sin instalar**. Esta sesión fue diagnóstico de config drift, no avance en Bloque B.
+
+**Aclaración de nombre:** "Openclaw" (paquete npm `openclaw@2026.7.1-2`, gateway multi-canal de bots IA, requiere Node ≥24.15.0, falló por mismatch de versión con Node v24.14.1 instalado) **NO es** la herramienta decidida en D7. La decidida es **OpenCode** (MIT, `pacman -S opencode`, Arch `extra/`). Mismo patrón de riesgo de typosquatting ya documentado en `recursos/AUR_Atomic_Arch_2026_Informe.md` — se optó por no instalar nada hasta confirmar el nombre correcto. Decisión del usuario: *"no hacer nada por ahora"* con openclaw.
+
+**Fix aplicado (este repo):** `.claude/settings.json` tenía `"model": "default"` — string no reconocida por el picker de Claude Code, generaba entrada fantasma "Custom model" en el selector Alt+P en vez de heredar el modelo global. Se eliminó la línea (`git diff --stat`: `.claude/settings.json | 1 -`). Alt+P ahora hereda correctamente (checkmark en "Default ✓ Sonnet 5"); queda un residuo cosmético no bloqueante en el slot 6 del picker (entrada "default" sin check), causa no rastreada.
+
+**Modelos `*-cloud` de Ollama:** confirmados como proxies remotos de Ollama Cloud (`deepseek-v4-flash:cloud`, `:0731-cloud`, 304B params FP8 — imposible correr en 32GB RAM, por eso eran remotos). Decisión pendiente del Bloque A ("decidir sobre los `*-cloud`") **ya ejecutada por el usuario entre sesiones**: `ollama list` post-limpieza solo muestra `nomic-embed-text` y `deepseek-coder:6.7b` — "Ollama" es estrictamente local de nuevo.
+
+**Nuevo hallazgo — env var inconsistente:** `OLLAMA_MODEL=qwen2.5-coder:7b` sigue exportado mientras ese modelo no está instalado (`ollama list` no lo muestra). Pendiente: reinstalar `qwen2.5-coder:7b` o cambiar la env var a `qwen2.5-coder:1.5b` (candidato ya identificado en Bloque A para probar tool-use).
+
+**NOMAD (Crosstalk-Solutions/project-nomad) evaluado y no adoptado:** Apache 2.0 (permisivo, no copyleft — tensión con principio declarado), stack Docker pesado (Kiwix+Kolibri+ProtoMaps+Qdrant+CyberChef+FlatNotes), hardware recomendado (RTX 3060+, 32GB) muy por encima del actual. Componentes de conocimiento (Kiwix/Qdrant) sí aplican conceptualmente; el LLM local del stack no es viable en fibonacci hoy. Ver también evaluación en `recursos/Herramientas_IA_Evaluadas.md` (open-notebook es alternativa más ligera para RAG personal, self-hosted, SurrealDB).
+
+**Decisión reafirmada:** no fusionar Claude Code con el stack local vía proxy (`ANTHROPIC_BASE_URL`) — rompería open source/private/minimal sin ganar nada que un stack local independiente no dé ya. Mantener sistemas separados.
+
+**Datos duros de la sesión:**
+```
+ollama list (tras limpieza):
+NAME                       ID              SIZE      MODIFIED
+nomic-embed-text:latest    0a109f422b47    274 MB    4 months ago
+deepseek-coder:6.7b        ce298d984115    3.8 GB    4 months ago
+
+env vars activos:
+OLLAMA_MODEL=qwen2.5-coder:7b   [modelo NO instalado — inconsistente]
+OLLAMA_HOST=127.0.0.1:11434
+OLLAMA_API_BASE=http://localhost:11434
+OLLAMA_KEEP_ALIVE=30m
+OLLAMA_NUM_THREAD=8
+```
+
+**Nota cross-lens (P7):** decisión pendiente sobre si retomar el ángulo "expansión de consciencia" al reabrir esta línea — priorizar RAG sobre el propio repo (corpus de decisiones propias) por encima de replicar un stack de conocimiento genérico tipo NOMAD.
+
+**Regla de oro añadida:** `ollama list` con columna SIZE en `-` (0 bytes) = modelo remoto, el prompt sale de la máquina. Verificar antes de asumir "local".
 
 ---
 
