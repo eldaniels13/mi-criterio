@@ -121,3 +121,27 @@ La siguiente sesión debería centrarse en:
 ## Resultado de la Sesión
 
 Se estableció una estructura clara para continuar el desarrollo del proyecto y se identificaron los principales vacíos de información que deben resolverse antes de la publicación definitiva de la página web.
+
+---
+
+## Sesión 2026-06-04 — Landing page construida
+
+A partir de este documento como brief, se construyó una página web funcional lista para publicar (no solo planeación).
+
+**Output:** `~/Downloads/transporte-seguro-gdl/index.html` — HTML/CSS/JS vanilla, archivo único, sin frameworks ni build step, abre directo en navegador.
+
+**Design read declarado:** *"Consumer service landing para turistas internacionales en aeropuerto, trust-first + dark premium, cobalt blue accent."* Diales: `DESIGN_VARIANCE: 7` (asimetría moderada) · `MOTION_INTENSITY: 4` (scroll reveals vía IntersectionObserver, sin GSAP) · `VISUAL_DENSITY: 4` (limpio, escaneable en móvil).
+
+**Paleta:** dark navy `#07091a` (paleta cálida/beige descartada intencionalmente) · acento cobalt blue `#2563eb` (lectura de confianza/autoridad) · CTA WhatsApp green `#22c55e` (estándar reconocible). Tipografía: Outfit (Google Fonts).
+
+**Arquitectura — 8 secciones, 7 familias de layout:** nav sticky (glassmorphism) · hero split 50/50 · marquee strip (scroll infinito, único en la página) · "cómo funciona" (3 tarjetas con flechas) · rutas y precios (grid auto-fill) · "por qué elegirnos" (bento grid 6 columnas) · FAQ (acordeón JS nativo) · CTA + footer.
+
+**Funcionalidades:** bilingüe ES/EN (`body.lang-en` + `data-lang`) · scroll reveal (`threshold: 0.08`, respeta `prefers-reduced-motion`) · FAQ accordion sin dependencias · nav móvil hamburger (<640px) · 4 rutas con tarifas MXN + equivalencia USD · WhatsApp CTA consistente (nav/hero/CTA band, sin duplicar intent) · iconos SVG inline, imágenes Picsum placeholder.
+
+**Pendientes para publicación (bloqueantes):**
+1. Número de WhatsApp real — reemplazar placeholder `5233XXXXXXXX` (3 lugares)
+2. Teléfono de contacto real — reemplazar `+52 33 XXXX XXXX` en CTA
+3. Precios finales (las 4 rutas usan tarifas de referencia)
+4. Foto hero real (aeropuerto/ciudad) en vez de Picsum
+5. Meta description, OG tags, favicon
+6. Ficha de Google Business (prioridad media ya identificada en el brief original)
