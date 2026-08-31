@@ -43,7 +43,11 @@ Criterio consolidado por lente. Solo llega aquí lo que ya fue revisado.
 | `P2_programacion_desarrollo.txt` | lente principal |
 | `stack_ia_local_veredicto.md` | decisión: stack IA local CPU-only |
 | `Plan: Stack IA local privado completo para CPU-only (3 workflows).txt` | plan infra IA local |
+| `HANDOFF_LLM_agentico_local.md` | handoff maestro: LLM agéntico local, decisiones D1-D10, estado OpenCode |
+| `COSMIC_setup_custom.md` | setup COSMIC/Arch: atajos, scripts, térmica/energía, shell/navegador/privacidad |
 | `cutwindow2_contexto.md` | contexto IDE y rutas del proyecto nesting engine |
+| `arquitectura_noticias_sin_sesgo.md` | diseño sistema RSS/GDELT/LLM local sin sesgo ni telemetría |
+| `restmo_monitor_tuya.md` | monitor caudalímetro Restmo vía Tuya Cloud API |
 
 ### P3 — Energía y Sostenibilidad `[activo]`
 | Archivo | Propósito |
@@ -78,6 +82,7 @@ Criterio consolidado por lente. Solo llega aquí lo que ya fue revisado.
 | `guia_voz_posgrado_sostenibilidad.md` | template sesión de voz para exploración de posgrado |
 | `posgrado_opciones_sostenibilidad.md` | opciones de posgrado en sostenibilidad energética (may 2026) |
 | `journey_p6cv_sistema.md` | retrospectiva narrativa de la construcción del sistema P6/cv |
+| `cv/interview_cometer_pm_solar.md` | hechos duros: entrevista PM Cometer, sistemas energéticos discutidos |
 
 ### P7 — Filosofía y Humanidades `[activo]`
 | Archivo | Propósito |
@@ -111,8 +116,13 @@ Solo se actualiza cuando cambia identidad, criterio, o stack técnico.
 |---|---|
 | `recursos/` | guías de referencia guardadas (Git, SSH, licencias, Claude Code) |
 | `recursos/MEMORIA_SISTEMA_CLAUDE.md` | migración completa de toda la memoria de Claude Code (feedback, proyectos, 50 obs claude-mem, jun 2026) |
-| `P8_Backup_Wiki/` | estrategia de backup y seguridad digital |
+| `recursos/GUIA_INBOX_CROSS_AI.md` | formato canónico de captura inbox, vendor-neutral |
+| `recursos/AUR_Atomic_Arch_2026_Informe.md` | informe forense: supply-chain attack AUR jun 2026 (1.937 paquetes) |
+| `recursos/Herramientas_IA_Evaluadas.md` | resúmenes críticos: open-notebook, OmniRoute, diagram-design, project-nomad |
+| `recursos/closing_session_transporte_seguro_gdl.md` | proyecto Transporte Seguro GDL: brief comercial + landing page construida |
+| `P8_Backup_Wiki/` | estrategia de backup y seguridad digital — `P8_Backup_Seguridad_Digital_Maestro.md` es el único doc de plan/estado (v2.0, absorbe Timeline_Fases + Archivos_Criticos_Inventory) |
 | `P8_Backup_Wiki/mft_recovery_decision.md` | decisión técnica: instalación Linux limpia tras MFT corrupto |
+| `P8_Backup_Wiki/freeze_i915_fsck_incidente.md` | incidente: freeze sistema + pérdida symlink `claude` por fsck tras corte abrupto |
 | `CLAUDE.md` | instrucciones para Claude Code en este repo |
 | `CONTRIBUTING.md` | convenciones del repo |
 | `README.md` | descripción pública |

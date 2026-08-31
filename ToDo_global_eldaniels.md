@@ -297,11 +297,37 @@ DOCUMENTACIÓN PENDIENTE
          RAYS  (específico solar)
 
 
+  P2 / P8 — DE CONSOLIDACIÓN INBOX (30-08-26)
+  ─────────────────────────────────────────────────────────────────
+  [ ]  Instalar OpenCode (`sudo pacman -S opencode`) y probar tool-use con
+       qwen2.5-coder:1.5b antes de invertir en personalización — ver
+       proyectos/P2/HANDOFF_LLM_agentico_local.md Bloque B
+  [ ]  Corregir OLLAMA_MODEL=qwen2.5-coder:7b (modelo no instalado, env
+       var inconsistente)
+  [ ]  Prueba real de restauración del backup (`respaldar-fibonacci`) en
+       hardware distinto o VM — P8_Backup_Wiki/P8_Backup_Seguridad_Digital_Maestro.md
+  [ ]  Decidir VeraCrypt vs LUKS para HDD_A/HDD_B futuros (FASE 2/3)
+  [ ]  Resolver respaldo de ~/.ssh y credenciales — "manejo aparte" nunca
+       ejecutado, bloquea el objetivo de restauración completa
+  [ ]  Refrescar bundle `~/arch-setup-backup/` con los 4 archivos nuevos
+       del comando refresh (2 meses desactualizado)
+  [ ]  Verificar dock UGREEN Revodok Pro 210 conectado a su fuente PD 100W
+       (causa probable de los 189 eventos de USB over-current, 29-ago)
+  [ ]  Dar seguimiento a prospecto TME Crown México/SIVESA — detalle en
+       ~/Documents/Chamba/TME Glass Americas/ (fuera del repo, sensible)
+  [ ]  Documentar criterio explícito de inclusión/exclusión por país-bloque
+       de los 9 grupos del OPML de `arquitectura_noticias_sin_sesgo.md`
+       antes de tratar el sistema como "sin sesgo" — deuda P5 identificada
+
+
   DECISIONES TOMADAS — NO REABRIR
   ─────────────────────────────────────────────────────────────────
   [x]  DE para hardware real: COSMIC (Wayland, tiling nativo, out-of-box)
   [x]  GPU futura: AMD (mejor soporte Linux)
   [x]  Boot: dual boot Windows + Arch (no triple)
+  [x]  VPN: NO usar (agosto 2026, no reabrir — ver COSMIC_setup_custom.md §11.5)
+  [x]  Openclaw ≠ OpenCode — no instalar el paquete npm "openclaw", nombre
+       correcto de la herramienta decidida es OpenCode
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
