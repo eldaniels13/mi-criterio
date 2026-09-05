@@ -288,7 +288,9 @@ nombra rutas exactas. Mismo principio que `auditar_pre_push.sh` — prevenir por
 
 ```
 /etc/sudoers.d/refresh-system   (0440, validado con visudo -cf antes de instalar)
-eldaniels ALL=(root) NOPASSWD: /usr/local/bin/refresh-system-privileged, /usr/local/bin/refresh-system-privileged-hard
+<usuario> ALL=(root) NOPASSWD:
+  /usr/local/bin/refresh-system-privileged,
+  /usr/local/bin/refresh-system-privileged-hard
 ```
 
 ⚠️ Si esos binarios quedaran escribibles por el usuario, el NOPASSWD es escalada a root trivial.
