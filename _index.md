@@ -25,6 +25,11 @@ Procesamiento: semanal o con `/process-inbox`.
 | `23-04-26_seguridad-settings.txt` | seguridad | archivado |
 | `23-04-26_session-compact.md` | sesión compacta | archivado |
 | `27-04-26_k2-systems-profile.md` | perfil empresa | archivado |
+| `23-05-26_vpn-privacidad-y-seguridad-linux.md` | sesión seguridad | archivado (fusión → `proyectos/P2/arch_linux_security_audit_2026-05-23.md` §VPN) |
+| `30-08-26_handoff-OpenClaw-Ollama.md` | handoff | archivado (fusión → `recursos/Herramientas_IA_Evaluadas.md` §OpenClaw + `HANDOFF_LLM_agentico_local.md` §10) |
+| `31-08-26_handoff-gemini-code-deployment-landing-page-cliente.md` | handoff | archivado (fusión → `proyectos/P2/deployment_landing_pages.md` + `recursos/yazsarai_landing_page.md`) |
+| `conversacion_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
+| `conversacion_mexico_economia_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
 
 ---
 
@@ -48,6 +53,7 @@ Criterio consolidado por lente. Solo llega aquí lo que ya fue revisado.
 | `cutwindow2_contexto.md` | contexto IDE y rutas del proyecto nesting engine |
 | `arquitectura_noticias_sin_sesgo.md` | diseño sistema RSS/GDELT/LLM local sin sesgo ni telemetría |
 | `restmo_monitor_tuya.md` | monitor caudalímetro Restmo vía Tuya Cloud API |
+| `deployment_landing_pages.md` | guía canónica: despliegue landing pages estáticas (Cloudflare Pages + CI/CD + cotización) |
 
 ### P3 — Energía y Sostenibilidad `[activo]`
 | Archivo | Propósito |
@@ -120,6 +126,7 @@ Solo se actualiza cuando cambia identidad, criterio, o stack técnico.
 | `recursos/AUR_Atomic_Arch_2026_Informe.md` | informe forense: supply-chain attack AUR jun 2026 (1.937 paquetes) |
 | `recursos/Herramientas_IA_Evaluadas.md` | resúmenes críticos: open-notebook, OmniRoute, diagram-design, project-nomad |
 | `recursos/closing_session_transporte_seguro_gdl.md` | proyecto Transporte Seguro GDL: brief comercial + landing page construida |
+| `recursos/yazsarai_landing_page.md` | tracker proyecto cliente YazSaraí: estado, blockers, triggers de retoma |
 | `P8_Backup_Wiki/` | estrategia de backup y seguridad digital — `P8_Backup_Seguridad_Digital_Maestro.md` es el único doc de plan/estado (v2.0, absorbe Timeline_Fases + Archivos_Criticos_Inventory) |
 | `P8_Backup_Wiki/mft_recovery_decision.md` | decisión técnica: instalación Linux limpia tras MFT corrupto |
 | `P8_Backup_Wiki/freeze_i915_fsck_incidente.md` | incidente: freeze sistema + pérdida symlink `claude` por fsck tras corte abrupto |

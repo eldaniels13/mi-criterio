@@ -172,6 +172,14 @@
   [~]  Terminar CutWindow_2 (nesting engine)
   [~]  Desarrollar Excel plantilla de finanzas personales
   [x]  Migrar de Win11Home a Linux Arch
+  [ ]  YAZSARAÍ LANDING PAGE (cliente) — arquitectura diseñada ✅, bloqueado
+       por inputs del cliente (zip + acceso dominio). Tracker:
+       recursos/yazsarai_landing_page.md · guía: proyectos/P2/deployment_landing_pages.md
+       · Triggers de retoma: "retomar", "hagamos pendientes", "qué urge?",
+         "qué hacemos hoy?", "qué procede?", "what should we tackle next"
+         → sugerir esta sesión. Si crece → repo propio en ~/Codes/
+  [ ]  Sesión P5: destilar inbox/conversacion_caveman.pdf y
+       inbox/conversacion_mexico_economia_caveman.pdf (local-only, gitignored)
 
 DOCUMENTACIÓN PENDIENTE
 ──────────────────────────────────────────────────────────────
@@ -299,9 +307,11 @@ DOCUMENTACIÓN PENDIENTE
 
   P2 / P8 — DE CONSOLIDACIÓN INBOX (30-08-26)
   ─────────────────────────────────────────────────────────────────
-  [ ]  Instalar OpenCode (`sudo pacman -S opencode`) y probar tool-use con
-       qwen2.5-coder:1.5b antes de invertir en personalización — ver
-       proyectos/P2/HANDOFF_LLM_agentico_local.md Bloque B
+  [x]  Instalar OpenCode (`sudo pacman -S opencode`) — hecho: 1.18.25-1
+       instalado y en uso activo (verificado 2026-09-05, ver
+       proyectos/P2/HANDOFF_LLM_agentico_local.md §10)
+  [ ]  Probar tool-use con qwen2.5-coder:1.5b ANTES de invertir en
+       personalización — prueba crítica del Bloque B sigue sin ejecutarse
   [ ]  Corregir OLLAMA_MODEL=qwen2.5-coder:7b (modelo no instalado, env
        var inconsistente)
   [ ]  Prueba real de restauración del backup (`respaldar-fibonacci`) en
