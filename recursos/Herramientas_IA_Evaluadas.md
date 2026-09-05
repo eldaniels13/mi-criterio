@@ -1,6 +1,6 @@
 # Herramientas de IA evaluadas — resúmenes críticos de repositorio
 
-**Fecha:** 2026-08-29 · **Lens:** P2 (programación) — evaluaciones puntuales, no adoptadas aún en ningún stack activo.
+**Fecha:** 2026-08-29 (actualizado 2026-09-05) · **Lens:** P2 (programación) — evaluaciones puntuales, no adoptadas aún en ningún stack activo.
 
 # Resumen Crítico de Repositorio: open-notebook
 
@@ -134,3 +134,34 @@ Project N.O.M.A.D. es una solución integral "Offline-First" pensada para funcio
 
 ## 5. Veredicto
 El proyecto definitivo para "preppers", educadores rurales o entusiastas de la soberanía de datos que desean llevar toda la información crítica de la humanidad en un dispositivo de bolsillo.
+
+
+# Resumen Crítico de Repositorio: OpenClaw
+
+**Repositorio:** paquete npm `openclaw@2026.7.1-2`  
+**Licencia:** Open Source  
+**Enfoque:** gateway multi-canal de bots de IA con integración profunda de Ollama.
+
+---
+
+## 1. Visión General y Propósito
+OpenClaw es un gateway para bots de IA multicanal (mensajería, agentes emparejados con Nodes de escritorio) con provider Ollama nativo. Su punto diferenciador es la integración de primera clase con Ollama: endpoint nativo `/api/chat` (no el compatible OpenAI `/v1`), tres modos de operación (nube+local, solo nube, solo local) y auto-detección de modelos instalados.
+
+## 2. Arquitectura y Stack Tecnológico
+* **Runtime:** Node.js **≥24.15.0** (falló en la prueba: Node v24.14.1 instalado).
+* **Provider Ollama:** clave canónica `baseUrl`; referencias `ollama-cloud/` para separar nube de un provider local `ollama`.
+* **Auth:** hosts locales/LAN (loopback, red privada, `.local`, hostname simple) usan el marcador `ollama-local` sin token real; remotos requieren `OLLAMA_API_KEY` o perfil de auth (`auth-profiles.json` guarda solo la credencial — la config de endpoint va en `models.providers.<id>`).
+* **Auto-detección de modelos:** `/api/tags` (catálogo) + `/api/show` (capabilities: `contextWindow`, `num_ctx`, vision, thinking). Un provider explícito con array `models` la desactiva; loopback personalizado (ej. `127.0.0.2:11434`) la mantiene.
+
+## 3. Puntos Fuertes
+* **Integración Ollama de primera clase:** 3 modos de operación, onboarding guiado (`openclaw onboard`, también `--non-interactive`).
+* **Smoke tests aislados** (`openclaw infer model run --local --model ollama/<x> --prompt "..." --json`): no cargan tools/memoria/contexto — si el smoke test pasa pero el agente falla, el problema es tool-use del modelo, no el endpoint. Criterio reutilizable para validar cualquier harness sobre Ollama.
+* **Cron aislado:** verifica `/api/tags` antes de cada turno (cache 5 min por host); el turno se marca `skipped` si el host no responde.
+
+## 4. Análisis Crítico y Limitaciones
+* **Requisito de Node incumplido:** `≥24.15.0` vs `v24.14.1` instalado — la instalación falló por mismatch de versión.
+* **Riesgo de typosquatting:** nombre confundible con OpenCode (la herramienta decidida en D7). Mismo patrón documentado en `recursos/AUR_Atomic_Arch_2026_Informe.md`.
+* **Otra capa de infraestructura:** un gateway multi-canal añade superficie operativa a un stack que ya definió "minimal".
+
+## 5. Veredicto
+❌ **Descartado** — no es la herramienta decidida (D7 = OpenCode). Decisión del usuario: *"no hacer nada por ahora"*. La referencia técnica completa de su provider Ollama se conserva en `proyectos/P2/HANDOFF_LLM_agentico_local.md` §10, porque aplica a cualquier harness agéntico sobre Ollama local (incluido OpenCode).
