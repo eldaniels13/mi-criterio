@@ -49,11 +49,12 @@ Criterio consolidado por lente. Solo llega aquí lo que ya fue revisado.
 | `stack_ia_local_veredicto.md` | decisión: stack IA local CPU-only |
 | `Plan: Stack IA local privado completo para CPU-only (3 workflows).txt` | plan infra IA local |
 | `HANDOFF_LLM_agentico_local.md` | handoff maestro: LLM agéntico local, decisiones D1-D10, estado OpenCode |
-| `COSMIC_setup_custom.md` | setup COSMIC/Arch: atajos, scripts, térmica/energía, shell/navegador/privacidad |
+| `COSMIC_setup_custom.md` | setup COSMIC/Arch: atajos, scripts, térmica/energía, shell/navegador/privacidad, CLIs IA globales (§12 deepcode) |
 | `cutwindow2_contexto.md` | contexto IDE y rutas del proyecto nesting engine |
 | `arquitectura_noticias_sin_sesgo.md` | diseño sistema RSS/GDELT/LLM local sin sesgo ni telemetría |
 | `restmo_monitor_tuya.md` | monitor caudalímetro Restmo vía Tuya Cloud API |
 | `deployment_landing_pages.md` | guía canónica: despliegue landing pages estáticas (Cloudflare Pages + CI/CD + cotización) |
+| `browser_use_firefox_findings.md` | hallazgos: browser-use = CDP-only, incompatible con Firefox; alternativas mapeadas |
 
 ### P3 — Energía y Sostenibilidad `[activo]`
 | Archivo | Propósito |

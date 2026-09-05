@@ -734,5 +734,58 @@ Análisis comparativo de VPN conservado en `proyectos/P2/arch_linux_security_aud
 
 ---
 
+## 12. DeepCode CLI — instalación global npm (2026-09-05)
+
+> Fuente: `https://github.com/lessweb/deepcode-cli` · v0.3.1 (commit `008a15d`)
+> Ubicación: `~/deepcode-cli` (home, **fuera del repo** — nada de esto se versiona aquí)
+> ⚠️ **No confundir con OpenCode** (la herramienta decidida en D7, `pacman -S opencode`). DeepCode es
+> otra CLI de codificación agéntica (lessweb/vegamo, orientada a DeepSeek), probada en paralelo.
+
+### 12.1 Pasos ejecutados y resultados medidos
+
+| Paso | Resultado |
+|---|---|
+| `git clone` + `npm install` | 535 paquetes; el hook `prepare` corre `husky` + build + bundle solo; **audit: 5 vulns (1 moderate, 4 high) sin arreglar** — `npm audit fix` no ejecutado |
+| `npm test` | 3 workspaces. **cli: 320/322** — los 2 fallos son `buildPluginRateLimitHintText` (`exit-summary.test.ts:148,160`): el test compara strings **sin strip de ANSI** → bug cosmético del test, la función produce output válido. core: 346 pass / 0 fail / 1 skip. vscode: 57/57 |
+| `npm run build` | tsc core → rewrite imports ESM → esbuild → `packages/cli/dist/cli.js` + assets |
+| `npm link` | binario `deepcode` global en PATH |
+| `npm run build:vscode` | produce `packages/vscode-ide-companion/deepcode-vscode-0.3.1.vsix` (2.3 MB, 44 archivos) — este workspace con 0 vulns |
+
+### 12.2 Gotchas medidos (zsh)
+
+- `zsh: command not found: #` — comentarios `#` pegados de un README **no son comentarios** en zsh
+  (`interactive_comments` off). Quitar las líneas `#` antes de pegar bloques de comandos.
+- Warning `DEP0190` (child process con `shell: true`) — benigno, viene del repo, no de la máquina.
+- `npm install` ensucia `package-lock.json` (versión raíz `0.2.1` → `0.3.1`): el lockfile commiteado por
+  upstream está desincronizado con su propio `package.json` — bug de lessweb. `git restore
+  package-lock.json` limpia el clon; el diff reaparece en cada `npm install`.
+
+### 12.3 Configuración — vive fuera del repo (público, nunca commitear)
+
+```
+~/.deepcode/settings.json       # API key, modelo, base URL (user-level)
+./.deepcode/settings.json       # proyecto
+~/.deepcode/skills/*/SKILL.md   # skills nativos
+~/.agents/skills/*/SKILL.md     # skills interoperables ← misma ruta que ya usa mi-criterio/
+```
+
+⚠️ `settings.json` contiene la API key. No existe en `mi-criterio/` y no debe existir jamás —
+mismo trato que los bloqueos de `proyectos/P4/*.xlsx` y Tuya.
+
+### 12.4 Uso rápido (referencia viva: `deepcode --help`)
+
+```bash
+deepcode                          # TUI interactivo en el dir actual
+deepcode -p "<prompt>"            # TUI + prompt inicial
+deepcode -x -p "<prompt>"         # no interactivo (requiere --prompt)
+deepcode -r [id] / -f [id] / -l   # resume / fork / última sesión del proyecto
+cat error.log | deepcode -x -p "Explain this error"   # stdin como contexto
+```
+
+Dentro del TUI: `/model` (modelo, thinking, effort), `/plan`, `/resume`, `/fork`, `/mcp`, `/raw`,
+`/init` (AGENTS.md), `ctrl+v` pega imagen del portapapeles, `esc` interrumpe el turno.
+
+---
+
 **Regla de mantenimiento:** cualquier hallazgo nuevo sobre config COSMIC (atajo, script, panel,
 tema, systemd unit, térmica, energía) se agrega aquí — no crear archivos nuevos para esto.
