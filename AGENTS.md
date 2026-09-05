@@ -40,6 +40,14 @@ index. Update it whenever files move/are added.
   lived elsewhere). "Diseñado" ≠ "medido": never report something working that wasn't run.
   State honestly: half-done = 🟡, not ✅.
 
+## Session steering (trigger phrases)
+
+When eldaniels opens a session with "retomar", "hagamos pendientes", "qué urge?",
+"qué hacemos hoy?", "qué procede?", "what should we tackle next" (or equivalents), read
+`ToDo_global_eldaniels.md` and proactively suggest the most urgent pending items — including
+active client projects like YazSaraí landing page (tracker: `recursos/yazsarai_landing_page.md`,
+guide: `proyectos/P2/deployment_landing_pages.md`).
+
 ## Git conventions
 
 - Work on `feature/N-*` branches; feature branches get merged into local `main`. `origin/main`

@@ -58,6 +58,10 @@ mi-criterio/
     └── 27-04-26_K2SystemsProfile.md
 ```
 
+## Session Steering
+
+When eldaniels opens a session with "retomar", "hagamos pendientes", "qué urge?", "qué hacemos hoy?", "qué procede?", "what should we tackle next" (or equivalents), read `ToDo_global_eldaniels.md` and proactively suggest the most urgent pending items — including active client projects like the YazSaraí landing page (tracker: `recursos/yazsarai_landing_page.md`, guide: `proyectos/P2/deployment_landing_pages.md`).
+
 ## Git Conventions
 
 - `main` branch holds `perfil_maestro_eldaniels_v2.txt` — the source of truth for full context
