@@ -23,6 +23,11 @@
   [~] expandir roles desempeñados — EncoreTools v1.0 ✅, 4 skeletons creados, pendiente voice extraction (TDI > MoldTech > PEP > Automotive)
   [ ] enriquecer experiencias y roles con recursos visuales
   [x] crear arquitectura de /proyectos/P6/cv
+  [ ] Encontrar herramienta browser automation compatible con Firefox
+      (browser-use es CDP-only → no conecta con Firefox; ya instalado y
+      con skill registrada, inutilizable sin Chromium. Evaluar
+      Playwright/BiDi, Selenium, o aceptar Chromium solo para
+      automatización. Ver hallazgos: proyectos/P2/browser_use_firefox_findings.md)
 
 
   SPOTIFY → SOBERANÍA DE DATOS MUSICALES  (P2 × P4 · multi-sesión)
