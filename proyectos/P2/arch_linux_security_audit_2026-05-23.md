@@ -336,17 +336,25 @@ Documentado en `~/cosmic-usb-fix.md`.
 | sysctl hardening | ✅ Aplicado y persistente |
 | ClamAV + auto-update | ✅ Corriendo como daemon |
 | Firefox (plugins + about:config) | ✅ |
-| VPN | ⏳ Pendiente decisión de presupuesto |
+| VPN | ✅ Decisión cerrada (ago-2026): NO usar — ver sección VPN |
 
 ---
 
 ## Pendiente
 
-### VPN
-- **Mullvad**: ~$5/mes, sin cuenta requerida, sin logs, auditado
-- **ProtonVPN**: ~$9/mes, suiza, más funciones
+### VPN — decisión cerrada (ago-2026): NO usar
 
-Para red doméstica: prioridad baja. Para redes públicas (cafeterías, coworking): recomendado.
+Análisis comparativo de mayo 2026 (fuente: `inbox/23-05-26_vpn-privacidad-y-seguridad-linux.md`, archivado):
+
+| VPN | Fortaleza principal | Perfil ideal |
+|---|---|---|
+| **Surfshark** | Balance general (precio/Linux/privacidad) | Usuario práctico y móvil — **favorito del análisis** |
+| **ExpressVPN** | Velocidad y estabilidad | Uso intensivo y premium (costo más elevado) |
+| **ProtonVPN** | Privacidad y transparencia (Suiza, auditorías, Secure Core) | Privacidad profunda |
+
+Conceptos que sobreviven del análisis (válidos si la decisión se reabriera): encriptación AES-256/ChaCha20, protocolos WireGuard/OpenVPN, política no-logs, jurisdicción favorable (Suiza, BVI, Islandia), kill switch. Surfshark destacó por conexiones ilimitadas, WireGuard + AES-256, Kill Switch, Camouflage Mode y cliente CLI Linux.
+
+**Decisión (agosto 2026, no reabrir): NO usar VPN.** Verificación en vivo: `ip route` sin interfaces tunnel (tun/wg/ppp), `which mozillavpn` → not found, ningún proceso VPN activo. El caso de uso que motivó el análisis de mayo (redes públicas, movilidad) no se materializó en necesidad operativa real. Detalle completo en `proyectos/P2/COSMIC_setup_custom.md` §11.5.
 
 ---
 
@@ -554,7 +562,7 @@ sudo hblock   # re-genera y actualiza la lista
 | Firejail — Firefox sandboxeado | ✅ Symlink activo |
 | Firejail — clamscan sandboxeado | ✅ Symlink activo |
 | hblock (444k dominios bloqueados) | ✅ Sistema completo |
-| VPN (Surfshark) | ⏳ Diferido hasta ingresos activos |
+| VPN | ✅ Decisión cerrada (ago-2026): NO usar — ver sección VPN |
 
 ---
 

@@ -728,7 +728,7 @@ Sin cambios permanentes al sistema. Si hBlock se actualiza, CleverTap vuelve a b
 
 ### 11.5 Decisión final: sin VPN
 
-Análisis extenso de VPN hecho en `inbox/23-05-26_vpn-privacidad-y-seguridad-linux.md` (Surfshark salió favorito por balance precio/Linux/privacidad — mayo 2026, análisis conservado ahí). **Decisión posterior (agosto 2026, no reabrir): NO usar VPN.** `ip route` sin interfaces tunnel (tun/wg/ppp), `which mozillavpn` → not found, ningún proceso VPN activo — confirmado en las sesiones de troubleshooting de red de agosto. El caso de uso que motivó el análisis de mayo (redes públicas, movilidad) no se materializó en necesidad operativa real.
+Análisis comparativo de VPN conservado en `proyectos/P2/arch_linux_security_audit_2026-05-23.md` §VPN (fuente original: `inbox/23-05-26_vpn-privacidad-y-seguridad-linux.md` — Surfshark salió favorito por balance precio/Linux/privacidad, mayo 2026). **Decisión posterior (agosto 2026, no reabrir): NO usar VPN.** `ip route` sin interfaces tunnel (tun/wg/ppp), `which mozillavpn` → not found, ningún proceso VPN activo — confirmado en las sesiones de troubleshooting de red de agosto. El caso de uso que motivó el análisis de mayo (redes públicas, movilidad) no se materializó en necesidad operativa real.
 
 ---
 

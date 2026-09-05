@@ -2,7 +2,7 @@
 
 > **Propósito:** documento único de traspaso. Reúne todo lo trabajado sobre correr modelos de lenguaje localmente y construir una capa agéntica propia (ejecución de herramientas/comandos) sobre hardware CPU-only. Sustituye la necesidad de reconstruir contexto desde cero en una sesión nueva.
 >
-> **Fecha de corte:** 2026-08-09 · **Estado global:** stack de *chat* local funcionando; capa *agéntica* NO funcionando aún
+> **Fecha de corte:** 2026-09-05 · **Estado global:** OpenCode instalado y en uso activo (modelos remotos); **prueba crítica de tool-use sobre Ollama local aún pendiente** (Bloque B)
 > **Lens:** P2 (programación) × P8 (soberanía de datos) × P4 (BBB / inversión en hardware)
 
 ---
@@ -38,7 +38,7 @@ Stack **híbrido**, no uno-u-otro: local cubre lo que cubre bien; se reserva la 
 ### Proyectos aguas abajo que dependen de esta base
 
 - **Motor de búsqueda personal + LLM agentivo** (P2 × P8, planning-only) — alternativa a Google/Perplexity: Ollama + Meilisearch + agente propio + integración a Firefox vía OpenSearch XML. Documentado en `memory/project_personal_search_engine_with_llm.md` y en `ToDo_global_eldaniels.md`.
-- **Arquitectura de noticias sin sesgo** (`inbox/02-08-26_arquitectura-noticias-sin-sesgo.md`) — su "capa 3 · digestión" es explícitamente un LLM local controlado por el usuario. Decisión registrada ahí: *el diseño del agente local queda como raíz de P2, no de ese proyecto*.
+- **Arquitectura de noticias sin sesgo** (`proyectos/P2/arquitectura_noticias_sin_sesgo.md`) — su "capa 3 · digestión" es explícitamente un LLM local controlado por el usuario. Decisión registrada ahí: *el diseño del agente local queda como raíz de P2, no de ese proyecto*.
 
 ---
 
@@ -81,7 +81,7 @@ La tentación de decir *"ya no necesito pagar por IA"*. La realidad medida: se *
 |---|---|---|
 | **Open WebUI** v0.9.5 | ✅ Adoptado (2026-05) · ⚠️ **inactivo hoy** | Cubre chat + RAG. Instalado vía `uv tool install open-webui`. Fix necesario: `audioop-lts` (Python 3.13 rompe `pydub`, que no encuentra el módulo `audioop`). Hoy no corre — puerto 8080 sin respuesta |
 | **Aider** v0.86.2 | ⚠️ Instalado, **bloqueado** | `litellm.Timeout: 600s` sistemático. Hipótesis: la orquestación de litellm hace muchas requests pequeñas que saturan el endpoint CPU-only. Queda para reinvestigar con GPU |
-| **OpenCode** | 🎯 **Elegido, NO instalado aún** | MIT, en `extra/` de Arch firmado. Login OAuth nativo para Claude Pro/Max (`opencode auth login -p anthropic`) — usaría la suscripción existente sin API key aparte. *No oficialmente soportado por Anthropic fuera de sus clientes → necesita plan B (API key de console)* |
+| **OpenCode** | ✅ **Instalado (1.18.25-1, pacman) y en uso activo desde 2026-09** · ⚠️ prueba crítica de tool-use sobre Ollama local pendiente | MIT, en `extra/` de Arch firmado. Login OAuth nativo para Claude Pro/Max (`opencode auth login -p anthropic`) — usaría la suscripción existente sin API key aparte. *No oficialmente soportado por Anthropic fuera de sus clientes → necesita plan B (API key de console)* |
 | Goose | 🔶 Anotado como alternativa | Apache-2.0, Agentic AI Foundation. No evaluado en vivo |
 | Continue.dev / Cline / LibreChat / AnythingLLM | ❌ Descartados | No aportan sobre Aider + Open WebUI para este workflow |
 | LangChain / LlamaIndex / Haystack | 🔶 Conceptualmente evaluados | Válidos para orquestación custom, pero D7 (usar harness maduro) los pospone |
@@ -117,7 +117,7 @@ Meilisearch (Rust, favorito) · Typesense · Whoosh · ~~Elasticsearch~~ (overki
 | `~/.zshrc:115-144` | **Switcher Alt+P** — `_ollama_switch_model()`, widget ZLE con `fzf`, exporta `OLLAMA_MODEL` | ⚠️ **Roto/desincronizado**: lista `qwen2.5-coder:7b` (default) y `:1.5b`, ninguno existe ya |
 | `~/.zshrc:165-168` | `OLLAMA_HOST=127.0.0.1:11434`, `OLLAMA_API_BASE`, `OLLAMA_KEEP_ALIVE=30m`, `OLLAMA_NUM_THREAD=8` | ⚠️ Solo aplican a shells con `.zshrc` cargado — **no** al servicio systemd |
 | `/etc/systemd/system/ollama.service.d/override.conf` | Env vars persistentes del servicio | ❌ **No existe** — pendiente de crear |
-| `~/.config/opencode/opencode.json` | Providers y modelos del selector | ❌ No existe (OpenCode sin instalar) |
+| `~/.config/opencode/opencode.jsonc` | Providers y modelos del selector | ✅ Existe (OpenCode instalado; config viva en `jsonc`, D8 cumplida) |
 | `inbox/02-08-26` → `verificar_feeds.py`, `gdelt_contraste.py`, `fuentes_contraste.opml` | Scripts del proyecto de noticias (capa 1-2); la capa 3 los conectaría al LLM local | Generados, **no ejecutados con red real** |
 
 ### Documentos fuente en el repo
@@ -126,9 +126,9 @@ Meilisearch (Rust, favorito) · Typesense · Whoosh · ~~Elasticsearch~~ (overki
 |---|---|
 | `proyectos/P2/stack_ia_local_veredicto.md` | **Bitácora + veredicto honesto**. Hito 2026-05-18, tabla local-vs-rentado, path de upgrade |
 | `proyectos/P2/Plan: Stack IA local privado completo para CPU-only (3 workflows).txt` | Plan por fases 0-3 con verificación end-to-end |
-| `inbox/26_05_26_modelos_locales_llm_mi_criterio.md` | Marco conceptual: cuantización (FP16→Q4), distillation, modelos ligeros, frameworks |
-| `inbox/06-08-26_local-core-ui-opencode.md` | **Plan OpenCode fases 0-7** + hallazgos verificados en vivo |
-| `inbox/02-08-26_arquitectura-noticias-sin-sesgo.md` | Escalera de inversión de 4 niveles + benchmarks estimados |
+| `inbox/26-05-26_modelos-locales-llm-mi-criterio.md` | 🔴 **Borrado en consolidación 53a7ec8 — contenido del marco conceptual (cuantización FP16→Q4, distillation, modelos ligeros) NO localizado en ningún canónico actual.** Recuperable: `git show 53a7ec8^:inbox/26-05-26_modelos-locales-llm-mi-criterio.md` — re-fusionar si se reabre el tema |
+| `inbox/06-08-26_local-core-ui-opencode.md` | Plan OpenCode fases 0-7 — **absorbido en §7 de este doc** (Bloques A–F; borrado en 53a7ec8) |
+| `proyectos/P2/arquitectura_noticias_sin_sesgo.md` | Escalera de inversión de 4 niveles + benchmarks estimados |
 | `memory/project_personal_search_engine_with_llm.md` | Motor de búsqueda personal (parked) |
 
 ---
@@ -170,7 +170,7 @@ Refactor multi-archivo (solo con mucha paciencia) · debugging sutil de race con
 | Modelos extra | — | ⚠️ `deepseek-v4-flash:cloud` y `:0731-cloud` = **proxies de Ollama Cloud, no locales** |
 | Open WebUI | "frontend actual" | ⚠️ instalado (uv, v0.9.5) pero **no corriendo**, :8080 sin respuesta |
 | Aider | instalado | ✅ instalado (uv, v0.86.2), bloqueado por timeout |
-| OpenCode | elegido como base | ❌ **no instalado** |
+| OpenCode | elegido como base | ✅ instalado (1.18.25-1) — **superado: ver §10** |
 | Switcher Alt+P | funcional | ⚠️ **roto** — apunta a 3 modelos, 2 no existen |
 | `OLLAMA_*` env vars | aplicadas | ⚠️ solo en shells zsh; el servicio systemd **no las ve** |
 
@@ -272,6 +272,45 @@ OLLAMA_NUM_THREAD=8
 **Nota cross-lens (P7):** decisión pendiente sobre si retomar el ángulo "expansión de consciencia" al reabrir esta línea — priorizar RAG sobre el propio repo (corpus de decisiones propias) por encima de replicar un stack de conocimiento genérico tipo NOMAD.
 
 **Regla de oro añadida:** `ollama list` con columna SIZE en `-` (0 bytes) = modelo remoto, el prompt sale de la máquina. Verificar antes de asumir "local".
+
+---
+
+## 10 · Actualización 2026-09-05 — OpenCode instalado + referencia técnica Ollama
+
+**OpenCode instalado y en uso activo.** `opencode 1.18.25-1` (pacman, repo `extra/`) corriendo en sesiones reales sobre modelos remotos. `~/.config/opencode/opencode.jsonc` existe (D8 cumplida: config fuera del repo). La verificación "¿`sst/opencode` o `anomalyco/opencode`?" del Bloque B sigue sin resolverse formalmente.
+
+**Lo que SIGUE pendiente del Bloque B:**
+- [ ] La **prueba crítica** de tool-use en `/tmp` (NO mi-criterio) con `qwen2.5-coder:1.5b` — el deadlock de Aider sigue siendo el riesgo #1.
+- [ ] `ollama pull qwen2.5-coder:1.5b` — sigue sin reinstalarse (es el único modelo local con capability `tools`).
+- [ ] Drift `OLLAMA_MODEL=qwen2.5-coder:7b` en `~/.zshrc` — modelo no instalado (`ollama list`: solo `deepseek-coder:6.7b` + `nomic-embed-text`).
+
+**Referencia técnica Ollama** (del handoff OpenClaw 30-08-26 — conservada pese al descarte de la herramienta; aplica a cualquier harness sobre Ollama local):
+
+- **Endpoint nativo `/api/chat`** (no el compatible `/v1`). Clave canónica `baseUrl` (no `baseURL`). Refs `ollama-cloud/` para separar nube de provider local `ollama`.
+- **3 modos:** nube+local (host accesible + modelos `:cloud`), solo nube (`https://ollama.com`, requiere `OLLAMA_API_KEY` real), solo local.
+- **Auth:** hosts locales/LAN (loopback, red privada, `.local`, hostname simple) → marcador `ollama-local` sin token real. Remotos → `OLLAMA_API_KEY` o perfil de auth. `auth-profiles.json` guarda solo la credencial; la config del endpoint (`baseUrl`, `api`, modelos, headers, timeouts) va en `models.providers.<id>`.
+- **Auto-detección de modelos:** `/api/tags` (catálogo) + `/api/show` (capabilities: `contextWindow`, `num_ctx`, vision, thinking). Provider explícito con array `models` la **desactiva**; loopback personalizado (ej. `127.0.0.2:11434`) la mantiene. maxTokens default = límite máximo de Ollama; costes siempre 0.
+- **Smoke tests aislados** (no cargan tools/memoria/contexto de sesión):
+  ```bash
+  OLLAMA_API_KEY=ollama-local \
+  openclaw infer model run --local \
+    --model ollama/llama3.2:latest \
+    --prompt "Responde exactamente: pong" --json
+  # visión: --file ./photo.jpg (PNG/JPEG/WebP; no-imágenes se rechazan)
+  ```
+  **Criterio reutilizable en la prueba crítica de OpenCode:** si el smoke test pasa y el agente falla → el problema es tool-use del modelo, no el endpoint.
+- **Cron aislado:** verifica `/api/tags` antes de cada turno si el modelo resuelve a provider Ollama local/privado; fallo → turno `skipped`. Cache de la verificación: 5 min por host.
+- **Onboarding:** `openclaw onboard` (interactivo) o `--non-interactive --auth-choice ollama --custom-base-url "http://host:11434" --custom-model-id "..." --accept-risk`. La comprobación automática nunca descarga modelos.
+- **Modo nube+local:** requiere `ollama signin` para habilitar modelos `:cloud`; con sesión iniciada sugiere `kimi-k2.5:cloud`, `minimax-m2.7:cloud`, `glm-5.1:cloud`, `glm-5.2:cloud`. Sin sesión: permanece en modo local.
+- **Resolución runtime:** referencia `ollama/<modelo>:latest` sin entrada manual en `models.json` se resuelve en runtime; en hosts con sesión iniciada, una referencia `:cloud` no listada se valida vía `/api/show` y se agrega al catálogo solo si Ollama confirma metadata.
+- **Verificación en vivo (self-hosted):**
+  ```bash
+  OPENCLAW_LIVE_TEST=1 OPENCLAW_LIVE_OLLAMA=1 OPENCLAW_LIVE_OLLAMA_WEB_SEARCH=0 \
+  pnpm test:live -- extensions/ollama/ollama.live.test.ts
+  ```
+  Nube: `OPENCLAW_LIVE_OLLAMA_BASE_URL=https://ollama.com` + `OPENCLAW_LIVE_OLLAMA_MODEL=glm-5.1:cloud` + `OPENCLAW_LIVE_OLLAMA_WEB_SEARCH=1`. Embeddings omitidos por default (forzar con `OPENCLAW_LIVE_OLLAMA_EMBEDDINGS=1` — una key de nube puede no autorizar `/api/embed`).
+
+**Hallazgo 🔴 (consolidación anterior, no este lote):** `inbox/26-05-26_modelos-locales-llm-mi-criterio.md` (479 líneas, marco conceptual de cuantización) fue borrado en `53a7ec8` y su contenido no se localiza en ningún canónico actual (búsqueda `FP16`/`Q4`/`distill` = 0 resultados fuera de la fila pointer de §4). Recuperable vía `git show 53a7ec8^:inbox/26-05-26_modelos-locales-llm-mi-criterio.md` — re-fusionar en `Plan_Stack IA local privado completo para CPU-only (3 workflows).txt` si se reabre el tema de modelos.
 
 ---
 
