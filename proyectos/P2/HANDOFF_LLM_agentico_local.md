@@ -314,6 +314,34 @@ OLLAMA_NUM_THREAD=8
 
 ---
 
+## 11 · Actualización 2026-09-06 — Bloque B ejecutado: la prueba crítica FALLA (tool-calling no real)
+
+**Q1 drift resuelto:** `OLLAMA_MODEL` en `~/.zshrc` apunta ahora a `deepseek-coder:6.7b` (instalado), no al fantasma `qwen2.5-coder:7b`. El switcher Alt+P se reordenó: 6.7b como principal, 7b marcado `(no instalado)`.
+
+**Q2 ejecutado — proveedor local configurado:** `ollama pull qwen2.5-coder:1.5b` (986 MB, único modelo local con capability `tools`) + provider `ollama` añadido a `~/.config/opencode/opencode.jsonc` (npm `@ai-sdk/openai-compatible`, baseURL `http://localhost:11434/v1`, modelos `qwen2.5-coder:1.5b` y `deepseek-coder:6.7b`). Ambos visibles en `opencode models`.
+
+**🔴 Resultado de la prueba crítica (criterio de éxito NO cumplido):**
+
+1. `opencode run -m ollama/qwen2.5-coder:1.5b "lee README.md y dime cuántas líneas tiene"` en `/tmp` → **colgado >180 s** consumiendo CPU (llama-server al 347 %, sin respuesta). Hubo que matar el proceso; mismo patrón deadlock que Aider. El `--print-logs` mostró además ~55 warnings de skills duplicadas inflando el system prompt.
+2. **Test aislado de tool-use** (sin harness, endpoint `/v1/chat/completions` con `tools` declarado) → el modelo **NO emite `tool_calls` estructurados**: `finish_reason: stop`, devuelve el JSON como `content` (`{"name": "count_lines", "arguments": {"path": "README.md"}}`). Con `num_ctx: 16384` idem.
+3. Endpoint nativo `/api/chat` → igual: JSON en `content`, sin `tool_calls`.
+4. `deepseek-coder:6.7b` **rechaza payload con tools** (HTTP 400) — su capability es solo `['completion']`.
+5. Velocidad real en el i7-8665U (datos medidos, no de fuente externa): prompt-eval ~**8.6 tok/s**, generación ~**4.2 tok/s** (qwen2.5-coder:1.5b). El system prompt agéntico de opencode (miles de tokens con tools/skills) solo en prompt-eval tardaría minutos — inviable en este hardware.
+
+**Conclusión (regla de oro #2 y Bloque B):** la capa agéntica de OpenCode sobre Ollama local **no es viable con los modelos actuales en este hardware**. `qwen2.5-coder:1.5b` *declara* capability `tools` pero no hace tool-calling real (emite texto con forma de JSON, no llamadas estructuradas), y el throughput CPU-only no sostiene el contexto de un agente. **DETENERSE antes de personalizar nada** — exactamente lo que pedía el Bloque B. No es un problema del endpoint ni del harness (el endpoint crudo responde en ~5 s), es del modelo + hardware.
+
+**Estado de los ítems:**
+- [x] `ollama pull qwen2.5-coder:1.5b` (Bloque A)
+- [x] Configurar provider `ollama` local en opencode (Bloque B)
+- [x] Prueba crítica tool-use en `/tmp` → **FALLA** (Bloque B, criterio no cumplido)
+- [x] Fix drift `OLLAMA_MODEL` (zshrc)
+- [ ] Bloque C — queda bloqueado aguas arriba mientras no haya un modelo local con tool-calling real o GPU (el diario de uso y Nivel 1 siguen supeditados a esto)
+- [ ] `OLLAMA_KEEP_ALIVE`/`OLLAMA_NUM_THREAD`/`OLLAMA_CONTEXT_LENGTH` vía systemd override + retirar exports duplicados de zshrc (Bloque A) — ahora de bajo valor mientras no haya agente local
+
+**Candidato a reconsiderar cuando haya GPU/hardware:** modelos con tool-calling nativo fiable en CPU serían qwen2.5-coder:7b (no probado por costo de RAM/CPU) o qwen3; medición de tok/s en §Bloque E queda como tarea pendiente con hardware mejor.
+
+---
+
 ## Próximo hito a registrar
 
 Añadir a `stack_ia_local_veredicto.md` una entrada `## Hito YYYY-MM-DD — título corto` en cuanto la Fase 3 (validación de tool-use en OpenCode) dé resultado — pase o falle. El fallo también es información.

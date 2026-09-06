@@ -315,17 +315,22 @@ DOCUMENTACIÓN PENDIENTE
   [x]  Instalar OpenCode (`sudo pacman -S opencode`) — hecho: 1.18.25-1
        instalado y en uso activo (verificado 2026-09-05, ver
        proyectos/P2/HANDOFF_LLM_agentico_local.md §10)
-  [ ]  Probar tool-use con qwen2.5-coder:1.5b ANTES de invertir en
-       personalización — prueba crítica del Bloque B sigue sin ejecutarse
-  [ ]  Corregir OLLAMA_MODEL=qwen2.5-coder:7b (modelo no instalado, env
-       var inconsistente)
+  [x]  Probar tool-use con qwen2.5-coder:1.5b ANTES de invertir en
+       personalización — PRUEBA CRÍTICA EJECUTADA 2026-09-06 → 🔴 FALLA:
+       qwen2.5-coder:1.5b declara capability tools pero NO emite tool_calls
+       (JSON como content, no llamadas estructuradas); run opencode colgado
+       >180s. DETENERSE en personalización sin modelo con tool-calling real o GPU.
+       Veredicto completo: HANDOFF_LLM_agentico_local.md §11
+  [x]  Corregir OLLAMA_MODEL=qwen2.5-coder:7b (env var inconsistente) →
+       apuntada a deepseek-coder:6.7b (instalado), ~/.zshrc 2026-09-06
   [ ]  Prueba real de restauración del backup (`respaldar-fibonacci`) en
        hardware distinto o VM — P8_Backup_Wiki/P8_Backup_Seguridad_Digital_Maestro.md
   [ ]  Decidir VeraCrypt vs LUKS para HDD_A/HDD_B futuros (FASE 2/3)
   [ ]  Resolver respaldo de ~/.ssh y credenciales — "manejo aparte" nunca
        ejecutado, bloquea el objetivo de restauración completa
-  [ ]  Refrescar bundle `~/arch-setup-backup/` con los 4 archivos nuevos
-       del comando refresh (2 meses desactualizado)
+  [~]  Refrescar bundle `~/arch-setup-backup/` — 2026-09-06: zshrc.d + usr-bin +
+       root-bin + sudoers.d añadidos a restore.sh/README, pkglists refrescadas.
+       Pendiente: copiar archivos root al bundle (comando sudo) + sincronizar a Kingston.
   [ ]  Verificar dock UGREEN Revodok Pro 210 conectado a su fuente PD 100W
        (causa probable de los 189 eventos de USB over-current, 29-ago)
   [ ]  Dar seguimiento a prospecto TME Crown México/SIVESA — detalle en
