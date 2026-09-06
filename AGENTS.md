@@ -70,6 +70,25 @@ guide: `proyectos/P2/deployment_landing_pages.md`).
   incl. personal data), `.agents/`, `.claude/skills/`, `skills-lock.json`,
   `.claude/settings.local.json`.
 
+## Graphify subproject (knowledge graph)
+
+- `graphify-out/` is the graph pipeline output (graph.json, GRAPH_REPORT.md, graph.html,
+  manifest.json, cost.json). Never publish it.
+- Identity policy: `eldaniels = daniel garcia` (one professional identity). In the graph the
+  equivalence is structural: `perfil_maestro_eldaniels_identity` —same_as→ CV hub —same_as→
+  `perfil_profesional_linkedin` (source_url = public LinkedIn). GitHub profile and repo are
+  linked via `conceptually_related_to`.
+- PII rule: never embed PII in node labels — when PII must be referenced, use the public
+  professional links: LinkedIn `https://www.linkedin.com/in/josé-daniel-garcía-castro-ba44b4314`,
+  GitHub `https://github.com/eldaniels13`, repo `https://github.com/eldaniels13/mi-criterio`.
+  Labels use `[redactado]` / `[perfil profesional]` / `[universidad]` / `[ciudad]` placeholders.
+- After every `/graphify` extraction-merge (full run or `--update`), run
+  `.claude/scripts/graphify_clean.py` BEFORE building the graph. It is deterministic and
+  idempotent: redacts PII, normalizes paths, adds the identity link edges (EXTRACTED, source
+  README.md).
+- Extraction subagent instructions must include the PII policy block (strict redaction, public
+  source_url, eldaniels↔daniel garcia mapping).
+
 ## Gotchas
 
 - `CLAUDE.md`, `.claude/CLAUDE.md`, and `README.md` still reference `sesiones/` and

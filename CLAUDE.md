@@ -69,6 +69,15 @@ When eldaniels opens a session with "retomar", "hagamos pendientes", "qué urge?
 - Commit when a meaningful update is made to any document (career change, new tool adopted, new project started)
 - Suggested commit style: `update P3: add geothermal research notes` or `perfil: new job at X`
 
+## Graphify
+
+- `graphify-out/` is the knowledge graph output — gitignored, never publish.
+- Identity policy: `eldaniels = daniel garcia` (one professional identity). In the graph:
+  `perfil_maestro_eldaniels_identity` —same_as→ CV hub —same_as→ `perfil_profesional_linkedin`
+  (source_url = LinkedIn público). GitHub perfil y repo vía `conceptually_related_to`.
+- PII: nunca en labels — referenciar links públicos laborales (LinkedIn `https://www.linkedin.com/in/josé-daniel-garcía-castro-ba44b4314`, GitHub `https://github.com/eldaniels13`). Labels con `[redactado]` / `[perfil profesional]` / `[universidad]` / `[ciudad]`.
+- Tras cada extracción (`/graphify` o `--update`) correr `.claude/scripts/graphify_clean.py` antes de buildear el grafo (determinista e idempotente).
+
 ## Document Roles
 
 | File | Use |
