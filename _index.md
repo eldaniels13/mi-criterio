@@ -30,6 +30,7 @@ Procesamiento: semanal o con `/process-inbox`.
 | `31-08-26_handoff-gemini-code-deployment-landing-page-cliente.md` | handoff | archivado (fusión → `proyectos/P2/deployment_landing_pages.md` + `recursos/yazsarai_landing_page.md`) |
 | `conversacion_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
 | `conversacion_mexico_economia_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
+| `08-09-26_handoff_respaldo-gaby-runbook.md` | handoff | pendiente (sesión P8×P2: rescate Carta Blanca ✅ + runbook backup + limpieza Gaby) |
 
 ---
 
@@ -55,6 +56,7 @@ Criterio consolidado por lente. Solo llega aquí lo que ya fue revisado.
 | `restmo_monitor_tuya.md` | monitor caudalímetro Restmo vía Tuya Cloud API |
 | `deployment_landing_pages.md` | guía canónica: despliegue landing pages estáticas (Cloudflare Pages + CI/CD + cotización) |
 | `browser_use_firefox_findings.md` | hallazgos: browser-use = CDP-only, incompatible con Firefox; alternativas mapeadas |
+| `backup_cualquier_dispositivo_runbook.md` | runbook canónico: backup+auditoría de cualquier dispositivo (Windows .bat/.ps1 + Linux), destilado de P8_Backup_Wiki |
 
 ### P3 — Energía y Sostenibilidad `[activo]`
 | Archivo | Propósito |
