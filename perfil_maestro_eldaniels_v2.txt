@@ -91,6 +91,12 @@
 
   PROYECTO EN DESARROLLO ACTIVO:
   → Nesting engine para corte láser/telas + plugin AutoCAD (C#)
+  → Backup/auditoría multi-dispositivo (Windows+Linux): rescató backup completo de
+    laptop Win7 "rojita" (Acer AOD270 · 72 GB · stats Carta Blanca 2092/1769 rescatadas)
+    y lo destiló en runbook reutilizable (P2). Siguiente: swap SO Acer a MX Linux
+    32-bit XFCE + migración del respaldo a rojita.
+    Competencias nuevas: rescate de datos Windows (robocopy/reg/GameExplorer .gamestats
+    XML), dedup por hash (czkawka), scripts backup/auditoría Windows (.bat/.ps1) y Linux.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
