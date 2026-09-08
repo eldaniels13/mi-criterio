@@ -213,6 +213,7 @@ todo archivo (ruta relativa + bytes). Funciona sobre cualquier unidad montada en
 1. Conectar destino y verificar montaje: `lsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINT,MODEL`.
 2. Si el origen es partición NTFS de un Windows apagado: montar de **solo-lectura**:
    `sudo mount -o ro /dev/sdXN /mnt/windows`.
+   (Auto-detección opcional de la partición NTFS: `lsblk -no NAME,FSTYPE | awk '$2=="ntfs"{print "/dev/"$1}' | head -1`.)
 3. Anotar rutas origen/destino absolutas.
 
 ### 2.2 Copia verificada (rsync)
@@ -249,6 +250,18 @@ awk -F'\t' '{s+=$1} END {printf "Total: %.2f GiB\n", s/1024/1024/1024}' inventar
 Para el respaldo del propio `$HOME` de fibonacci existe `respaldar-fibonacci` (fuera del repo,
 no publicable: la lista de rutas es el mapa de dónde están los secretos). Simulación con
 `respaldar-fibonacci`, copia real con `--ejecutar`, verificación de manifiesto con `--verificar`.
+
+### 2.5 Procedencia del enfoque (proceso 2026-09, decision-record)
+Este procedimiento Linux **no fue el que ejecutó el rescate real de "rojita"**: se redactó un
+script automático (`inbox/06-09-26_auditoria_y_respaldo_laptopMadre.sh`, DESCARTADO) pero la
+Acer se respaldó con **robocopy manual en 2 batches** (más fiable para un sistema en uso). Del
+draft se conserva lo que sigue siendo válido (montaje `ro`, rsync con verificación, inventario) —
+aquí destilado. Decisiones del draft que **se descartaron a conciencia** (conservarlas como guía
+documentaría una mentira):
+- **Heurística RAM→distro refutada:** "≥2 GB → Linux Mint XFCE" era incorrecto para la Acer
+  (Atom N2600 32-bit; Mint no publica 32-bit). Elección real: **MX Linux 32-bit XFCE**.
+- **Metadatos de juegos vía `find` de directorios refutada:** apuntaba a directorios "Solitaire/
+  FreeCell" que no existen así; lo real fue `GameExplorer\GameStatistics\*.gamestats` (ver §1.4).
 
 ---
 
@@ -291,7 +304,7 @@ no publicable: la lista de rutas es el mapa de dónde están los secretos). Simu
 | `P8_Backup_Wiki/P8_Backup_Seguridad_Digital_Maestro.md` | estrategia/estado global, fases HDD_A/B, respaldar-fibonacci |
 | `P8_Backup_Wiki/freeze_i915_fsck_incidente.md` | REISUB, inodos huérfanos, metodología diag "command not found" |
 | `P8_Backup_Wiki/mft_recovery_decision.md` | MFT, shrink desde Windows, no ntfsfix entre operaciones |
-| `inbox/06-09-26_auditoria_y_respaldo_laptopMadre.sh` | script original del rescate rojita (superseded por este runbook) |
+| `inbox/06-09-26_auditoria_y_respaldo_laptopMadre.sh` | draft Linux del rescate rojita — DESCARTADO (criterio → §2.5/§2; ver decision-record) |
 | `~/Documents/backupGABY/` | ejemplo real aplicado: 18,019 archivos, verificación FALTA=0, Carta Blanca rescatada |
 | `P8_Backup_Wiki` maestría cruzada con `proyectos/P2/COSMIC_setup_custom.md` §9 | referencia interna backup/restore Arch |
 ```

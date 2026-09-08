@@ -82,6 +82,7 @@ nuevo esta sesión.
 | Dedupe por nombre | ❌ descartado | mismo motivo |
 | Re-dedup czkawka | ❌ no necesario | 18,019 ya únicos por hash (cuarentena 4,104 = true dups) |
 | Robocopy en Acer (batch 1) | ✅ adoptado | funcionó; gotcha: no `/DCOPY` en XP027 |
+| Heurística RAM→distro del script `.sh` (≥2GB→Mint XFCE) | ❌ descartado | refutado: Atom 32-bit, Mint sin 32-bit → se eligió MX Linux 32-bit XFCE (decision-record en runbook §2.5) |
 | DMDE / testdisk / ntfsfix (histórico) | ❌ descartado | MFT corrupta irrecuperable → instalación limpia (ver mft_recovery_decision.md) |
 | Cuarentena de duplicados (czkawka) | ✅ adoptado | keep-newest, reversible; 0 errores |
 
