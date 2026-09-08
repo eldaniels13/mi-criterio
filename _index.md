@@ -30,7 +30,7 @@ Procesamiento: semanal o con `/process-inbox`.
 | `31-08-26_handoff-gemini-code-deployment-landing-page-cliente.md` | handoff | archivado (fusión → `proyectos/P2/deployment_landing_pages.md` + `recursos/yazsarai_landing_page.md`) |
 | `conversacion_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
 | `conversacion_mexico_economia_caveman.pdf` | PDF local | pendiente (sesión P5 asignada · local-only, gitignored) |
-| `08-09-26_handoff_respaldo-gaby-runbook.md` | handoff | pendiente (sesión P8×P2: rescate Carta Blanca ✅ + runbook backup + limpieza Gaby) |
+| `08-09-26_handoff_respaldo-gaby-runbook.md` | handoff | pendiente (sesión P8×P2: rescate Carta Blanca ✅ + runbook backup + limpieza Gaby; sustituto FreeCell → Aisleriot ✅, stats a validar en dispositivo) |
 
 ---
 

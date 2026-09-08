@@ -5,6 +5,10 @@
 **Estado global:** 🟡 — backup Gaby cerrado ✅; runbook creado ✅ pero scripts sin validar en
 dispositivo real; swap de SO en Acer + migración = pendientes para próxima sesión.
 
+> **Continuación 2026-09-08 (misma sesión, desagüe del proyecto):** investigación del sustituto
+> FreeCell ejecutada (3 IAs) → **decisión Aisleriot**; stats de Carta Blanca diferidas a
+> validación en dispositivo. Detalle en §5 y §6.
+
 ---
 
 ## 1 · Objetivo y motivación
@@ -37,9 +41,10 @@ procedimiento repetible antes de formatear la Acer.
 | Scripts .bat/.ps1 inline | 🟡 | diseñados, **NO probados en Windows real** |
 | Handoff | ✅ | este archivo |
 
-**Lo que NO quedó resuelto:** nada del rescate Gaby. Pendiente completo: swap de SO Acer (MX
-32-bit XFCE), migración `~/Documents/backupGABY` → rojita, dejar fibonacci limpio, investigación
-sustituto FreeCell (prompt IA ya redactado, sin ejecutar).
+**Lo que NO quedó resuelto:** del rescate Gaby, nada. Pendiente completo: swap de SO Acer (MX
+32-bit XFCE), migración `~/Documents/backupGABY` → rojita, dejar fibonacci limpio. La
+investigación del sustituto FreeCell (prompt IA) **sí se ejecutó** el 2026-09-08 → decisión
+Aisleriot (ver §5).
 
 ---
 
@@ -104,6 +109,20 @@ con el mismo nombre; (2) "las stats de juegos están en el registro" — viven e
 - [x] **Regla dura dedup por hash**, nunca por nombre/ruta (documentada en runbook §0).
 - [ ] Abierta: `/MIR` vs `/E` por defecto en el script Windows — decidido `/E` (no borrar); `/MIR`
   solo espejo dedicado confirmado.
+- [x] **Sustituto FreeCell = Aisleriot** (decisión cerrada 2026-09-08; consulta a 3 IAs —
+  ChatGPT/DeepSeek/Gemini — unánime para Acer AOD270 · Atom N2600 · 2 GB · MX 32-bit XFCE):
+  FreeCell real (8 columnas, 4 freecells, 4 foundations, undo), **GTK3 nativo de XFCE**, i386 en
+  repos Debian, ligero (~15–20 MB RAM). Instalar: `sudo apt install aisleriot` → lanzar `sol`.
+  Descartados a conciencia: **PySolFC** (mejor motor de stats pero NO empaquetado en Debian
+  Bookworm / MX 23 — solo Bullseye y Trixie+; Python/Tk, arranque lento en Atom; y tampoco
+  importa stats de Win7); **KPat** (FreeCell válido pero arrastra stack Qt5/KDE, ~120+ MB RAM —
+  injustificable en 2 GB); **XSok** (no es FreeCell — es Sokoban). *Supersede la "opción A
+  PySolFC + sembrar stats.dat" registrada en `carta_blanca_stats.md`.*
+- [ ] **Stats 2092/1769/84%/73/11: continuidad diferida a validación en dispositivo.** Ningún
+  sustituto importa el `.gamestats` de Win7; el backfill manual de Aisleriot es especulativo
+  (formato interno no verificado; falsearía rachas). Récord legacy ya preservado en el backup
+  (`carta_blanca_stats.md` + `.gamestats` XML original + `gaby_HKCU.reg`). Decidir en el swap si
+  se siembra en Aisleriot o se arranca en limpio con el histórico aparte (recomendación).
 
 **Punto ciego `[!]`:** diseñar la herramienta (runbook/scripts) antes de validarla en el
 dispositivo real — patrón del perfil "diseñar antes de validar factibilidad". Mitigado con la
@@ -113,9 +132,12 @@ nota de estado 🟡 en §1 del runbook; **validar en un USB de prueba** antes de
 
 ## 6 · Siguientes pasos
 
-1. [ ] **Próxima sesión — investigar sustituto FreeCell** con el prompt IA redactado (en
-   historial de esta sesión, sección "Prompt IA para sustituto de FreeCell"): elegir PySolFC vs
-   Aisleriot para MX 32-bit.
+1. [x] **Sustituto FreeCell** investigado (2026-09-08, 3 IAs) → **Aisleriot** (`sol`). Ver §5.
+      *Siguiente en el swap:* validar en el dispositivo real el formato de stats de Aisleriot
+      (p. ej. `~/.config/aisleriot/history`) y decidir backfill vs. récord legacy; verificar
+      antes: `dpkg --print-architecture` (esperado `i386`) y `apt-cache policy aisleriot`
+      (versión real del repo MX). Si el MX instalado resulta Trixie-based (MX-25), PySolFC 3.2.0
+      vuelve a estar disponible — pero sigue 2ª opción por peso en el Atom.
 2. [ ] Actualizar `_index.md` (tabla P2: añadir `backup_cualquier_dispositivo_runbook.md`).
 3. [ ] Commit sugerido: `docs(P2): runbook backup cualquier dispositivo + handoff 08-09-26`
    (usuario ejecuta a mano).
@@ -126,6 +148,9 @@ nota de estado 🟡 en §1 del runbook; **validar en un USB de prueba** antes de
    bueno.
 8. [ ] Decidir destino final de los `.lnk` huérfanos en `Reciente/` (accesos directos viejos a
    OneDrive/cloud — no existen ya; candidatos a limpieza con Gaby).
+9. [ ] Actualizar `~/Documents/backupGABY/00_METADATA/carta_blanca_stats.md` §"Integración
+   futura": aún dice "opción A = PySolFC + sembrar stats.dat", superseded por la investigación →
+   Aisleriot. Corregir para que no engañe a quien configure la Acer en el swap.
 
 **Bloqueadores:** acceso físico a la Acer + USB KINGSTON para el swap y la migración.
 **Riesgo mayor:** validar los scripts `.bat`/`.ps1` — probarlos en dispositivo de prueba real
@@ -162,6 +187,9 @@ USB: /dev/sda1 KINGSTON NTFS → /run/media/eldaniels/KINGSTON
 
 Acer: AOD270 · Atom N2600 1.6GHz 2C/4T · 2GB RAM · TOSHIBA 320GB · Win7 Starter 32-bit
   MX Linux 32-bit XFCE elegido · robocopy XP027 sin /DCOPY
+Sustituto FreeCell (2026-09-08, 3 IAs unánimes): Aisleriot · `sudo apt install aisleriot` · lanzar `sol`
+  Descartados: PySolFC (no en Debian Bookworm/MX23; solo Bullseye + Trixie+), KPat (Qt5/KDE ~120+MB),
+  XSok (es Sokoban, no FreeCell). Ninguno importa .gamestats de Win7; stats legacy = carta_blanca_stats.md
 Distintos por nombre (NO duplicados): ARM.jpg 150,240 vs 8,583 B · Saludo al sol.jpg 35,880 vs
   42,843 B · Sueñografo3.jpg 116,230 vs 117,968 B · Consultorio.jpg 3 copias distintas
 ```
